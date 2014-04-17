@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <!--
 
     The contents of this file are subject to the license and copyright
@@ -153,6 +153,6 @@
     <message key="xmlui.Discovery.AbstractSearch.head2">Communities or Collections matching your query</message>
    	<message key="xmlui.Discovery.AbstractSearch.head3">Items matching your query</message>
 
-   	<message key="xmlui.Discovery.SimpleSearch.did_you_mean">Voc� quis dizer: </message>
+   	<message key="xmlui.Discovery.SimpleSearch.did_you_mean">Você quis dizer: </message>
 
 </catalogue>
