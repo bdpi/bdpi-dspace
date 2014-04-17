@@ -2836,7 +2836,7 @@
 <!--<message key="paginaNews.texto">texto da pagina inicial</message>-->
 	<message key="paginaNews.texto">La Biblioteca Digital de Producción Intelectual de la Universidad de São Paulo (BDPI) es un sistema de gestión y difusión de  la producción científica, académica, técnica y artística que engloba la investigación realizada en la USP.<br/><br/>
 La <a href="http://www.producao.usp.br/page/politicaAcessoEs">Resolución 6444 del 22 de octubre de 2012</a>, establece y determina la BDPI como el instrumento oficial de la Universidad de São Paulo para conocimiento de la producción intelectual.<br/><br/>
-La BDPI utiliza la plataforma DSpace con servicios e implementaciones integrados a la versión 3.1 de la aplicación y adopción de normas internacionales DRIVER 2.0 y  protocolos OAI / PMH, de  recopilación y difusión lo que permite la interoperabilidad con otras bases de datos.<br/><br/>
+La BDPI utiliza la plataforma DSpace con servicios e implementaciones integrados a la versión 4.1 de la aplicación y adopción de normas internacionales DRIVER 2.0 y  protocolos OAI / PMH, de  recopilación y difusión lo que permite la interoperabilidad con otras bases de datos.<br/><br/>
 El depósito garantiza la preservación de la memoria institucional y proporciona a los autores y equipos de las bibliotecas estructura de auto-archivo de los distintos tipos de producción de las diferentes unidades para contribuir  a la generación de indicadores.<br/><br/>
 Consulte ese repositorio y conozca las instrucciones que le permitirán incluir su producción, informándose en las Bibliotecas de la USP o póngase en contacto con nosotros por e-mail <a href="mailto:atendimento@sibi.usp.br">atendimento@sibi.usp.br</a><br/>
 	</message>
