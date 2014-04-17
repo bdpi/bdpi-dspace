@@ -32,6 +32,16 @@ public class SHERPARoMEOJournalTitle extends SHERPARoMEOProtocol
         super();
     }
 
+    @Override
+    public String getLabel(String field, String key, String locale)
+    {
+        // [start] 2014.04.17 jan.lara@sibi.usp.br alterando para retornar nome
+        // return key;
+        return field;
+        // [end]
+    }
+    
+    @Override
     public Choices getMatches(String text, int collection, int start, int limit, String locale)
     {
         // punt if there is no query text

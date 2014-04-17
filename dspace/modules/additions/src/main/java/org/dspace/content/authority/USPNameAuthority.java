@@ -79,7 +79,16 @@ public class USPNameAuthority implements ChoiceAuthority {
 		
 	}
 
-	// Devolve as opcoes possiveis
+        @Override
+        public String getLabel(String field, String key, String locale)
+        {
+            // [start] 2014.04.17 jan.lara@sibi.usp.br alterando para retornar nome
+            // return key;
+            return field;
+            // [end]
+        }
+
+        // Devolve as opcoes possiveis
         @Override
 	public Choices getMatches(String field, String query, int collection,
 			int start, int limit, String locale) {
@@ -204,11 +213,6 @@ public class USPNameAuthority implements ChoiceAuthority {
 		Choice v[] = new Choice[1];
 		v[0] = new Choice("1", "Nao definido", "Nao definido");
 		return new Choices(v, 0, v.length, Choices.CF_UNCERTAIN, false, 0);
-	}
-
-        @Override
-	public String getLabel(String field, String key, String locale) {
-		return "Nao definido";
 	}
 
 	public static boolean notEmpty(String s) {
