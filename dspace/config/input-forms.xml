@@ -1814,7 +1814,7 @@
 					<label>Fonte</label>
 					<input-type>textarea</input-type>
 					<hint>Dados de: revista, cidade, volume, número, páginas inicial e final, ano. Ex: "Revista do Hospital das Clínicas, São Paulo, v.6, n.14, p.95-106, 1992"</hint>
-					<required/>
+					<required>Preenchimento obrigatório</required>
 					<visibility>workflow</visibility>
 				</field>
 				<field>
@@ -2207,7 +2207,7 @@
 					<label>Fonte</label>
 					<input-type>textarea</input-type>
 					<hint>Dados de: revista, cidade, volume, número, páginas inicial e final, ano. Ex: "Revista do Hospital das Clínicas, São Paulo, v.6, n.14, p.95-106, 1992"</hint>
-					<required/>
+					<required>Preenchimento obrigatório</required>
 					<visibility>workflow</visibility>
 				</field>
 				<field>
@@ -2556,7 +2556,7 @@
 					<label>Fonte</label>
 					<input-type>textarea</input-type>
 					<hint>Dados de: dados do evento, ano e local. Ex. Encontro Internacional de Neonatologia, III, 2013, São Paulo.</hint>
-					<required/>
+					<required>Preenchimento obrigatório</required>
 					<visibility>workflow</visibility>
 				</field>
 				<field>
