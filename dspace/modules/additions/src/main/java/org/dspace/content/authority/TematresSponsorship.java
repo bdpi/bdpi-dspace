@@ -4,7 +4,14 @@
  */
 package org.dspace.content.authority;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Connection;
+
 import org.apache.commons.httpclient.NameValuePair;
+import org.dspace.core.Context;
+import org.dspace.utils.DSpace;
 
 /**
  *  As informacoes nos quais serao recuperadas do Tematres deverao ser especificadas nas variaveis RESULT, LABEL e AUTHORITY.
@@ -14,29 +21,70 @@ import org.apache.commons.httpclient.NameValuePair;
  */
 public class TematresSponsorship extends TematresProtocol
 {
+    private static final String sql_value = "select metadatavalue.text_value " +
+        "from metadatavalue " +
+        "inner join metadatafieldregistry mfr on (metadatavalue.metadata_field_id = mfr.metadata_field_id) " +
+        "inner join metadataschemaregistry msr on (mfr.metadata_schema_id = msr.metadata_schema_id) " +
+        "where msr.short_id || '_' || mfr.element || coalesce('_' || mfr.qualifier, '') = ? " +
+        "and metadatavalue.authority = ? limit 1";
+    private Context context = null ;
+
     private static final String RESULT = "term";
     private static final String LABEL = "string";
     private static final String AUTHORITY = "term_id";
-	
+
 
     public TematresSponsorship()
     {
         super();
     }
 
+        
+    private Context getContext() throws SQLException {
+        if(context == null){
+            context = (Context) new DSpace().getRequestService().getCurrentRequest().getAttribute("dspace.context");
+        }
+        if(context == null){
+            context = new Context(Context.READ_ONLY);
+        }
+        return context;
+    }
+    
     @Override
     public String getLabel(String field, String key, String locale)
-    {
+    {        
         // [start] 2014.04.17 jan.lara@sibi.usp.br alterando para retornar nome
-        // return key;
-        return field;
-        // [end]
+        // [old] return key;
+        try {
+                        
+            String value;
+            PreparedStatement statement = getContext().getDBConnection().prepareStatement(sql_value);
+            statement.setString(1,field);
+            statement.setString(2,key);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()) {
+                value = rs.getString("text_value");
+            }
+            else {
+               value = key;
+            }
+            rs.close();
+            statement.close();
+
+            return value;
+
+        } catch(SQLException sqle) {
+            sqle.printStackTrace(System.out);
+            return key;
+        }
+        //[end]
     }
     
     @Override
     public Choices getMatches(String text, int collection, int start, int limit, String locale)
     {
-        // punt if there is no query text
+        // put if there is no query text
         if (text == null || text.trim().length() == 0)
         {
             return new Choices(true);

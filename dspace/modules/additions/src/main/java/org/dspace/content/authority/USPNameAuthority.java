@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.dspace.core.ConfigurationManager;
+import org.dspace.core.Context;
+import org.dspace.utils.DSpace;
 
 /**
  * USP Name Authority
@@ -24,7 +26,14 @@ import org.dspace.core.ConfigurationManager;
 public class USPNameAuthority implements ChoiceAuthority {
 	private static final Logger log = Logger.getLogger(USPNameAuthority.class);
 
-	// Esquema e tabela onde os dados dos autores estao armazenados
+        private static final String sql_value = "select metadatavalue.text_value " +
+        "from metadatavalue " +
+        "inner join metadatafieldregistry mfr on (metadatavalue.metadata_field_id = mfr.metadata_field_id) " +
+        "inner join metadataschemaregistry msr on (mfr.metadata_schema_id = msr.metadata_schema_id) " +
+        "where msr.short_id || '_' || mfr.element || coalesce('_' || mfr.qualifier, '') = ? " +
+        "and metadatavalue.authority = ? limit 1";
+
+        // Esquema e tabela onde os dados dos autores estao armazenados
         // codpes,nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla,funcao
         // DISTINCT codpes, nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla, funcao,
         // dtaini, dtafim
@@ -41,6 +50,18 @@ public class USPNameAuthority implements ChoiceAuthority {
         "left join unidade on (vinculopessoausp.codund = unidade.codund OR vinculopessoausp.codfusclgund = unidade.codund)\n" +
         "left join setor on (vinculopessoausp.codset = setor.codset)\n" +
         " WHERE_EXPRESSION )";
+
+        private Context context = null ;
+        
+        private Context getContext() throws SQLException {
+            if(context == null){
+                context = (Context) new DSpace().getRequestService().getCurrentRequest().getAttribute("dspace.context");
+            }
+            if(context == null){
+                context = new Context(Context.READ_ONLY);
+            }
+            return context;
+        }
                 
         public Connection getReplicaUspDBconnection() {
             Connection ocn = null;
@@ -52,40 +73,54 @@ public class USPNameAuthority implements ChoiceAuthority {
                                                   ConfigurationManager.getProperty("usp-authorities", "db.password"));
             }
             catch(ClassNotFoundException e){
-                System.out.println("[inicio - ClassNotFound] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
                 e.printStackTrace(System.out);
-                System.out.println("[fim - ClassNotFound] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
             }
             catch(InstantiationException e){
-                System.out.println("[inicio - Instantiation] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
                 e.printStackTrace(System.out);
-                System.out.println("[fim - Instantiation] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
             }
             catch(IllegalAccessException e){
-                System.out.println("[inicio - IllegalAccess] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
                 e.printStackTrace(System.out);
-                System.out.println("[fim - IllegalAccess] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
             }
             catch(SQLException e){
-                System.out.println("[inicio - SQL] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
                 e.printStackTrace(System.out);
-                System.out.println("[fim - SQL] erro em AuthorDAOPostgres.getReplicaUspDBconnection");
             }
             return ocn;
         }
-	
+        
 	// Construtor
 	public USPNameAuthority() {
-		
 	}
 
         @Override
         public String getLabel(String field, String key, String locale)
         {
+
             // [start] 2014.04.17 jan.lara@sibi.usp.br alterando para retornar nome
-            // return key;
-            return field;
-            // [end]
+            // [old] return key;
+            try {
+
+                String value;
+                PreparedStatement statement = getContext().getDBConnection().prepareStatement(sql_value);
+                statement.setString(1,field);
+                statement.setString(2,key);
+                ResultSet rs = statement.executeQuery();
+
+                if(rs.next()) {
+                    value = rs.getString("text_value");
+                }
+                else {
+                    value = key;
+                }
+                rs.close();
+                statement.close();
+
+                return value;
+
+            } catch(SQLException sqle) {
+                sqle.printStackTrace(System.out);
+                return key;
+            }
+            //[end]
         }
 
         // Devolve as opcoes possiveis
