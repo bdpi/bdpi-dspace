@@ -10,8 +10,6 @@ import static org.dspace.authenticate.AuthenticationMethod.NO_SUCH_USER;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
-import org.dspace.utils.DSpace;
-import org.dspace.services.model.Request;
 import org.dspace.eperson.EPerson;
 import org.dspace.eperson.Group;
 
@@ -32,58 +30,60 @@ import org.json.JSONException;
  * @author Jan Leduc de Lara
  * @version $Revision$
  */
-public class OAuthAuthentication implements AuthenticationMethod {
+public class OAuthAuthentication
+        implements AuthenticationMethod {
 
-    private static final Logger log = Logger.getLogger(OAuthAuthentication.class);
-    private static final String PROTECTED_RESOURCE_URL = ConfigurationManager.getProperty("authentication-oauth", "PROTECTED_RESOURCE_URL");
-    private static final String API_KEY = ConfigurationManager.getProperty("authentication-oauth", "API_KEY");
-    private static final String API_SECRET = ConfigurationManager.getProperty("authentication-oauth", "API_SECRET");
+    private static Logger log = Logger.getLogger(OAuthAuthentication.class);
+    private static String PROTECTED_RESOURCE_URL = ConfigurationManager.getProperty("authentication-oauth", "PROTECTED_RESOURCE_URL");
+    private static String API_KEY = ConfigurationManager.getProperty("authentication-oauth", "API_KEY");
+    private static String API_SECRET = ConfigurationManager.getProperty("authentication-oauth", "API_SECRET");
     
     private int httpRequestHashCode = 0;
     private String strLoginPageURL = "";
 
-    private void unSetRequestToken(Request request) {
-        request.setAttribute("requesttoken", null);
+    private void unSetRequestToken(HttpServletRequest httprequest) {
+        httprequest.getSession().removeAttribute("requesttoken");
     }
     
-    private void setRequestToken(Request request) {
+    private void setRequestToken(HttpServletRequest httprequest) {
         // System.out.println("chamou setRequestToken");
-        request.setAttribute("requesttoken", getOauthservice(request).getRequestToken());
+        httprequest.getSession().setAttribute("requesttoken", getOauthservice(httprequest).getRequestToken());
         // System.out.println("olha o token agora: ".concat(((Token) httprequest.getSession().getAttribute("requesttoken")).getToken()));
     }
 
-    private Token getRequestToken(Request request) {
+    private Token getRequestToken(HttpServletRequest httprequest) {
         // System.out.println("chamou getRequestToken");
-        if (request.getAttribute("requesttoken") == null) {
-            setRequestToken(request);
+        if (httprequest.getSession().getAttribute("requesttoken") == null) {
+            setRequestToken(httprequest);
         }
-        return (Token) request.getAttribute("requesttoken");
+        return (Token) httprequest.getSession().getAttribute("requesttoken");
     }
     
-    private void destroyOauthService(Request request){
-        if (request.getAttribute("oauthservice") != null) {
-            request.setAttribute("oauthservice", null);
+    private void destroyOauthService(HttpServletRequest httprequest){
+        if (httprequest.getSession().getAttribute("oauthservice") != null) {
+            httprequest.getSession().removeAttribute("oauthservice");
         }
     }
 
-    private OAuthService getOauthservice(Request request) {
+    private OAuthService getOauthservice(HttpServletRequest httprequest) {
 
-        if (request.getAttribute("oauthservice") == null) {
-            setOauthService(request);
+        if (httprequest.getSession().getAttribute("oauthservice") == null) {
+            setOauthService(httprequest);
         }
-        return (OAuthService) request.getAttribute("oauthservice");
+        return (OAuthService) httprequest.getSession().getAttribute("oauthservice");
 
     }
 
-    private void setOauthService(Request request) {
-        request.setAttribute("oauthservice", new ServiceBuilder()
+    private void setOauthService(HttpServletRequest httprequest) {
+        // System.out.println("iniciou setoauthservice");
+        httprequest.getSession().setAttribute("oauthservice", new ServiceBuilder()
                 .apiKey(API_KEY)
                 .apiSecret(API_SECRET)
                 .provider(USPdigitalApi.class)
                 .build());
+        // System.out.println("terminou setoauthservice");
     }
 
-    @Override
     public boolean canSelfRegister(Context context,
             HttpServletRequest request,
             String username)
@@ -91,7 +91,6 @@ public class OAuthAuthentication implements AuthenticationMethod {
         return true;
     }
 
-    @Override
     public void initEPerson(Context context, HttpServletRequest request,
             EPerson eperson)
             throws SQLException {
@@ -143,7 +142,6 @@ public class OAuthAuthentication implements AuthenticationMethod {
         
     }
 
-    @Override
     public boolean allowSetPassword(Context context,
             HttpServletRequest request,
             String username)
@@ -151,12 +149,10 @@ public class OAuthAuthentication implements AuthenticationMethod {
         return false;
     }
 
-    @Override
     public boolean isImplicit() {
         return false;
     }
 
-    @Override
     public int authenticate(Context context,
             String oauth_token,
             String oauth_verifier,
@@ -234,7 +230,6 @@ public class OAuthAuthentication implements AuthenticationMethod {
 
     }
 
-    @Override
     public String loginPageURL(Context context,
             HttpServletRequest request,
             HttpServletResponse response) {
@@ -260,7 +255,6 @@ public class OAuthAuthentication implements AuthenticationMethod {
         return strLoginPageURL;
     }
 
-    @Override
     public String loginPageTitle(Context context) {
         
         // System.out.println("pega loginPageTitle");
@@ -268,7 +262,6 @@ public class OAuthAuthentication implements AuthenticationMethod {
         return "org.dspace.eperson.OAuthAuthentication.title";
     }
 
-    @Override
     public int[] getSpecialGroups(Context context, HttpServletRequest request) {
         try {
             if (!context.getCurrentUser().getNetid().equals("")) {
@@ -294,3 +287,4 @@ public class OAuthAuthentication implements AuthenticationMethod {
 
     }
 }
+
