@@ -7,10 +7,10 @@ package org.dspace.content.authority;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Connection;
 
 import org.apache.commons.httpclient.NameValuePair;
 import org.dspace.core.Context;
+import org.dspace.services.model.Request;
 import org.dspace.utils.DSpace;
 
 /**
@@ -27,8 +27,10 @@ public class TematresSponsorship extends TematresProtocol
         "inner join metadataschemaregistry msr on (mfr.metadata_schema_id = msr.metadata_schema_id) " +
         "where msr.short_id || '_' || mfr.element || coalesce('_' || mfr.qualifier, '') = ? " +
         "and metadatavalue.authority = ? limit 1";
+    
     private Context context = null ;
-
+    private Request request = null;
+    
     private static final String RESULT = "term";
     private static final String LABEL = "string";
     private static final String AUTHORITY = "term_id";
@@ -38,12 +40,13 @@ public class TematresSponsorship extends TematresProtocol
     {
         super();
     }
-
-        
+    
     private Context getContext() throws SQLException {
-        context = (Context) new DSpace().getRequestService().getCurrentRequest().getAttribute("dspace.context");
+        request = new DSpace().getRequestService().getCurrentRequest();
+        context = (Context) request.getAttribute("dspace.context");
         if(context == null){
-            context = new Context(Context.READ_ONLY);
+            request.setAttribute("dspace.context", new Context(Context.READ_ONLY));
+            context = (Context) request.getAttribute("dspace.context");
         }
         return context;
     }

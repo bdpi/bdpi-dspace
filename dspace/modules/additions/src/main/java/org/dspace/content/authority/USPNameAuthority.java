@@ -15,6 +15,7 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
+import org.dspace.services.model.Request;
 import org.dspace.utils.DSpace;
 
 /**
@@ -52,11 +53,14 @@ public class USPNameAuthority implements ChoiceAuthority {
         " WHERE_EXPRESSION )";
 
         private Context context = null ;
+        private Request request = null;
         
         private Context getContext() throws SQLException {
-            context = (Context) new DSpace().getRequestService().getCurrentRequest().getAttribute("dspace.context");
+            request = new DSpace().getRequestService().getCurrentRequest();
+            context = (Context) request.getAttribute("dspace.context");
             if(context == null){
-                context = new Context(Context.READ_ONLY);
+                request.setAttribute("dspace.context", new Context(Context.READ_ONLY));
+                context = (Context) request.getAttribute("dspace.context");
             }
             return context;
         }
