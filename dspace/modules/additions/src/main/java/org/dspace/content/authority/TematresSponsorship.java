@@ -41,9 +41,7 @@ public class TematresSponsorship extends TematresProtocol
 
         
     private Context getContext() throws SQLException {
-        if(context == null){
-            context = (Context) new DSpace().getRequestService().getCurrentRequest().getAttribute("dspace.context");
-        }
+        context = (Context) new DSpace().getRequestService().getCurrentRequest().getAttribute("dspace.context");
         if(context == null){
             context = new Context(Context.READ_ONLY);
         }
