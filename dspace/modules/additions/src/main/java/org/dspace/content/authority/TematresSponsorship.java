@@ -29,7 +29,7 @@ public class TematresSponsorship extends TematresProtocol
         "and metadatavalue.authority = ? limit 1";
     
     private Context context = null ;
-    private Request request = null;
+    private static Request request = null;
     
     private static final String RESULT = "term";
     private static final String LABEL = "string";
@@ -42,7 +42,7 @@ public class TematresSponsorship extends TematresProtocol
     }
     
     private Context getContext() throws SQLException {
-        request = new DSpace().getRequestService().getCurrentRequest();
+        if(request == null) request = new DSpace().getRequestService().getCurrentRequest();
         context = (Context) request.getAttribute("dspace.context");
         if(context == null){
             request.setAttribute("dspace.context", new Context(Context.READ_ONLY));

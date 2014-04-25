@@ -41,7 +41,7 @@ public class SHERPARoMEOJournalTitle extends SHERPARoMEOProtocol
         "and metadatavalue.authority = ? limit 1";
 
     private Context context = null ;
-    private Request request = null;
+    private static Request request = null;
 
     private static final String RESULT = "journal";
     private static final String LABEL = "jtitle";
@@ -56,7 +56,7 @@ public class SHERPARoMEOJournalTitle extends SHERPARoMEOProtocol
     }
             
     private Context getContext() throws SQLException {
-        request = new DSpace().getRequestService().getCurrentRequest();
+        if(request == null) request = new DSpace().getRequestService().getCurrentRequest();
         context = (Context) request.getAttribute("dspace.context");
         if(context == null){
             request.setAttribute("dspace.context", new Context(Context.READ_ONLY));

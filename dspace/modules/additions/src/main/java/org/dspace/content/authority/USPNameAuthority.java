@@ -53,10 +53,10 @@ public class USPNameAuthority implements ChoiceAuthority {
         " WHERE_EXPRESSION )";
 
         private Context context = null ;
-        private Request request = null;
+        private static Request request = null;
         
         private Context getContext() throws SQLException {
-            request = new DSpace().getRequestService().getCurrentRequest();
+            if(request == null) request = new DSpace().getRequestService().getCurrentRequest();
             context = (Context) request.getAttribute("dspace.context");
             if(context == null){
                 request.setAttribute("dspace.context", new Context(Context.READ_ONLY));
