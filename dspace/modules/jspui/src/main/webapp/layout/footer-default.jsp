@@ -9,7 +9,7 @@
 --%>
 <%--
   - Footer for home page
-  --%>
+--%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -22,33 +22,40 @@
     String sidebar = (String) request.getAttribute("dspace.layout.sidebar");
 %>
 
-            <%-- Right-hand side bar if appropriate --%>
+<%-- Right-hand side bar if appropriate --%>
 <%
-    if (sidebar != null)
-    {
+    if (sidebar != null) {
 %>
-	</div>
-	<div class="col-md-3"> 
-                    <%= sidebar %>
-    </div>
-    </div>       
+</div>
+<div class="col-md-3"> 
+    <%= sidebar%>
+</div>
+</div>       
 <%
     }
 %>
+
+
+<%-- Page footer --%>
+
+<div class="row">
+    <div class="col-md-12">
+        <footer class="navbar navbar-inverse">
+            <div id="designedby">
+                <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
+                        src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
+                        alt="Logo CINECA" /></a>
+                <div id="footer_feedback" class="pull-right">                                    
+                    <fmt:message key="jsp.layout.footer-default.text"/>&nbsp;-
+                    <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-
+                    <a href="<%= request.getContextPath()%>/htmlmap">Mapa do site</a>&nbsp;-
+                    <a href="#">Voltar ao início</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
 </div>
 </main>
-            <%-- Page footer --%>
-             <footer class="navbar navbar-inverse navbar-bottom">
-             <div id="designedby" class="container text-muted">
-             <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
-                                    src="<%= request.getContextPath() %>/image/logo-cineca-small.png"
-                                    alt="Logo CINECA" /></a>
-			<div id="footer_feedback" class="pull-right">                                    
-                                <p class="text-muted"><fmt:message key="jsp.layout.footer-default.text"/>&nbsp;-
-                                <a target="_blank" href="<%= request.getContextPath() %>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>
-                                <a href="<%= request.getContextPath() %>/htmlmap"></a></p>
-                                </div>
-			</div>
-    </footer>
-    </body>
+</body>
 </html>

@@ -1,4 +1,4 @@
-<%--
+﻿<%--
 
     The contents of this file are subject to the license and copyright
     detailed in the LICENSE and NOTICE files at the root of the source
@@ -13,7 +13,7 @@
   - Attributes:
   -    communities - Community[] all communities in DSpace
   -    recent.submissions - RecetSubmissions
-  --%>
+--%>
 
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -36,6 +36,7 @@
 <%@ page import="org.dspace.browse.ItemCounter" %>
 <%@ page import="org.dspace.content.DCValue" %>
 <%@ page import="org.dspace.content.Item" %>
+<%@ page import="org.apache.commons.lang.StringUtils"%>
 
 <%
     Community[] communities = (Community[]) request.getAttribute("communities");
@@ -43,190 +44,214 @@
     Locale[] supportedLocales = I18nUtil.getSupportedLocales();
     Locale sessionLocale = UIUtil.getSessionLocale(request);
     Config.set(request.getSession(), Config.FMT_LOCALE, sessionLocale);
-    String topNews = NewsManager.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-top.html"));
-    String sideNews = NewsManager.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-side.html"));
+
+    String[] displayAuthors;
 
     boolean feedEnabled = ConfigurationManager.getBooleanProperty("webui.feed.enable");
     String feedData = "NONE";
-    if (feedEnabled)
-    {
+    if (feedEnabled) {
         feedData = "ALL:" + ConfigurationManager.getProperty("webui.feed.formats");
     }
-    
+
     ItemCounter ic = new ItemCounter(UIUtil.obtainContext(request));
 
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
 %>
+<dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData%>">
+    <div class="row">
+    <div class="col-md-8">
+        <div class="jumbotron">
+            <div class="box">
+                <h3 class="chamada">Conheça a BDPI</h3>
+                <p class="espaco">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+            </div>
+            
+        </div>
+        <%
+            if (submissions != null && submissions.count() > 0) {
+        %>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3><fmt:message key="jsp.collection-home.recentsub"/>
+                    <%
+                        if (feedEnabled) {
+                            String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
+                            String icon = null;
+                            int width = 0;
+                            for (int j = 0; j < fmts.length; j++) {
+                                if ("rss_1.0".equals(fmts[j])) {
+                                    icon = "rss1.gif";
+                                    width = 80;
+                                } else if ("rss_2.0".equals(fmts[j])) {
+                                    icon = "rss2.gif";
+                                    width = 80;
+                                } else {
+                                    icon = "rss.gif";
+                                    width = 36;
+                                }
+                    %>
+                    <a href="<%= request.getContextPath()%>/feed/<%= fmts[j]%>/site"><img src="<%= request.getContextPath()%>/image/<%= icon%>" alt="RSS Feed" width="<%= width%>" height="15" vspace="3" border="0" /></a>
+                        <%
+                                }
+                            }
+                        %>
+                </h3>
+            </div>
 
-<dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
-
-<% if (supportedLocales != null && supportedLocales.length > 1)
-{
-%>
-        <form method="get" name="repost" action="">
-          <input type ="hidden" name ="locale"/>
-        </form>
-<%
-for (int i = supportedLocales.length-1; i >= 0; i--)
-{
-%>
-        <a class ="langChangeOn"
-                  onclick="javascript:document.repost.locale.value='<%=supportedLocales[i].toString()%>';
-                  document.repost.submit();">
-                 <%= supportedLocales[i].getDisplayLanguage(supportedLocales[i])%>
-        </a> &nbsp;
-<%
-}
-}
-%>
-	<div class="jumbotron">
-       <%= topNews %>
-	</div>
-<div class="row">
-<%
-if (submissions != null && submissions.count() > 0)
-{
-%>
-        <div class="col-md-8">
-        <div class="panel panel-primary">        
-        <div id="recent-submissions-carousel" class="panel-heading carousel slide">
-          <h3><fmt:message key="jsp.collection-home.recentsub"/>
-              <%
-    if(feedEnabled)
-    {
-	    	String[] fmts = feedData.substring(feedData.indexOf(':')+1).split(",");
-	    	String icon = null;
-	    	int width = 0;
-	    	for (int j = 0; j < fmts.length; j++)
-	    	{
-	    		if ("rss_1.0".equals(fmts[j]))
-	    		{
-	    		   icon = "rss1.gif";
-	    		   width = 80;
-	    		}
-	    		else if ("rss_2.0".equals(fmts[j]))
-	    		{
-	    		   icon = "rss2.gif";
-	    		   width = 80;
-	    		}
-	    		else
-	    	    {
-	    	       icon = "rss.gif";
-	    	       width = 36;
-	    	    }
-	%>
-	    <a href="<%= request.getContextPath() %>/feed/<%= fmts[j] %>/site"><img src="<%= request.getContextPath() %>/image/<%= icon %>" alt="RSS Feed" width="<%= width %>" height="15" vspace="3" border="0" /></a>
-	<%
-	    	}
-	    }
-	%>
-          </h3>
-          
-		  <!-- Wrapper for slides -->
-		  <div class="carousel-inner">
-		    <%
-		    boolean first = true;
-		    for (Item item : submissions.getRecentSubmissions())
-		    {
-		        DCValue[] dcv = item.getMetadata("dc", "title", null, Item.ANY);
-		        String displayTitle = "Untitled";
-		        if (dcv != null & dcv.length > 0)
-		        {
-		            displayTitle = dcv[0].value;
-		        }
-		        dcv = item.getMetadata("dc", "description", "abstract", Item.ANY);
-		        String displayAbstract = "";
-		        if (dcv != null & dcv.length > 0)
-		        {
-		            displayAbstract = dcv[0].value;
-		        }
-		%>
-		    <div style="padding-bottom: 50px; min-height: 200px;" class="item <%= first?"active":""%>">
-		      <div style="padding-left: 80px; padding-right: 80px; display: inline-block;"><%= StringUtils.abbreviate(displayTitle, 400) %> 
-		      	<a href="<%= request.getContextPath() %>/handle/<%=item.getHandle() %>"> 
-		      		<button class="btn btn-success" type="button"><fmt:message key="jsp.home.see"/></button>
-		      		</a>
-                        <p><%= StringUtils.abbreviate(displayAbstract, 500) %></p>
-		      </div>
-		    </div>
-		<%
-				first = false;
-		     }
-		%>
-		  </div>
-
-		  <!-- Controls -->
-		  <a class="left carousel-control" href="#recent-submissions-carousel" data-slide="prev">
-		    <span class="icon-prev"></span>
-		  </a>
-		  <a class="right carousel-control" href="#recent-submissions-carousel" data-slide="next">
-		    <span class="icon-next"></span>
-		  </a>
-
-          <ol class="carousel-indicators">
-		    <li data-target="#recent-submissions-carousel" data-slide-to="0" class="active"></li>
-		    <% for (int i = 1; i < submissions.count(); i++){ %>
-		    <li data-target="#recent-submissions-carousel" data-slide-to="<%= i %>"></li>
-		    <% } %>
-	      </ol>
-     </div></div></div>
-<%
-}
-%>
-<div class="col-md-4">
-    <%= sideNews %>
-</div>
-</div>
-<div class="container row">
-<%
-if (communities != null && communities.length != 0)
-{
-%>
-	<div class="col-md-4">		
-               <h3><fmt:message key="jsp.home.com1"/></h3>
-                <p><fmt:message key="jsp.home.com2"/></p>
-				<div class="list-group">
-<%
-	boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.home-page.logos", true);
-    for (int i = 0; i < communities.length; i++)
-    {
-%><div class="list-group-item row">
-<%  
-		Bitstream logo = communities[i].getLogo();
-		if (showLogos && logo != null) { %>
-	<div class="col-md-3">
-        <img alt="Logo" class="img-responsive" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" /> 
-	</div>
-	<div class="col-md-9">
-<% } else { %>
-	<div class="col-md-12">
-<% }  %>		
-		<h4 class="list-group-item-heading"><a href="<%= request.getContextPath() %>/handle/<%= communities[i].getHandle() %>"><%= communities[i].getMetadata("name") %></a>
-<%
-        if (ConfigurationManager.getBooleanProperty("webui.strengths.show"))
-        {
-%>
-		<span class="badge pull-right"><%= ic.getCount(communities[i]) %></span>
-<%
-        }
-
-%>
-		</h4>
-		<p><%= communities[i].getMetadata("short_description") %></p>
+            <%
+                boolean first = true;
+                for (Item item : submissions.getRecentSubmissions()) {
+                    DCValue[] dcv = item.getMetadata("dc", "title", null, Item.ANY);
+                    String displayTitle = "Untitled";
+                    if (dcv != null & dcv.length > 0) {
+                        displayTitle = dcv[0].value;
+                    }
+                    dcv = item.getMetadata("dc", "contributor", "author", Item.ANY);
+                    if (dcv != null & dcv.length > 0) {
+                        displayAuthors = new String[dcv.length];
+                        for (int dcvcounter = 0; dcvcounter < dcv.length; dcvcounter++) {
+                            displayAuthors[dcvcounter] = dcv[dcvcounter].value;
+                        }
+                    } else {
+                        displayAuthors = new String[1];
+                        displayAuthors[0] = "";
+                    }
+                    dcv = item.getMetadata("dc", "description", "abstract", Item.ANY);
+                    String displayAbstract = "";
+                    if (dcv != null & dcv.length > 0) {
+                        displayAbstract = dcv[0].value;
+                    }
+            %>
+            <div class="media padding15">
+                <a class="pull-left" href="#">
+                    <img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px">
+                </a>
+                <div class="media-body col-md-11">
+                    <a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>"><h4 class="media-heading"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+                    <p><%
+                        int maxcount;
+                        String etal = "";
+                        if (displayAuthors.length > 10) {
+                            maxcount = 10;
+                            etal = " et al";
+                        } else {
+                            maxcount = displayAuthors.length;
+                                            }
+                                            for (int acount = 0; acount < maxcount; acount++) { %>
+                        <% if (acount > 0) { %>; <% }%><%=StringUtils.abbreviate(displayAuthors[acount], 1000)%>
+                        <% }%><%=etal%></p>
+                    <p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
+                </div>
+            </div>
+            <%
+                    first = false;
+                }
+            %>
+        </div>
+        <%
+            }
+        %>
     </div>
-</div>                            
-<%
-    }
-%>
-	</div>
-	</div>
-<%
-}
-%>
-	<%
-    	int discovery_panel_cols = 8;
-    	int discovery_facet_cols = 4;
-    %>
-	<%@ include file="discovery/static-sidebar-facet.jsp" %>
-</div>
+    <div class="col-md-4">
+        <div class="panel text-justify">
+            <div class="panel-heading">
+                <h3>Últimas notícias</h3>
+            </div>
+            <div class="media padding15">
+                <a class="pull-left" href="#">
+                    <span class="glyphicon glyphicon-list-alt icon"></span>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+                </div>
+            </div>
+            <div class="media padding15">
+                <a class="pull-left" href="#">
+                    <span class="glyphicon glyphicon-list-alt icon"></span>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+                </div>
+            </div>
+            <div class="media padding15">
+                <a class="pull-left" href="#">
+                    <span class="glyphicon glyphicon-list-alt icon"></span>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+                </div>
+            </div>
+            <div class="media padding15">
+                <a class="pull-left" href="#">
+                    <span class="glyphicon glyphicon-list-alt icon"></span>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+                </div>
+            </div>
+            <div class="media padding15">
+                <a class="pull-left" href="#">
+                    <span class="glyphicon glyphicon-list-alt icon"></span>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-body pull-center">
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px">
+                    <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
+                    <a class="addthis_button_tweet" tw:count="vertical"></a>
+                    <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+                    <a class="addthis_button_linkedin_counter" li:counter="top"></a>
+                    <a class="addthis_button_compact"></a>
+                </div>
+                <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
+                    & #160;
+                </script>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-4">
+            <span class="glyphicon glyphicon-floppy-open iconbg"></span>
+            <h3>Como depositar</h3>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <p><a class="btn btn-primary pull-right" href="#" role="button">Saiba mais »</a></p>
+            </br></br>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <span class="glyphicon glyphicon-comment iconbg"></span>
+            <h3>Como citar</h3>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+            <p><a class="btn btn-primary pull-right" href="#" role="button">Saiba mais »</a>
+            </p>
+            </br></br>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <span class="glyphicon glyphicon-pencil iconbg"></span>
+            <h3>BDPI em números</h3>
+            <dl class="dl-horizontal">
+                <dt>Unidades</dt>
+                <dd>42</dd>
+                <dt>Departamentos</dt>
+                <dd>127</dd>
+                <dt>Registros</dt>
+                <dd>38000</dd>
+                <dt>Texto completo</dt>
+                <dd>38000</dd>
+            </dl>
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+
 </dspace:layout>
