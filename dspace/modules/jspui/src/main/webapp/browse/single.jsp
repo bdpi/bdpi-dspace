@@ -117,7 +117,9 @@
 %>
 
 <dspace:layout titlekey="browse.page-title">
-
+        
+    
+   
 	<%-- Build the header (careful use of spacing) --%>
 	<h2>
 		<fmt:message key="browse.single.header"><fmt:param value="<%= scope %>"/></fmt:message> <fmt:message key="<%= typeKey %>"/>
@@ -233,7 +235,18 @@
 	</form>
 	</div>
 
-<div class="row col-md-offset-3 col-md-6">
+<div class="row">
+        <% if( bix.getName().equals("country") )
+        {
+        %>    
+    <div class="col-md-5">
+        <%
+        } else {
+        %>
+        <div class="row col-md-offset-3 col-md-6">
+        <%
+        }
+        %>            
 	<%-- give us the top report on what we are looking at --%>
 	<div class="panel panel-primary">
 	<div class="panel-heading text-center">
@@ -306,6 +319,40 @@
 %>
 	</div>
 </div>
+</div>
+        <% if( bix.getName().equals("country") )
+        {
+        %>
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+            ['País', 'Quant. de itens'],
+<%
+    String[][] resultados = bi.getStringResults();
+    for (int i = 0; i < resultados.length; i++)
+    {
+        if(i>0){%>,
+        <%}
+        %>['<% if (resultados[i][1] != null) { %><% } else { %><%= resultados[i][0] %><% } %>', <%= StringUtils.isNotBlank(resultados[i][2])?" "+resultados[i][2]+"":""%>]<%
+    }
+%>
+        ]);
+
+        var options = {colorAxis: {colors: ['#feb524', '#0e94ab']}};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    };
+    </script>
+    <br/><br/><br/><br/><br/><br/>
+    <div id="chart_div" class="col-md-7 paddingnone" style="width: 650px; height: 500px;"></div>
+        <%
+        }
+        %>        
 </div>
 	<%-- dump the results for debug (uncomment to enable) --%>
 	<%-- 
