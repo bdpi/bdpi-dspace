@@ -155,6 +155,64 @@
     <div class="col-md-4">
         <div class="panel text-justify">
             <div class="panel-heading">
+                <h3>Unidades USP</h3>
+            </div>
+        <div class="row">
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1"><img class="img-responsive img-rounded" src="image/logosusp/cena.jpg" alt="Centro de Energia Nuclear na Agricultura - CENA"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1365"><img class="img-responsive img-rounded" src="image/logosusp/each.jpg" alt="Escola de Artes, Ciências e Humanidades - EACH"></a></div>
+                <div class="col-md-3" style="height: 60px; margin-bottom: 5px;"><a href="handle/BDPI/22"><br/><img class="img-responsive img-rounded" src="image/logosusp/eca.jpg" alt="Escola de Comunicações e Artes - ECA"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1360"><img class="img-responsive img-rounded" src="image/logosusp/eeferp.jpg" alt="Escola de Educação Física e Esporte de Ribeirão Preto - EEFERP"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/94"><img class="img-responsive img-rounded" src="image/logosusp/eefe.jpg" alt="Escola de Educação Física e Esporte - EEFE"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/115"><img class="img-responsive img-rounded" src="image/logosusp/eerp.jpg" alt="Escola de Enfermagem de Ribeirão Preto - EERP"></a></div>
+                <div class="col-md-3" style="height: 60px; margin-bottom: 5px;"><a href="handle/BDPI/68"><img class="img-responsive img-rounded" src="image/logosusp/ee.jpg" alt="Escola de Enfermagem - EE"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/136"><img class="img-responsive img-rounded" src="image/logosusp/eel.jpg" alt="Escola de Engenharia de Lorena - EEL"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/162"><img class="img-responsive img-rounded" src="image/logosusp/eesc.jpg" alt="Escola de Engenharia de São Carlos - EESC"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/213"><img class="img-responsive img-rounded" src="image/logosusp/ep.jpg" alt="Escola Politécnica - EP"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/294"><img class="img-responsive img-rounded" src="image/logosusp/esalq.jpg" alt="Escola Superior de Agricultura Luiz de Queiroz - ESALQ"></a></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>         
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
+                <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div> 
+                </div>
+            </div>
+        <div class="panel text-justify">
+            <div class="panel-heading">
                 <h3>Últimas notícias</h3>
             </div>
             <div class="media padding15">
@@ -164,24 +222,6 @@
                 <div class="media-body">
                     <h4 class="media-heading">Media heading</h4>
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
-                </div>
-            </div>
-            <div class="media padding15">
-                <a class="pull-left" href="#">
-                    <span class="glyphicon glyphicon-list-alt icon"></span>
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
-                </div>
-            </div>
-            <div class="media padding15">
-                <a class="pull-left" href="#">
-                    <span class="glyphicon glyphicon-list-alt icon"></span>
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
                 </div>
             </div>
             <div class="media padding15">
