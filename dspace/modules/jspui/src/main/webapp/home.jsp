@@ -121,10 +121,19 @@
                     if (dcv != null & dcv.length > 0) {
                         displayAbstract = dcv[0].value;
                     }
+                    dcv = item.getMetadata("dc", "rights", null, Item.ANY);
+                    String displayRights = "";
+                    if (dcv != null & dcv.length > 0) {
+                        displayRights = dcv[0].value;
+                    }
             %>
             <div class="media padding15">
                 <a class="pull-left" href="#">
+                    <% if (displayRights.equals("openAccess")){%>
                     <img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px">
+                    <% } else { %>
+                    <img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px">
+                    <% } %>
                 </a>
                 <div class="media-body col-md-11">
                     <a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>"><h4 class="media-heading"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
