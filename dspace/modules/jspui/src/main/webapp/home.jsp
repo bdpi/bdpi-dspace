@@ -167,57 +167,57 @@
                     <h3>Unidades USP</h3>
                 </div>
                 <div class="row tooltip-demo">
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1"><img class="img-responsive img-rounded" src="image/logosusp/cena.jpg" title="Centro de Energia Nuclear na Agricultura - CENA"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1365"><img class="img-responsive img-rounded" src="image/logosusp/each.jpg" title="Escola de Artes, Ciências e Humanidades - EACH"></a></div>
-                    <div class="col-md-3" style="height: 60px; margin-bottom: 5px;"><a href="handle/BDPI/22"><br/><img class="img-responsive img-rounded" src="image/logosusp/eca.jpg" title="Escola de Comunicações e Artes - ECA"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1360"><img class="img-responsive img-rounded" src="image/logosusp/eeferp.jpg" title="Escola de Educação Física e Esporte de Ribeirão Preto - EEFERP"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/94"><img class="img-responsive img-rounded" src="image/logosusp/eefe.jpg" title="Escola de Educação Física e Esporte - EEFE"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/115"><img class="img-responsive img-rounded" src="image/logosusp/eerp.jpg" title="Escola de Enfermagem de Ribeirão Preto - EERP"></a></div>
-                    <div class="col-md-3" style="height: 60px; margin-bottom: 5px;"><a href="handle/BDPI/68"><img class="img-responsive img-rounded" src="image/logosusp/ee.jpg" title="Escola de Enfermagem - EE"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/136"><img class="img-responsive img-rounded" src="image/logosusp/eel.jpg" title="Escola de Engenharia de Lorena - EEL"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/162"><img class="img-responsive img-rounded" src="image/logosusp/eesc.jpg" title="Escola de Engenharia de São Carlos - EESC"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/213"><img class="img-responsive img-rounded" src="image/logosusp/ep.jpg" title="Escola Politécnica - EP"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/294"><img class="img-responsive img-rounded" src="image/logosusp/esalq.jpg" title="Escola Superior de Agricultura Luiz de Queiroz - ESALQ"></a></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>         
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div>
-                    <div class="col-md-3" style="margin-bottom: 5px;"><img class="img-responsive img-rounded" data-src="holder.js/100%x60" alt="..."></div> 
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1315"><img class="img-responsive" data-src="holder.js/100%x60" title="Centro de Biologia Marinha - CEBIMar"></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1"><img class="img-responsive" src="image/logosusp/cena.jpg" title="Centro de Energia Nuclear na Agricultura - CENA"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1365"><img class="img-responsive" src="image/logosusp/each.jpg" title="Escola de Artes, Ciências e Humanidades - EACH"></a></div>
+                    <div class="col-md-3" style="height: 60px; margin-bottom: 5px;"><a href="handle/BDPI/22"><br/><img class="img-responsive" src="image/logosusp/eca.jpg" title="Escola de Comunicações e Artes - ECA"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1360"><img class="img-responsive" src="image/logosusp/eeferp.jpg" title="Escola de Educação Física e Esporte de Ribeirão Preto - EEFERP"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/94"><img class="img-responsive" src="image/logosusp/eefe.jpg" title="Escola de Educação Física e Esporte - EEFE"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/115"><img class="img-responsive" src="image/logosusp/eerp.jpg" title="Escola de Enfermagem de Ribeirão Preto - EERP"></a></div>
+                    <div class="col-md-3" style="height: 60px; margin-bottom: 5px;"><a href="handle/BDPI/68"><img class="img-responsive" src="image/logosusp/ee.jpg" title="Escola de Enfermagem - EE"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/136"><img class="img-responsive" src="image/logosusp/eel.jpg" title="Escola de Engenharia de Lorena - EEL"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/162"><img class="img-responsive" src="image/logosusp/eesc.jpg" title="Escola de Engenharia de São Carlos - EESC"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/213"><img class="img-responsive" src="image/logosusp/ep.jpg" title="Escola Politécnica - EP"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/294"><img class="img-responsive" src="image/logosusp/esalq.jpg" title="Escola Superior de Agricultura Luiz de Queiroz - ESALQ"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/360"><img class="img-responsive" src="image/logosusp/fau.jpg" title="Faculdade de Arquitetura e Urbanismo - FAU"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/407"><img class="img-responsive" src="image/logosusp/fcfrp.jpg" title="Faculdade de Ciências Farmacêuticas de Ribeirão Preto - FCFRP"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/381"><img class="img-responsive" src="image/logosusp/fcf.jpg" title="Faculdade de Ciências Farmacêuticas - FCF"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/479"><img class="img-responsive" src="image/logosusp/fdrp.jpg" title="Faculdade de Direito de Ribeirão Preto - FDRP"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" src="image/logosusp/fd.jpg" title="Faculdade de Direito - FD"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/542"><img class="img-responsive" src="image/logosusp/fearp.jpg" title="Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto - FEARP"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/521"><img class="img-responsive" src="image/logosusp/fea.jpg" title="Faculdade de Economia, Administração e Contabilidade - FEA"></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/500"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>         
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div>
+                    <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/428"><img class="img-responsive" data-src="holder.js/100%x60" alt="..."></a></div> 
                 </div>
             </div>
             <div class="panel text-justify">
