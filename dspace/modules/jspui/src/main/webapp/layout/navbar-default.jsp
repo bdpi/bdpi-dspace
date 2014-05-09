@@ -107,13 +107,10 @@
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.language"/><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="?locale=pt_BR">Português</a>
-                </li>
-                <li><a href="?locale=en">English</a>
-                </li>
-                <li><a href="?locale=es">Español</a>
-                </li>
+            <ul class="dropdown-menu text-center">
+                <li><a href="?locale=pt_BR"><img src="/image/pt_BR.png" title="Português"></a></li>
+                <li><a href="?locale=en"><img src="/image/en.png" title="English"></a></li>
+                <li><a href="?locale=es"><img src="/image/es.png" title="Español"></a></li>
             </ul>
         </li>
         <li class="dropdown">

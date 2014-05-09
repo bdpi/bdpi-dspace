@@ -97,246 +97,349 @@
 
     VersionHistory history = (VersionHistory) request.getAttribute("versioning.history");
     List<Version> historyVersions = (List<Version>) request.getAttribute("versioning.historyversions");
+
+    //Check DOI
+
+    boolean checkdoi = false;
+    DCValue[] doi = item.getDC("identifier", "doi", Item.ANY);
+    if (doi.length != 0)
+    {
+        request.setAttribute("checkdoi", true);
+        checkdoi = true;
+    }
+/*
+    DCValue[] dcv = item.getMetadata("dc", "identifier", "doi", Item.ANY);
+    String displayDOI = "";
+    if (dcv != null & dcv.length > 0) {
+        displayDOI = dcv[0].value;
+    }
+*/
 %>
 
 <%@page import="org.dspace.app.webui.servlet.MyDSpaceServlet"%>
 
 <dspace:layout title="<%= title%>">
-        <%-- Location bar --%>
+    <%-- Location bar --%>
     <dspace:include page="/layout/location-bar.jsp" />
     <div class="row">
+
+        <%
+        if (checkdoi) {
+        %>
         <div class="col-md-8">
-        
-    <%
-        if (handle != null) {
-    %>
-
-    <%
-        if (newVersionAvailable) {
-    %>
-    <div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.new_version_head"/></b>		
-        <fmt:message key="jsp.version.notice.new_version_help"/><a href="<%=latestVersionURL%>"><%= latestVersionHandle%></a>
-    </div>
-    <%
-        }
-    %>
-
-    <%
-        if (showVersionWorkflowAvailable) {
-    %>
-    <div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.workflow_version_head"/></b>		
-            <fmt:message key="jsp.version.notice.workflow_version_help"/>
-    </div>
-    <%
-        }
-    %>
+            <%
+                } else {
+            %>
+            <div class="col-md-12">
+                <%
+                    }
+                %>
 
 
-    <%-- <strong>Please use this identifier to cite or link to this item:
-    <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
-    <div class="well"><fmt:message key="jsp.display-item.identifier"/>
-        <code><%= HandleManager.getCanonicalForm(handle)%></code></div>
-        <%
-    if (admin_button) // admin edit button
-    {%>
-        <dspace:sidebar>
-        <div class="panel panel-warning">
-            <div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
-            <div class="panel-body">
-                <form method="get" action="<%= request.getContextPath()%>/tools/edit-item">
-                    <input type="hidden" name="item_id" value="<%= item.getID()%>" />
-                    <%--<input type="submit" name="submit" value="Edit...">--%>
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath()%>/mydspace">
-                    <input type="hidden" name="item_id" value="<%= item.getID()%>" />
-                    <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE%>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.item"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath()%>/mydspace">
-                    <input type="hidden" name="item_id" value="<%= item.getID()%>" />
-                    <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE%>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.migrateitem"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath()%>/dspace-admin/metadataexport">
-                    <input type="hidden" name="handle" value="<%= item.getHandle()%>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
-                </form>
-                <% if (hasVersionButton) {%>       
-                <form method="get" action="<%= request.getContextPath()%>/tools/version">
-                    <input type="hidden" name="itemID" value="<%= item.getID()%>" />                    
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.button"/>" />
-                </form>
-                <% } %> 
-                <% if (hasVersionHistory) {%>			                
-                <form method="get" action="<%= request.getContextPath()%>/tools/history">
-                    <input type="hidden" name="itemID" value="<%= item.getID()%>" />
-                    <input type="hidden" name="versionID" value="<%= history.getVersion(item) != null ? history.getVersion(item).getVersionId() : null%>" />                    
-                    <input class="btn btn-info col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.history.button"/>" />
-                </form>         	         	
-                <% } %>
+                <%
+                    if (handle != null) {
+                %>
+
+                <%
+                    if (newVersionAvailable) {
+                %>
+                <div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.new_version_head"/></b>		
+                    <fmt:message key="jsp.version.notice.new_version_help"/><a href="<%=latestVersionURL%>"><%= latestVersionHandle%></a>
+                </div>
+                <%
+                    }
+                %>
+
+                <%
+                    if (showVersionWorkflowAvailable) {
+                %>
+                <div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.workflow_version_head"/></b>		
+                        <fmt:message key="jsp.version.notice.workflow_version_help"/>
+                </div>
+                <%
+                    }
+                %>
+
+
+                <%-- <strong>Please use this identifier to cite or link to this item:
+                <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
+                <div><fmt:message key="jsp.display-item.identifier"/>
+                    <code><%= HandleManager.getCanonicalForm(handle)%></code></div><br/>
+                    
+                    <%
+                if (admin_button) // admin edit button
+                {%>
+                    <dspace:sidebar>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
+                        <div class="panel-body">
+                            <form method="get" action="<%= request.getContextPath()%>/tools/edit-item">
+                                <input type="hidden" name="item_id" value="<%= item.getID()%>" />
+                                <%--<input type="submit" name="submit" value="Edit...">--%>
+                                <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
+                            </form>
+                            <form method="post" action="<%= request.getContextPath()%>/mydspace">
+                                <input type="hidden" name="item_id" value="<%= item.getID()%>" />
+                                <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE%>" />
+                                <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.item"/>" />
+                            </form>
+                            <form method="post" action="<%= request.getContextPath()%>/mydspace">
+                                <input type="hidden" name="item_id" value="<%= item.getID()%>" />
+                                <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE%>" />
+                                <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.migrateitem"/>" />
+                            </form>
+                            <form method="post" action="<%= request.getContextPath()%>/dspace-admin/metadataexport">
+                                <input type="hidden" name="handle" value="<%= item.getHandle()%>" />
+                                <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
+                            </form>
+                            <% if (hasVersionButton) {%>       
+                            <form method="get" action="<%= request.getContextPath()%>/tools/version">
+                                <input type="hidden" name="itemID" value="<%= item.getID()%>" />                    
+                                <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.button"/>" />
+                            </form>
+                            <% } %> 
+                            <% if (hasVersionHistory) {%>			                
+                            <form method="get" action="<%= request.getContextPath()%>/tools/history">
+                                <input type="hidden" name="itemID" value="<%= item.getID()%>" />
+                                <input type="hidden" name="versionID" value="<%= history.getVersion(item) != null ? history.getVersion(item).getVersionId() : null%>" />                    
+                                <input class="btn btn-info col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.history.button"/>" />
+                            </form>         	         	
+                            <% } %>
+                        </div>
+                    </div>
+                </dspace:sidebar>
+                <%      } %>
+
+                <%
+                    }
+
+                    String displayStyle = (displayAll ? "full" : "");
+                %>
+                
+
+                <dspace:item-preview item="<%= item%>" />
+
+
+                <dspace:item item="<%= item%>" collections="<%= collections%>" style="<%= displayStyle%>" />
+
+                <div>
+                    <%
+                        String locationLink = request.getContextPath() + "/handle/" + handle;
+
+                        if (displayAll) {
+                    %>
+                    <%
+                        if (workspace_id != null) {
+                    %>
+                    <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/view-workspaceitem">
+                        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>" />
+                        <input class="btn btn-primary" type="submit" name="submit_simple" value="<fmt:message key="jsp.display-item.text1"/>" />
+                    </form>
+                    <%
+                    } else {
+                    %>
+                    <a class="btn btn-primary" href="<%=locationLink%>?mode=simple">
+                        <fmt:message key="jsp.display-item.text1"/>
+                    </a>
+                    <%
+                        }
+                    %>
+                    <%
+                    } else {
+                    %>
+                    <%
+                        if (workspace_id != null) {
+                    %>
+                    <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/view-workspaceitem">
+                        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>" />
+                        <input class="btn btn-primary" type="submit" name="submit_full" value="<fmt:message key="jsp.display-item.text2"/>" />
+                    </form>
+                    <%
+                    } else {
+                    %>
+                    <a class="btn btn-primary" href="<%=locationLink%>?mode=full">
+                        <fmt:message key="jsp.display-item.text2"/>
+                    </a>
+                    <%
+                            }
+                        }
+
+                        if (workspace_id != null) {
+                    %>
+                    <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/workspace">
+                        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>"/>
+                        <input class="btn btn-primary" type="submit" name="submit_open" value="<fmt:message key="jsp.display-item.back_to_workspace"/>"/>
+                    </form>
+                    <%
+                    } else {
+
+                        if (suggestLink) {
+                    %>
+                    <a class="btn btn-success" href="<%= request.getContextPath()%>/suggest?handle=<%= handle%>" target="new_window">
+                        <fmt:message key="jsp.display-item.suggest"/></a>
+                        <%
+                            }
+                        %>
+                    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath()%>/handle/<%= handle%>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
+
+                    <%-- SFX Link --%>
+                    <%
+                        if (ConfigurationManager.getProperty("sfx.server.url") != null) {
+                            String sfximage = ConfigurationManager.getProperty("sfx.server.image_url");
+                            if (sfximage == null) {
+                                sfximage = request.getContextPath() + "/image/sfx-link.gif";
+                            }
+                    %>
+                    <a class="btn" href="<dspace:sfxlink item="<%= item%>"/>" /><img src="<%= sfximage%>" border="0" alt="SFX Query" /></a>
+                    <%
+                            }
+                        }
+                    %>
+                </div>
+                <br/>
+                <%-- Versioning table --%>
+                <%
+                    if (versioningEnabled && hasVersionHistory) {
+                        boolean item_history_view_admin = ConfigurationManager
+                                .getBooleanProperty("versioning", "item.history.view.admin");
+                        if (!item_history_view_admin || admin_button) {
+                %>
+                <div id="versionHistory" class="panel panel-info">
+                    <div class="panel-heading"><fmt:message key="jsp.version.history.head2" /></div>
+
+                    <table class="table panel-body">
+                        <tr>
+                            <th id="tt1" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column1"/></th>
+                            <th 			
+                                id="tt2" class="oddRowOddCol"><fmt:message key="jsp.version.history.column2"/></th>
+                            <th 
+                                id="tt3" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column3"/></th>
+                            <th 
+
+                                id="tt4" class="oddRowOddCol"><fmt:message key="jsp.version.history.column4"/></th>
+                            <th 
+                                id="tt5" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column5"/> </th>
+                        </tr>
+
+                        <% for (Version versRow : historyVersions) {
+
+                                EPerson versRowPerson = versRow.getEperson();
+                                String[] identifierPath = VersionUtil.addItemIdentifier(item, versRow);
+                        %>	
+                        <tr>			
+                            <td headers="tt1" class="oddRowEvenCol"><%= versRow.getVersionNumber()%></td>
+                            <td headers="tt2" class="oddRowOddCol"><a href="<%= request.getContextPath() + identifierPath[0]%>"><%= identifierPath[1]%></a><%= item.getID() == versRow.getItemID() ? "<span class=\"glyphicon glyphicon-asterisk\"></span>" : ""%></td>
+                            <td headers="tt3" class="oddRowEvenCol"><% if (admin_button) {%><a
+                                    href="mailto:<%= versRowPerson.getEmail()%>"><%=versRowPerson.getFullName()%></a><% } else {%><%=versRowPerson.getFullName()%><% }%></td>
+                            <td headers="tt4" class="oddRowOddCol"><%= versRow.getVersionDate()%></td>
+                            <td headers="tt5" class="oddRowEvenCol"><%= versRow.getSummary()%></td>
+                        </tr>
+                        <% } %>
+                    </table>
+                    <div class="panel-footer"><fmt:message key="jsp.version.history.legend"/></div>
+                </div>
+                <%
+                        }
+                    }
+                %>
+                <br/>
+                <%-- Create Commons Link --%>
+                <%
+                    if (cc_url != null) {
+                %>
+                <p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.text3"/> <a href="<%= cc_url%>"><fmt:message key="jsp.display-item.license"/></a>
+                    <a href="<%= cc_url%>"><img src="<%= request.getContextPath()%>/image/cc-somerights.gif" border="0" alt="Creative Commons" style="margin-top: -5px;" class="pull-right"/></a>
+                </p>
+                <!--
+                <%= cc_rdf%>
+                -->
+                <%
+                } else {
+                %>
+                <p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.copyright"/></p>
+                <%
+                    }
+                %>
             </div>
-        </div>
-    </dspace:sidebar>
-    <%      } %>
+            <%
+            if (checkdoi) {
+            %>
+            <div class="col-md-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Métricas alternativas e redes sociais</div>
+                    <div class="panel-body">
+                        <!--Altmetric.com-->
+                        <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+                        <div data-badge-details="right" data-badge-type="1" data-doi="<%=doi[0].value%>" data-hide-no-mentions="true" class="altmetric-embed"></div>
+                       
+                    </div>
+                        <div class="panel-body">
+                            <!--PlumX-->
+                        <script type="text/javascript" src="//d1x9wcvwqf6hm1.cloudfront.net/w/js/0.1.19/widgets.js"></script>
+                        <div class="plumx-widget" plumx-widget-type="plumx-artifact-metrics" doi="<%=doi[0].value%>" hide-when-empty="true"></div>
+                        </div>
+                       <div class="panel-body">
+                           <!--Add This-->
+                           <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px">
+                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
+                        <a class="addthis_button_tweet" tw:count="vertical"></a>
+                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
+                        <a class="addthis_button_compact"></a>
+                    </div>
+                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
+                        & #160;
+                    </script>
+                       </div>
+                        <div class="panel-heading">Citações</div>
+                        <div class="panel-body">
+                        <p>Procurar citações no <a href="http://scholar.google.com/scholar?q=<%=doi[0].value%>" target="_blank">Google Scholar</a></p>
+                        </div>
+                        <div class="panel-body text-center">
+                            <script type="text/javascript" src="http://api.elsevier.com/javascript/citedby_image.jsp"></script>
 
-    <%
-        }
-
-        String displayStyle = (displayAll ? "full" : "");
-    %>
-
-
-    <dspace:item-preview item="<%= item%>" />
-    
-    
-    <dspace:item item="<%= item%>" collections="<%= collections%>" style="<%= displayStyle%>" />
-    
-    <div class="container row">
-        <%
-            String locationLink = request.getContextPath() + "/handle/" + handle;
-
-            if (displayAll) {
-        %>
-        <%
-            if (workspace_id != null) {
-        %>
-        <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/view-workspaceitem">
-            <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>" />
-            <input class="btn btn-primary" type="submit" name="submit_simple" value="<fmt:message key="jsp.display-item.text1"/>" />
-        </form>
-        <%
-        } else {
-        %>
-        <a class="btn btn-primary" href="<%=locationLink%>?mode=simple">
-            <fmt:message key="jsp.display-item.text1"/>
-        </a>
-        <%
-            }
-        %>
-        <%
-        } else {
-        %>
-        <%
-            if (workspace_id != null) {
-        %>
-        <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/view-workspaceitem">
-            <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>" />
-            <input class="btn btn-primary" type="submit" name="submit_full" value="<fmt:message key="jsp.display-item.text2"/>" />
-        </form>
-        <%
-        } else {
-        %>
-        <a class="btn btn-primary" href="<%=locationLink%>?mode=full">
-            <fmt:message key="jsp.display-item.text2"/>
-        </a>
-        <%
-                }
-            }
-
-            if (workspace_id != null) {
-        %>
-        <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/workspace">
-            <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>"/>
-            <input class="btn btn-primary" type="submit" name="submit_open" value="<fmt:message key="jsp.display-item.back_to_workspace"/>"/>
-        </form>
-        <%
-        } else {
-
-            if (suggestLink) {
-        %>
-        <a class="btn btn-success" href="<%= request.getContextPath()%>/suggest?handle=<%= handle%>" target="new_window">
-            <fmt:message key="jsp.display-item.suggest"/></a>
+                        <script type="text/javascript">
+                            $(document).ready(function getScopusCitation(){
+                               var varSearchObj = new searchObj();
+                               varSearchObj.setDoi("<%=doi[0].value%>");
+                               sciverse.setApiKey("35ff0b478b7d592f81e5b0521dc1f072");
+                               sciverse.search(varSearchObj);
+                            });
+                            <!-- SECTION 2 : Call back -->
+                               callback = function(){ document.sciverseForm.searchButton.disabled = true; }
+                            <!-- SECTION 3 : Running Search -->
+                               runSearch = function(){
+                               document.sciverseForm.searchButton.disabled = true;
+                               var varSearchObj = new searchObj();
+                               varSearchObj.setEid(document.sciverseForm.eid.value);
+                               varSearchObj.setDoi(document.sciverseForm.doi.value);
+                               varSearchObj.setScp(document.sciverseForm.scp.value);
+                               varSearchObj.setPii(document.sciverseForm.pii.value);
+                               varSearchObj.setIssn(document.sciverseForm.issn.value);
+                               varSearchObj.setIsbn(document.sciverseForm.isbn.value);
+                               varSearchObj.setVol(document.sciverseForm.vol.value);
+                               varSearchObj.setIssue(document.sciverseForm.issue.value);
+                               varSearchObj.setTitle(document.sciverseForm.title.value);
+                               varSearchObj.setFirstPg(document.sciverseForm.firstpg.value);
+                               varSearchObj.setArtNo(document.sciverseForm.artno.value);
+                               sciverse.setApiKey("35ff0b478b7d592f81e5b0521dc1f072");
+                               sciverse.search(varSearchObj);
+                               }
+                        </script>
+                <!-- SECTION 4 : Setting defaults -->
+                        <script type="text/javascript"> </script>
+       
+                    <div id="citedBy"></div>
+                            
+                        </div>    
+                           
+                </div>
+            </div>
+            
             <%
                 }
             %>
-        <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath()%>/handle/<%= handle%>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
-
-        <%-- SFX Link --%>
-        <%
-            if (ConfigurationManager.getProperty("sfx.server.url") != null) {
-                String sfximage = ConfigurationManager.getProperty("sfx.server.image_url");
-                if (sfximage == null) {
-                    sfximage = request.getContextPath() + "/image/sfx-link.gif";
-                }
-        %>
-        <a class="btn" href="<dspace:sfxlink item="<%= item%>"/>" /><img src="<%= sfximage%>" border="0" alt="SFX Query" /></a>
-        <%
-                }
-            }
-        %>
-</div>
-<br/>
-<%-- Versioning table --%>
-<%
-    if (versioningEnabled && hasVersionHistory) {
-        boolean item_history_view_admin = ConfigurationManager
-                .getBooleanProperty("versioning", "item.history.view.admin");
-        if (!item_history_view_admin || admin_button) {
-%>
-<div id="versionHistory" class="panel panel-info">
-    <div class="panel-heading"><fmt:message key="jsp.version.history.head2" /></div>
-
-    <table class="table panel-body">
-        <tr>
-            <th id="tt1" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column1"/></th>
-            <th 			
-                id="tt2" class="oddRowOddCol"><fmt:message key="jsp.version.history.column2"/></th>
-            <th 
-                id="tt3" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column3"/></th>
-            <th 
-
-                id="tt4" class="oddRowOddCol"><fmt:message key="jsp.version.history.column4"/></th>
-            <th 
-                id="tt5" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column5"/> </th>
-        </tr>
-
-        <% for (Version versRow : historyVersions) {
-
-                EPerson versRowPerson = versRow.getEperson();
-                String[] identifierPath = VersionUtil.addItemIdentifier(item, versRow);
-        %>	
-        <tr>			
-            <td headers="tt1" class="oddRowEvenCol"><%= versRow.getVersionNumber()%></td>
-            <td headers="tt2" class="oddRowOddCol"><a href="<%= request.getContextPath() + identifierPath[0]%>"><%= identifierPath[1]%></a><%= item.getID() == versRow.getItemID() ? "<span class=\"glyphicon glyphicon-asterisk\"></span>" : ""%></td>
-            <td headers="tt3" class="oddRowEvenCol"><% if (admin_button) {%><a
-                    href="mailto:<%= versRowPerson.getEmail()%>"><%=versRowPerson.getFullName()%></a><% } else {%><%=versRowPerson.getFullName()%><% }%></td>
-            <td headers="tt4" class="oddRowOddCol"><%= versRow.getVersionDate()%></td>
-            <td headers="tt5" class="oddRowEvenCol"><%= versRow.getSummary()%></td>
-        </tr>
-        <% } %>
-    </table>
-    <div class="panel-footer"><fmt:message key="jsp.version.history.legend"/></div>
-</div>
-<%
-        }
-    }
-%>
-<br/>
-<%-- Create Commons Link --%>
-<%
-    if (cc_url != null) {
-%>
-<p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.text3"/> <a href="<%= cc_url%>"><fmt:message key="jsp.display-item.license"/></a>
-    <a href="<%= cc_url%>"><img src="<%= request.getContextPath()%>/image/cc-somerights.gif" border="0" alt="Creative Commons" style="margin-top: -5px;" class="pull-right"/></a>
-</p>
-<!--
-<%= cc_rdf%>
--->
-<%
-} else {
-%>
-<p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.copyright"/></p>
-<%
-    }
-%>
-</div>
-<div class="col-md-4">
-    <div class="panel panel-success">
-        <div class="panel-heading">Métricas alternativas</div>
-        <div class="panel-body">
             </div>
-    </div>
-    </div>
 
-</dspace:layout>
+
+        </dspace:layout>
