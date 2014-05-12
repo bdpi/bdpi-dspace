@@ -43,7 +43,7 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <title><%= siteName%>: <%= title%></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -108,7 +108,10 @@
             }
         %>
 
-
+        <!-- Facebook -->
+        
+        <meta property="og:image" content="/image/usp-relogio.jpg" />
+        
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="<%= request.getContextPath()%>/static/js/html5shiv.js"></script>
