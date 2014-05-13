@@ -5856,3 +5856,7 @@ padding-left:0px;
 padding-right:0px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.metadataFieldValue {
+    word-break: break-all;
+}
