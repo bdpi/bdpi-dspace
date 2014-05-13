@@ -378,8 +378,9 @@
                         <script type="text/javascript" src="//d1x9wcvwqf6hm1.cloudfront.net/w/js/0.1.19/widgets.js"></script>
                         <div class="plumx-widget" plumx-widget-type="plumx-artifact-metrics" doi="<%=doi[0].value%>" hide-when-empty="true"></div>
                         </div>
+                        <!--
                        <div class="panel-body">
-                           <!--Add This-->
+                           <!--Add This
                            <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px">
                         <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
                         <a class="addthis_button_tweet" tw:count="vertical"></a>
@@ -390,7 +391,7 @@
                     <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
                         & #160;
                     </script>
-                       </div>
+                       </div> -->
                         <div class="panel-heading">Citações</div>
                         <div class="panel-body">
                         <p>Procurar citações no <a href="http://scholar.google.com/scholar?q=<%=doi[0].value%>" target="_blank">Google Scholar</a></p>
