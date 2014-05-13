@@ -5860,3 +5860,7 @@ padding-right:0px;
 .metadataFieldValue {
     word-break: break-all;
 }
+
+.authority.author {
+    color: #ff9933;
+}
