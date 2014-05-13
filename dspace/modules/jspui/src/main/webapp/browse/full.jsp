@@ -481,5 +481,5 @@
 	<%-- 
 	<!-- <%= bi.toString() %> -->
 	--%>
-
+<script>$(".authority").after(" <img src=\"image/ehUSP.png\">");</script>
 </dspace:layout>
