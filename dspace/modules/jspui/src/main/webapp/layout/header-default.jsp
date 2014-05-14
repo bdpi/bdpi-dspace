@@ -29,6 +29,8 @@
     String navbar = (String) request.getAttribute("dspace.layout.navbar");
     boolean locbar = ((Boolean) request.getAttribute("dspace.layout.locbar")).booleanValue();
 
+    String siteURL = ConfigurationManager.getProperty("dspace.baseUrl");
+    String imageFacebook = siteURL + "/image/logo-usp-facebook.jpg";
     String siteName = ConfigurationManager.getProperty("dspace.name");
     String feedRef = (String) request.getAttribute("dspace.layout.feedref");
     boolean osLink = ConfigurationManager.getBooleanProperty("websvc.opensearch.autolink");
@@ -45,7 +47,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
-        <title><%= siteName%>: <%= title%></title>
+        <title><%= title%></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="Generator" content="<%= generator%>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,7 +112,9 @@
 
         <!-- Facebook -->
         
-        <meta property="og:image" content="/image/usp-relogio.jpg" />
+        <meta property="og:image" content="<%= imageFacebook%>" />
+        <meta property="og:site_name" content="<%= siteName%>"/>
+        <meta property="og:url" content=<%= siteURL%>${requestScope['javax.servlet.forward.request_uri']} />
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
