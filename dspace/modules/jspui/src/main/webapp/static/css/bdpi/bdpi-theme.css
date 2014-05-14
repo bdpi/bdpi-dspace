@@ -5913,9 +5913,11 @@ padding-right:0px;
 }
 
 .usppanel {
-    background-image:url(http://www.producao.usp.br/a/barrausp/images/bg.png);
+    background: -webkit-linear-gradient(#fff, #feb524); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fff, #feb524); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fff, #feb524); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fff, #feb524); /* Standard syntax */
     font-size: 12px;
-    height: 347px;
 }
 .usptab {
 	background:url(http://www.producao.usp.br/a/barrausp/images/tab_b.png) repeat-x 0 0;
