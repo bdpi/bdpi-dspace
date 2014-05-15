@@ -122,11 +122,10 @@
     </head>
     <div id="uspbarra">
         <div class="uspLogo">
-            <img onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;" src="http://www.producao.usp.br/a/barrausp/images/left_Logo_usp.jpg" />
-            <img onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;" src="http://www.producao.usp.br/a/barrausp/images/middle_Logo_usp.gif" />
-        </div>
+            <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;position: absolute;bottom: 0px;" src="/image/Logo_usp_composto.jpg" />
+         </div>
         <div class="panel-group" id="accordion">
-            <div class="panel">
+            <div class="panel" style="border-radius: 0;border-left: 0;border-right: 0;">
                                      <div id="collapseThree" class="panel-collapse collapse">
                                                         <div class="panel-body usppanel">
                                                             <div class="row">
