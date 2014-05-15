@@ -1,5 +1,7 @@
 package org.dspace.authenticate;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,8 @@ import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
 import org.dspace.eperson.Group;
+
+import net.spy.memcached.MemcachedClient;
 
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.builder.api.USPdigitalApi;
@@ -33,57 +37,33 @@ import org.json.JSONException;
 public class OAuthAuthentication
         implements AuthenticationMethod {
 
-    private static Logger log = Logger.getLogger(OAuthAuthentication.class);
-    private static String PROTECTED_RESOURCE_URL = ConfigurationManager.getProperty("authentication-oauth", "PROTECTED_RESOURCE_URL");
-    private static String API_KEY = ConfigurationManager.getProperty("authentication-oauth", "API_KEY");
-    private static String API_SECRET = ConfigurationManager.getProperty("authentication-oauth", "API_SECRET");
-    
-    private int httpRequestHashCode = 0;
-    private String strLoginPageURL = "";
-
-    private void unSetRequestToken(HttpServletRequest httprequest) {
-        httprequest.getSession().removeAttribute("requesttoken");
-    }
-    
-    private void setRequestToken(HttpServletRequest httprequest) {
-        // System.out.println("chamou setRequestToken");
-        httprequest.getSession().setAttribute("requesttoken", getOauthservice(httprequest).getRequestToken());
-        // System.out.println("olha o token agora: ".concat(((Token) httprequest.getSession().getAttribute("requesttoken")).getToken()));
-    }
-
-    private Token getRequestToken(HttpServletRequest httprequest) {
-        // System.out.println("chamou getRequestToken");
-        if (httprequest.getSession().getAttribute("requesttoken") == null) {
-            setRequestToken(httprequest);
-        }
-        return (Token) httprequest.getSession().getAttribute("requesttoken");
-    }
-    
-    private void destroyOauthService(HttpServletRequest httprequest){
-        if (httprequest.getSession().getAttribute("oauthservice") != null) {
-            httprequest.getSession().removeAttribute("oauthservice");
-        }
-    }
-
-    private OAuthService getOauthservice(HttpServletRequest httprequest) {
-
-        if (httprequest.getSession().getAttribute("oauthservice") == null) {
-            setOauthService(httprequest);
-        }
-        return (OAuthService) httprequest.getSession().getAttribute("oauthservice");
-
-    }
-
-    private void setOauthService(HttpServletRequest httprequest) {
-        // System.out.println("iniciou setoauthservice");
-        httprequest.getSession().setAttribute("oauthservice", new ServiceBuilder()
+    private static final Logger log = Logger.getLogger(OAuthAuthentication.class);
+    private static final String PROTECTED_RESOURCE_URL = ConfigurationManager.getProperty("authentication-oauth", "PROTECTED_RESOURCE_URL");
+    private static final String API_KEY = ConfigurationManager.getProperty("authentication-oauth", "API_KEY");
+    private static final String API_SECRET = ConfigurationManager.getProperty("authentication-oauth", "API_SECRET");
+    private static final OAuthService oauthservice = new ServiceBuilder()
                 .apiKey(API_KEY)
                 .apiSecret(API_SECRET)
                 .provider(USPdigitalApi.class)
-                .build());
-        // System.out.println("terminou setoauthservice");
+                .build();
+    
+    private static MemcachedClient cache = null;
+    
+    private int httpRequestHashCode = 0;
+    private String strLoginPageURL = "";
+    
+    private static MemcachedClient getCache(){
+        try {
+            if(cache == null) cache = new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+            return cache;
+        }
+        catch(IOException e){
+            log.debug(e);
+            return null;
+        }
     }
-
+    
+    @Override
     public boolean canSelfRegister(Context context,
             HttpServletRequest request,
             String username)
@@ -91,22 +71,10 @@ public class OAuthAuthentication
         return true;
     }
 
+    @Override
     public void initEPerson(Context context, HttpServletRequest request,
             EPerson eperson)
             throws SQLException {
-        
-        // System.out.println("faz init eperson");
-    
-        /*
-            request.getSession().setAttribute("usp_bdpi_oauth_di", jso);
-            request.getSession().setAttribute("usp_bdpi_oauth_loginUsuario", jso.getString("loginUsuario"));
-            request.getSession().setAttribute("usp_bdpi_oauth_nomeUsuario", jso.getString("nomeUsuario"));
-            request.getSession().setAttribute("usp_bdpi_oauth_tipoUsuario", jso.getString("tipoUsuario"));
-            request.getSession().setAttribute("usp_bdpi_oauth_emailPrincipalUsuario", jso.getString("emailPrincipalUsuario"));
-            request.getSession().setAttribute("usp_bdpi_oauth_emailAlternativoUsuario", jso.getString("emailAlternativoUsuario"));
-            request.getSession().setAttribute("usp_bdpi_oauth_emailUspUsuario", jso.getString("emailUspUsuario"));
-            request.getSession().setAttribute("usp_bdpi_oauth_numeroTelefoneFormatado", jso.getString("numeroTelefoneFormatado"));
-        */
         
         // Need to create new eperson
         // FIXME: TEMPORARILY need to turn off authentication, as usually
@@ -141,7 +109,8 @@ public class OAuthAuthentication
         context.setIgnoreAuthorization(false);
         
     }
-
+    
+    @Override
     public boolean allowSetPassword(Context context,
             HttpServletRequest request,
             String username)
@@ -149,26 +118,28 @@ public class OAuthAuthentication
         return false;
     }
 
+    @Override
     public boolean isImplicit() {
         return false;
     }
 
+    @Override
     public int authenticate(Context context,
             String oauth_token,
             String oauth_verifier,
             String realm,
             HttpServletRequest request)
             throws SQLException {
-        
-        // System.out.println("chamou authenticate");
-        
-        EPerson eperson = null;
+                
+        EPerson eperson;
 
-        Token accessToken = getOauthservice(request).getAccessToken(this.getRequestToken(request), new Verifier(oauth_verifier));
+        Token accessToken = oauthservice.getAccessToken(
+                            new Token(oauth_token,(String) getCache().get(oauth_token)),
+                            new Verifier(oauth_verifier));
 
         OAuthRequest orequest = new OAuthRequest(Verb.POST, PROTECTED_RESOURCE_URL);
 
-        getOauthservice(request).signRequest(accessToken, orequest);
+        oauthservice.signRequest(accessToken, orequest);
         Response oresponse = orequest.send();
 
         try {
@@ -230,11 +201,10 @@ public class OAuthAuthentication
 
     }
 
+    @Override
     public String loginPageURL(Context context,
             HttpServletRequest request,
             HttpServletResponse response) {
-
-        // System.out.println("pega loginPageURL");
 
         if (httpRequestHashCode != request.hashCode()) {
             
@@ -244,24 +214,20 @@ public class OAuthAuthentication
             // que o token seja gerado 3 vezes a cada chamada.
             
             httpRequestHashCode = request.hashCode();
-            // this.destroyOauthService(request);
-            // this.unSetRequestToken(request);
-            this.setRequestToken(request);
-            strLoginPageURL = response.encodeRedirectURL(getOauthservice(request).getAuthorizationUrl(this.getRequestToken(request)));
-            // request.getSession().invalidate();
+
+            Token requesttoken = oauthservice.getRequestToken();
+            getCache().set(requesttoken.getToken(), 120, requesttoken.getSecret());
+            strLoginPageURL = response.encodeRedirectURL(oauthservice.getAuthorizationUrl(requesttoken));
         }
-        // request.getSession().invalidate();
-        // this.unSetRequestToken(request);
         return strLoginPageURL;
     }
 
-    public String loginPageTitle(Context context) {
-        
-        // System.out.println("pega loginPageTitle");
-        
+    @Override
+    public String loginPageTitle(Context context) {        
         return "org.dspace.eperson.OAuthAuthentication.title";
     }
 
+    @Override
     public int[] getSpecialGroups(Context context, HttpServletRequest request) {
         try {
             if (!context.getCurrentUser().getNetid().equals("")) {
