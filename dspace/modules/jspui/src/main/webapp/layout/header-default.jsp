@@ -56,6 +56,7 @@
             <!-- <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/bdpi/bdpi.css" type="text/css" /> -->
             <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/bdpi/bdpi-theme.css" type="text/css" />
             <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/bdpi/dspace-theme.css" type="text/css" />
+            <meta name="gs_meta_revision" content="1.1" />
             <%
                 if (!"NONE".equals(feedRef)) {
                     for (int i = 0; i < parts.size(); i += 3) {
@@ -83,7 +84,7 @@
             <script type='text/javascript' src='<%= request.getContextPath()%>/static/js/holder.js'></script>
             <script type="text/javascript" src="<%= request.getContextPath()%>/utils.js"></script>
             <script type="text/javascript" src="<%= request.getContextPath()%>/static/js/choice-support.js"></script>
-
+            
             <%--Gooogle Analytics recording.--%>
             <%
                 if (analyticsKey != null && analyticsKey.length() > 0) {
