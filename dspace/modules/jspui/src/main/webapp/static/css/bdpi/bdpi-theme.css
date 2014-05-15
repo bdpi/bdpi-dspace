@@ -5799,13 +5799,6 @@ button.close {
   margin-top: -5px;
   margin-bottom: 10px;
   color: inherit;
-  background: url("../../../image/producao.usp.png") no-repeat center center;
-  background-position: center center;
-  width: 100%;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
 }
 .box { 
    color: white; 
