@@ -45,7 +45,7 @@
     Locale sessionLocale = UIUtil.getSessionLocale(request);
     Config.set(request.getSession(), Config.FMT_LOCALE, sessionLocale);
 
-    String[] displayAuthors;
+    String[][] displayAuthors;
 
     boolean feedEnabled = ConfigurationManager.getBooleanProperty("webui.feed.enable");
     String feedData = "NONE";
@@ -108,13 +108,15 @@
                         }
                         dcv = item.getMetadata("dc", "contributor", "author", Item.ANY);
                         if (dcv != null & dcv.length > 0) {
-                            displayAuthors = new String[dcv.length];
+                            displayAuthors = new String[dcv.length][2];
                             for (int dcvcounter = 0; dcvcounter < dcv.length; dcvcounter++) {
-                                displayAuthors[dcvcounter] = dcv[dcvcounter].value;
+                                displayAuthors[dcvcounter][0] = dcv[dcvcounter].value;
+                                displayAuthors[dcvcounter][1] = dcv[dcvcounter].authority;
                             }
                         } else {
-                            displayAuthors = new String[1];
-                            displayAuthors[0] = "";
+                            displayAuthors = new String[1][2];
+                            displayAuthors[0][0] = "";
+                            displayAuthors[0][1] = "";
                         }
                         dcv = item.getMetadata("dc", "description", "abstract", Item.ANY);
                         String displayAbstract = "";
@@ -145,9 +147,14 @@
                                 etal = " et al";
                             } else {
                                 maxcount = displayAuthors.length;
-                        }
-                        for (int acount = 0; acount < maxcount; acount++) { %>
-                            <% if (acount > 0) { %>; <% }%><%=StringUtils.abbreviate(displayAuthors[acount], 1000)%>
+                            }
+                            for (int acount = 0; acount < maxcount; acount++) { %>
+                                <% if (acount > 0) { %>; <% }%>
+                                <% if(displayAuthors[acount][1]!=null){ %>
+                                <a class="authority author" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="/image/ehUSP.png">
+                                <% } else { %>
+                                  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
+                                <% } %>
                             <% }%><%=etal%></p>
                         <p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
                     </div>
