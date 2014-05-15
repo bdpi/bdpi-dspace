@@ -123,7 +123,7 @@
     </head>
     <div id="uspbarra">
         <div class="uspLogo">
-            <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;position: absolute;bottom: 0px;" src="/image/Logo_usp_composto.jpg" />
+            <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;position: absolute;bottom: 0px;" src="<%= siteURL%>/image/Logo_usp_composto.jpg" />
          </div>
         <div class="panel-group" id="accordion">
             <div class="panel" style="border-radius: 0;border-left: 0;border-right: 0;">
@@ -242,7 +242,7 @@
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="logo">
-                                                    <a href="<%= siteURL%>"><img class="img-responsive" src="/image/producao.usp.png"></a>
+                                                    <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
