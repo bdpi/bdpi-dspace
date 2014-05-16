@@ -128,7 +128,8 @@
     if (admin_button)
     {
 %>     
-<dspace:sidebar>
+<div class="row">
+    <div class="col-md-3">
 			<div class="panel panel-warning">
 			<div class="panel-heading">
 				<fmt:message key="jsp.admintools"/>
@@ -142,7 +143,9 @@
 					<input class="btn btn-default" type="submit" name="submit" value="<fmt:message key="jsp.community-list.create.button"/>" />
                 </form>
             </div>
-</dspace:sidebar>
+    </div></div>
+     <div class="col-md-9">
+
 <%
     }
 %>
@@ -163,4 +166,12 @@
  
 <% }
 %>
+<%
+    if (admin_button)
+    {
+%>  
+     </div>
+<%
+    }
+%>     
 </dspace:layout>
