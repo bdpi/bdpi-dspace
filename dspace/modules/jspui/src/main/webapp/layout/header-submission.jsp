@@ -279,19 +279,6 @@
 </header>
 
 <main id="content" role="main">
-                <%-- Location bar --%>
-<%
-    if (locbar)
-    {
-%>
-<div class="container">
-                <dspace:include page="/layout/location-bar.jsp" />
-</div>                
-<%
-    }
-%>
-
-
         <%-- Page contents --%>
 <div class="container">
 <% if (request.getAttribute("dspace.layout.sidebar") != null) { %>
