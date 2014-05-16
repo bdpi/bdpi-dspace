@@ -105,7 +105,7 @@
 
 <%@page import="org.dspace.app.webui.servlet.MyDSpaceServlet"%>
 <dspace:layout locbar="commLink" title="<%= name %>" feedData="<%= feedData %>">
-
+</div>
 <%-- Location bar --%>
 <dspace:include page="/layout/location-bar.jsp" />
 
@@ -158,10 +158,12 @@
 </div>
 <%  if (submit_button)
     { %>
-          <form class="form-group" action="<%= request.getContextPath() %>/submit" method="post">
+           
+            <form class="form-group" action="<%= request.getContextPath() %>/submit" method="post">
             <input type="hidden" name="collection" value="<%= collection.getID() %>" />
 			<input class="btn btn-success col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.collection-home.submit.button"/>" />
-          </form>
+          </form><br/><br/><br/>
+                                   
 <%  } %>
         <form class="well" method="get" action="">
 <%  if (loggedIn && subscribed)
@@ -172,7 +174,6 @@
                 <small>
             		  <fmt:message key="jsp.collection-home.subscribe.msg"/>
                 </small>
-				<input class="btn btn-sm btn-info" type="submit" name="submit_subscribe" value="<fmt:message key="jsp.collection-home.subscribe"/>" />
 <%  }
     if(feedEnabled)
     { %>
@@ -206,7 +207,8 @@
     }
 %>
         </form>
-
+           <div class="row">
+    <div class="col-md-9">
 <% if (show_items)
    {
         BrowseInfo bi = (BrowseInfo) request.getAttribute("browse.info");
@@ -313,6 +315,7 @@
    } // end of if (show_title)
 %>
 
+</div><div class="col-md-3">
   <dspace:sidebar>
 <% if(admin_button || editor_button ) { %>
                  <div class="panel panel-warning">
