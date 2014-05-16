@@ -80,10 +80,19 @@
      <!-- beginning of each 'submission-process' (therefore it should not be -->
      <!-- referenced by any of the below 'submission-process' tags).  Also as-->
      <!-- a special step, it is currently NEVER editable in a workflow.      -->                              
-     <step id="collection">
+     <!-- <step id="collection"> -->
+     <!--  <heading></heading> can specify heading, if you want it to appear in Progress Bar-->
+     <!--  <processing-class>org.dspace.submit.step.SelectCollectionStep</processing-class>-->
+     <!--  <jspui-binding>org.dspace.app.webui.submit.step.JSPSelectCollectionStep</jspui-binding>-->
+     <!--  <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.SelectCollectionStep</xmlui-binding>-->
+     <!--  <workflow-editable>false</workflow-editable>-->
+     <!-- </step>-->
+
+	 <!-- Uncomment this to make available the bibliographic import from external source - note ONLY for JSPUI -->     
+	<step id="collection">
        <heading></heading> <!--can specify heading, if you want it to appear in Progress Bar-->
-	   <processing-class>org.dspace.submit.step.SelectCollectionStep</processing-class>
-       <jspui-binding>org.dspace.app.webui.submit.step.JSPSelectCollectionStep</jspui-binding>
+	   <processing-class>org.dspace.submit.step.StartSubmissionLookupStep</processing-class>
+       <jspui-binding>org.dspace.app.webui.submit.step.JSPStartSubmissionLookupStep</jspui-binding>
        <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.SelectCollectionStep</xmlui-binding>
        <workflow-editable>false</workflow-editable>
      </step>
@@ -187,16 +196,8 @@
 		<jspui-binding>org.dspace.app.webui.submit.step.JSPInitialQuestionsStep</jspui-binding>   	    
 		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.InitialQuestionsStep</xmlui-binding>
 	    <workflow-editable>true</workflow-editable>
-	  </step>
-    -->
-	<!--If you disable the initial questions step you should insert the -->
-	<!--SkipInitialQuestionsStep below, to enable proper processing of  -->
-	<!--input-forms configuration                                       -->
-	<!-- 
-	<step>
-		<processing-class>org.dspace.submit.step.SkipInitialQuestionsStep</processing-class>
-	</step>
-         -->
+	  </step> -->
+      
       <!--Step 2 will be to Describe the item.-->
       <step>
         <heading>submit.progressbar.describe</heading>
@@ -216,7 +217,7 @@
        </step>
        
 
-      <!--Step 4 will be to Upload the item-->
+      <!--Step 4 will be to Upload the item -->
       <step>
         <heading>submit.progressbar.upload</heading>
         <processing-class>org.dspace.submit.step.UploadStep</processing-class>
@@ -224,6 +225,7 @@
 		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.UploadStep</xmlui-binding>
         <workflow-editable>true</workflow-editable>
       </step>
+      
 
        <!-- Step 4 Upload Item with Embargo Features
             to enable this step, please make sure to comment-out the previous step "UploadStep"  
@@ -234,7 +236,7 @@
            <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.UploadWithEmbargoStep</xmlui-binding>
            <workflow-editable>true</workflow-editable>
        </step>
-        -->
+       -->
 
  	  <!--Step 5 will be to Verify/Review everything -->
  	  <step>
@@ -247,7 +249,7 @@
 
       <!--Step 6 will be to select a Creative Commons License-->
       <!-- Uncomment this step to allow the user to select a Creative Commons license -->
-       
+       <!-- -->
       <step>
         <heading>submit.progressbar.CClicense</heading>
         <processing-class>org.dspace.submit.step.CCLicenseStep</processing-class>
