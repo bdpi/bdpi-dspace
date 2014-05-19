@@ -281,7 +281,7 @@
                   <dt>Como citar</dt>      
                   <dd>
                 <%-- <strong>Please use this identifier to cite or link to this item:--%>
-                <fmt:message key="jsp.display-item.identifier"/> <%= HandleManager.getCanonicalForm(handle)%>                        
+                <div style="width: 95%; display: inline-block; word-wrap: break-word;"><fmt:message key="jsp.display-item.identifier"/> <%= HandleManager.getCanonicalForm(handle)%></div>                        
                     </dd>
                     <dt>Metadados do registro</dt>
                     <dd>
