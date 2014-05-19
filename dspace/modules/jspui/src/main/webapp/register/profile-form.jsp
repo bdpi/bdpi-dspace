@@ -7,6 +7,7 @@
     http://www.dspace.org/license/
 
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   - User profile editing form.
   -
@@ -26,10 +27,15 @@
 
 <%@ page import="java.util.Locale"%>
 
+<%@ page import="org.dspace.core.ConfigurationManager" %>
 <%@ page import="org.dspace.core.I18nUtil" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.eperson.EPerson" %>
 <%@ page import="org.dspace.core.Utils" %>
+
+<c:set var="provider_profile_url" ><%=((String) ConfigurationManager.getProperty("authentication-oauth", "provider.profile.url"))%></c:set>
+
+<!--<fmt:message key="xmlui.EPerson.OAuthEditProfile.textlinktoprovider"/>-->
 
 <%
     Locale[] supportedLocales = I18nUtil.getSupportedLocales();
@@ -57,18 +63,17 @@
     }
 %>
 	<div class="form-group">
-		<label class="col-md-offset-3 col-md-2 control-label" for="first_name"><fmt:message key="jsp.register.profile-form.fname.field"/></label>
-        <div class="col-md-3"><input class="form-control" type="text" name="first_name" id="tfirst_name" size="40" value="<%= Utils.addEntities(firstName) %>"/></div>
+		<label class="col-md-offset-3 col-md-2 control-label" for="tfullname"><fmt:message key="jsp.register.profile-form.name.field"/></label>
+                <div class="col-md-4"><div class="form-control" name="fullname" id="tfullname" ><%= Utils.addEntities(firstName) %> <%= Utils.addEntities(lastName) %></div></div>
 	</div>
 	<div class="form-group">
-        <%-- <td align="right" class="standard"><label for="tlast_name"><strong>Last name*:</strong></label></td> --%>
-		<label class="col-md-offset-3 col-md-2 control-label" for="tlast_name"><fmt:message key="jsp.register.profile-form.lname.field"/></label>
-        <div class="col-md-3"><input class="form-control" type="text" name="last_name" id="tlast_name" size="40" value="<%= Utils.addEntities(lastName) %>" /></div>
-    </div>
-	<div class="form-group">
 		<label class="col-md-offset-3 col-md-2 control-label" for="tphone"><fmt:message key="jsp.register.profile-form.phone.field"/></label>
-        <div class="col-md-3"><input class="form-control" type="text" name="phone" id="tphone" size="40" maxlength="32" value="<%= Utils.addEntities(phone) %>"/></div>
-    </div>
+                <div class="col-md-4"><div class="form-control" name="phone" id="tphone" ><%= Utils.addEntities(phone) %></div></div>
+        </div>
+	<div class="form-group">
+            <label class="col-md-offset-4 col-md-3"><a href="${provider_profile_url}" target="_blank" ><fmt:message key="usp.profile.textlinktoprovider"/></a></label>
+        </div>
+<% if(false){ %>
     <div class="form-group">
 		<label class="col-md-offset-3 col-md-2 control-label" for="tlanguage"><strong><fmt:message key="jsp.register.profile-form.language.field"/></strong></label>
  		<div class="col-md-3">
@@ -96,3 +101,4 @@
         </select>
         </div>
      </div>
+<% } %>

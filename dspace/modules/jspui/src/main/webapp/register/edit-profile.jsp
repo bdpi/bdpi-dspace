@@ -70,7 +70,7 @@
     }
 %>
 
-	<div class="alert alert-info"><fmt:message key="jsp.register.edit-profile.info3"/></div>
+	<div class="alert alert-info"><fmt:message key="jsp.register.edit-profile.info6"/></div>
     
     <form class="form-horizontal" action="<%= request.getContextPath() %>/profile" method="post">
 
@@ -79,7 +79,9 @@
 <%
     // Only show password update section if the user doesn't use
     // certificates
-    if ((eperson.getRequireCertificate() == false) && (ldap_eperson == false))
+    // [START] alterado para nunca mostrar alteração de senha jan.lara@sibi.usp.br 16.mai.2014
+    // if ((eperson.getRequireCertificate() == false) && (ldap_eperson == false))
+    if(false) // [FIM]
     {
 %>
         <%-- <p><strong>Optionally</strong>, you can choose a new password and enter it into the box below, and confirm it by typing it
@@ -102,9 +104,15 @@
 <%
   }
 %>
+                <%
+                if(false){
+                %>
 	<div class="col-md-offset-5">
        <%-- <p align="center"><input type="submit" name="submit" value="Update Profile"></p> --%>
 	   <input class="btn btn-success col-md-4" type="submit" name="submit" value="<fmt:message key="jsp.register.edit-profile.update.button"/>" />
 	 </div>
+                <%
+                }
+                %>
     </form>
 </dspace:layout>
