@@ -362,7 +362,7 @@
 
 	<!-- PubMed -->
 	<bean id="pubmedOnlineDataLoader" class="org.dspace.submit.lookup.PubmedOnlineDataLoader">
-		<property name="searchProvider" value="true" />
+		<property name="searchProvider" value="false" />
 		<property name="fieldMap" ref="pubmedInputMap" />
 	</bean>
 
@@ -403,7 +403,7 @@
 
 	<!-- Arxiv Data Loaders -->
 	<bean id="arXivOnlineDataLoader" class="org.dspace.submit.lookup.ArXivOnlineDataLoader">
-		<property name="searchProvider" value="true" />
+		<property name="searchProvider" value="false" />
 		<property name="fieldMap" ref="arxivInputMap" />
 	</bean>
 
@@ -432,11 +432,11 @@
 
 	<!-- CrossRef Data Loaders -->
 	<bean id="crossRefOnlineDataLoader" class="org.dspace.submit.lookup.CrossRefOnlineDataLoader">
-		<property name="searchProvider" value="true" />
+		<property name="searchProvider" value="false" />
 		<!-- For CrossRef service you need to obtain an API Key from CrossRef. Once you get it, add it 
 			 to the following configuration value 
 		-->
-		<property name="apiKey" value="tiago.murakami@dt.sibi.usp.br" />
+		<property name="apiKey" value="" />
 		<!-- Uncomment the following line if you want to define the max results returned by the 
 			 CrossRef free text (by author, title, date) search. Default value is 10 
 		-->
@@ -481,7 +481,7 @@
 
 	<!-- CiNii -->
 	<bean id="ciniiOnlineDataLoader" class="org.dspace.submit.lookup.CiNiiOnlineDataLoader">
-            <property name="searchProvider" value="true" />
+            <property name="searchProvider" value="false" />
             <!-- For CiNii service you need to obtain an Application ID from NII. 
                  Once you get it, add it to the following configuration value.
                  For details, see http://ci.nii.ac.jp/info/en/api/developer.html
