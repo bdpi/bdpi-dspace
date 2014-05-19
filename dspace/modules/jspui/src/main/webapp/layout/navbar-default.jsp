@@ -1,4 +1,4 @@
-﻿<%--
+<%--
 
     The contents of this file are subject to the license and copyright
     detailed in the LICENSE and NOTICE files at the root of the source
@@ -126,11 +126,11 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <b class="caret"></b></a>
                 <% }%>             
             <ul class="dropdown-menu">
-                <li><a data-toggle="modal" data-target="#openAccessPolicy"><fmt:message key="usp.menu.openaccesspolicy"/></a></li>
-                <li><a data-toggle="modal" data-target="#politicaDePrivacidade"><fmt:message key="usp.menu.privacypolicy"/></a></li>
-                <li><a data-toggle="modal" data-target="#direitosAutorais"><fmt:message key="usp.menu.rights"/></a></li>
-                <li><a data-toggle="modal" data-target="#faq"><fmt:message key="usp.menu.faq"/></a></li>
-                <li><a data-toggle="modal" data-target="#creditos"><fmt:message key="usp.menu.creditos"/></a></li>
+                <li><a data-toggle="modal" data-target="#openAccessPolicy" style="cursor:pointer"><fmt:message key="usp.menu.openaccesspolicy"/></a></li>
+                <li><a data-toggle="modal" data-target="#politicaDePrivacidade" style="cursor:pointer"><fmt:message key="usp.menu.privacypolicy"/></a></li>
+                <li><a data-toggle="modal" data-target="#direitosAutorais" style="cursor:pointer"><fmt:message key="usp.menu.rights"/></a></li>
+                <li><a data-toggle="modal" data-target="#faq" style="cursor:pointer"><fmt:message key="usp.menu.faq"/></a></li>
+                <li><a data-toggle="modal" data-target="#creditos" style="cursor:pointer"><fmt:message key="usp.menu.creditos"/></a></li>
                 <li><a href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Usuários</li>
