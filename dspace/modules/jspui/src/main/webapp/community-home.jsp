@@ -78,6 +78,8 @@
 <%-- Location bar --%>
 <dspace:include page="/layout/location-bar.jsp" />
 
+<div class="row">
+    <div class="col-md-8">
 <div class="well">
 <div class="row">
 	<div class="col-md-8">
@@ -86,11 +88,11 @@
             if(ConfigurationManager.getBooleanProperty("webui.strengths.show"))
             {
 %>
-                : [<%= ic.getCount(community) %>]
+                <span class="badge"><%= ic.getCount(community) %></span>
 <%
             }
 %>
-		<small><fmt:message key="jsp.community-home.heading1"/></small>
+		
         <a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= community.getHandle() %>/statistics"><fmt:message key="jsp.community-home.display-statistics"/></a>
 		</h2>
 	</div>
@@ -110,8 +112,31 @@
 <%
 	if (rs != null)
 	{ %>
-	<div class="col-md-8">
-        <div class="panel panel-primary">        
+	<div class="col-md-12">
+              
+      
+<%-- Browse --%>
+<div class="panel panel-primary">
+	<div class="panel-heading"><fmt:message key="jsp.general.browse"/></div>
+	<div class="panel-body">
+   				<%-- Insert the dynamic list of browse options --%>
+<%
+	for (int i = 0; i < bis.length; i++)
+	{
+		String key = "browse.menu." + bis[i].getName();
+%>
+	<form method="get" action="<%= request.getContextPath() %>/handle/<%= community.getHandle() %>/browse">
+		<input type="hidden" name="type" value="<%= bis[i].getName() %>"/>
+		<%-- <input type="hidden" name="community" value="<%= community.getHandle() %>" /> --%>
+		<input class="btn btn-default col-md-3" type="submit" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
+	</form>
+<%	
+	}
+%>
+			
+	</div>
+</div>            
+         <div class="panel panel-primary">    
         <div id="recent-submissions-carousel" class="panel-heading carousel slide">
         <%-- Recently Submitted items --%>
 			<h3><fmt:message key="jsp.community-home.recentsub"/>
@@ -169,7 +194,7 @@
 		    <div style="padding-bottom: 50px; min-height: 200px;" class="item <%= first?"active":""%>">
 		      <div style="padding-left: 80px; padding-right: 80px; display: inline-block;"><%= StringUtils.abbreviate(displayTitle, 400) %> 
 		      	<a href="<%= request.getContextPath() %>/handle/<%=items[i].getHandle() %>"> 
-		      		<button class="btn btn-success" type="button">See</button>
+		      		<button class="btn btn-success" type="button"><fmt:message key="jsp.home.see"/></button>
 		      		</a>
 		      </div>
 		    </div>
@@ -203,49 +228,30 @@
 	}
 %>
 	<div class="col-md-4">
-    	<%= sidebar %>
+
 	</div>
 </div>	
 
-<%-- Browse --%>
-<div class="panel panel-primary">
-	<div class="panel-heading"><fmt:message key="jsp.general.browse"/></div>
-	<div class="panel-body">
-   				<%-- Insert the dynamic list of browse options --%>
-<%
-	for (int i = 0; i < bis.length; i++)
-	{
-		String key = "browse.menu." + bis[i].getName();
-%>
-	<form method="get" action="<%= request.getContextPath() %>/handle/<%= community.getHandle() %>/browse">
-		<input type="hidden" name="type" value="<%= bis[i].getName() %>"/>
-		<%-- <input type="hidden" name="community" value="<%= community.getHandle() %>" /> --%>
-		<input class="btn btn-default col-md-3" type="submit" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
-	</form>
-<%	
-	}
-%>
-			
-	</div>
-</div>
 
-<div class="row">
 
     <%
     	int discovery_panel_cols = 12;
     	int discovery_facet_cols = 4;
     %>
 	<%@ include file="discovery/static-sidebar-facet.jsp" %>
+
+
 </div>
-<div class="row">
+<div class="col-md-4">
+
+<div class="panel">
+  <div class="panel-body">
 <%
 	boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.community-home.logos", true);
 	if (subcommunities.length != 0)
     {
 %>
-	<div class="col-md-6">
-
-		<h3><fmt:message key="jsp.community-home.heading3"/></h3>
+	<h3><fmt:message key="jsp.community-home.heading3"/></h3>
    
         <div class="list-group">
 <%
@@ -270,7 +276,7 @@
                 if (ConfigurationManager.getBooleanProperty("webui.strengths.show"))
                 {
 %>
-                    [<%= ic.getCount(subcommunities[j]) %>]
+                    <span class="badge"><%= ic.getCount(subcommunities[j]) %></span>
 <%
                 }
 %>
@@ -299,9 +305,11 @@
     if (collections.length != 0)
     {
 %>
-	<div class="col-md-6">
+	
+<div class="panel">
+  <div class="panel-body">        
 
-        <%-- <h2>Collections in this community</h2> --%>
+            <%-- <h2>Collections in this community</h2> --%>
 		<h3><fmt:message key="jsp.community-home.heading2"/></h3>
 		<div class="list-group">
 <%
@@ -326,7 +334,7 @@
             if(ConfigurationManager.getBooleanProperty("webui.strengths.show"))
             {
 %>
-                [<%= ic.getCount(collections[i]) %>]
+                <span class="badge"><%= ic.getCount(collections[i]) %></span>
 <%
             }
 %>
@@ -348,13 +356,15 @@
 %>
   </div>
 </div>
+   </div>
+</div>
 <%
     }
 %>
-</div>
+
     <% if(editor_button || add_button)  // edit button(s)
     { %>
-    <dspace:sidebar>
+
 		 <div class="panel panel-warning">
              <div class="panel-heading">
              	<fmt:message key="jsp.admintools"/>
@@ -403,6 +413,6 @@
 			<% } %>
 			</div>
 		</div>
-  </dspace:sidebar>
     <% } %>
+</div></div>    
 </dspace:layout>
