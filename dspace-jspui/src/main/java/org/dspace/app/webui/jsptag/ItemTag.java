@@ -1016,7 +1016,8 @@ public class ItemTag extends TagSupport
 											.authorizeActionBoolean(context,
 													bitstreams[k],
 													Constants.READ))
-										out.print("&nbsp;<a class=\"btn btn-success\" href=\""
+										out.print("&nbsp;&nbsp;<img src=\"/image/32px-Closed_Access_logo_white.svg.png\">"
+                                                                                                + "&nbsp;&nbsp;<a class=\"btn btn-success\" href=\""
 												+ request.getContextPath()
 												+ "/request-item?handle="
 												+ handle
