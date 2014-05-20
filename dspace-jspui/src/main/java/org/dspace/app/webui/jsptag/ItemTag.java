@@ -603,7 +603,7 @@ public class ItemTag extends TagSupport
                                     out.print("<a class=\"" + ("authority".equals(argument)?"authority ":"") + browseIndex + "\""
                                                             + "href=\"" + request.getContextPath() + "/browse?type=" + browseIndex + "&amp;" + argument + "="
                                                             + URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(values[j].value)
-                                                            + "</a>" + "&nbsp;<img src=\"/image/ehUSP.png\">");
+                                                            + "</a>");
 	                        }
 	                        else
 	                        {

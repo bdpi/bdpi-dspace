@@ -443,6 +443,6 @@
       
 
             </div>
-
+            <script>$(".authority.author").after(" <img src=\"\/image/ehUSP.png\">");</script>
 
         </dspace:layout>
