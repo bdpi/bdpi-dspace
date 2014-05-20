@@ -9,7 +9,7 @@ hot_deploy_jspui(){
 	then
 	     cd $webdir_src
 	     if [[ $(ls -1 | wc -l) > 0 ]]
-	     then for f in $(find * -iname '*.jsp' -type 'f')
+	     then for f in $(find * -type 'f' '(' -name '*.jsp' -o -name '*.properties' -o -name '*.cfg' ')')
 	          do if [ -f "$f" ]
 			then if [ -f "$webdir_app/$f" ]
 			     then rm $webdir_app/$f
