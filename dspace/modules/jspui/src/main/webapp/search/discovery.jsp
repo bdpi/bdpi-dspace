@@ -111,7 +111,8 @@
 %>
 
 <c:set var="dspace.layout.head.last" scope="request">
-<script type="text/javascript">
+<!--
+ <script type="text/javascript">
 	var jQ = jQuery.noConflict();
 	jQ(document).ready(function() {
 		jQ( "#spellCheckQuery").click(function(){
@@ -149,7 +150,8 @@
 				}
 			});
 	});
-</script>		
+</script>
+-->
 </c:set>
 
 <dspace:layout titlekey="jsp.search.title">
@@ -742,6 +744,9 @@ else
 
 </div>
 <% } %>
+<script type="text/javascript">
+    $(".authority.author").after(" <img src=\"\/image/ehUSP.png\">");  
+</script>
 </dspace:sidebar>
 </dspace:layout>
 
