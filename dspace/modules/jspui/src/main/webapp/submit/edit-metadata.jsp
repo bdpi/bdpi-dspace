@@ -1235,7 +1235,7 @@
      if (pageNum <= 1)
      {
 %>
-        <p><fmt:message key="jsp.submit.edit-metadata.info1"/></p>
+        <p><fmt:message key="jsp.submit.edit-metadata.info1"/></p> TESTE LEGAL SIM
 <%
      }
      else
@@ -1414,7 +1414,21 @@
 				<input class="btn btn-primary col-md-6" type="submit" name="<%=AbstractProcessingStep.NEXT_BUTTON%>" value="<fmt:message key="jsp.submit.edit-metadata.next"/>"/>
     <%  }  %>
     		</div><br/>
-</div>    		
+</div> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   	
+<script>
+$(document).ready(function(){
+var mag = $("input[name='dc_relation_ispartof']").val();
+var city = $("input[name='dc_publisher_city']").val();
+var vol = $("input[name='usp_description_volume_1']").val();
+var num = $("input[name='usp_description_issue']").val();
+var firstp = $("input[name='usp_description_initialpage']").val();
+var lastp = $("input[name='usp_description_lastpage']").val();
+var year = $("input[name='dc_date_issued_year']").val();
+$("textarea[name='dc_identifier_citation']").val(mag + ", " + city + ", v." + vol + ", n." + num + ", p." + firstp + "-" + lastp + ", " + year);
+});
+</script>
+	
     </form>
 
 </dspace:layout>
