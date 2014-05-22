@@ -1235,7 +1235,7 @@
      if (pageNum <= 1)
      {
 %>
-        <p><fmt:message key="jsp.submit.edit-metadata.info1"/></p> TESTE LEGAL SIM
+        <p><fmt:message key="jsp.submit.edit-metadata.info1"/></p>
 <%
      }
      else
