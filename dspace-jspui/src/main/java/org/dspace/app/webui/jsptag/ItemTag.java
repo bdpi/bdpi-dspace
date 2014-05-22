@@ -408,6 +408,7 @@ public class ItemTag extends TagSupport
         	String field = st.nextToken().trim();
             boolean isDate = false;
             boolean isLink = false;
+            boolean isVideoaula = false;
             boolean isResolver = false;
             boolean isNoBreakLine = false;
             boolean isDisplay = false;
@@ -435,6 +436,7 @@ public class ItemTag extends TagSupport
             {
                 isDate = style.contains("date");
                 isLink = style.contains("link");
+                isVideoaula = style.contains("videoaula");
 				isNoBreakLine = style.contains("nobreakline");
 				isDisplay = style.equals("inputform");
                 isResolver = style.contains("resolver") || urn2baseurl.keySet().contains(style);
@@ -533,6 +535,10 @@ public class ItemTag extends TagSupport
                             out.print("<a href=\"" + values[j].value + "\">"
                                     + Utils.addEntities(values[j].value) + "</a>");
                         }
+                        else if (isVideoaula)
+                        {
+                            out.print("<figure><img class=\"img-responsive\" src=\"" + values[j].value + "\"></figure>");
+                        }                        
                         else if (isDate)
                         {
                             DCDate dd = new DCDate(values[j].value);
