@@ -38,6 +38,9 @@ public class OAuthAuthentication
         implements AuthenticationMethod {
 
     private static final Logger log = Logger.getLogger(OAuthAuthentication.class);
+    private static final int MEMCACHED_TIMEOUT = 120;
+    private static final String MEMCACHED_IP = "127.0.0.1";
+    private static final int MEMCACHED_TCP = 11211;
     private static final String PROTECTED_RESOURCE_URL = ConfigurationManager.getProperty("authentication-oauth", "PROTECTED_RESOURCE_URL");
     private static final String API_KEY = ConfigurationManager.getProperty("authentication-oauth", "API_KEY");
     private static final String API_SECRET = ConfigurationManager.getProperty("authentication-oauth", "API_SECRET");
@@ -54,7 +57,7 @@ public class OAuthAuthentication
     
     private static MemcachedClient getCache(){
         try {
-            if(cache == null) cache = new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+            if(cache == null) cache = new MemcachedClient(new InetSocketAddress(MEMCACHED_IP, MEMCACHED_TCP));
             return cache;
         }
         catch(IOException e){
@@ -76,38 +79,42 @@ public class OAuthAuthentication
             EPerson eperson)
             throws SQLException {
         
-        // Need to create new eperson
-        // FIXME: TEMPORARILY need to turn off authentication, as usually
-        // only site admins can create e-people
-        context.setIgnoreAuthorization(true);
-        
-        eperson.setEmail((String) request.getSession().getAttribute("usp_bdpi_oauth_emailPrincipalUsuario"));
-        eperson.setNetid((String) request.getSession().getAttribute("usp_bdpi_oauth_loginUsuario"));
-        String[] name = ((String) request.getSession().getAttribute("usp_bdpi_oauth_nomeUsuario")).trim().split("\\s+");
-        StringBuilder firstname = new StringBuilder();
-        StringBuilder lastname = new StringBuilder();
-        for(int stri=0; stri<name.length ; stri++){
-            if(stri==0) firstname.append(name[stri]);
-            else {
-                if(lastname.length()==0) lastname.append(name[stri]);
-                else lastname.append(" ").append(name[stri]);
-            }
-        }
-        eperson.setFirstName(firstname.toString());
-        eperson.setLastName(lastname.toString());
-        eperson.setMetadata("phone", (String) request.getSession().getAttribute("usp_bdpi_oauth_numeroTelefoneFormatado"));
-        eperson.setMetadata("uspdigital_email_alternativo", (String) request.getSession().getAttribute("usp_bdpi_oauth_emailAlternativoUsuario"));
-        eperson.setMetadata("uspdigital_email_usp", (String) request.getSession().getAttribute("usp_bdpi_oauth_emailUspUsuario"));
-        eperson.setMetadata("uspdigital_usuario_tipo", (String) request.getSession().getAttribute("usp_bdpi_oauth_tipoUsuario"));
-        
         try {
+        
+            JSONObject jso = (JSONObject) request.getAttribute("jso");
+
+            context.turnOffAuthorisationSystem();
+            eperson.setEmail(jso.getString("emailPrincipalUsuario"));
+            eperson.setNetid(jso.getString("loginUsuario"));
+            String[] name = (jso.getString("nomeUsuario")).trim().split("\\s+");
+            StringBuilder firstname = new StringBuilder();
+            StringBuilder lastname = new StringBuilder();
+            for(int stri=0; stri<name.length ; stri++){
+                if(stri==0) firstname.append(name[stri]);
+                else {
+                    if(lastname.length()==0) lastname.append(name[stri]);
+                    else lastname.append(" ").append(name[stri]);
+                }
+            }
+            eperson.setFirstName(firstname.toString());
+            eperson.setLastName(lastname.toString());
+            eperson.setCanLogIn(true);
+            eperson.setLanguage("pt_BR");
+            eperson.setSelfRegistered(true);
+            eperson.setMetadata("phone", jso.getString("numeroTelefoneFormatado"));
+            eperson.setMetadata("uspdigital_email_alternativo", jso.getString("emailAlternativoUsuario"));
+            eperson.setMetadata("uspdigital_email_usp", jso.getString("emailUspUsuario"));
+            eperson.setMetadata("uspdigital_usuario_tipo", jso.getString("tipoUsuario"));
+        
             eperson.update();
         } catch (AuthorizeException ex) {
             java.util.logging.Logger.getLogger(OAuthAuthentication.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException e) {
+            log.trace(e);
         }
         
-        context.setIgnoreAuthorization(false);
-        
+        context.restoreAuthSystemState();
+        context.commit();
     }
     
     @Override
@@ -130,8 +137,6 @@ public class OAuthAuthentication
             String realm,
             HttpServletRequest request)
             throws SQLException {
-                
-        EPerson eperson;
 
         Token accessToken = oauthservice.getAccessToken(
                             new Token(oauth_token,(String) getCache().get(oauth_token)),
@@ -141,27 +146,20 @@ public class OAuthAuthentication
 
         oauthservice.signRequest(accessToken, orequest);
         Response oresponse = orequest.send();
+        
+        EPerson eperson;
 
         try {
 
             JSONObject jso = new JSONObject(oresponse.getBody());
 
-            /*
-            System.out.println("#########retornou######");
-            System.out.println(oresponse.getBody());
-            System.out.println("#########retornou######");
-            */
+            // System.out.println("[AQUIAGORA] #########retornou######");
+            // System.out.println("[AQUIAGORA] " + oresponse.getBody());
+            // System.out.println("[AQUIAGORA] #########retornou######");
 
             if (jso.getString("loginUsuario").length() > 0) {
-
-                request.getSession().setAttribute("usp_bdpi_oauth_di", jso);
-                request.getSession().setAttribute("usp_bdpi_oauth_loginUsuario", jso.getString("loginUsuario"));
-                request.getSession().setAttribute("usp_bdpi_oauth_nomeUsuario", jso.getString("nomeUsuario"));
-                request.getSession().setAttribute("usp_bdpi_oauth_tipoUsuario", jso.getString("tipoUsuario"));
-                request.getSession().setAttribute("usp_bdpi_oauth_emailPrincipalUsuario", jso.getString("emailPrincipalUsuario"));
-                request.getSession().setAttribute("usp_bdpi_oauth_emailAlternativoUsuario", jso.getString("emailAlternativoUsuario"));
-                request.getSession().setAttribute("usp_bdpi_oauth_emailUspUsuario", jso.getString("emailUspUsuario"));
-                request.getSession().setAttribute("usp_bdpi_oauth_numeroTelefoneFormatado", jso.getString("numeroTelefoneFormatado"));
+                
+                request.setAttribute("jso", jso);
 
                 eperson = EPerson.findByNetid(context, jso.getString("loginUsuario"));
                 if(eperson == null){
@@ -174,10 +172,26 @@ public class OAuthAuthentication
                     eperson = EPerson.findByEmail(context, jso.getString("emailUspUsuario"));
                 }
                 if (eperson == null) {
-                    return NO_SUCH_USER;
+                    try {
+                        context.turnOffAuthorisationSystem();
+                        eperson = EPerson.create(context); //cria novo usuário no banco
+                        initEPerson(context, request, eperson);
+                        context.setCurrentUser(eperson);
+                        context.restoreAuthSystemState();
+                        request.removeAttribute("jso");
+                        return SUCCESS;
+                    } catch (AuthorizeException ex) {
+                        java.util.logging.Logger.getLogger(OAuthAuthentication.class.getName()).log(Level.SEVERE, null, ex);
+                        request.removeAttribute("jso");
+                        return BAD_ARGS;
+                    }
                 } else {
+                    context.turnOffAuthorisationSystem();
+                    initEPerson(context, request, eperson); //atualiza e mantém atualizados os dados do usuário
                     context.setCurrentUser(eperson);
-                    return SUCCESS; //desta forma o metodo AuthenticationUtil.Authenticate faz o login
+                    context.restoreAuthSystemState();
+                    request.removeAttribute("jso");
+                    return SUCCESS;
                 }
             } else {
                 return NO_SUCH_USER;
@@ -208,7 +222,7 @@ public class OAuthAuthentication
 
         if (httpRequestHashCode != request.hashCode()) {
             
-            // devido a um bug do dspace, o metodo loginPageURL
+            // devido a algum bug do dspace, o metodo loginPageURL
             // e chamado 3 vezes a cada vez que essa pagina
             // e carregada. O uso do httpRequestHashCode evita
             // que o token seja gerado 3 vezes a cada chamada.
@@ -216,7 +230,7 @@ public class OAuthAuthentication
             httpRequestHashCode = request.hashCode();
 
             Token requesttoken = oauthservice.getRequestToken();
-            getCache().set(requesttoken.getToken(), 120, requesttoken.getSecret());
+            getCache().set(requesttoken.getToken(), MEMCACHED_TIMEOUT, requesttoken.getSecret());
             strLoginPageURL = response.encodeRedirectURL(oauthservice.getAuthorizationUrl(requesttoken));
         }
         return strLoginPageURL;

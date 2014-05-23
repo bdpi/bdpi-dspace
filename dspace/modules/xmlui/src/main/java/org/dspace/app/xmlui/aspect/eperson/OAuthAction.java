@@ -7,13 +7,8 @@
  */
 package org.dspace.app.xmlui.aspect.eperson;
 
-import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,14 +19,9 @@ import org.apache.cocoon.environment.Redirector;
 import org.apache.cocoon.environment.Request;
 import org.apache.cocoon.environment.SourceResolver;
 import org.apache.cocoon.environment.http.HttpEnvironment;
-import org.apache.cocoon.sitemap.PatternException;
 import org.dspace.app.xmlui.utils.AuthenticationUtil;
-import org.dspace.authenticate.AuthenticationManager;
-import org.dspace.authenticate.OAuthAuthentication;
-import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
-import org.dspace.eperson.EPerson;
 
 /**
  * Attempt to authenticate the user based upon their presented OAuth credentials. 
@@ -75,66 +65,32 @@ public class OAuthAction extends AbstractAction
         {
                 return null;
         }
-                
-        try
-        {
-            Context context = AuthenticationUtil.authenticate(objectModel, oauth_token, oauth_verifier, null); // authenticate ja loga o usuario
-            EPerson eperson = context.getCurrentUser();
-            if(eperson == null){
-                context.setIgnoreAuthorization(true);            
-                try {
-                    eperson = EPerson.create(context);
-                } catch (AuthorizeException ex) {
-                    java.util.logging.Logger.getLogger(OAuthAuthentication.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                eperson.setCanLogIn(true);
-                eperson.setLanguage("pt_BR");
-                eperson.setSelfRegistered(true);
-                context.setIgnoreAuthorization(false);
-            }
-            AuthenticationManager.initEPerson(context, request, eperson); // cria ou atualiza usuario
-            // eperson = EPerson.findByNetid(context, (String) request.getSession().getAttribute("usp_bdpi_oauth_loginUsuario"));
-            AuthenticationUtil.logIn(objectModel, eperson);
-            /*
-            System.out.println("eperson ID: ".concat(Integer.toString(eperson.getID())));
-            System.out.println("AUTHENTICATED_USER_ID: ".concat((String) request.getSession().getAttribute("AUTHENTICATED_USER_ID")) );
-            System.out.println("EFFECTIVE_USER_ID".concat((String) request.getSession().getAttribute("EFFECTIVE_USER_ID")));
-            */
-            /*
-            session.setAttribute(EFFECTIVE_USER_ID, eperson.getID());
-            session.setAttribute(AUTHENTICATED_USER_ID,eperson.getID());
-             */
-            
-            // The user has successfully logged in
-            String redirectURL = request.getContextPath();
-            if (AuthenticationUtil.isInterupptedRequest(objectModel))
-            {
-                    // Resume the request and set the redirect target URL to
-                    // that of the originally interrupted request.
-                    redirectURL += AuthenticationUtil.resumeInterruptedRequest(objectModel);
-            }
-            else
-            {
-                    // Otherwise direct the user to the specified 'loginredirect' page (or homepage by default)
-                    String loginRedirect = ConfigurationManager.getProperty("xmlui.user.loginredirect");
-                    redirectURL += (loginRedirect != null) ? loginRedirect.trim() : "/";	
-            }
-            // Authentication successful send a redirect.
-            final HttpServletResponse httpResponse = (HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT);
-            httpResponse.sendRedirect(redirectURL);
+        Context context = AuthenticationUtil.authenticate(objectModel, oauth_token, oauth_verifier, null); // authenticate ja loga o usuario
 
-            // log the user out for the rest of this current request, however they will be reauthenticated
-            // fully when they come back from the redirect. This prevents caching problems where part of the
-            // request is performed before the user was authenticated and the other half after it succeeded. This
-            // way the user is fully authenticated from the start of the request.
-            context.setCurrentUser(null);
-            return new HashMap();
-        }
-        catch (SQLException sqle)
+        // The user has successfully logged in
+        String redirectURL = request.getContextPath();
+        if (AuthenticationUtil.isInterupptedRequest(objectModel))
         {
-            throw new PatternException("Unable to perform authentication",
-                    sqle);
+                // Resume the request and set the redirect target URL to
+                // that of the originally interrupted request.
+                redirectURL += AuthenticationUtil.resumeInterruptedRequest(objectModel);
         }
+        else
+        {
+                // Otherwise direct the user to the specified 'loginredirect' page (or homepage by default)
+                String loginRedirect = ConfigurationManager.getProperty("xmlui.user.loginredirect");
+                redirectURL += (loginRedirect != null) ? loginRedirect.trim() : "/";	
+        }
+        // Authentication successful send a redirect.
+        final HttpServletResponse httpResponse = (HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT);
+        httpResponse.sendRedirect(redirectURL);
+
+        // log the user out for the rest of this current request, however they will be reauthenticated
+        // fully when they come back from the redirect. This prevents caching problems where part of the
+        // request is performed before the user was authenticated and the other half after it succeeded. This
+        // way the user is fully authenticated from the start of the request.
+        context.setCurrentUser(null);
+        return new HashMap();
 
     }
 

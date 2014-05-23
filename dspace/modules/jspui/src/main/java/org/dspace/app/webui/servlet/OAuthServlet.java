@@ -24,26 +24,12 @@ import org.dspace.authenticate.AuthenticationManager;
 import org.dspace.authenticate.AuthenticationMethod;
 
 /**
- * Shibbolize dspace. Follow instruction at 
- * http://mams.melcoe.mq.edu.au/zope/mams/pubs/Installation/dspace15
- *
- * Pull information from the header as released by Shibboleth target.
- * The header required are:
- * <ol><li>user email</li>
- * <li>first name (optional)</li>
- * <li>last name (optional)</li>
- * <li>user roles</li>
- * </ol>.
- *
- * All these info are configurable from the configuration file (dspace.cfg).
- *
- * @author  <a href="mailto:bliong@melcoe.mq.edu.au">Bruc Liong, MELCOE</a>
- * @author  <a href="mailto:kli@melcoe.mq.edu.au">Xiang Kevin Li, MELCOE</a>
+ * @author  Jan LL - jan.lara at sibi.usp.br 2014
  * @version $Revision$
  */
 public class OAuthServlet extends DSpaceServlet {
     /** log4j logger */
-    private static Logger log = Logger.getLogger(ShibbolethServlet.class);
+    private static Logger log = Logger.getLogger(OAuthServlet.class);
     
     protected void doDSGet(Context context,
             HttpServletRequest request,
@@ -63,7 +49,7 @@ public class OAuthServlet extends DSpaceServlet {
         // Locate the eperson
         
         String oauth_token = request.getParameter("oauth_token");
-        String oauth_verifier = request.getParameter("oauth_verifier");        
+        String oauth_verifier = request.getParameter("oauth_verifier");
         
         int status = AuthenticationManager.authenticate(context, oauth_token, oauth_verifier, null, request);
         
@@ -77,8 +63,6 @@ public class OAuthServlet extends DSpaceServlet {
             Authenticate.resumeInterruptedRequest(request, response);
             
             return;
-        }else if (status == AuthenticationMethod.CERT_REQUIRED){
-            jsp = "/error/require-certificate.jsp";
         }else if(status == AuthenticationMethod.NO_SUCH_USER){
             jsp = "/login/no-single-sign-out.jsp";
         }else if(status == AuthenticationMethod.BAD_ARGS){
@@ -88,7 +72,7 @@ public class OAuthServlet extends DSpaceServlet {
         // If we reach here, supplied email/password was duff.
         log.info(LogManager.getHeader(context, "failed_login","result="+String.valueOf(status)));
         JSPManager.showJSP(request, response, jsp);
-        return;
+        
     }
 }
 
