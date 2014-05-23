@@ -81,8 +81,10 @@
 %>
         
 	<script type='text/javascript' src="<%= request.getContextPath() %>/static/js/jquery/jquery-1.11.1.min.js"></script>
+        <script type='text/javascript'> var jquery_v1_11_1 = $.noConflict(); </script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/jquery/jquery-ui-1.10.3.custom.min.js'></script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bdpi/bdpi.min.js'></script>
+        <script type='text/javascript'> var jquery_vbdpi = $.noConflict(); </script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/holder.js'></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/utils.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"> </script>

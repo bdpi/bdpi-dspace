@@ -57,6 +57,20 @@
 <%
     request.setAttribute("LanguageSwitch", "hide");
 %>
+
+<script>
+jquery_v1_11_1(document).ready(function(){
+var mag = jquery_v1_11_1("input[name='dc_relation_ispartof']").val();
+var city = jquery_v1_11_1("input[name='dc_publisher_city']").val();
+var vol = jquery_v1_11_1("input[name='usp_description_volume_1']").val();
+var num = jquery_v1_11_1("input[name='usp_description_issue']").val();
+var firstp = jquery_v1_11_1("input[name='usp_description_initialpage']").val();
+var lastp = jquery_v1_11_1("input[name='usp_description_lastpage']").val();
+var year = jquery_v1_11_1("input[name='dc_date_issued_year']").val();
+jquery_v1_11_1("textarea[name='dc_identifier_citation']").val(mag + ", " + city + ", v." + vol + ", n." + num + ", p." + firstp + "-" + lastp + ", " + year);
+});
+</script>
+
 <%!
     // required by Controlled Vocabulary  add-on and authority addon
         String contextPath;
@@ -1415,18 +1429,6 @@
     <%  }  %>
     		</div><br/>
 </div> 
-<script>
-$(document).ready(function(){
-var mag = $("input[name='dc_relation_ispartof']").val();
-var city = $("input[name='dc_publisher_city']").val();
-var vol = $("input[name='usp_description_volume_1']").val();
-var num = $("input[name='usp_description_issue']").val();
-var firstp = $("input[name='usp_description_initialpage']").val();
-var lastp = $("input[name='usp_description_lastpage']").val();
-var year = $("input[name='dc_date_issued_year']").val();
-$("textarea[name='dc_identifier_citation']").val(mag + ", " + city + ", v." + vol + ", n." + num + ", p." + firstp + "-" + lastp + ", " + year);
-});
-</script>
 	
     </form>
 
