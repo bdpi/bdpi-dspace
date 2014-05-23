@@ -59,7 +59,7 @@
          <a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="25px" src="<%= request.getContextPath() %>/image/dspace-logo-only.png" /></a>
        </div>
        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-       <div class="nav navbar-nav navbar-right">
+       <div class="nav navbar-right">
 		<ul class="nav navbar-nav navbar-right">
          <li class="dropdown">
          <%
