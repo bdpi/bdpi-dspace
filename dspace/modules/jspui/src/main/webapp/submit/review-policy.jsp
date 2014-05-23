@@ -50,8 +50,8 @@
 <%-- ====================================================== --%>
 <%--                    REVIEW POLICY                      --%>
 <%-- ====================================================== --%>
-<div class="col-md-10">
-	<div class="row">
+<div class="row">
+<div class="col-md-9">
 		<span class="metadataFieldLabel col-md-4"><fmt:message key="jsp.submit.access.private_setting.heading"/></span> 
 		<span
 			class="metadataFieldValue col-md-8"> <% if(isDiscoverable) { %>
@@ -60,11 +60,10 @@
 			<fmt:message
 				key="jsp.submit.access.private_setting.review.notdiscoverable" /> <% } %>
 		</span>
-	</div>
 </div>
 
 <% if(rpolicies!=null && !rpolicies.isEmpty()) { %>
-<div class="col-md-10">
+<div class="col-md-9">
 		<% if(advanced) { %>
 			<div class="row">
 				<span class="metadataFieldLabel col-md-10"><fmt:message key="jsp.submit.access.plist.heading"/></span>
@@ -89,8 +88,9 @@
 </div>
 <% } %>
 
-<div class="col-md-2">
+<div class="col-md-3">
 	<input class="btn btn-default" type="submit"
 		name="submit_jump_<%=stepJump%>"
 		value="<fmt:message key="jsp.submit.access.review.button"/>" />
 </div>
+                </div>

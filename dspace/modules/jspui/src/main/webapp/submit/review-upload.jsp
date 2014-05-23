@@ -63,8 +63,9 @@
 <%-- ====================================================== --%>
 <%--                    UPLOADED_FILES                      --%>
 <%-- ====================================================== --%>
-<div class="col-md-10">
-                                    <div class="row">
+<div class="row">
+<div class="col-md-9">
+
                                         <span class="metadataFieldLabel col-md-4"><%= (subInfo.getSubmissionItem().hasMultipleFiles() ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload1") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload2")) %></span>
                                         <span class="metadataFieldValue col-md-8">
 <%
@@ -140,9 +141,8 @@ List<ResourcePolicy> rpolicies = AuthorizeManager.findPoliciesByDSOAndType(conte
 	}
 %>
                                         </span>
-                                    </div>
-                                </div>    
-                            <div class="col-md-2">
+                                    </div>    
+                            <div class="col-md-3">
 <%
     // Can't edit files in workflow mode
     if(!subInfo.isInWorkflow())
@@ -162,3 +162,5 @@ List<ResourcePolicy> rpolicies = AuthorizeManager.findPoliciesByDSOAndType(conte
     }
 %>
                   </div>
+                  </div>
+                  <br />

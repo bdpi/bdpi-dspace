@@ -69,7 +69,7 @@
         <p><fmt:message key="jsp.submit.review.info3"/></p>
 
         <p><fmt:message key="jsp.submit.review.info4"/></p>
-		<div class="container">
+		<div>
 <%
 		//loop through the list of review JSPs
 		while(reviewIterator.hasNext())
@@ -81,7 +81,7 @@
 			//finally get the path to the review JSP (the value)
 			String reviewJSP = (String) reviewJSPs.get(stepAndPage);
 	%>
-		    <div class="well row">
+		    <div>
 				<%--Load the review JSP and pass it step & page info--%>
 				<jsp:include page="<%=reviewJSP%>">
 					<jsp:param name="submission.jump" value="<%=stepAndPage%>" />	
