@@ -1415,7 +1415,6 @@
     <%  }  %>
     		</div><br/>
 </div> 
-
 <script>
 $(document).ready(function(){
 var mag = $("input[name='dc_relation_ispartof']").val();
