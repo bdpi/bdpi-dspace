@@ -55,20 +55,18 @@
                parenttitlekey="jsp.administer"
                parentlink="/dspace-admin">
 
-        <h1><%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.field."+mdfield+".title") %></h1>
+        <h1 style="font-size: 22px;"><%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.field."+mdfield+".title") %></h1>
 
-  <form id="aspect_general_ChoiceLookupTransformer_div_lookup"
-        class="ds-interactive-div popup" action="" method="get">
+  <form id="aspect_general_ChoiceLookupTransformer_div_lookup" role="form" action="" method="get">
+    
     <fieldset id="aspect_general_ChoiceLookupTransformer_list_choicesList"
               class="ds-form-list choices-lookup">
 
             <%-- Results @1@ to @2@ of @3@ for "@4@" --%>
-    <legend><fmt:message key="jsp.tools.lookup.results"/></legend>
-    <ol>
-      <li id="aspect_general_ChoiceLookupTransformer_item_select" class="ds-form-item choices-lookup"> 
-        <div class="ds-form-content">
+    <legend style="font-size:14px;"><fmt:message key="jsp.tools.lookup.results"/></legend>
+        <div class="form-group">
           <div>
-            <select onChange="javascript:DSpaceChoicesSelectOnChange();" id="aspect_general_ChoiceLookupTransformer_field_chooser" class="ds-select-field choices-lookup" name="chooser"
+            <select onChange="javascript:DSpaceChoicesSelectOnChange();" id="aspect_general_ChoiceLookupTransformer_field_chooser" class="form-control" style="font-size:12px;" name="chooser"
              size="<%= size %>">
              <!--space filler because "unclosed" select annoys browsers-->
             </select>
@@ -94,48 +92,43 @@
           <input name="paramFail" type="hidden" value="<%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.fail") %>" />
           <input name="contextPath" type="hidden" value="<%= request.getContextPath() %>" />
         </div>
-      </li>
-      <li id="aspect_general_ChoiceLookupTransformer_item_textFields" class="ds-form-item choices-lookup"> 
-        <div class="ds-form-content">
+        <div class="form-group">
 
           <% if (isName) { %>
           <%-- XXX get this from dspace config if available..?? --%>
             <% String help1 = LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.field."+mdfield+".help.last"); %>
             <% String help2 = LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.field."+mdfield+".help.first"); %>
-            <label class="ds-composite-component">
-              <input class="ds-text-field choices-lookup" name="text1" type="text" value=""
+            <label style="font-size:12px;">
+              <input class="form-control" style="font-size:12px;" name="text1" type="text" value=""
                   title="<%= help1 %>" />
               <br/><%= help1 %>
             </label>
-            <label class="ds-composite-component last">
-              <input class="ds-text-field choices-lookup" name="text2" type="text" value=""
+            <label style="font-size:12px;">
+              <input class="form-control" style="font-size:12px;" name="text2" type="text" value=""
                   title="<%= help2 %>" />
               <br/><%= help2 %>
             </label>
           <% } else { %>
           <%-- XXX get this from dspace config if available..?? --%>
             <% String help = LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.field."+mdfield+".help"); %>
-            <label class="ds-composite-component">
-              <input class="ds-text-field choices-lookup" name="text1" type="text" value=""
+            <label style="font-size:12px;">
+              <input class="form-control" style="font-size:12px;" name="text1" type="text" value=""
                   title="<%= help %>" />
               <br/><%= help %>
             </label>
           <% } %>
-          <div class="spacer"> </div>
         </div>
-      </li>
-      <li class="ds-form-item last choices-lookup"> 
-        <div class="ds-form-content">
-          <input name="accept"  onClick="javascript:DSpaceChoicesAcceptOnClick();" type="button" class="ds-button-field choices-lookup"
+        <div class="form-group">
+          <input name="accept"  onClick="javascript:DSpaceChoicesAcceptOnClick();" type="button" class="btn btn-success"
                 value="<%= LocaleSupport.getLocalizedMessage(pageContext, isRepeating ? "jsp.tools.lookup.add":"jsp.tools.lookup.accept") %>"/>
-          <input name="more"  onClick="javascript:DSpaceChoicesMoreOnClick();" type="button"   class="ds-button-field choices-lookup" disabled="disabled"
+          <input name="more"  onClick="javascript:DSpaceChoicesMoreOnClick();" type="button"   class="btn" disabled="disabled"
                 value="<%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.more") %>"/>
-          <input name="cancel"  onClick="javascript:DSpaceChoicesCancelOnClick();" type="button" class="ds-button-field choices-lookup"
+          <input name="cancel"  onClick="javascript:DSpaceChoicesCancelOnClick();" type="button" class="btn btn-danger"
                 value="<%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.cancel") %>"/>
         </div>
-      </li>
-    </ol>
+
   </fieldset>
+   
 </form>
 <script type="text/javascript">
         var form = document.getElementById('aspect_general_ChoiceLookupTransformer_div_lookup');
