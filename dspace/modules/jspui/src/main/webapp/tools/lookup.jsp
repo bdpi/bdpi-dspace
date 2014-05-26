@@ -40,6 +40,7 @@
     }
 %>
 <%
+    String size = String.valueOf(ConfigurationManager.getIntProperty("webui.lookup.select.size", 12));
     String mdfield = getDefaultedRequestParameter(request,"field", "FieldMissing");
     String isNameValue = getDefaultedRequestParameter(request,"isName", "false");
     String isRepeatingValue = getDefaultedRequestParameter(request,"isRepeating", "false");
@@ -68,7 +69,7 @@
         <div class="ds-form-content">
           <div>
             <select onChange="javascript:DSpaceChoicesSelectOnChange();" id="aspect_general_ChoiceLookupTransformer_field_chooser" class="ds-select-field choices-lookup" name="chooser"
-             size="<%= String.valueOf(ConfigurationManager.getIntProperty("webui.lookup.select.size", 12)) %>">
+             size="<%= size %>">
              <!--space filler because "unclosed" select annoys browsers-->
             </select>
             <img style="display:none;" alt="Loading..." id="lookup_indicator_id" class="choices-lookup"
@@ -81,7 +82,7 @@
           <input type="hidden" name="paramValueInput"     value="<%= getDefaultedRequestParameter(request,"valueInput", "") %>" />
           <input type="hidden" name="paramAuthorityInput" value="<%= getDefaultedRequestParameter(request,"authorityInput", "") %>" />
           <input type="hidden" name="paramStart"          value="<%= getDefaultedRequestParameter(request,"start", "0") %>" />
-          <input type="hidden" name="paramLimit"          value="<%= getDefaultedRequestParameter(request,"limit", "0") %>" />
+          <input type="hidden" name="paramLimit"          value="<%= getDefaultedRequestParameter(request,"limit", size) %>" />
           <input type="hidden" name="paramFormID"         value="<%= getDefaultedRequestParameter(request,"formID", "") %>" />
           <input type="hidden" name="paramIsClosed"       value="<%= getDefaultedRequestParameter(request,"isClosed", "false") %>" />
           <input type="hidden" name="paramConfIndicatorID" value="<%= getDefaultedRequestParameter(request,"confIndicatorID", "") %>" />
