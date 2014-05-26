@@ -392,6 +392,8 @@ public class ItemTag extends TagSupport
             configLine = defaultFields;
         }
 
+        listBitstreams();
+        
         out.println("<table class=\"table itemDisplayTable\">");
 
         /*
@@ -635,8 +637,6 @@ public class ItemTag extends TagSupport
         listCollections();
 
         out.println("</table><br/>");
-
-        listBitstreams();
 
         if (ConfigurationManager
                 .getBooleanProperty("webui.licence_bundle.show"))
