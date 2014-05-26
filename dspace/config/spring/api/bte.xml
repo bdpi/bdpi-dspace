@@ -536,7 +536,7 @@
 			<map key-type="java.lang.String" value-type="java.lang.String">
 				<entry value="jissn" key="dc.identifier.issn" />
 				<entry value="pisbn" key="dc.identifier.isbn" />
-				<entry value="journal" key="dc.source" />
+				<entry value="journal" key="dc.relation.ispartof" />
 				<entry value="title" key="dc.title" />
 				<entry value="issued" key="dc.date.issued" />
 				<entry value="language" key="dc.language.iso" />
@@ -548,8 +548,17 @@
 				<entry value="abstract" key="dc.description.abstract" />
 				<entry value="allkeywords" key="dc.subject" />
 				<entry value="arxivCategory" key="dc.subject" />
-				<entry value="doi" key="dc.identifier" />
+				<entry value="doi" key="dc.identifier.doi" />
 				<entry value="publisher" key="dc.publisher" />
+                                <entry value="url" key="dc.identifier.url" />
+                                <entry value="authorsWithAffiliation" key="usp.autor.externo" />
+                                <entry value="pubmedID" key="dc.identifier.other" />
+                                <entry value="jeissn" key="dc.identifier.eissn" />
+                                <entry value="volume" key="usp.description.volume" />
+				<entry value="issue" key="usp.description.issue" />
+				<entry value="firstpage" key="usp.description.initialpage" />
+				<entry value="lastpage" key="usp.description.lastpage" />
+                                <entry value="titleAlternative" key="dc.title.alternative" />
 				<!-- Not used - new metadata fields need to be declared for them in DSpace registry -->
 				<!-- 
 				<entry value="url" key="" />

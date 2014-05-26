@@ -213,12 +213,12 @@
 <%-- ====================================================== --%>
             
 <%@page import="org.dspace.workflow.WorkflowItem"%>
-<div class="col-md-10">
+<div class="col-md-9">
 
 <%
             layoutSection(request, out, inputSet, subInfo, item, pageNum, pageContext);
 %>
 </div>
-<div class="col-md-2">
+<div class="col-md-3">
      <input class="btn btn-default" type="submit" name="submit_jump_<%=stepJump%>" value="<fmt:message key="jsp.submit.review.button.correct"/>" />
 </div>

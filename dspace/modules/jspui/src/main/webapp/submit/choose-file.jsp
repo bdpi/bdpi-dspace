@@ -356,7 +356,7 @@
         <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.formats\")%>"><fmt:message key="jsp.submit.choose-file.info7"/></dspace:popup>
         </div>
 		<br/>
-	   <div class="row container">
+	   <div class="row">
     		<div class="row">
                     <%-- Document File: --%>
 					<label class="col-md-<%= bSherpa?"3":"2" %>" for="tfile"><fmt:message key="jsp.submit.choose-file.document"/></label>

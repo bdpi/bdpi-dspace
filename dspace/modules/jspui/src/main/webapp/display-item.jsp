@@ -443,6 +443,8 @@
       
 
             </div>
-
+            <script>$(".authority.author").after(" <img src=\"\/image/ehUSP.png\">");</script>
+            <script>$( "a:contains('\.pdf')" ).html(" <img src=\"\/image/pdf.png\">");</script>
+            
 
         </dspace:layout>

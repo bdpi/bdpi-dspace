@@ -32,9 +32,10 @@
 
 
 <dspace:layout titlekey="jsp.statistics.title">
+<div class="table-responsive">
 <h1><fmt:message key="jsp.statistics.title"/></h1>
 <h2><fmt:message key="jsp.statistics.heading.visits"/></h2>
-<table class="statsTable">
+<table class="table">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
@@ -61,7 +62,7 @@
 </table>
 
 <h2><fmt:message key="jsp.statistics.heading.monthlyvisits"/></h2>
-<table class="statsTable">
+<table class="table">
 <tr>
 <th><!-- spacer cell --></th>
 <c:forEach items="${statsMonthlyVisits.colLabels}" var="headerlabel" varStatus="counter">
@@ -95,7 +96,7 @@
 <% if(isItem) { %>
 
 <h2><fmt:message key="jsp.statistics.heading.filedownloads"/></h2>
-<table class="statsTable">
+<table class="table">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
@@ -124,7 +125,7 @@
 <% } %>
 
 <h2><fmt:message key="jsp.statistics.heading.countryvisits"/></h2>
-<table class="statsTable">
+<table class="table">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
@@ -151,7 +152,7 @@
 </table>
 
 <h2><fmt:message key="jsp.statistics.heading.cityvisits"/></h2>
-<table class="statsTable">
+<table class="table">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
@@ -177,7 +178,7 @@
 </c:forEach>
 </table>
 
-
+</div>
 </dspace:layout>
 
 

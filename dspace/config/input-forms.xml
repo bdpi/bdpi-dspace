@@ -1713,6 +1713,17 @@
 					<hint>Digite parte do título do periódico em que foi publicado o artigo e clique em buscar. Caso o título do periódico não apareça, digite o título, dando preferência ao título NÃO abreviado do periódico</hint>
 					<required>Título do periódico é um campo obrigatório.</required>
 				</field>
+                                <field>
+                                    <dc-schema>dc</dc-schema>
+                                    <dc-element>identifier</dc-element>
+                                    <dc-qualifier>issn</dc-qualifier>
+                                    <repeatable>false</repeatable>
+                                    <label>ISSN da revista</label>
+                                    <input-type>onebox</input-type>
+                                    <hint>Entre com o ISSN do periódico em que foi publicado o artigo. Ex: 0103-4014</hint>
+                                    <required></required>
+                                    <visibility>workflow</visibility>      
+                                </field>
 				<!-- Comentado em 2013-04-05 por Tiago<field><dc-schema>dc</dc-schema><dc-element>identifier</dc-element><dc-qualifier>issn</dc-qualifier><repeatable>false</repeatable><label>ISSN da revista</label><input-type>onebox</input-type><hint>Entre com o ISSN do periódico em que foi publicado o artigo. Ex: 0103-4014</hint><required></required><visibility>workflow</visibility>      </field>--> <!-- Comentado por Tiago 20130729      <field><dc-schema>dc</dc-schema><dc-element>relation</dc-element><dc-qualifier>ispartofseries</dc-qualifier><repeatable>false</repeatable><label>Volume/Número</label><input-type>series</input-type><hint>Informe o volume no primeiro campo e o número no segundo campo do periódico em que o artigo foi publicado. Utilize o formato v.99 para volume e n.99 para número.</hint><required></required></field>--><field>
 					<dc-schema>usp</dc-schema>
 					<dc-element>description</dc-element>
@@ -2106,7 +2117,19 @@
 					<hint>Digite parte do título do periódico em que foi publicado o artigo e clique em buscar. Caso o título do periódico não apareça, digite o título, dando preferência ao título NÃO abreviado do periódico</hint>
 					<required>Título do periódico é um campo obrigatório.</required>
 				</field>
-				<!-- Comentado em 2013-04-05 por Tiago<field><dc-schema>dc</dc-schema><dc-element>identifier</dc-element><dc-qualifier>issn</dc-qualifier><repeatable>false</repeatable><label>ISSN da revista</label><input-type>onebox</input-type><hint>Entre com o ISSN do periódico em que foi publicado o artigo. Ex: 0103-4014</hint><required></required><visibility>workflow</visibility>		 </field>--> <!-- Comentado por Tiago 20130729 	   <field><dc-schema>dc</dc-schema><dc-element>relation</dc-element><dc-qualifier>ispartofseries</dc-qualifier><repeatable>false</repeatable><label>Volume/Número</label><input-type>series</input-type><hint>Informe o volume no primeiro campo e o número no segundo campo do periódico em que o artigo foi publicado. Utilize o formato v.99 para volume e n.99 para número.</hint><required></required></field>--><field>
+				<field>
+                                    <dc-schema>dc</dc-schema>
+                                    <dc-element>identifier</dc-element>
+                                    <dc-qualifier>issn</dc-qualifier>
+                                    <repeatable>false</repeatable>
+                                    <label>ISSN da revista</label>
+                                    <input-type>onebox</input-type>
+                                    <hint>Entre com o ISSN do periódico em que foi publicado o artigo. Ex: 0103-4014</hint>
+                                    <required></required>
+                                    <visibility>workflow</visibility>      
+                                </field>
+                                <!-- Comentado em 2013-04-05 por Tiago<field><dc-schema>dc</dc-schema><dc-element>identifier</dc-element><dc-qualifier>issn</dc-qualifier><repeatable>false</repeatable><label>ISSN da revista</label><input-type>onebox</input-type><hint>Entre com o ISSN do periódico em que foi publicado o artigo. Ex: 0103-4014</hint><required></required><visibility>workflow</visibility>		 </field>--> <!-- Comentado por Tiago 20130729 	   <field><dc-schema>dc</dc-schema><dc-element>relation</dc-element><dc-qualifier>ispartofseries</dc-qualifier><repeatable>false</repeatable><label>Volume/Número</label><input-type>series</input-type><hint>Informe o volume no primeiro campo e o número no segundo campo do periódico em que o artigo foi publicado. Utilize o formato v.99 para volume e n.99 para número.</hint><required></required></field>-->
+                                <field>
 					<dc-schema>usp</dc-schema>
 					<dc-element>description</dc-element>
 					<dc-qualifier>volume</dc-qualifier>
