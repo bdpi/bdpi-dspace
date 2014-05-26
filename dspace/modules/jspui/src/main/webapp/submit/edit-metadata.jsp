@@ -69,6 +69,10 @@ var lastp = jquery_v1_11_1("input[name='usp_description_lastpage']").val();
 var year = jquery_v1_11_1("input[name='dc_date_issued_year']").val();
 jquery_v1_11_1("textarea[name='dc_identifier_citation']").val(mag + ", " + city + ", v." + vol + ", n." + num + ", p." + firstp + "-" + lastp + ", " + year);
 });
+jquery_v1_11_1(document).ready(function(){
+var issn = jquery_v1_11_1("input[name='dc_relation_ispartof_authority']").val();
+jquery_v1_11_1("input[name='dc_identifier_issn']").val(issn);
+});
 </script>
 
 <%!
