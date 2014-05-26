@@ -62,7 +62,7 @@
           <fmt:param value="<%= title %>"/>
         </fmt:message>
     </h1>
-	<div class="row container">
+	<div class="row">
     <form action="<%=request.getContextPath()%>/dspace-admin/curate" method="post">
 <%
     if (groupOptions != null && !"".equals(groupOptions))
@@ -98,7 +98,7 @@
   	</form>
       </div>  
     
-    	<div class="row container">
+    	<div class="row">
          	<form method="get" action="<%=request.getContextPath()%>/tools/edit-item">
             	<input type="hidden" name="item_id" value="<%= itemID %>"/>
     			<input class="btn btn-default" type="submit" value="<fmt:message key="jsp.dspace-admin.curate.return.item.button"/>"/>

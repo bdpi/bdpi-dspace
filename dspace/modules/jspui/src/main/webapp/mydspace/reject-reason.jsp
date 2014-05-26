@@ -50,7 +50,7 @@
         <input type="hidden" name="step" value="<%= MyDSpaceServlet.REJECT_REASON_PAGE %>"/>
         <textarea class="form-control" rows="6" cols="50" name="reason"></textarea>
 		<br/>
-		<div class="row container">
+		<div class="row">
 		<%-- <input type="submit" name="submit_cancel" value="Cancel Rejection" /> --%>
 		<input class="btn btn-default" type="submit" name="submit_cancel" value="<fmt:message key="jsp.mydspace.reject-reason.cancel.button"/>" />
 					
