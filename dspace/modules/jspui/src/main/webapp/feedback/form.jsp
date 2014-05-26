@@ -64,24 +64,22 @@
 <%
     }
 %>
-    <form action="<%= request.getContextPath() %>/feedback" method="post">
-        <center>
-            <table>
-                <tr>
-                    <td class="submitFormLabel"><label for="temail"><fmt:message key="jsp.feedback.form.email"/></label></td>
-                    <td><input type="text" name="email" id="temail" size="50" value="<%=StringEscapeUtils.escapeHtml(email)%>" /></td>
-                </tr>
-                <tr>
-                    <td class="submitFormLabel"><label for="tfeedback"><fmt:message key="jsp.feedback.form.comment"/></label></td>
-                    <td><textarea name="feedback" id="tfeedback" rows="6" cols="50"><%=StringEscapeUtils.escapeHtml(feedback)%></textarea></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                    <input type="submit" name="submit" value="<fmt:message key="jsp.feedback.form.send"/>" />
-                    </td>
-                </tr>
-            </table>
-        </center>
+    <form action="<%= request.getContextPath() %>/feedback" method="post" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="temail" class="col-sm-2 control-label"><fmt:message key="jsp.feedback.form.email"/></label>
+             <div class="col-sm-10">
+            <input type="text" name="email" class="form-control" id="temail" size="50" value="<%=StringEscapeUtils.escapeHtml(email)%>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tfeedback" class="col-sm-2 control-label"><fmt:message key="jsp.feedback.form.comment"/></label>
+            <div class="col-sm-10">
+            <textarea name="feedback" class="form-control" id="tfeedback" rows="6" cols="50"><%=StringEscapeUtils.escapeHtml(feedback)%></textarea>
+            </div>
+         </div>   
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" name="submit" class="btn btn-default" value="<fmt:message key="jsp.feedback.form.send"/>" />
+        </div>
     </form>
-
+<br/><br/>
 </dspace:layout>
