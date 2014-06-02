@@ -200,7 +200,7 @@ public class ItemTag extends TagSupport
     private boolean showThumbs;
 
     /** Default DC fields to display, in absence of configuration */
-    private static String defaultFields = "dc.title, dc.title.alternative, dc.contributor.*, dc.subject, dc.date.issued(date), dc.publisher, dc.identifier.citation, dc.relation.ispartofseries, dc.description.abstract, dc.description, dc.identifier.govdoc, dc.identifier.uri(link), dc.identifier.isbn, dc.identifier.issn, dc.identifier.ismn, dc.identifier";
+    private static String defaultFields = "dc.title, dc.title.alternative, dc.contributor.author, dc.subject, dc.date.issued(date), dc.publisher, dc.identifier.citation, dc.relation.ispartofseries, dc.description.abstract, dc.description, dc.identifier.govdoc, dc.identifier.uri(link), dc.identifier.isbn, dc.identifier.issn, dc.identifier.ismn, dc.identifier";
 
     /** log4j logger */
     private static Logger log = Logger.getLogger(ItemTag.class);
@@ -392,6 +392,8 @@ public class ItemTag extends TagSupport
             configLine = defaultFields;
         }
 
+        listBitstreams();
+        
         out.println("<table class=\"table itemDisplayTable\">");
 
         /*
@@ -408,6 +410,7 @@ public class ItemTag extends TagSupport
         	String field = st.nextToken().trim();
             boolean isDate = false;
             boolean isLink = false;
+            boolean isVideoaula = false;
             boolean isResolver = false;
             boolean isNoBreakLine = false;
             boolean isDisplay = false;
@@ -435,6 +438,7 @@ public class ItemTag extends TagSupport
             {
                 isDate = style.contains("date");
                 isLink = style.contains("link");
+                isVideoaula = style.contains("videoaula");
 				isNoBreakLine = style.contains("nobreakline");
 				isDisplay = style.equals("inputform");
                 isResolver = style.contains("resolver") || urn2baseurl.keySet().contains(style);
@@ -533,6 +537,10 @@ public class ItemTag extends TagSupport
                             out.print("<a href=\"" + values[j].value + "\">"
                                     + Utils.addEntities(values[j].value) + "</a>");
                         }
+                        else if (isVideoaula)
+                        {
+                            out.print("<figure><img class=\"img-responsive\" src=\"" + values[j].value + "\"></figure>");
+                        }                        
                         else if (isDate)
                         {
                             DCDate dd = new DCDate(values[j].value);
@@ -600,16 +608,20 @@ public class ItemTag extends TagSupport
 	                        {
 	                            argument = "authority";
 	                            value = values[j].authority;
+                                    out.print("<a class=\"" + ("authority".equals(argument)?"authority ":"") + browseIndex + "\""
+                                                            + "href=\"" + request.getContextPath() + "/browse?type=" + browseIndex + "&amp;" + argument + "="
+                                                            + URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(values[j].value)
+                                                            + "</a>");
 	                        }
 	                        else
 	                        {
 	                            argument = "value";
 	                            value = values[j].value;
+                                    out.print("<a class=\"" + ("authority".equals(argument)?"authority ":"") + browseIndex + "\""
+                                                            + "href=\"" + request.getContextPath() + "/browse?type=" + browseIndex + "&amp;" + argument + "="
+                                                            + URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(values[j].value)
+                                                            + "</a>");
 	                        }
-	                    	out.print("<a class=\"" + ("authority".equals(argument)?"authority ":"") + browseIndex + "\""
-	                                                + "href=\"" + request.getContextPath() + "/browse?type=" + browseIndex + "&amp;" + argument + "="
-	                    				+ URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(values[j].value)
-	                    				+ "</a>");
 	                    }
                         else
                         {
@@ -625,8 +637,6 @@ public class ItemTag extends TagSupport
         listCollections();
 
         out.println("</table><br/>");
-
-        listBitstreams();
 
         if (ConfigurationManager
                 .getBooleanProperty("webui.licence_bundle.show"))
@@ -760,7 +770,7 @@ public class ItemTag extends TagSupport
         HttpServletRequest request = (HttpServletRequest) pageContext
                 .getRequest();
 
-        out.print("<div class=\"panel panel-info\">");
+        out.print("<div class=\"panel panel-info table-responsive\">");
         out.println("<div class=\"panel-heading\">"
                 + LocaleSupport.getLocalizedMessage(pageContext,
                         "org.dspace.app.webui.jsptag.ItemTag.files")
@@ -1012,7 +1022,8 @@ public class ItemTag extends TagSupport
 											.authorizeActionBoolean(context,
 													bitstreams[k],
 													Constants.READ))
-										out.print("&nbsp;<a class=\"btn btn-success\" href=\""
+										out.print("&nbsp;&nbsp;<img src=\"/image/32px-Closed_Access_logo_white.svg.png\">"
+                                                                                                + "&nbsp;&nbsp;<a class=\"btn btn-success\" href=\""
 												+ request.getContextPath()
 												+ "/request-item?handle="
 												+ handle
