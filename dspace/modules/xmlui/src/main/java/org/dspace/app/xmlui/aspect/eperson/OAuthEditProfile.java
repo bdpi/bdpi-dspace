@@ -280,10 +280,10 @@ public class OAuthEditProfile extends EditProfile
             }
             
             subscribe.addItem();
-
+            /* 09.jun.2014 unneeded, go to oauth provider website
             Button submit = form.addItem().addButton("submit");
             submit.setValue(T_submit_create);
-            
+            */
             form.addItem();
 
             profile.addHidden("eperson-continue").setValue(knot.getId());
