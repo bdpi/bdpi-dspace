@@ -1176,6 +1176,9 @@
 		<name-map collection-handle="BDPI/1064"   form-name="relatorio" />
 		<!--  Departamento de Sistemas de Computação - ICMC/SSC  -->
 		<name-map collection-handle="BDPI/16902"   form-name="artigo" />
+		<name-map collection-handle="BDPI/35843"   form-name="evento" />
+		<name-map collection-handle="BDPI/35844"   form-name="livro" />
+		<name-map collection-handle="BDPI/35845"   form-name="relatorio" />
 		<!-- Outros departamentos - ICMC/Outros   -->
 		<name-map collection-handle="BDPI/1076"   form-name="artigo" />
 		<name-map collection-handle="BDPI/1077"   form-name="evento" />
