@@ -422,6 +422,24 @@ public class AuthorDAOPostgres extends AuthorDAO
         }
         return ocn;
     }
+    
+    public Author getAuthorByCodpes(String codpes) throws SQLException
+    {
+        if(codpes == null) {
+            return null;
+        }
+        else if(codpes.length() == 0){
+            return null;
+        }
+        else {
+            try {
+                return getAuthorByCodpes(Integer.parseInt(codpes));
+            }
+            catch(NumberFormatException e){
+                return null;
+            }
+        }
+    }
 
     /** Metodo que retorna um objeto do tipo Autor a partir de seu numero USP
      * @param codpes

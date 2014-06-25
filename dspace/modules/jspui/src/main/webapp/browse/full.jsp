@@ -26,6 +26,8 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="org.dspace.content.DCDate" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
+<%@ page import="org.dspace.content.Author" %>
+<%@ page import="org.dspace.content.dao.AuthorDAOPostgres" %>
 
 <%
     request.setAttribute("LanguageSwitch", "hide");
@@ -179,6 +181,80 @@
 	<h2>
 		<fmt:message key="browse.full.header"><fmt:param value="<%= scope %>"/></fmt:message> <fmt:message key="<%= typeKey %>"/> <%= value %>
 	</h2>
+        
+<%
+    if(type.equals("author")){
+        Author author = new Author();
+        AuthorDAOPostgres ap = new AuthorDAOPostgres();
+        author = ap.getAuthorByCodpes(value);
+        if(author != null){
+
+           StringBuilder unidadeDepto = new StringBuilder();
+           
+    /**
+     * Condicao que verifica se a unidade e a sigla nao e null 
+    */
+
+	   if(author.getUnidade().length() > 0) {
+             unidadeDepto.append(System.getProperty("line.separator"));
+             unidadeDepto.append(author.getUnidade()); 
+             if(author.getUnidadeSigla().length() > 0) { 
+               unidadeDepto.append(" (");
+               unidadeDepto.append(author.getUnidadeSigla().trim());
+               unidadeDepto.append(")");
+             }
+           }
+           else { 
+              unidadeDepto.append(" - ");
+           }
+
+    /**
+      * Condicao que verifica se o departamento e a sigla nao e null
+    */
+           if(author.getDepto().length() > 0) { 
+             unidadeDepto.append(" / ");
+             unidadeDepto.append(author.getDepto());
+             if(author.getDeptoSigla().length() > 0) {
+               unidadeDepto.append(" (");
+               unidadeDepto.append(author.getDeptoSigla().trim());
+               unidadeDepto.append(")");
+             }
+           }
+           else { unidadeDepto.append(" / - ");
+           }
+
+%>
+<div class="panel panel-default">
+    <div class="panel-heading"><%=(author.getSobrenome().toUpperCase() + ", " + author.getNomeInicial())%></div>
+    <div class="panel-body"><br/>
+<dl class="dl-horizontal col-md-offset-3">
+<% if(author.getNome().length() > 0){ %>
+<dt><fmt:message key="browse.cv.name"/>:&nbsp;&nbsp;</dt>
+<dd><%=author.getNome()%></dd>
+<% }
+   if(unidadeDepto.toString().length() > 0){ %>
+<dt><fmt:message key="browse.cv.unit"/> / <fmt:message key="browse.cv.department"/>:&nbsp;&nbsp;</dt>
+<dd><%=unidadeDepto.toString()%></dd>
+<% }
+   if(author.getFuncao().length() > 0){ %>
+<dt><fmt:message key="browse.cv.role"/>:&nbsp;&nbsp;</dt>
+<dd><%=author.getFuncao()%></dd>
+<% }
+   if(author.getVinculo().length() > 0){ %>
+<dt><fmt:message key="browse.cv.affiliation"/>:&nbsp;&nbsp;</dt>
+<dd><%=author.getVinculo()%></dd>
+<% }
+   if(author.getLattes().length() > 22) { %>
+<dd><a href="<%=author.getLattes()%>" target="_blank" class="_blank" name="_blank">Currículo Lattes</a></dd>
+<% } %>
+</dl>
+        </div>
+</div>
+            <%
+        }
+    }
+    else {
+%>
 
 	<%-- Include the main navigation for all the browse pages --%>
 	<%-- This first part is where we render the standard bits required by both possibly navigations --%>
@@ -264,7 +340,9 @@
 	</form>
 	</div>
 	<%-- End of Navigation Headers --%>
-
+<%
+    }
+%>
 	<%-- Include a component for modifying sort by, order, results per page, and et-al limit --%>
 	<div id="browse_controls" class="well text-center">
 	<form method="get" action="<%= formaction %>">

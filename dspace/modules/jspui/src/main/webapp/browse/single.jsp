@@ -76,12 +76,23 @@
 	{
 		linkBase = linkBase + "handle/" + community.getHandle() + "/";
 	}
-	
+
+        // [start] jan.lara 25.jun.2013
+        // if browsing by authorUSP links to author
+        String browsebytype;
+        if(bix.getName().equals("authorUSP") || bix.getName().equals("author")){
+            browsebytype = "author";
+        }
+        else {
+            browsebytype = bix.getName();
+        }
+        
 	String direction = (bi.isAscending() ? "ASC" : "DESC");
-	String sharedLink = linkBase + "browse?type=" + URLEncoder.encode(bix.getName(), "UTF-8") +
+	String sharedLink = linkBase + "browse?type=" + URLEncoder.encode(browsebytype, "UTF-8") +
 						"&amp;order=" + URLEncoder.encode(direction, "UTF-8") +
 						"&amp;rpp=" + URLEncoder.encode(Integer.toString(bi.getResultsPerPage()), "UTF-8");
-	
+	// [end] jan.lara 25.jun.2013
+
 	// prepare the next and previous links
 	String next = sharedLink;
 	String prev = sharedLink;
