@@ -62,7 +62,8 @@
         		+ c.getHandle() + "\"><img class=\"media-object img-responsive\" src=\"" + 
         		request.getContextPath() + "/retrieve/" + logo.getID() + "\" alt=\"community logo\"></a>");
         }
-        out.println( "<div class=\"media-body\"><h4 class=\"media-heading\"><a href=\"" + request.getContextPath() + "/handle/" 
+        out.print( "<div class=\"media-body\" style=\"margin:0px\"><h4 class=\"media-heading\">");
+		out.println("<span id=\"toggle\">[+] </span><a href=\"" + request.getContextPath() + "/handle/" 
         	+ c.getHandle() + "\">" + c.getMetadata("name") + "</a>");
         if(ConfigurationManager.getBooleanProperty("webui.strengths.show"))
         {
@@ -74,11 +75,12 @@
 			out.println(c.getMetadata("short_description"));
 		}
 		out.println("<br>");
+		
         // Get the collections in this community
-        Collection[] cols = (Collection[]) collectionMap.get(c.getID());
+		Collection[] cols = (Collection[]) collectionMap.get(c.getID());
         if (cols != null && cols.length > 0)
         {
-            out.println("<ul class=\"media-list\">");
+            out.println("<ul class=\"media-list\" style=\"display:none\">");
             for (int j = 0; j < cols.length; j++)
             {
                 out.println("<li class=\"media well\">");
@@ -110,7 +112,7 @@
         Community[] comms = (Community[]) subcommunityMap.get(c.getID());
         if (comms != null && comms.length > 0)
         {
-            out.println("<ul class=\"media-list\">");
+            out.println("<ul class=\"media-list\" style=\"display:none\">");
             for (int k = 0; k < comms.length; k++)
             {
                showCommunity(comms[k], out, request, ic, collectionMap, subcommunityMap);
@@ -173,5 +175,20 @@
      </div>
 <%
     }
-%>     
+%>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+ $("span#toggle").click(function(){
+    $(this).closest("li").find("ul:first").toggle();
+
+     if( $(this).closest("li").find("ul:first").is(':visible')) 
+     $(this).text('[ - ] ');
+     else $(this).text('[+] ');
+
+  });
+});
+
+</script>
 </dspace:layout>
