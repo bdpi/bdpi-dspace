@@ -275,16 +275,15 @@
 
                 <%      } %>
                 <div class="panel panel-success">
-                    <div class="panel-heading">Informações suplementares</div>
+                    <div class="panel-heading"><fmt:message key="jsp.display-item.citation"/></div>
                     <div class="panel-body">
-                        <dl>
-                  <dt>Como citar</dt>      
-                  <dd>
-                <%-- <strong>Please use this identifier to cite or link to this item:--%>
-                <div style="width: 95%; display: inline-block; word-wrap: break-word;"><fmt:message key="jsp.display-item.identifier"/> <%= HandleManager.getCanonicalForm(handle)%></div>                        
-                    </dd>
-                    <dt>Metadados do registro</dt>
-                    <dd>
+                        <%-- <strong>Please use this identifier to cite or link to this item:--%>
+                        <div style="width: 95%; display: inline-block; word-wrap: break-word;"><fmt:message key="jsp.display-item.identifier"/> <%= HandleManager.getCanonicalForm(handle)%></div>
+                    </div>
+                    <div class="panel-heading"><fmt:message key="jsp.display-item.moreabout"/></div>
+                    <div class="panel-body">
+                      
+                    
                     <%
                         String locationLink = request.getContextPath() + "/handle/" + handle;
 
@@ -295,12 +294,12 @@
                     %>
                     <form class="col-md-2" method="post" action="<%= request.getContextPath()%>/view-workspaceitem">
                         <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue()%>" />
-                        <input class="btn btn-primary" type="submit" name="submit_simple" value="<fmt:message key="jsp.display-item.text1"/>" />
+                        <input type="submit" name="submit_simple" value="<fmt:message key="jsp.display-item.text1"/>" />
                     </form>
                     <%
                     } else {
                     %>
-                    <a class="btn btn-primary" href="<%=locationLink%>?mode=simple">
+                    <a href="<%=locationLink%>?mode=simple">
                         <fmt:message key="jsp.display-item.text1"/>
                     </a>
                     <%
@@ -319,7 +318,7 @@
                     <%
                     } else {
                     %>
-                    <a class="btn btn-primary" href="<%=locationLink%>?mode=full">
+                    <a href="<%=locationLink%>?mode=full">
                         <fmt:message key="jsp.display-item.text2"/>
                     </a>
                     <%
@@ -342,13 +341,11 @@
                         <%
                             }
                         %>
-                                        </dd>
-                    <dt>Estatísticas de acesso ao registro</dt>
-                                        <dd>
-                        <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath()%>/handle/<%= handle%>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
-                    </dd>
-                    <dt>Buscar este registro em outras fontes pelo SFX</dt>
-                    <dd>
+                        <br/>
+                        <a class="statisticsLink" href="<%= request.getContextPath()%>/handle/<%= handle%>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
+                    </div>    
+                    <div class="panel-heading"><fmt:message key="jsp.display-item.sfxheading"/></div>
+                    <div class="panel-body">
                     <%-- SFX Link --%>
                     <%
                         if (ConfigurationManager.getProperty("sfx.server.url") != null) {
@@ -357,14 +354,14 @@
                                 sfximage = request.getContextPath() + "/image/sfx-link.gif";
                             }
                     %>
-                    <a class="btn" href="<dspace:sfxlink item="<%= item%>"/>" /><img src="<%= sfximage%>" border="0" alt="SFX Query" /></a>
+                        <a href="<dspace:sfxlink item="<%= item%>"/>" /><fmt:message key="jsp.display-item.sfx"/></a>
+                    </div>
                     <%
                             }
                         }
                     %>
-                    </dd>    
-                     </dl>   
-                    </div>
+  
+
                     <%
                     if (checkdoi) {
                      %>
@@ -397,10 +394,7 @@
                         <div class="panel-heading">Citações</div>
                         <div class="panel-body">
                         <p>Procurar citações no <a href="http://scholar.google.com/scholar?q=<%=doi[0].value%>" target="_blank">Google Scholar</a></p>
-                        </div>
-                        <div class="panel-body text-center">
                             <script type="text/javascript" src="http://api.elsevier.com/javascript/citedby_image.jsp"></script>
-
                         <script type="text/javascript">
                             $(document).ready(function getScopusCitation(){
                                var varSearchObj = new searchObj();
@@ -431,9 +425,7 @@
                         </script>
                 <!-- SECTION 4 : Setting defaults -->
                         <script type="text/javascript"> </script>
-       
-                    <div id="citedBy"></div>
-                            
+                           <div id="citedBy"></div>                    
                         </div>    
                  <%
                     }
