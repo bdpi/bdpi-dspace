@@ -46,6 +46,11 @@
 <%@page import="org.dspace.eperson.EPerson"%>
 <%@page import="org.dspace.versioning.VersionHistory"%>
 <%@page import="org.elasticsearch.common.trove.strategy.HashingStrategy"%>
+<%@ page import="org.dspace.share.DSpaceSharingManager" %>
+<%@ page import="org.dspace.services.share.ShareProvider" %>
+<%@ page import="org.dspace.share.ShareItemWrapper" %>
+<%@ page import="org.dspace.export.api.ExportItemProvider" %>
+<%@ page import="org.dspace.export.impl.ExportItemManager" %>
 <%
     // Attributes
     Boolean displayAllBoolean = (Boolean) request.getAttribute("display.all");
@@ -114,6 +119,14 @@
         displayDOI = dcv[0].value;
     }
 */
+
+    //Export
+
+    ShareItemWrapper shareItem = new ShareItemWrapper(item);
+    DSpaceSharingManager sharingManager = new DSpaceSharingManager();
+    
+    ExportItemManager exportManager = new ExportItemManager();
+   
 %>
 
 <%@page import="org.dspace.app.webui.servlet.MyDSpaceServlet"%>
@@ -394,7 +407,7 @@
                         <div class="panel-heading">Citações</div>
                         <div class="panel-body">
                         <p>Procurar citações no <a href="http://scholar.google.com/scholar?q=<%=doi[0].value%>" target="_blank">Google Scholar</a></p>
-                            <script type="text/javascript" src="http://api.elsevier.com/javascript/citedby_image.jsp"></script>
+                            <script type="text/javascript" src="http://api.elsevier.com/javascript/citedby.jsp"></script>
                         <script type="text/javascript">
                             $(document).ready(function getScopusCitation(){
                                var varSearchObj = new searchObj();
@@ -430,6 +443,40 @@
                  <%
                     }
                 %>     
+                <div class="panel-heading">Export</div>
+                <div class="panel-body">
+                        <% if (sharingManager.getProviders() != null && exportManager.getProviders() != null && (!sharingManager.getProviders().isEmpty() || !exportManager.getProviders().isEmpty())) { %>
+                                <div class="sharingbar">
+                                        <div class="left">
+                                                <% for (ShareProvider p : sharingManager.getProviders()) { %>
+                                                <% if (shareItem.getUrl() == null) { %>OLA<% } %>
+                                                <% if (p.isAvailable(shareItem)) { %>
+                                                <a target="_blank" href="<%=p.generateUrl(shareItem)%>">
+                                                        <% String altLabel = "sharingbar."+p.getId()+".alt";
+                                                        String titleLabel = "sharingbar."+p.getId()+".title"; %>
+                                                        <img alt="<fmt:message key="<%= altLabel %>"/>" title="<fmt:message key="<%=titleLabel%>"/>" src="<%= request.getContextPath() %>/image/sharing/<%=p.getImage()%>" />
+                                                </a>
+                                                <% } %>
+                                                <% } %>
+                                        </div>
+
+                                        <div class="right">
+                                                <% for (ExportItemProvider p : exportManager.getProviders()) { %>
+                                                <a target="_blank" href="<%= request.getContextPath() %>/item-export/<%=item.getHandle()%>/<%=p.getId()%>">
+                                                <% 
+                                                String altText = "export."+p.getId()+".alt";
+                                                String titleText = "export."+p.getId()+".title";
+                                                %>
+                                                        <img alt="<fmt:message key="<%= altText %>" />" title="<fmt:message key="<%= titleText %>"/>" src="<%= request.getContextPath() %>/image/sharing/<%=p.getImage()%>" />
+                                                </a>
+                                                <% } %>
+                                                <!-- Mendeley -->
+                                                <a onclick="javascript:document.getElementsByTagName('body')[0].appendChild(document.createElement('script')).setAttribute('src','http://www.mendeley.com/min.php/bookmarklet');" href="#"><img src="<%= request.getContextPath() %>/image/sharing/mendeley.png" title="<fmt:message key="export.mendeley.title" />" alt="<fmt:message key="export.mendeley.alt" />"></a>
+                                        </div>
+                                        <div class="clear"></div>
+                                </div>
+                        <% } %>
+                </div>
                 </div>
             </div>
       

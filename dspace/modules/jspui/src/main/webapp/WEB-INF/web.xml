@@ -486,7 +486,21 @@
     <servlet-name>request-item</servlet-name>
     <servlet-class>org.dspace.app.webui.servlet.RequestItemServlet</servlet-class>
   </servlet>
-    	
+  
+  <!-- Export inicio -->
+
+   <servlet>
+     <servlet-name>item-export</servlet-name>
+     <servlet-class>org.dspace.app.webui.servlet.ExportItemServlet</servlet-class>
+   </servlet>
+ 
+    <servlet-mapping>
+     <servlet-name>item-export</servlet-name>
+     <url-pattern>/item-export/*</url-pattern>
+    </servlet-mapping>
+ 
+ <!-- Export fim -->
+  	
   <servlet-mapping>
     <servlet-name>shibboleth-login</servlet-name>
     <url-pattern>/shibboleth-login</url-pattern>
