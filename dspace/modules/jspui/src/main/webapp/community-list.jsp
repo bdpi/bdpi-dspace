@@ -54,7 +54,7 @@
     		Map collectionMap, Map subcommunityMap) throws ItemCountException, IOException, SQLException
     {
 		boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.community-list.logos", true);
-        out.println( "<li class=\"media well\">" );
+        out.println( "<li style=\"padding:5px;\">" );
         Bitstream logo = c.getLogo();
         if (showLogos && logo != null)
         {
@@ -62,28 +62,23 @@
         		+ c.getHandle() + "\"><img class=\"media-object img-responsive\" src=\"" + 
         		request.getContextPath() + "/retrieve/" + logo.getID() + "\" alt=\"community logo\"></a>");
         }
-        out.print( "<div class=\"media-body\" style=\"margin:0px\"><h4 class=\"media-heading\">");
-		out.println("<span id=\"toggle\">[+] </span><a href=\"" + request.getContextPath() + "/handle/" 
+        out.print( "<div class=\"media-body\"><strong><h4 class=\"media-heading\" style=\"font-weight:bold;\">");
+		out.println("<span id=\"toggle\">[ + ] </span><a href=\"" + request.getContextPath() + "/handle/" 
         	+ c.getHandle() + "\">" + c.getMetadata("name") + "</a>");
         if(ConfigurationManager.getBooleanProperty("webui.strengths.show"))
         {
             out.println(" <span class=\"badge\">" + ic.getCount(c) + "</span>");
         }
 		out.println("</h4>");
-		if (StringUtils.isNotBlank(c.getMetadata("short_description")))
-		{
-			out.println(c.getMetadata("short_description"));
-		}
-		out.println("<br>");
-		
+				
         // Get the collections in this community
 		Collection[] cols = (Collection[]) collectionMap.get(c.getID());
         if (cols != null && cols.length > 0)
         {
-            out.println("<ul class=\"media-list\" style=\"display:none\">");
+            out.println("<ul style=\"display:none;list-style-type: none;padding: 0px;margin: 0px;\">");
             for (int j = 0; j < cols.length; j++)
             {
-                out.println("<li class=\"media well\">");
+                out.println("<li>  ");
                 
                 Bitstream logoCol = cols[j].getLogo();
                 if (showLogos && logoCol != null)
@@ -92,16 +87,12 @@
                 		+ cols[j].getHandle() + "\"><img class=\"media-object img-responsive\" src=\"" + 
                 		request.getContextPath() + "/retrieve/" + logoCol.getID() + "\" alt=\"collection logo\"></a>");
                 }
-                out.println("<div class=\"media-body\"><h4 class=\"media-heading\"><a href=\"" + request.getContextPath() + "/handle/" + cols[j].getHandle() + "\">" + cols[j].getMetadata("name") +"</a>");
+                out.println("<div ><h4 class=\"media-heading\"><a href=\"" + request.getContextPath() + "/handle/" + cols[j].getHandle() + "\">" + cols[j].getMetadata("name") +"</a>");
 				if(ConfigurationManager.getBooleanProperty("webui.strengths.show"))
                 {
                     out.println(" [" + ic.getCount(cols[j]) + "]");
                 }
 				out.println("</h4>");
-				if (StringUtils.isNotBlank(cols[j].getMetadata("short_description")))
-				{
-					out.println(cols[j].getMetadata("short_description"));
-				}
 				out.println("</div>");
                 out.println("</li>");
             }
@@ -112,7 +103,7 @@
         Community[] comms = (Community[]) subcommunityMap.get(c.getID());
         if (comms != null && comms.length > 0)
         {
-            out.println("<ul class=\"media-list\" style=\"display:none\">");
+            out.println("<ul style=\"display:none; list-style-type: none;\">");
             for (int k = 0; k < comms.length; k++)
             {
                showCommunity(comms[k], out, request, ic, collectionMap, subcommunityMap);
@@ -129,7 +120,7 @@
 <%
     if (admin_button)
     {
-%>     
+%> 
 <div class="row">
     <div class="col-md-3">
 			<div class="panel panel-warning">
@@ -183,10 +174,13 @@ $(document).ready(function(){
  $("span#toggle").click(function(){
     $(this).closest("li").find("ul:first").toggle();
 
-     if( $(this).closest("li").find("ul:first").is(':visible')) 
+	if( $(this).closest("li").find("ul:first").is(':visible')){
      $(this).text('[ - ] ');
-     else $(this).text('[+] ');
-
+	 $(this).closest("li").find("ul:first").css("padding-left","50px");
+	 }
+     else{
+	 $(this).text('[ + ] ');
+	}
   });
 });
 
