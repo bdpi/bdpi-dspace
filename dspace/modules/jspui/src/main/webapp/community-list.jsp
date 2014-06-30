@@ -171,9 +171,14 @@
 <script>
 
 $(document).ready(function(){
- $("span#toggle").click(function(){
-    $(this).closest("li").find("ul:first").toggle();
 
+	$("span#toggle").css('cursor','pointer');
+
+ $("span#toggle").click(function(){
+
+ 
+    $(this).closest("li").find("ul:first").toggle();
+	
 	if( $(this).closest("li").find("ul:first").is(':visible')){
      $(this).text('[ - ] ');
 	 $(this).closest("li").find("ul:first").css("padding-left","50px");
