@@ -171,7 +171,7 @@
         <div class="col-md-4">
             <div class="panel text-justify">
                 <div class="panel-heading">
-                    <h3>Unidades USP</h3>
+                    <h3><fmt:message key="jsp.home.com1"/></h3>
                 </div>
                 <div class="row tooltip-demo">
                     <div class="col-md-3" style="margin-bottom: 5px;"><a href="handle/BDPI/1315"><img class="img-responsive" src="image/logosusp/cebimar.jpg" title="Centro de Biologia Marinha - CEBIMar"></a></div>
