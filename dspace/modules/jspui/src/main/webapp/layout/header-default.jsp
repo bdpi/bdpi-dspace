@@ -244,18 +244,26 @@
                                                 <div class="logo">
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
                                                 </div>
+													                                                                    
                                             </div>
-                                            <div class="col-md-4">
+                                           </div>
+																	
+																	<!--<div class="col-md-4" style="text-align:right; position: absolute;">
                                                 <address>
                                                     <strong>Departamento Técnico do Sistema Integrado de Bibliotecas da USP</strong><br>
                                                         Rua da Biblioteca, S/N - Complexo Brasiliana<br>
                                                             05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
                                                                 <abbr title="Phone">Tel:</abbr> (0xx11) 3091-1539 e 3091-1566<br>
                                                                     <strong>E-mail:</strong> <a href="mailto:#">atendimento@sibi.usp.br</a>
-                                                                    </address>
-                                                                    </div>
-                                                                    </div>
-                                                                    <header class="navbar navbar-inverse" role="navigation">
+                                                                    </address> 
+																
+																	
+																	
+                                                                    </div>-->
+																	 <h6 style="text-align:right; font-weight: 700; margin:0;">
+											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
+											&nbsp;</h6>
+																	<header class="navbar navbar-inverse" role="navigation">
                                                                         <%
                                                                             if (!navbar.equals("off")) {
                                                                         %>

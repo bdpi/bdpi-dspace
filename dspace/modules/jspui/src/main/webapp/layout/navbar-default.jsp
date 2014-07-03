@@ -74,7 +74,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="<%= request.getContextPath()%>/"><img height="25px" src="<%= request.getContextPath()%>/image/dspace-logo-only.png" /></a>
 </div>
 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
@@ -104,14 +103,14 @@
         <li><a data-toggle="modal" data-target="#faq">FAQ</a></li> <!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
+<!--        <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.language"/><b class="caret"></b></a>
             <ul class="dropdown-menu text-center">
                 <li><a href="?locale=pt_BR"><img src="/image/pt_BR.png" title="Português"></a></li>
                 <li><a href="?locale=en"><img src="/image/en.png" title="English"></a></li>
                 <li><a href="?locale=es"><img src="/image/es.png" title="Español"></a></li>
             </ul>
-        </li>
+        </li> -->
         <li class="dropdown">
             <%
                 if (user != null) {
