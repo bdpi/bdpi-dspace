@@ -52,20 +52,16 @@
                     <a href="#">Voltar ao início</a>
                 </div>
             </div>
-			
-			
-			
-        </footer>
+	</footer>
     </div>
-
-<address style="text-align:center;">
-<strong>Departamento Técnico do Sistema Integrado de Bibliotecas da USP</strong><br>
+</div>
+                    
+<address class="text-center">
+Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
-<abbr title="Phone">Tel:</abbr> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;<strong>E-mail:</strong> <a href="mailto:#">atendimento@sibi.usp.br</a>
+<abbr title="Phone">Tel:</abbr> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;E-mail: <a href="mailto:#">atendimento@sibi.usp.br</a>
 </address> <br><br><br>
 	
-</div>
-</div>
 </main>
 </body>
 </html>

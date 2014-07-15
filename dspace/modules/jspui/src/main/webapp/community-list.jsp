@@ -62,7 +62,7 @@
         		+ c.getHandle() + "\"><img class=\"media-object img-responsive\" src=\"" + 
         		request.getContextPath() + "/retrieve/" + logo.getID() + "\" alt=\"community logo\"></a>");
         }
-        out.print( "<div class=\"media-body\"><strong><h4 class=\"media-heading\">");
+        out.print( "<div class=\"media-body\"><h4 class=\"media-heading\">");
 		out.println("<span id=\"toggle\">[ + ] </span><a href=\"" + request.getContextPath() + "/handle/" 
         	+ c.getHandle() + "\">" + c.getMetadata("name") + "</a>");
         if(ConfigurationManager.getBooleanProperty("webui.strengths.show"))
