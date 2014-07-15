@@ -92,7 +92,7 @@
                 {
                     out.println(" [" + ic.getCount(cols[j]) + "]");
                 }
-				out.println("</h4>");
+				out.println("</h5>");
 				out.println("</div>");
                 out.println("</li>");
             }
@@ -142,7 +142,8 @@
 <%
     }
 %>
-	<h1><fmt:message key="jsp.community-list.title"/></h1>
+    <div class="panel-body">
+        <h3><fmt:message key="jsp.community-list.title"/></h3>
 	<p><fmt:message key="jsp.community-list.text1"/></p>
 
 <% if (communities.length != 0)
@@ -167,7 +168,8 @@
 <%
     }
 %>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 
 $(document).ready(function(){
