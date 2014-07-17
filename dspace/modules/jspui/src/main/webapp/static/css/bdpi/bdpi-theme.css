@@ -5979,7 +5979,7 @@ padding-right:0px;
 	position:relative;
 
 }
-#logos-panelheading{
+#logospanel-heading{
 margin:0;
 padding:0
 }
@@ -5991,7 +5991,7 @@ border-style:dashed;
 }
 
 #panellogos h3{
-margin:0;
+margin:20px;
 padding:0
 }
 #logos{
@@ -6003,7 +6003,7 @@ padding:0;
  height:370px;
  overflow:hidden;
  position:relative;
- top:-30px; 
+ top:0px; 
  margin:0;
  padding:0;
 }
@@ -6092,7 +6092,7 @@ height: 290px;
   }
   #setas {
   position:relative;
-  top:60px;
+  top:90px;
   }
   #jumborow{
     height: 150px;

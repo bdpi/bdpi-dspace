@@ -69,9 +69,10 @@ function tamanho(){
 	document.getElementById("jumbocol").style.width 
 	= window.innerWidth - 50 - 15 - 420 + "px";       					// Tamanho da tela - margens do body e margem direita da foto.
 	document.getElementById("logos-container").style.width = 420+"px";
-	document.getElementById("setas").style.left = 10+'px';
 	document.getElementById("anim").style.height = 300 +"px";
 	document.getElementById("logos-container").style.height = 300 +"px";
+	document.getElementById("logos-container").style.left= 0 +'px';
+		document.getElementById("logos-container").style.top = -30+'px';
 	}															   
 	else{
 	document.getElementById("logos").style.width = 70*28+"px";                    // 28 colunas (2 linhas)
@@ -80,6 +81,8 @@ function tamanho(){
 	document.getElementById("logos-container").style.width = numLogos*70 +"px";
 	document.getElementById("anim").style.height = 150 +"px";
 	document.getElementById("logos-container").style.height = 150 +"px";
+	document.getElementById("logos-container").style.left = (window.innerWidth -numLogos*70 -30)/2 +"px";
+	document.getElementById("logos-container").style.top = 0;
 	}
 }
 window.onresize = tamanho;
@@ -152,7 +155,6 @@ $("button.prev").click(function(){
 
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol">
-		<br>
             <div class="jumbotron" id="jumbotron">
                 <div class="box">
                     <h3 class="chamada">Conheça a BDPI</h3>
