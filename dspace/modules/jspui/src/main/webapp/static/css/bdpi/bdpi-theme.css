@@ -6075,6 +6075,7 @@ z-index:50;
 margin-right:15px;
 }
 #logos-container {
+top:0px;
 float:left; 
 position:relative;
 height: 290px;

@@ -72,7 +72,7 @@ function tamanho(){
 	document.getElementById("anim").style.height = 300 +"px";
 	document.getElementById("logos-container").style.height = 300 +"px";
 	document.getElementById("logos-container").style.left= 0 +'px';
-		document.getElementById("logos-container").style.top = -30+'px';
+	document.getElementById("logos-container").style.top = -30+'px';
 	}															   
 	else{
 	document.getElementById("logos").style.width = 70*28+"px";                    // 28 colunas (2 linhas)
@@ -122,6 +122,11 @@ function animatelogos() {
 		
 	timerLogos = setInterval(animatelogos, 1000);
 	
+$( window ).resize(function() {
+clearInterval(timerLogos);
+timerLogos = setInterval(animatelogos, 1000);
+});
+	
 	$("#setas").mouseenter(function() {clearInterval(timerLogos)});
 	$("#anim").mouseenter(function() {clearInterval(timerLogos)})
 			  .mouseleave(function() {timerLogos = setInterval(animatelogos, 1000);
@@ -150,6 +155,11 @@ $("button.prev").click(function(){
     $("div#logos-container").animate({scrollLeft: x-70}, 500);    // move a barra de rolagem 350px (2 logos) em 0,5 segundo
 	});
 });
+
+//$( window ).resize(function() {
+//timerLogos = setInterval(animatelogos, 1000);
+//});
+
 </script>	
 <!-- Fim da dinâmica dos logos -->
 
