@@ -124,6 +124,7 @@ function animatelogos() {
 	
 $( window ).resize(function() {
 clearInterval(timerLogos);
+$("div#logos-container").stop(true,false);
 timerLogos = setInterval(animatelogos, 1000);
 });
 	
