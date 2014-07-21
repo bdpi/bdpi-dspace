@@ -59,7 +59,7 @@
 %>
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData%>">
 
-<!--Script para os logos se disporem na horizontal-->
+
 <script type="text/javascript">
 function tamanho(){
 																		// 70px (é a largura do logo) + margens
@@ -96,6 +96,9 @@ window.onresize = tamanho;
 // Movimento dos logos
 
 $(document).ready(function(){
+
+$("#noscript").css("display","none");
+$("#logos").css("opacity","1");
 
 function animatelogosLeft(){
 		var position = $("#logos-container").scrollLeft();							// Posição da barra de rolagem. 
@@ -163,7 +166,6 @@ $("button.prev").click(function(){
 
 </script>	
 <!-- Fim da dinâmica dos logos -->
-
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol">
             <div class="jumbotron" id="jumbotron">
@@ -181,10 +183,15 @@ $("button.prev").click(function(){
 						<button id="seta" class="prev" style="margin:auto;"><</button>
 						<button id="seta" class="next" style="position:relative;float:right">></button>
 					</div>
+					<div id="noscript"> Para completa funcionalidade deste site é necessário habilitar o JavaScript.<br>
+							  Aqui estão as <a href="http://www.enable-javascript.com/pt/" target="_blank" style="color:blue;">
+							  instruções de como habilitar o JavaScript no seu navegador</a>.
+					</div>
 				</div>
 				
 				<div class="col-md-4" id="logos-container">
 					<div id="anim">
+						
 						<div id="logos">
 							<div class="col-md-3" id="logo"><a href="handle/BDPI/1315"><img class="img-responsive" src="image/logosusp/cebimar.jpg" title="Centro de Biologia Marinha - CEBIMar"></a></div>
 							<div class="col-md-3" id="logo"><a href="handle/BDPI/1"><img class="img-responsive" src="image/logosusp/cena.jpg" title="Centro de Energia Nuclear na Agricultura - CENA"></a></div>

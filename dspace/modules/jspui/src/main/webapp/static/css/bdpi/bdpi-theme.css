@@ -5997,6 +5997,7 @@ padding:0
 #logos{
 margin:0;
 padding:0;
+opacity:0.2;
 }
 #logos-container{
  width:420px;
@@ -6072,13 +6073,15 @@ z-index:50;
  padding:0;
 }
 #jumbocol{
+width:100%;
 margin-right:15px;
 }
 #logos-container {
+width:100%;
 top:0px;
 float:left; 
 position:relative;
-height: 290px;
+height: 140px;
 }
 #anim{
 margin:0;
@@ -6086,6 +6089,12 @@ padding:0;
 float:left; 
 position:relative;
 height: 290px;
+}
+#noscript{
+position:relative;
+z-index:50;
+top: 50px;
+margin: 0 auto;
 }
 @media (max-width: 991px) {
   #anim #logos-container {
