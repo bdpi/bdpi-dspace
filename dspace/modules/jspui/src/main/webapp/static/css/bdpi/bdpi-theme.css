@@ -5981,7 +5981,7 @@ padding-right:0px;
 }
 #logospanel-heading{
 margin:0;
-padding:0
+padding:10px
 }
 button#prev{
 margin:0;
@@ -5992,7 +5992,7 @@ border-style:dashed;
 
 #panellogos h3{
 margin:20px;
-padding:0
+padding:0;
 }
 #logos{
 margin:0;
@@ -6075,6 +6075,10 @@ z-index:50;
 #jumbocol{
 width:100%;
 margin-right:15px;
+z-index:60;
+}
+#jumborow{
+height: 150px;
 }
 #logos-container {
 width:100%;

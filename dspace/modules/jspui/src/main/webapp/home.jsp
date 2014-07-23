@@ -62,27 +62,31 @@
 
 <script type="text/javascript">
 function tamanho(){
-																		// 70px (é a largura do logo) + margens
-	document.getElementById("logos").style.width = 70*14+"px";			// e 14 é o numero de colunas.
+																		
+	document.getElementById("logos").style.width = 70*14+"px";			// Para dispor os logos na horizontal - 14 é o numero de colunas.
 	
 	if( window.innerWidth >= 992 ){
+	// caracteristicas deste tamanho de tela
 	document.getElementById("jumbocol").style.width 
-	= window.innerWidth - 50 - 15 - 420 + "px";       					// Tamanho da tela - margens do body e margem direita da foto.
+	= window.innerWidth - 50 - 15 - 420 + "px";       					// Tamanho da foto - Tamanho da tela - margens do body e margem direita da foto.
 	document.getElementById("logos-container").style.width = 420+"px";
 	document.getElementById("anim").style.height = 300 +"px";
 	document.getElementById("logos-container").style.height = 300 +"px";
-	document.getElementById("logos-container").style.left= 0 +'px';
+	// caracteristicas para retomar no caso de diminuir a tela e aumentar de volta
+	document.getElementById("logos-container").style.left = 0 +'px';
 	document.getElementById("logos-container").style.top = -30+'px';
 	}															   
 	else{
-	document.getElementById("logos").style.width = 70*28+"px";                    // 28 colunas (2 linhas)
+	// caracteristicas deste tamanho de tela
+	document.getElementById("logos").style.width = 70*28+"px";                    // Para ter 2 linhas (28 colunas)
 	document.getElementById("jumbocol").style.width = 100+"%";                    //
-	var numLogos = Math.floor( (window.innerWidth-30)/70 );        		          // quantos logos (divisao inteiro) cabem no tamanho da janela - 30px de margens
-	document.getElementById("logos-container").style.width = numLogos*70 +"px";
-	document.getElementById("anim").style.height = 150 +"px";
-	document.getElementById("logos-container").style.height = 150 +"px";
-	document.getElementById("logos-container").style.left = (window.innerWidth -numLogos*70 -30)/2 +"px";
-	document.getElementById("logos-container").style.top = 0;
+	var numLogos = Math.floor( (window.innerWidth-30)/70 );        		          // Quantos logos (divisao inteiro) cabem no tamanho da janela (menos 30px de margens)
+	document.getElementById("logos-container").style.width = numLogos*70 +"px";   // Para tirar logos cortados.
+	document.getElementById("anim").style.height = 150 +"px";					  // Ajuste altura para duas linhas.
+	document.getElementById("logos-container").style.height = 150 +"px";          // Ajuste altura para duas linhas.
+	document.getElementById("logos-container").style.left = 
+	(window.innerWidth -numLogos*70 -30)/2 +"px";								  // Para centralizar a div dos logos.
+	document.getElementById("logos-container").style.top = 0+'px';
 	}
 }
 window.onresize = tamanho;
@@ -97,56 +101,64 @@ window.onresize = tamanho;
 
 $(document).ready(function(){
 
-$("#noscript").css("display","none");
-$("#logos").css("opacity","1");
+	$("#noscript").css("display","none");
+	$("#logos").css("opacity","1");
 
-function animatelogosLeft(){
+	function animatelogosLeft(){
 		var position = $("#logos-container").scrollLeft();							// Posição da barra de rolagem. 
 		$("div#logos-container").animate({scrollLeft: position + 70 }, 500);     // move a barra de rolagem 360px (2 logos)
-		}
+	}
 
-function animatelogos() {
-		animatelogosLeft();
-		
+	function animatelogos() {
+
 		// Ifs que retornam à posição zero.
 		if(window.innerWidth >= 992){
 			if( $("#logos-container").scrollLeft()>=560){
-			$("div#logos-container").animate({scrollLeft: 0 }, 500);
+				$("div#logos-container").animate({scrollLeft: 0 }, 500);
+			}
+			else{
+				animatelogosLeft();
 			}
 		}
-		if(window.innerWidth <= 992){
+		else{
 			var numLogos = Math.floor((window.innerWidth-30)/70);
 			var scrollMax = ( 28 - numLogos )*70;
 			if( $("#logos-container").scrollLeft()>=scrollMax){
-			$("div#logos-container").animate({scrollLeft: 0 }, 500);
+				$("div#logos-container").animate({scrollLeft: 0 }, 500);
+			}
+			else{
+				animatelogosLeft();
 			}
 		}
 	}
-		
+	
+	$('#logos-container').stop(true, false);
+	var timerLogos = 0;
 	timerLogos = setInterval(animatelogos, 1000);
+
+	$("#setas").mouseenter(function() {
+		$("div#logos-container").clearQueue();
+		clearInterval(timerLogos);
+	});
 	
-$( window ).resize(function() {
-clearInterval(timerLogos);
-$("div#logos-container").stop(true,false);
-timerLogos = setInterval(animatelogos, 1000);
-});
-	
-	$("#setas").mouseenter(function() {clearInterval(timerLogos)});
-	$("#anim").mouseenter(function() {clearInterval(timerLogos)})
-			  .mouseleave(function() {timerLogos = setInterval(animatelogos, 1000);
+	$("#anim").mouseenter(function() {
+				$("div#logos-container").clearQueue();
+				clearInterval(timerLogos);
+	})
+			  .mouseleave(function() {//if(timerLogos1) clearInterval(timerLogos);
+				timerLogos = setInterval(animatelogos, 1000);
 	});
 	
 	$("button.next").mouseenter(function() {$("div#logos-container").animate({scrollLeft: 1000 }, 20000);})
-					.mouseleave(function() {$("div#logos-container").stop(true,false);
-	});
+					.mouseleave(function() {$("div#logos-container").stop(true, false);});
 	$("button.prev").mouseenter(function() {$("div#logos-container").animate({scrollLeft: -1000 }, 20000);})
-					.mouseleave(function() {$("div#logos-container").stop(false,false);
-	});
+					.mouseleave(function() {$("div#logos-container").stop(true, false);});
+
 	
 // Botão next dos logos
 
 $("button.next").click(function(){
-	$("div#logos-container").stop(true,false);
+	$("div#logos-container").stop(true, false);
 	var x = $("#logos-container").scrollLeft();                   // retorna o valor da posição da barra de rolagem
     $("div#logos-container").animate({scrollLeft: x+70}, 500);    // move a barra de rolagem 350px (2 logos) em 0,5 segundo
 	});  														  
@@ -154,15 +166,11 @@ $("button.next").click(function(){
 // Botão previous dos logos
 
 $("button.prev").click(function(){
-	$("div#logos-container").stop(true,false);
+	$("div#logos-container").stop(true, false);
 	var x = $("#logos-container").scrollLeft(); 				  // retorna o valor da posição da barra de rolagem
     $("div#logos-container").animate({scrollLeft: x-70}, 500);    // move a barra de rolagem 350px (2 logos) em 0,5 segundo
 	});
 });
-
-//$( window ).resize(function() {
-//timerLogos = setInterval(animatelogos, 1000);
-//});
 
 </script>	
 <!-- Fim da dinâmica dos logos -->
@@ -183,7 +191,7 @@ $("button.prev").click(function(){
 						<button id="seta" class="prev" style="margin:auto;"><</button>
 						<button id="seta" class="next" style="position:relative;float:right">></button>
 					</div>
-					<div id="noscript"> Para completa funcionalidade deste site é necessário habilitar o JavaScript.<br>
+					<div id="noscript"> Para completa funcionalidade deste site é necessário habilitar o JavaScript.
 							  Aqui estão as <a href="http://www.enable-javascript.com/pt/" target="_blank" style="color:blue;">
 							  instruções de como habilitar o JavaScript no seu navegador</a>.
 					</div>
