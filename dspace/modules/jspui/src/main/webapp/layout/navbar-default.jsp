@@ -103,14 +103,7 @@
         <li><a data-toggle="modal" data-target="#faq">FAQ</a></li> <!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
-<!--        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.language"/><b class="caret"></b></a>
-            <ul class="dropdown-menu text-center">
-                <li><a href="?locale=pt_BR"><img src="/image/pt_BR.png" title="Português"></a></li>
-                <li><a href="?locale=en"><img src="/image/en.png" title="English"></a></li>
-                <li><a href="?locale=es"><img src="/image/es.png" title="Español"></a></li>
-            </ul>
-        </li> -->
+
         <li class="dropdown">
             <%
                 if (user != null) {
@@ -157,6 +150,9 @@
             <input type="text" class="form-control" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery" size="25"/>
         </div>
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+	
+		
+		
             <%--               <br/><a href="<%= request.getContextPath() %>/advanced-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
             <%
                                     if (ConfigurationManager.getBooleanProperty("webui.controlledvocabulary.enable"))
@@ -165,12 +161,12 @@
                           <br/><a href="<%= request.getContextPath() %>/subject-search"><fmt:message key="jsp.layout.navbar-default.subjectsearch"/></a>
             <%
                         }
-            %> --%>
+            %>
+			--%>
     </form>
-
     <!-- Button trigger modal -->
-
     <!-- Modal Política de Acesso Aberto -->
+	<div class="form-group" style="margin-left: 15px; margin-top:15px; position:relative; float:right;" id="cruesp"><a href="http://www.cruesp.sp.gov.br/" target="_blank" style="color:black">CRUESP</a></div>
     <div class="modal fade" id="openAccessPolicy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <fmt:message key="page.openaccesspolicy" var="paginat"/>

@@ -6100,7 +6100,19 @@ z-index:50;
 top: 50px;
 margin: 0 auto;
 }
+#logos4{
+width:70px;
+height:280px;
+position:relative;
+float:left;
+}
 @media (max-width: 991px) {
+#logos4{
+width:140px;
+height:140px;
+position:relative;
+float:left;
+}
   #anim #logos-container {
     height: 150px;
   }
