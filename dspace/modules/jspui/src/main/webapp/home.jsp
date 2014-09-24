@@ -75,6 +75,7 @@ function tamanho(){
 	// caracteristicas para retomar no caso de diminuir a tela e aumentar de volta
 	document.getElementById("logos-container").style.left = 0 +'px';
 	document.getElementById("logos-container").style.top = -30+'px';
+	document.getElementById("cruesp").style.cssFloat = 'right';
 	}															   
 	else{
 	// caracteristicas deste tamanho de tela
@@ -87,6 +88,7 @@ function tamanho(){
 	document.getElementById("logos-container").style.left = 
 	(window.innerWidth -numLogos*70 -30)/2 +"px";								  // Para centralizar a div dos logos.
 	document.getElementById("logos-container").style.top = 0+'px';
+	document.getElementById("cruesp").style.cssFloat = 'left';
 	}
 }
 window.onresize = tamanho;
@@ -105,12 +107,11 @@ $(document).ready(function(){
 	$("#logos").css("opacity","1");
 
 	function animatelogos() {
-				var ele =  $("div#logos div#logos4:first-child").html();
+				var elemento =  $("div#logos div#logos4:first-child").html();
+				$("div#logos div#logos4:last-child").after("<div id=\"logos4\">"+elemento+"</div>");
 				$("div#logos div#logos4:first-child").hide('slow', function(){ $("div#logos div#logos4:first-child").remove(); });
-				$("div#logos div#logos4:last-child").after("<div id=\"logos4\">"+ele+"</div>");
 	}
 
-	var timerLogos = 0;
 	timerLogos = setInterval(animatelogos, 2000);
 
 	$("#setas").mouseenter(function() {
@@ -119,34 +120,33 @@ $(document).ready(function(){
 	
 	$("#anim").mouseenter(function() {
 				clearInterval(timerLogos);
+
 	})
 			  .mouseleave(function() {
-				timerLogos = setInterval(animatelogos, 1000);
+				timerLogos = setInterval(animatelogos, 2000);
 	});
 	
-	$("button.next").mouseenter(function() {$("div#logos-container").animate({scrollLeft: 1000 }, 20000);})
-					.mouseleave(function() {$("div#logos-container").stop(true, false);});
-	$("button.prev").mouseenter(function() {$("div#logos-container").animate({scrollLeft: -1000 }, 20000);})
-					.mouseleave(function() {$("div#logos-container").stop(true, false);});
+	//$("button.next").mouseenter(function() {$("div#logos-container").animate({scrollLeft: 1000 }, 20000);})
+	//				.mouseleave(function() {$("div#logos-container").stop(true, false);});
+	//$("button.prev").mouseenter(function() {$("div#logos-container").animate({scrollLeft: -100 }, 20000);})
+	//				.mouseleave(function() {$("div#logos-container").stop(true, false);});
 
 	
 // Botão next dos logos
-
 $("button.next").click(function(){
 	clearInterval(timerLogos);
-	var ele =  $("div#logos div#logos4:first-child").html();
-	$("div#logos div#logos4:last-child").after("<div id=\"logos4\">"+ele+"</div>");
-	$("div#logos div#logos4:first-child").hide('slow', function(){ $("div#logos div#logos4:first-child").remove(); });
-			
+	animatelogos();
 	});  														  
 
 // Botão previous dos logos
-
 $("button.prev").click(function(){
-	clearInterval(timerLogos);
-	var eleb =  $("div#logos div#logos4:last-child").html();
-	$("div#logos div#logos4:last-child").hide('slow', function(){ $("div#logos div#logos4:last-child").remove(); });
-	$("div#logos div#logos4:first-child").before("<div id=\"logos4\">"+eleb+"</div>");
+	var element = $("div#logos div#logos4:last-child").html();
+	$("div#logos div#logos4:first-child").before("<div id=\"logos4\" style=\"display:none\">"+element+"</div>");
+	$("div#logos div#logos4:last-child").remove();
+	$("div#logos div#logos4:first-child").show('slow', function(){});
+	
+	//$("div#logos div#logos4:last-child").hide('slow', function(){ $("div#logos div#logos4:last-child").remove(); });
+	//$("div#logos div#logos4:first-child").before("<div id=\"logos4\">"+eleb+"</div>");
 	});
 });
 
