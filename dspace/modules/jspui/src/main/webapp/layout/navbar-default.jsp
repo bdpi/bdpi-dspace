@@ -164,9 +164,10 @@
             %>
 			--%>
     </form>
+	
     <!-- Button trigger modal -->
     <!-- Modal Política de Acesso Aberto -->
-	<div class="form-group" style="margin-left: 15px; margin-top:15px; position:relative; float:right;" id="cruesp"><a href="http://www.cruesp.sp.gov.br/" target="_blank" style="color:black">CRUESP</a></div>
+
     <div class="modal fade" id="openAccessPolicy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <fmt:message key="page.openaccesspolicy" var="paginat"/>
