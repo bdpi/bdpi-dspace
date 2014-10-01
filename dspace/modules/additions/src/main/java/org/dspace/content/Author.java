@@ -14,6 +14,7 @@ import java.util.Comparator;
 public final class Author implements Comparator<Author>, Comparable<Author> {
 
 	private int codpes = 0;
+        private String codpub = "";
         private int qntTrabalhos = 0;
         private String nome = "";
         private String email_1 = "";
@@ -72,9 +73,15 @@ public final class Author implements Comparator<Author>, Comparable<Author> {
 	public int getCodpes() {
 		return codpes;
 	}
+        public String getCodpub(){
+            return codpub;
+        }
 	public void setCodpes(int codpes) {
 		this.codpes = codpes;
 	}
+        public void setCodpub(String codpub){
+                this.codpub = codpub;
+        }
 	public String getNome() {
 		return nome;
 	}
@@ -145,7 +152,8 @@ public final class Author implements Comparator<Author>, Comparable<Author> {
 		return lattes;
 	}
         public void setLattes(){
-                this.lattes = "https://uspdigital.usp.br/tycho/curriculoLattesMostrar?codpes=".concat(String.valueOf(codpes));
+                // this.lattes = "https://uspdigital.usp.br/tycho/curriculoLattesMostrar?codpes=".concat(String.valueOf(codpes));
+                this.lattes = "https://uspdigital.usp.br/tycho/curriculoLattesMostrar?codpub=".concat(codpub);
         }
         public void setLattes(String lattes) {
                 if(lattes != null) {

@@ -1,5 +1,6 @@
 package org.dspace.content.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -12,12 +13,13 @@ import org.dspace.content.ItemRelacionado;
 import org.dspace.core.Context;
 
 import java.sql.SQLException;
+import java.sql.Types;
 import org.dspace.core.ConfigurationManager;
 
 public class AuthorDAOPostgres extends AuthorDAO
 {
     /** Constante para a busca de todos os parametros do autor USP a partir de seu codpes */
-    private static final String selectAuthor = "SELECT vinculopessoausp.codpes, vinculopessoausp.nompes nome,\n" +
+    private static final String selectAuthor = "SELECT vinculopessoausp.codpes, codpes2codpub(vinculopessoausp.codpes) codpub, vinculopessoausp.nompes nome,\n" +
 "nvl(regexp_substr(vinculopessoausp.nompes,'.*\\s(.*)',1,1,'i',1),vinculopessoausp.nompes) sobrenome,\n" +
 "regexp_substr(vinculopessoausp.nompes,'(.*)\\s.*',1,1,'i',1) nomeinicial,\n" +
 "emailpessoa.codema email_1,\n" +
@@ -392,6 +394,30 @@ public class AuthorDAOPostgres extends AuthorDAO
       }
     }
     
+    
+    /** Metodo que retorna codigo publico a partir do numero USP
+     * @param codpes
+     * @return codpub
+     * @throws java.sql.SQLException  */
+    public String generateCodpubFromCodpes(int codpes) throws SQLException {
+      String codpub;
+      try {
+        context = new Context();
+        CallableStatement upperProc = context.getDBConnection().prepareCall("{ ? = call usp.codpes2codpub( ? ) }");
+        upperProc.registerOutParameter(1, Types.VARCHAR);
+        upperProc.setInt(2, codpes);
+        upperProc.execute();
+        codpub = upperProc.getString(1);
+        upperProc.close();
+        context.complete();
+        return codpub;
+      } catch(SQLException sql) {
+         System.out.println("Erro: no SQL ----" + sql.getMessage() );
+         sql.printStackTrace(System.out);
+         return null;
+      }
+    }
+    
     public Connection getReplicaUspDBconnection() {
         Connection ocn = null;
         try {
@@ -455,6 +481,7 @@ public class AuthorDAOPostgres extends AuthorDAO
             Author author = new Author();
             if(rs.next()) {
                     author.setCodpes(rs.getInt("codpes"));
+                    author.setCodpub(rs.getString("codpub"));
                     author.setNome(rs.getString("nome"));
                     author.setEmail_1(rs.getString("email_1"));
                     author.setSobrenome(rs.getString("sobrenome"));
@@ -466,7 +493,7 @@ public class AuthorDAOPostgres extends AuthorDAO
                     author.setDeptoSigla(rs.getString("depto_sigla"));
                     author.setVinculo(rs.getString("vinculo"));
                     author.setFuncao(rs.getString("funcao"));
-                    author.setLattes(rs.getString("lattes"));
+                    author.setLattes(rs.getString("lattes")); // lattes string is usually null, so setLattes must be called after setCodpub
             }
             rs.close();
             statement.close();
