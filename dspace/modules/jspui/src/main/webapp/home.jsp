@@ -96,7 +96,32 @@ window.onresize = tamanho;
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+<script>
+//Para carregar as submissoes recentes.
 
+$(document).ready(function(){
+$("div#recentSubmissions").hide();
+$("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
+$("div#recentSubmissions").first().next().attr("id","submitFixa");
+$("div#recentSubmissions").first().next().next().attr("id","submitFixa");
+$("div#submitFixa").show();
+$("span#show").show();
+
+$('span#show').css( 'cursor', 'pointer' );
+$('span#hide').css( 'cursor', 'pointer' );
+
+  $("span#show").click(function(){
+    $("div#recentSubmissions").show(1000);                             // p = .classesubmissoes
+	$("span#show").hide();				
+	$("span#hide").show();
+  });
+  $("span#hide").click(function(){
+    $("div#recentSubmissions").fadeOut(500);                             // p = .classesubmissoes
+	$("span#show").show();
+	$("span#hide").hide();
+  });
+});
+</script>
 <script> 
 
 // Movimento dos logos
@@ -126,12 +151,6 @@ $(document).ready(function(){
 				timerLogos = setInterval(animatelogos, 2000);
 	});
 	
-	//$("button.next").mouseenter(function() {$("div#logos-container").animate({scrollLeft: 1000 }, 20000);})
-	//				.mouseleave(function() {$("div#logos-container").stop(true, false);});
-	//$("button.prev").mouseenter(function() {$("div#logos-container").animate({scrollLeft: -100 }, 20000);})
-	//				.mouseleave(function() {$("div#logos-container").stop(true, false);});
-
-	
 // Botão next dos logos
 $("button.next").click(function(){
 	clearInterval(timerLogos);
@@ -144,13 +163,11 @@ $("button.prev").click(function(){
 	$("div#logos div#logos4:first-child").before("<div id=\"logos4\" style=\"display:none\">"+element+"</div>");
 	$("div#logos div#logos4:last-child").remove();
 	$("div#logos div#logos4:first-child").show('slow', function(){});
-	
-	//$("div#logos div#logos4:last-child").hide('slow', function(){ $("div#logos div#logos4:last-child").remove(); });
-	//$("div#logos div#logos4:first-child").before("<div id=\"logos4\">"+eleb+"</div>");
 	});
 });
 
 </script>	
+
 <!-- Fim da dinâmica dos logos -->
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol">
@@ -410,7 +427,7 @@ $("button.prev").click(function(){
                             displayRights = dcv[0].value;
                         }
                 %>
-                <div class="media padding15">
+                <div class="media padding15" id="recentSubmissions">
                     <a class="pull-left" href="#">
                         <% if (displayRights.equals("openAccess")) {%>
                         <img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px">
@@ -439,22 +456,25 @@ $("button.prev").click(function(){
                             <% }%><%=etal%></p>
                         <p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
                     </div>
+				
                 </div>
                 <%
                         first = false;
                     }
                 %>
+				<span id="show" style="display:none; width:50%; color:#99CCFF;font-weight:bold;float:right">[mostrar mais]</span><span id="hide" style="display:none; float:right ; width:50%; color:#99CCFF;font-weight:bold;">[ocultar]</span>
+
             </div>
             <%
                 }
             %>
         </div>
 
-			
+			<br><br>
 		<div class="col-md-4" style="position:relative; float:left;">
             <div class="panel text-justify" style="position:relative; float:left;">
                 <div class="panel-heading">
-                    <h3>Últimas notícias</h3>
+                    <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
                 <div class="media padding15">
                     <a class="pull-left" href="#">
