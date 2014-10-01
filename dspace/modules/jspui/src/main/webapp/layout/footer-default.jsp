@@ -40,17 +40,19 @@
 
 <div class="row">
     <div class="col-md-12">
-        <footer class="navbar navbar-inverse">
-            <div id="designedby">
+        <footer class="navbar navbar-inverse" style="background-color:transparent">
+            <div id="designedby" style="background-color:#FEB524">
                 <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
                         src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
                         alt="Logo CINECA" /></a>
-                <div id="footer_feedback" class="pull-right">                                    
+				<div id="footer_feedback" class="pull-right">
+
                     <fmt:message key="jsp.layout.footer-default.text"/>&nbsp;-
                     <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-
                     <a href="<%= request.getContextPath()%>/htmlmap">Mapa do site</a>&nbsp;-
                     <a href="#">Voltar ao início</a>
-                </div>
+
+				</div>
             </div>
 	</footer>
     </div>
