@@ -171,10 +171,10 @@ $("button.prev").click(function(){
 <!-- Fim da dinâmica dos logos -->
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol">
-            <div class="jumbotron" id="jumbotron" style="height:320px">
-                <div class="box" style="max-width:500px">
-                    <h3 class="chamada">Conheça a BDPI</h3>
-                    <p class="espaco" style="font-size:12px;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+            <div class="jumbotron" id="jumbotron" style="height:320px; padding:20px">
+                <div class="box" style="max-width:500px;max-width:75%; top:20px">
+                    <h4 class="chamada">Conheça a BDPI</h4>
+                    <p style="font-size:13px;max-width:400px">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
                 </div>
             </div>
 			</div>
@@ -521,7 +521,7 @@ $("button.prev").click(function(){
         </div>
     </div>
     <div class="row text-center" style="position:relative; float:left;">
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-floppy-open iconbg"></span>
             <h3>Como depositar</h3>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
@@ -529,7 +529,7 @@ $("button.prev").click(function(){
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-comment iconbg"></span>
             <h3>Como citar</h3>
             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -538,10 +538,10 @@ $("button.prev").click(function(){
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-pencil iconbg"></span>
             <h3>BDPI em números</h3>
-            <dl class="dl-horizontal">
+            <dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;">
                 <dt>Unidades</dt>
                 <dd>42</dd>
                 <dt>Departamentos</dt>

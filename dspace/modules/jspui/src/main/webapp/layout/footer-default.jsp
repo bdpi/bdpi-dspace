@@ -26,6 +26,7 @@
 <%
     if (sidebar != null) {
 %>
+
 </div>
 <div class="col-md-3"> 
     <%= sidebar%>
@@ -41,23 +42,27 @@
 <div class="row">
     <div class="col-md-12">
         <footer class="navbar navbar-inverse" style="background-color:transparent">
-            <div id="designedby" style="background-color:#FEB524">
-                <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
-                        src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
+		<br><br>
+            <div id="designedby" style="background-color:#FEB524; height:70px;position:relative; float:left; width:100%">
+                <h6 style="color:white; font-weight:bold">&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;<a href="http://www.cineca.it"><img
+                        style="width:35px"
+						src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
                         alt="Logo CINECA" /></a>
+				</h6>
 				<div id="footer_feedback" class="pull-right">
-
-                    <fmt:message key="jsp.layout.footer-default.text"/>&nbsp;-
-                    <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-
-                    <a href="<%= request.getContextPath()%>/htmlmap">Mapa do site</a>&nbsp;-
-                    <a href="#">Voltar ao início</a>
-
+				<h6>
+                    <fmt:message key="jsp.layout.footer-default.text" />&nbsp;&nbsp;&nbsp;-&nbsp;
+                    <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-&nbsp;
+                    <a href="<%= request.getContextPath()%>/htmlmap">Mapa do site</a>&nbsp;-&nbsp;
+                    <a href="#">Voltar ao início</a>&nbsp;&nbsp;
+				</h6>
 				</div>
+				
             </div>
 	</footer>
     </div>
 </div>
-                    
+                    <br><br>
 <address class="text-center">
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>

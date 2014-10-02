@@ -75,13 +75,13 @@
         <span class="icon-bar"></span>
     </button>
 </div>
-<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-    <ul class="nav navbar-nav">
+<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" >
+    <ul class="nav navbar-nav" >
         <li class="<%= currentPage.endsWith("/home.jsp") ? "active" : ""%>"><a href="<%= request.getContextPath()%>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" >
                 <li><a href="<%= request.getContextPath()%>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
   
                     <%-- Insert the dynamic browse indices here --%>
@@ -147,7 +147,10 @@
     <%-- Search Box --%>
     <form method="get" action="<%= request.getContextPath()%>/simple-search" class="navbar-form navbar-right" scope="search">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery" size="25"/>
+            <input type="text" class="form-control" name="query" id="tequery" size="25"/>
+			<!-- 
+			Parte que tirei do input: placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>"
+			-->
         </div>
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 	
