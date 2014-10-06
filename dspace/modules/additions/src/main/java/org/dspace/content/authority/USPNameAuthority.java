@@ -55,7 +55,7 @@ public class USPNameAuthority implements ChoiceAuthority {
         " WHERE_EXPRESSION )";        
         */
 
-        private static final String DATABASE_TABLE = "(SELECT rownum idrowx, view_bdpi.codpes, view_bdpi.nompes nome, \n" +
+        private static final String DATABASE_TABLE = "(SELECT rownum idrowx, codpes nusp, codpes2codpub(view_bdpi.codpes) codpes, view_bdpi.nompes nome, \n" +
         "regexp_substr(view_bdpi.nompes,'(.*)\\s.*',1,1,'i',1) nomeinicial,\n" +
         "nvl(regexp_substr(view_bdpi.nompes,'.*\\s(.*)',1,1,'i',1),view_bdpi.nompes) sobrenome,\n" +
         "view_bdpi.sglund unidade_sigla,\n" +
@@ -215,7 +215,7 @@ public class USPNameAuthority implements ChoiceAuthority {
                         // .replace("ORDERINGROWS","").replace("ORDERBY","")
                         
                         StringBuilder consulta = new StringBuilder();
-                        consulta.append("SELECT codpes, nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla, funcao, dtaini, dtafim FROM ");
+                        consulta.append("SELECT codpes, nusp, nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla, funcao, dtaini, dtafim FROM ");
                         consulta.append(DATABASE_TABLE.replace("WHERE_EXPRESSION",where_expression.toString()));
                         consulta.append(" WHERE rownum < ").append(String.valueOf(MAX_AUTORES + 1));
                         consulta.append(" AND idrowx > ").append(String.valueOf(start));
@@ -253,12 +253,12 @@ public class USPNameAuthority implements ChoiceAuthority {
                         rs = statement.executeQuery();
                         ArrayList<Choice> v = new ArrayList<Choice>();
                         while(rs.next()){
-                            v.add(new Choice(String.valueOf(rs.getInt("codpes")),
+                            v.add(new Choice(rs.getString("codpes"),
                                     rs.getString("sobrenome") + ", "
                                   + rs.getString("nomeinicial"),
                                     rs.getString("nome")
                                   + " - "
-                                  + String.valueOf(rs.getInt("codpes")) + " ("
+                                  + String.valueOf(String.valueOf(rs.getInt("nusp"))) + " ("
                                   + nvl(rs.getString("unidade_sigla"),trims(rs.getString("unidade_sigla")), "- ")
                                   + nvl(rs.getString("depto_sigla"), "/ " + trims(rs.getString("depto_sigla")),"/ -")
                                   + ")"

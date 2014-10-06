@@ -113,7 +113,7 @@ public class InterUnitAuthorView extends AbstractDSpaceTransformer implements Ca
         message("xmlui.ArtifactBrowser.InterUnitAuthorView.interunit_head");
 
     /** Parametro que armazenara o codpes da pessoa diretamente da pagina como um int */
-    private int codpes;
+    private String codpes;
 
     private String dspaceUrl = ConfigurationManager.getProperty("handle.canonical.prefix");
     private String handlePrefix = ConfigurationManager.getProperty("handle.prefix");
@@ -211,7 +211,7 @@ public class InterUnitAuthorView extends AbstractDSpaceTransformer implements Ca
       if(listaInterUnidades != null && listaInterUnidades.size() > 0) {
 
    /** Recupera o objeto Autor */
-        Author autor = this.ap.getAuthorByCodpes(Integer.parseInt(codpesStr));
+        Author autor = this.ap.getAuthorByCodpes(codpesStr);
 
    /** Define o titulo localizado na parte superior da pagina */
         Head headGeral = geral.setHead();
@@ -359,6 +359,6 @@ public class InterUnitAuthorView extends AbstractDSpaceTransformer implements Ca
     }
 
     public void setCodpesFromPage(String codpes) {
-       this.codpes = Integer.parseInt(codpes);
+       this.codpes = codpes;
     }
 }

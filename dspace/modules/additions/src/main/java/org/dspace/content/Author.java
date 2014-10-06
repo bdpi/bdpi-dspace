@@ -13,8 +13,7 @@ import java.util.Comparator;
 
 public final class Author implements Comparator<Author>, Comparable<Author> {
 
-	private int codpes = 0;
-        private String codpub = "";
+	private String codpes = "";
         private int qntTrabalhos = 0;
         private String nome = "";
         private String email_1 = "";
@@ -48,7 +47,7 @@ public final class Author implements Comparator<Author>, Comparable<Author> {
      * @param funcao
      * @param lattes
      */
-    public Author(int codpes, int qntTrabalhos, String nome, String email_1, String sobrenome,
+    public Author(String codpes, int qntTrabalhos, String nome, String email_1, String sobrenome,
 			String nomeCompleto, String nomeInicial, String unidade, String unidadeSigla,
 			String depto, String deptoSigla, String vinculo, String funcao,
 			String lattes) {
@@ -70,18 +69,12 @@ public final class Author implements Comparator<Author>, Comparable<Author> {
                 
     }
 	
-	public int getCodpes() {
+	public String getCodpes() {
 		return codpes;
 	}
-        public String getCodpub(){
-            return codpub;
-        }
-	public void setCodpes(int codpes) {
+	public void setCodpes(String codpes) {
 		this.codpes = codpes;
 	}
-        public void setCodpub(String codpub){
-                this.codpub = codpub;
-        }
 	public String getNome() {
 		return nome;
 	}
@@ -153,7 +146,7 @@ public final class Author implements Comparator<Author>, Comparable<Author> {
 	}
         public void setLattes(){
                 // this.lattes = "https://uspdigital.usp.br/tycho/curriculoLattesMostrar?codpes=".concat(String.valueOf(codpes));
-                this.lattes = "https://uspdigital.usp.br/tycho/curriculoLattesMostrar?codpub=".concat(codpub);
+                this.lattes = "https://uspdigital.usp.br/tycho/curriculoLattesMostrar?codpub=".concat(codpes);
         }
         public void setLattes(String lattes) {
                 if(lattes != null) {

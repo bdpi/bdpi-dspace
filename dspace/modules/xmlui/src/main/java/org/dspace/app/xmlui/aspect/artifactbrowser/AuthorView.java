@@ -132,7 +132,7 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
 	  message("xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.author");
     
     /** Parametro que armazenara o codpes da pessoa diretamente da pagina como um int */
-    private int codpes;
+    private String codpes;
 
     private String dspaceUrl = ConfigurationManager.getProperty("handle.canonical.prefix");
     private String handlePrefix = ConfigurationManager.getProperty("handle.prefix");
@@ -628,6 +628,6 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
 
 /** Metodo para conversao de uma String em um Integer */
     public void setCodpesFromPage(String codpes) {
-       this.codpes = Integer.parseInt(codpes);
+       this.codpes = codpes;
     }
 }
