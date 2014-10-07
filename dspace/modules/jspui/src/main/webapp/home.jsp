@@ -78,8 +78,11 @@ function tamanho(){
 	document.getElementById("logos-container").style.left = 0 +'px';
 	document.getElementById("logos-container").style.top = -30+'px';
 	document.getElementById("cruesp").style.cssFloat = 'right';
+<<<<<<< HEAD
 	document.getElementById("logos4").style.width = 70+"px" ;
 	document.getElementById("logos4").style.height = 4*70+"px" ;
+=======
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
 	}															   
 	else{
 	// caracteristicas deste tamanho de tela
@@ -102,6 +105,7 @@ window.onresize = tamanho;
 
 <script>
 //Para carregar as submissoes recentes.
+<<<<<<< HEAD
 
 $(document).ready(function(){
 $("div#recentSubmissions").hide();
@@ -115,6 +119,20 @@ $("span#hide").hide();
 $('span#show').css( 'cursor', 'pointer' );
 $('span#hide').css( 'cursor', 'pointer' );
 
+=======
+
+$(document).ready(function(){
+$("div#recentSubmissions").hide();
+$("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
+$("div#recentSubmissions").first().next().attr("id","submitFixa");
+$("div#recentSubmissions").first().next().next().attr("id","submitFixa");
+$("div#submitFixa").show();
+$("span#show").show();
+
+$('span#show').css( 'cursor', 'pointer' );
+$('span#hide').css( 'cursor', 'pointer' );
+
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
   $("span#show").click(function(){
     $("div#recentSubmissions").show(1000);                             // p = .classesubmissoes
 	$("span#show").hide();				
@@ -127,7 +145,10 @@ $('span#hide').css( 'cursor', 'pointer' );
   });
 });
 </script>
+<<<<<<< HEAD
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+=======
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
 <script> 
 
 // Movimento dos logos
@@ -166,7 +187,11 @@ $("button.next").click(function(){
 // Botão previous dos logos
 $("button.prev").click(function(){
 	var element = $("div#logos div#logos4:last-child").html();
+<<<<<<< HEAD
 	$("div#logos div#logos4:first-child").before("<div id=\"logos4\" style=\"display:none; position:relative;float:left;\">"+element+"</div>");
+=======
+	$("div#logos div#logos4:first-child").before("<div id=\"logos4\" style=\"display:none\">"+element+"</div>");
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
 	$("div#logos div#logos4:last-child").remove();
 	$("div#logos div#logos4:first-child").show('slow', function(){});
 	});
@@ -174,17 +199,21 @@ $("button.prev").click(function(){
 
 </script>	
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+<!-- Fim da dinâmica dos logos -->
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol">
-            <div class="jumbotron" id="jumbotron">
-                <div class="box">
-                    <h3 class="chamada">Conheça a BDPI</h3>
-                    <p class="espaco">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+            <div class="jumbotron" id="jumbotron" style="height:320px; padding:20px">
+                <div class="box" style="max-width:500px;max-width:75%; top:20px">
+                    <h4 class="chamada">Conheça a BDPI</h4>
+                    <p style="font-size:13px;max-width:400px">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
                 </div>
             </div>
 			</div>
@@ -196,7 +225,7 @@ $("button.prev").click(function(){
 						<button id="seta" class="prev" style="margin:auto;"><</button>
 						<button id="seta" class="next" style="position:relative;float:right">></button>
 					</div>
-					<div id="noscript"> Para completa funcionalidade deste site é necessário habilitar o JavaScript.<br>
+					<div id="noscript"> Para completa funcionalidade deste site é necessário habilitar o JavaScript.
 							  Aqui estão as <a href="http://www.enable-javascript.com/pt/" target="_blank" style="color:blue;">
 							  instruções de como habilitar o JavaScript no seu navegador</a>.
 					</div>
@@ -206,6 +235,7 @@ $("button.prev").click(function(){
 					<div id="anim">
 						
 						<div id="logos">
+<<<<<<< HEAD
 						<div id="logos4" style="position:relative;float:left;">
 							<div class="col-md-3" id="logo" style="clear:both;"><a href="handle/BDPI/1315"><img class="img-responsive" src="image/logosusp/cebimar.jpg" title="Centro de Biologia Marinha - CEBIMar"></a></div>
 							<div class="col-md-3" id="logo" style="clear:both;"><a href="handle/BDPI/1"><img class="img-responsive" src="image/logosusp/cena.jpg" title="Centro de Energia Nuclear na Agricultura - CENA"></a></div>
@@ -290,6 +320,170 @@ $("button.prev").click(function(){
 							<div class="col-md-3" id="logo" style="clear:both;"><a href="handle/BDPI/1080"><img class="img-responsive" src="image/logosusp/if.jpg" title="Instituto de Física - IF"></a></div>
 							<div class="col-md-3" id="logo" style="clear:both;"><a href="handle/BDPI/1132"><img class="img-responsive" src="image/logosusp/igc.jpg" title="Instituto de Geociências - IGc"></a></div>
 
+=======
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1315"><img class="img-responsive" src="image/logosusp/cebimar.jpg" title="Centro de Biologia Marinha - CEBIMar"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1"><img class="img-responsive" src="image/logosusp/cena.jpg" title="Centro de Energia Nuclear na Agricultura - CENA"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1365"><img class="img-responsive" src="image/logosusp/each.jpg" title="Escola de Artes, Ciências e Humanidades - EACH"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/22"><img class="img-responsive" src="image/logosusp/eca.jpg" title="Escola de Comunicações e Artes - ECA"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1360"><img class="img-responsive" src="image/logosusp/eeferp.jpg" title="Escola de Educação Física e Esporte de Ribeirão Preto - EEFERP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/94"><img class="img-responsive" src="image/logosusp/eefe.jpg" title="Escola de Educação Física e Esporte - EEFE"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/115"><img class="img-responsive" src="image/logosusp/eerp.jpg" title="Escola de Enfermagem de Ribeirão Preto - EERP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/68"><img class="img-responsive" src="image/logosusp/ee.jpg" title="Escola de Enfermagem - EE"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/136"><img class="img-responsive" src="image/logosusp/eel.jpg" title="Escola de Engenharia de Lorena - EEL"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/162"><img class="img-responsive" src="image/logosusp/eesc.jpg" title="Escola de Engenharia de São Carlos - EESC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/213"><img class="img-responsive" src="image/logosusp/ep.jpg" title="Escola Politécnica - EP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/294"><img class="img-responsive" src="image/logosusp/esalq.jpg" title="Escola Superior de Agricultura Luiz de Queiroz - ESALQ"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/360"><img class="img-responsive" src="image/logosusp/fau.jpg" title="Faculdade de Arquitetura e Urbanismo - FAU"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/407"><img class="img-responsive" src="image/logosusp/fcfrp.jpg" title="Faculdade de Ciências Farmacêuticas de Ribeirão Preto - FCFRP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/381"><img class="img-responsive" src="image/logosusp/fcf.jpg" title="Faculdade de Ciências Farmacêuticas - FCF"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/479"><img class="img-responsive" src="image/logosusp/fdrp.jpg" title="Faculdade de Direito de Ribeirão Preto - FDRP"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/428"><img class="img-responsive" src="image/logosusp/fd.jpg" title="Faculdade de Direito - FD"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/542"><img class="img-responsive" src="image/logosusp/fearp.jpg" title="Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto - FEARP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/521"><img class="img-responsive" src="image/logosusp/fea.jpg" title="Faculdade de Economia, Administração e Contabilidade - FEA"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/500"><img class="img-responsive" src="image/logosusp/fe.jpg" title="Faculdade de Educação - FE"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1248"><img class="img-responsive" src="image/logosusp/ffclrp.jpg" title="Faculdade de Filosofia, Ciências e Letras de Ribeirão Preto - FFCLRP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/563"><img class="img-responsive" src="image/logosusp/fflch.jpg" title="Faculdade de Filosofia, Letras e Ciências Humanas - FFLCH"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/725"><img class="img-responsive" src="image/logosusp/fmrp.jpg" title="Faculdade de Medicina de Ribeirão Preto - FMRP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/624"><img class="img-responsive" src="image/logosusp/fm.jpg" title="Faculdade de Medicina - FM"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/801"><img class="img-responsive" src="image/logosusp/fmvz.jpg" title="Faculdade de Medicina Veterinária e Zootecnia - FMVZ"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/878"><img class="img-responsive" src="image/logosusp/fob.jpg" title="Faculdade de Odontologia de Bauru - FOB"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1284"><img class="img-responsive" src="image/logosusp/forp.jpg" title="Faculdade de Odontologia de Ribeirão Preto - FORP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/837"><img class="img-responsive" src="image/logosusp/fo.jpg" title="Faculdade de Odontologia - FO"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/914"><img class="img-responsive" src="image/logosusp/fsp.jpg" title="Faculdade de Saúde Pública - FSP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/945"><img class="img-responsive" src="image/logosusp/fzea.jpg" title="Faculdade de Zootecnia e Engenharia de Alimentos - FZEA"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1325"><img class="img-responsive" src="image/logosusp/hrac.jpg" title="Hospital de Reabilitação de Anomalias Craniofaciais - HRAC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1330"><img class="img-responsive" src="image/logosusp/hu.jpg" title="Hospital Universitário - HU"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/32492"><img class="img-responsive" src="image/logosusp/iau.jpg" title="Instituto de Arquitetura e Urbanismo de São Carlos - IAU"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/966"><img class="img-responsive" src="image/logosusp/iag.jpg" title="Instituto de Astronomia, Geofísica e Ciências Atmosféricas - IAG"></a></div>      
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/987"><img class="img-responsive" src="image/logosusp/ib.jpg" title="Instituto de Biociências - IB"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1018"><img class="img-responsive" src="image/logosusp/icb.jpg" title="Instituto de Ciências Biomédicas - ICB"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1059"><img class="img-responsive" src="image/logosusp/icmc.jpg" title="Instituto de Ciências Matemáticas e de Computação - ICMC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1320"><img class="img-responsive" src="image/logosusp/iee.jpg" title="Instituto de Eletrotécnica e Energia - IEE"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1350"><img class="img-responsive" src="image/logosusp/ieb.jpg" title="Instituto de Estudos Brasileiros - IEB"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1116"><img class="img-responsive" src="image/logosusp/ifsc.jpg" title="Instituto de Física de São Carlos - IFSC"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1080"><img class="img-responsive" src="image/logosusp/if.jpg" title="Instituto de Física - IF"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1132"><img class="img-responsive" src="image/logosusp/igc.jpg" title="Instituto de Geociências - IGc"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1148"><img class="img-responsive" src="image/logosusp/ime.jpg" title="Instituto de Matemática e Estatística - IME"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/32490"><img class="img-responsive" src="image/logosusp/imt.jpg" title="Instituto de Medicina Tropical de São Paulo - IMT"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1190"><img class="img-responsive" src="image/logosusp/ip.jpg" title="Instituto de Psicologia - IP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1232"><img class="img-responsive" src="image/logosusp/iqsc.jpg" title="Instituto de Química de São Carlos - IQSC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1216"><img class="img-responsive" src="image/logosusp/iq.jpg" title="Instituto de Química - IQ"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/16894"><img class="img-responsive" src="image/logosusp/iri.jpg" title="Instituto de Relações Internacionais - IRI"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1174"><img class="img-responsive" src="image/logosusp/io.jpg" title="Instituto Oceanográfico - IO"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1355"><img class="img-responsive" src="image/logosusp/mae.jpg" title="Museu de Arqueologia e Etnologia - MAE"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1335"><img class="img-responsive" src="image/logosusp/mac.jpg" title="Museu de Arte Contemporânea - MAC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1345"><img class="img-responsive" src="image/logosusp/mz.jpg" title="Museu de Zoologia - MZ"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1340"><img class="img-responsive" src="image/logosusp/mp.jpg" title="Museu Paulista - MP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1370"><img class="img-responsive" src="image/logosusp/sibi.jpg" title="Sistema Integrado de Bibliotecas - SIBi"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1315"><img class="img-responsive" src="image/logosusp/cebimar.jpg" title="Centro de Biologia Marinha - CEBIMar"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1"><img class="img-responsive" src="image/logosusp/cena.jpg" title="Centro de Energia Nuclear na Agricultura - CENA"></a></div>
+							</div>
+							<div id="logos4">	
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1365"><img class="img-responsive" src="image/logosusp/each.jpg" title="Escola de Artes, Ciências e Humanidades - EACH"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/22"><img class="img-responsive" src="image/logosusp/eca.jpg" title="Escola de Comunicações e Artes - ECA"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1360"><img class="img-responsive" src="image/logosusp/eeferp.jpg" title="Escola de Educação Física e Esporte de Ribeirão Preto - EEFERP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/94"><img class="img-responsive" src="image/logosusp/eefe.jpg" title="Escola de Educação Física e Esporte - EEFE"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/115"><img class="img-responsive" src="image/logosusp/eerp.jpg" title="Escola de Enfermagem de Ribeirão Preto - EERP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/68"><img class="img-responsive" src="image/logosusp/ee.jpg" title="Escola de Enfermagem - EE"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/136"><img class="img-responsive" src="image/logosusp/eel.jpg" title="Escola de Engenharia de Lorena - EEL"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/162"><img class="img-responsive" src="image/logosusp/eesc.jpg" title="Escola de Engenharia de São Carlos - EESC"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/213"><img class="img-responsive" src="image/logosusp/ep.jpg" title="Escola Politécnica - EP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/294"><img class="img-responsive" src="image/logosusp/esalq.jpg" title="Escola Superior de Agricultura Luiz de Queiroz - ESALQ"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/360"><img class="img-responsive" src="image/logosusp/fau.jpg" title="Faculdade de Arquitetura e Urbanismo - FAU"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/407"><img class="img-responsive" src="image/logosusp/fcfrp.jpg" title="Faculdade de Ciências Farmacêuticas de Ribeirão Preto - FCFRP"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/381"><img class="img-responsive" src="image/logosusp/fcf.jpg" title="Faculdade de Ciências Farmacêuticas - FCF"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/479"><img class="img-responsive" src="image/logosusp/fdrp.jpg" title="Faculdade de Direito de Ribeirão Preto - FDRP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/428"><img class="img-responsive" src="image/logosusp/fd.jpg" title="Faculdade de Direito - FD"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/542"><img class="img-responsive" src="image/logosusp/fearp.jpg" title="Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto - FEARP"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/521"><img class="img-responsive" src="image/logosusp/fea.jpg" title="Faculdade de Economia, Administração e Contabilidade - FEA"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/500"><img class="img-responsive" src="image/logosusp/fe.jpg" title="Faculdade de Educação - FE"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1248"><img class="img-responsive" src="image/logosusp/ffclrp.jpg" title="Faculdade de Filosofia, Ciências e Letras de Ribeirão Preto - FFCLRP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/563"><img class="img-responsive" src="image/logosusp/fflch.jpg" title="Faculdade de Filosofia, Letras e Ciências Humanas - FFLCH"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/725"><img class="img-responsive" src="image/logosusp/fmrp.jpg" title="Faculdade de Medicina de Ribeirão Preto - FMRP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/624"><img class="img-responsive" src="image/logosusp/fm.jpg" title="Faculdade de Medicina - FM"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/801"><img class="img-responsive" src="image/logosusp/fmvz.jpg" title="Faculdade de Medicina Veterinária e Zootecnia - FMVZ"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/878"><img class="img-responsive" src="image/logosusp/fob.jpg" title="Faculdade de Odontologia de Bauru - FOB"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1284"><img class="img-responsive" src="image/logosusp/forp.jpg" title="Faculdade de Odontologia de Ribeirão Preto - FORP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/837"><img class="img-responsive" src="image/logosusp/fo.jpg" title="Faculdade de Odontologia - FO"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/914"><img class="img-responsive" src="image/logosusp/fsp.jpg" title="Faculdade de Saúde Pública - FSP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/945"><img class="img-responsive" src="image/logosusp/fzea.jpg" title="Faculdade de Zootecnia e Engenharia de Alimentos - FZEA"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1325"><img class="img-responsive" src="image/logosusp/hrac.jpg" title="Hospital de Reabilitação de Anomalias Craniofaciais - HRAC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1330"><img class="img-responsive" src="image/logosusp/hu.jpg" title="Hospital Universitário - HU"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/32492"><img class="img-responsive" src="image/logosusp/iau.jpg" title="Instituto de Arquitetura e Urbanismo de São Carlos - IAU"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/966"><img class="img-responsive" src="image/logosusp/iag.jpg" title="Instituto de Astronomia, Geofísica e Ciências Atmosféricas - IAG"></a></div>      
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/987"><img class="img-responsive" src="image/logosusp/ib.jpg" title="Instituto de Biociências - IB"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1018"><img class="img-responsive" src="image/logosusp/icb.jpg" title="Instituto de Ciências Biomédicas - ICB"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1059"><img class="img-responsive" src="image/logosusp/icmc.jpg" title="Instituto de Ciências Matemáticas e de Computação - ICMC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1320"><img class="img-responsive" src="image/logosusp/iee.jpg" title="Instituto de Eletrotécnica e Energia - IEE"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1350"><img class="img-responsive" src="image/logosusp/ieb.jpg" title="Instituto de Estudos Brasileiros - IEB"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1116"><img class="img-responsive" src="image/logosusp/ifsc.jpg" title="Instituto de Física de São Carlos - IFSC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1080"><img class="img-responsive" src="image/logosusp/if.jpg" title="Instituto de Física - IF"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1132"><img class="img-responsive" src="image/logosusp/igc.jpg" title="Instituto de Geociências - IGc"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1148"><img class="img-responsive" src="image/logosusp/ime.jpg" title="Instituto de Matemática e Estatística - IME"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/32490"><img class="img-responsive" src="image/logosusp/imt.jpg" title="Instituto de Medicina Tropical de São Paulo - IMT"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1190"><img class="img-responsive" src="image/logosusp/ip.jpg" title="Instituto de Psicologia - IP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1232"><img class="img-responsive" src="image/logosusp/iqsc.jpg" title="Instituto de Química de São Carlos - IQSC"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1216"><img class="img-responsive" src="image/logosusp/iq.jpg" title="Instituto de Química - IQ"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/16894"><img class="img-responsive" src="image/logosusp/iri.jpg" title="Instituto de Relações Internacionais - IRI"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1174"><img class="img-responsive" src="image/logosusp/io.jpg" title="Instituto Oceanográfico - IO"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1355"><img class="img-responsive" src="image/logosusp/mae.jpg" title="Museu de Arqueologia e Etnologia - MAE"></a></div>
+							</div>
+							<div id="logos4">
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1335"><img class="img-responsive" src="image/logosusp/mac.jpg" title="Museu de Arte Contemporânea - MAC"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1345"><img class="img-responsive" src="image/logosusp/mz.jpg" title="Museu de Zoologia - MZ"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1340"><img class="img-responsive" src="image/logosusp/mp.jpg" title="Museu Paulista - MP"></a></div>
+								<div class="col-md-3" id="logo"><a href="handle/BDPI/1370"><img class="img-responsive" src="image/logosusp/sibi.jpg" title="Sistema Integrado de Bibliotecas - SIBi"></a></div>
+							</div>
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
 						</div>
 					</div>
 				</div>
@@ -388,11 +582,14 @@ $("button.prev").click(function(){
                             <% }%><%=etal%></p>
                         <p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
                     </div>
+				
                 </div>
                 <%
                         first = false;
                     }
                 %>
+				<span id="show" style="display:none; width:50%; color:#99CCFF;font-weight:bold;float:right">[mostrar mais]</span><span id="hide" style="display:none; float:right ; width:50%; color:#99CCFF;font-weight:bold;">[ocultar]</span>
+
             </div>
 			<center style="color: #1094ab"><div style="position:relative; top:-30px;width:23px; background-color:white;height:23px; border-width:2px;border-style:solid;border-color:#1094ab"><span id="show">&#9660;</span>
 			<span id="hide">&#9650;</span></center>
@@ -402,11 +599,11 @@ $("button.prev").click(function(){
 
         </div>
 
-			
+			<br><br>
 		<div class="col-md-4" style="position:relative; float:left;">
             <div class="panel text-justify" style="position:relative; float:left;">
                 <div class="panel-heading">
-                    <h3>Últimas notícias</h3>
+                    <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
                 <div class="media padding15">
                     <a class="pull-left" href="#">
@@ -453,7 +650,7 @@ $("button.prev").click(function(){
         </div>
     </div>
     <div class="row text-center" style="position:relative; float:left;">
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-floppy-open iconbg"></span>
             <h3>Como depositar</h3>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
@@ -461,7 +658,7 @@ $("button.prev").click(function(){
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-comment iconbg"></span>
             <h3>Como citar</h3>
             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -470,10 +667,10 @@ $("button.prev").click(function(){
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-pencil iconbg"></span>
             <h3>BDPI em números</h3>
-            <dl class="dl-horizontal">
+            <dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;">
                 <dt>Unidades</dt>
                 <dd>42</dd>
                 <dt>Departamentos</dt>

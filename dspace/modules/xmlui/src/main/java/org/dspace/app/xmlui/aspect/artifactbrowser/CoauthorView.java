@@ -126,7 +126,7 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
         message("xmlui.ArtifactBrowser.CoauthorView.aname_end");
 
     /** Parametro que armazenara o codpes da pessoa diretamente da pagina como um int */
-    private int codpes;
+    private String codpes;
 
     private String dspaceUrl = ConfigurationManager.getProperty("handle.canonical.prefix");
     private String handlePrefix = ConfigurationManager.getProperty("handle.prefix");
@@ -244,7 +244,7 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
         String urlAutor = this.dspaceUrl + this.handlePrefix  + "/" + itemIDStr + "/";
 
    /** Recupera o objeto Autor */
-        Author autor = this.ap.getAuthorByCodpes(Integer.parseInt(codpesStr));
+        Author autor = this.ap.getAuthorByCodpes(codpesStr);
 
         //String tituloBDPI = (String) T_title_bdpi;
 
@@ -265,7 +265,7 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
               ArrayList<Author> listaCoautoresTemp = new ArrayList<Author>();
 
    /** Variaveis que armazenarao o numero USP para comparacao e um contador de lista para mostrar no campo de sequencia */
-              int numeroUSP = 0;
+              String numeroUSP = "";
               int contadorLista = 0;
 
    /** Adiciona uma <div> na <div> geral */
@@ -336,21 +336,21 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
 
                  if(coautor != null) {
          
-                    if(coautor.getCodpes() != numeroUSP) {
-                       contadorLista++;
-                       listaCoautoresTemp.add(coautor);
-                       numeroUSP = coautor.getCodpes();
+                    if(! numeroUSP.trim().equalsIgnoreCase(coautor.getCodpes()) ) {
+                        contadorLista++;
+                        listaCoautoresTemp.add(coautor);
+                        numeroUSP = coautor.getCodpes();
                     }
 
                     else {
-                    
-                     //  if(contador != 0) {                 
-                         int qntTrabalhos = coautor.getQntTrabalhos();
-                         coautor = (Author) listaCoautoresTemp.get(contadorLista);
-                         qntTrabalhos = qntTrabalhos + coautor.getQntTrabalhos();
-                         coautor.setQntTrabalhos(qntTrabalhos);
-                         listaCoautoresTemp.set(contadorLista,coautor);
-                     // }
+                        
+                        //  if(contador != 0) {
+                        int qntTrabalhos = coautor.getQntTrabalhos();
+                        coautor = (Author) listaCoautoresTemp.get(contadorLista);
+                        qntTrabalhos = qntTrabalhos + coautor.getQntTrabalhos();
+                        coautor.setQntTrabalhos(qntTrabalhos);
+                        listaCoautoresTemp.set(contadorLista,coautor);
+                        // }
                     }
                  }
               }
@@ -392,7 +392,7 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
                       String nome = coautor.getNomeCompleto();
                       // String unidade = coautor.getUnidadeSigla(); [RETIRACOLUNAUNIDADE]
                       int trabalhos = coautor.getQntTrabalhos();
-                      int codpes = coautor.getCodpes();
+                      String codpes = coautor.getCodpes();
 
                       Row rowCoautor = tabelaCoautoresUSP.addRow("id_row_coautor", Row.ROLE_DATA, "class_row_coautor");
                      
@@ -402,7 +402,7 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
                       Cell cellNomeCoautor = rowCoautor.addCell("id_cols_nome_field", Cell.ROLE_DATA, "class_cols_nome_field");
 //                    cellNomeCoautor.addContent(nome);
                       cellNomeCoautor.addXref
-                              (contextPath + "/handle/" + this.handlePrefix  + "/" + itemIDStr + "/" + String.valueOf(codpes) + "/" + 
+                              (contextPath + "/handle/" + this.handlePrefix  + "/" + itemIDStr + "/" + codpes + "/" + 
                                "author", nome, "_self", "_self");
 // [inicio] DEIXA DE MOSTRAR UNIDADE ATE ACERTAR A QUESTAO DAS UNIDADES SEM USAR TUPLA DE AUTOR USP [RETIRACOLUNAUNIDADE]
                       // Cell cellUnidadeCoautor = rowCoautor.addCell("id_cols_unidade_field", Cell.ROLE_DATA, "class_cols_unidade_field");
@@ -558,6 +558,6 @@ public class CoauthorView extends AbstractDSpaceTransformer implements Cacheable
     }
 
     public void setCodpesFromPage(String codpes) {
-       this.codpes = Integer.parseInt(codpes);
+       this.codpes = codpes;
     }
 }

@@ -10,23 +10,23 @@ import java.util.Comparator;
 
 public class InterUnit implements Comparator<InterUnit>, Comparable<InterUnit> {
 
-        private int codpes;
+        private String codpes;
         private int qntTrabalhos;
         private String unidadeSigla;
 
         public InterUnit(){}
     
-	public InterUnit(int codpes, int qntTrabalhos, String unidadeSigla) {
+	public InterUnit(String codpes, int qntTrabalhos, String unidadeSigla) {
 		super();
 		this.codpes = codpes;
                 this.qntTrabalhos = qntTrabalhos;
 		this.unidadeSigla = unidadeSigla;
         }
 	
-	public int getCodpes() {
+	public String getCodpes() {
 		return codpes;
 	}
-	public void setCodpes(int codpes) {
+	public void setCodpes(String codpes) {
 		this.codpes = codpes;
 	}
 	public String getUnidadeSigla() {

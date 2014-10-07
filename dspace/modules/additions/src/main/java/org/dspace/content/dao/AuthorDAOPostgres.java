@@ -1,5 +1,6 @@
 package org.dspace.content.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -12,12 +13,13 @@ import org.dspace.content.ItemRelacionado;
 import org.dspace.core.Context;
 
 import java.sql.SQLException;
+
 import org.dspace.core.ConfigurationManager;
 
 public class AuthorDAOPostgres extends AuthorDAO
 {
     /** Constante para a busca de todos os parametros do autor USP a partir de seu codpes */
-    private static final String selectAuthor = "SELECT vinculopessoausp.codpes, vinculopessoausp.nompes nome,\n" +
+    private static final String selectAuthor = "SELECT codpes2codpub(vinculopessoausp.codpes) codpes, vinculopessoausp.nompes nome,\n" +
 "nvl(regexp_substr(vinculopessoausp.nompes,'.*\\s(.*)',1,1,'i',1),vinculopessoausp.nompes) sobrenome,\n" +
 "regexp_substr(vinculopessoausp.nompes,'(.*)\\s.*',1,1,'i',1) nomeinicial,\n" +
 "emailpessoa.codema email_1,\n" +
@@ -33,7 +35,7 @@ public class AuthorDAOPostgres extends AuthorDAO
 "on ((vinculopessoausp.codclg = colegiado.codclg) AND (vinculopessoausp.sglclg = colegiado.sglclg))\n" +
 "left join emailpessoa on emailpessoa.codpes = vinculopessoausp.codpes\n" +
 "left join resuservhistfuncional on (resuservhistfuncional.codpes = vinculopessoausp.codpes AND vinculopessoausp.tipvin = 'SERVIDOR')\n" +
-"WHERE vinculopessoausp.codpes = ?\n" +
+"WHERE vinculopessoausp.codpes = codpub2codpes(?)\n" +
 "ORDER BY\n" +
 "decode(substr(lower(vinculopessoausp.tipvin),0,4),'exte',1,'auto',1,'insc',2,'cand',2,'depe',3,0),\n" +
 "nvl(nvl(resuservhistfuncional.dtafimsitfun,vinculopessoausp.dtafimvin),to_date('2199','YYYY')) desc,\n" +
@@ -341,7 +343,7 @@ public class AuthorDAOPostgres extends AuthorDAO
 
             Author coautor = new Author();
 
-            coautor.setCodpes(Integer.parseInt(rs.getString("nusp")));
+            coautor.setCodpes(rs.getString("nusp"));
             coautor.setNomeCompleto(rs.getString("nomeusp"));
             coautor.setUnidadeSigla(rs.getString("unidade"));
             coautor.setQntTrabalhos(rs.getInt("ocorr"));
@@ -423,38 +425,20 @@ public class AuthorDAOPostgres extends AuthorDAO
         return ocn;
     }
     
-    public Author getAuthorByCodpes(String codpes) throws SQLException
-    {
-        if(codpes == null) {
-            return null;
-        }
-        else if(codpes.length() == 0){
-            return null;
-        }
-        else {
-            try {
-                return getAuthorByCodpes(Integer.parseInt(codpes));
-            }
-            catch(NumberFormatException e){
-                return null;
-            }
-        }
-    }
-
     /** Metodo que retorna um objeto do tipo Autor a partir de seu numero USP
      * @param codpes
      * @return
      * @throws java.sql.SQLException  */
-    public Author getAuthorByCodpes(int codpes) throws SQLException
+    public Author getAuthorByCodpes(String codpes) throws SQLException
     {
       try {
             Connection cabc = getReplicaUspDBconnection();
             PreparedStatement statement = cabc.prepareStatement(selectAuthor);
-            statement.setInt(1,codpes);
+            statement.setString(1,codpes);
             ResultSet rs = statement.executeQuery();
             Author author = new Author();
             if(rs.next()) {
-                    author.setCodpes(rs.getInt("codpes"));
+                    author.setCodpes(rs.getString("codpes"));
                     author.setNome(rs.getString("nome"));
                     author.setEmail_1(rs.getString("email_1"));
                     author.setSobrenome(rs.getString("sobrenome"));
@@ -466,7 +450,7 @@ public class AuthorDAOPostgres extends AuthorDAO
                     author.setDeptoSigla(rs.getString("depto_sigla"));
                     author.setVinculo(rs.getString("vinculo"));
                     author.setFuncao(rs.getString("funcao"));
-                    author.setLattes(rs.getString("lattes"));
+                    author.setLattes(rs.getString("lattes")); // lattes string is usually null, so setLattes must be called after setCodpub
             }
             rs.close();
             statement.close();

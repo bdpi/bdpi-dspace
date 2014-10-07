@@ -75,13 +75,13 @@
         <span class="icon-bar"></span>
     </button>
 </div>
-<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-    <ul class="nav navbar-nav">
+<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" >
+    <ul class="nav navbar-nav" >
         <li class="<%= currentPage.endsWith("/home.jsp") ? "active" : ""%>"><a href="<%= request.getContextPath()%>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" >
                 <li><a href="<%= request.getContextPath()%>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
   
                     <%-- Insert the dynamic browse indices here --%>
@@ -103,14 +103,7 @@
         <li><a data-toggle="modal" data-target="#faq">FAQ</a></li> <!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
-<!--        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.language"/><b class="caret"></b></a>
-            <ul class="dropdown-menu text-center">
-                <li><a href="?locale=pt_BR"><img src="/image/pt_BR.png" title="Português"></a></li>
-                <li><a href="?locale=en"><img src="/image/en.png" title="English"></a></li>
-                <li><a href="?locale=es"><img src="/image/es.png" title="Español"></a></li>
-            </ul>
-        </li> -->
+
         <li class="dropdown">
             <%
                 if (user != null) {
@@ -154,10 +147,20 @@
     <%-- Search Box --%>
     <form method="get" action="<%= request.getContextPath()%>/simple-search" class="navbar-form navbar-right" scope="search">
         <div class="form-group">
+<<<<<<< HEAD
             <input type="text" class="form-control" />
 			<!--placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery" size="25"-->
+=======
+            <input type="text" class="form-control" name="query" id="tequery" size="25"/>
+			<!-- 
+			Parte que tirei do input: placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>"
+			-->
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
         </div>
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+	
+		
+		
             <%--               <br/><a href="<%= request.getContextPath() %>/advanced-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
             <%
                                     if (ConfigurationManager.getBooleanProperty("webui.controlledvocabulary.enable"))
@@ -166,12 +169,13 @@
                           <br/><a href="<%= request.getContextPath() %>/subject-search"><fmt:message key="jsp.layout.navbar-default.subjectsearch"/></a>
             <%
                         }
-            %> --%>
+            %>
+			--%>
     </form>
-
+	
     <!-- Button trigger modal -->
-
     <!-- Modal Política de Acesso Aberto -->
+
     <div class="modal fade" id="openAccessPolicy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <fmt:message key="page.openaccesspolicy" var="paginat"/>

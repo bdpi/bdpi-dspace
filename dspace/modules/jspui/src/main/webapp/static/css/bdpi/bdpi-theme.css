@@ -4371,8 +4371,7 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
+
   color: inherit;
   background: url("../../../image/usp-relogio.jpg") no-repeat center center;
   background-position: center center;
@@ -5805,13 +5804,15 @@ button.close {
 }
 .box { 
    color: white; 
-   letter-spacing: -1px;  
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.7);
-   padding: 20px;
+   background-color: black; /* fallback color */
+   opacity:0.6;
+   letter-spacing:1px;
+   font-weight:bold;
+   padding: 10px;
    position:relative;
-   width:80%;
-}
+   float:left;
+	margin:0;
+   }
 .padding15 {
    padding: 10px; 
 }
@@ -5840,11 +5841,7 @@ color: #0e94ab;
 }
 
 .chamada {
-color: #feb524;
-}
-
-.espaco {
-letter-spacing: 1px;
+color: #FFAD33;
 }
 
 .paddingnone {
@@ -5981,7 +5978,7 @@ padding-right:0px;
 }
 #logospanel-heading{
 margin:0;
-padding:0
+padding:10px
 }
 button#prev{
 margin:0;
@@ -5992,7 +5989,7 @@ border-style:dashed;
 
 #panellogos h3{
 margin:20px;
-padding:0
+padding:0;
 }
 #logos{
 margin:0;
@@ -6075,6 +6072,10 @@ z-index:50;
 #jumbocol{
 width:100%;
 margin-right:15px;
+z-index:60;
+}
+#jumborow{
+height: 150px;
 }
 #logos-container {
 width:100%;
@@ -6096,7 +6097,19 @@ z-index:50;
 top: 50px;
 margin: 0 auto;
 }
+#logos4{
+width:70px;
+height:280px;
+position:relative;
+float:left;
+}
 @media (max-width: 991px) {
+#logos4{
+width:140px;
+height:140px;
+position:relative;
+float:left;
+}
   #anim #logos-container {
     height: 150px;
   }
@@ -6107,4 +6120,15 @@ margin: 0 auto;
   #jumborow{
     height: 150px;
   }
+
  }
+     #notasdorodape{
+	max-width:600px;
+	margin-right:auto;
+	margin-left:auto;
+  }
+ @media (min-width: 991px) {
+   #notasdorodape{
+	padding:40px;
+  }
+  }

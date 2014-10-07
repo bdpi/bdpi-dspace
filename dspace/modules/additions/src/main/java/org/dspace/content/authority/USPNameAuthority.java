@@ -38,6 +38,8 @@ public class USPNameAuthority implements ChoiceAuthority {
         // codpes,nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla,funcao
         // DISTINCT codpes, nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla, funcao,
         // dtaini, dtafim
+        
+        /* expressao antiga, desativada em 16.jul.2014
         private static final String DATABASE_TABLE = "(SELECT rownum idrowx, vinculopessoausp.codpes, vinculopessoausp.nompes nome, \n" +
         "regexp_substr(vinculopessoausp.nompes,'(.*)\\s.*',1,1,'i',1) nomeinicial,\n" +
         "nvl(regexp_substr(vinculopessoausp.nompes,'.*\\s(.*)',1,1,'i',1),vinculopessoausp.nompes) sobrenome,\n" +
@@ -50,8 +52,38 @@ public class USPNameAuthority implements ChoiceAuthority {
         "left join resuservhistfuncional on (resuservhistfuncional.codpes = vinculopessoausp.codpes AND vinculopessoausp.tipvin = 'SERVIDOR')\n" +
         "left join unidade on (vinculopessoausp.codund = unidade.codund OR vinculopessoausp.codfusclgund = unidade.codund)\n" +
         "left join setor on (vinculopessoausp.codset = setor.codset)\n" +
-        " WHERE_EXPRESSION )";
+        " WHERE_EXPRESSION )";        
+        */
 
+        private static final String DATABASE_TABLE = "(SELECT rownum idrowx, codpes nusp, codpes2codpub(view_bdpi.codpes) codpes, view_bdpi.nompes nome, \n" +
+        "regexp_substr(view_bdpi.nompes,'(.*)\\s.*',1,1,'i',1) nomeinicial,\n" +
+        "nvl(regexp_substr(view_bdpi.nompes,'.*\\s(.*)',1,1,'i',1),view_bdpi.nompes) sobrenome,\n" +
+        "view_bdpi.sglund unidade_sigla,\n" +
+        "view_bdpi.nomabvset depto_sigla,\n" +
+        "view_bdpi.tipfnc funcao,\n" +
+        "view_bdpi.dtaini,\n" +
+        "view_bdpi.dtafim\n" +
+        "FROM view_bdpi\n" +
+        " WHERE_EXPRESSION)";
+        /*
+        private static final String orderingrows = ",\n" +
+"decode(substr(lower(tipvin),0,4),'exte',1,'auto',1,'insc',2,'cand',2,'depe',3,0) B,\n" +
+"nvl(dtafim,to_date('2199','YYYY')) C,\n" +
+"nvl2(sitctousp,decode(lower(sitctousp),'ativado',0,1),0) D,\n" +
+"decode(sitatl,'A',0,'P',1,'D',2,3) E,\n" +
+"decode(substr(decode(lower(tipfnc),'docente','docente',lower(tipvin)),0,5),'docen',0,'aluno',1,'servi',2,3) F,\n" +
+"decode(lower(tipmer),'ms-6',0,'ms-5',1,'ms-4',2,'ms-3',3,'ms-2',4,'ms-1',5,'pc 1',6,'pc 2',7,'pc 3',8) G,\n" +
+"numseqpgm H";
+        
+        private static final String orderby = "order by\n" +
+"B,\n" +
+"C desc,\n" +
+"D,\n" +
+"E,\n" +
+"F,\n" +
+"G,\n" +
+"H desc";
+        */
         private Context context = null ;
         private static Request request = null;
         
@@ -153,12 +185,12 @@ public class USPNameAuthority implements ChoiceAuthority {
                         for (String nome : nomes) {
                             try {
                                 if (Integer.parseInt(nome) > 0) {
-                                    filtro.put(pindex++, new String[]{"vinculopessoausp.codpes = ?",
+                                    filtro.put(pindex++, new String[]{"view_bdpi.codpes = ?",
                                                                       nome,
                                                                       "int"});
                                 }
                             } catch (NumberFormatException e) {
-                                filtro.put(pindex++, new String[]{"translate(lower(vinculopessoausp.nompes),'áéíóúâêîôûàèìòùäëïöüãõç','aeiouaeiouaeiouaeiouaoc') like lower(?)",
+                                filtro.put(pindex++, new String[]{"translate(lower(view_bdpi.nompes),'áéíóúâêîôûàèìòùäëïöüãõç','aeiouaeiouaeiouaeiouaoc') like lower(?)",
                                                                   "%".concat(nome).concat("%"),
                                                                   "string"});
                             }
@@ -180,14 +212,16 @@ public class USPNameAuthority implements ChoiceAuthority {
                         StringBuilder consulta_total = new StringBuilder();
                         consulta_total.append("SELECT COUNT(*) Q FROM ");
                         consulta_total.append(DATABASE_TABLE.replace("WHERE_EXPRESSION",where_expression.toString()));
+                        // .replace("ORDERINGROWS","").replace("ORDERBY","")
                         
                         StringBuilder consulta = new StringBuilder();
-                        consulta.append("SELECT codpes, nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla, funcao, dtaini, dtafim FROM ");
+                        consulta.append("SELECT codpes, nusp, nome, nomeinicial, sobrenome, unidade_sigla, depto_sigla, funcao, dtaini, dtafim FROM ");
                         consulta.append(DATABASE_TABLE.replace("WHERE_EXPRESSION",where_expression.toString()));
                         consulta.append(" WHERE rownum < ").append(String.valueOf(MAX_AUTORES + 1));
                         consulta.append(" AND idrowx > ").append(String.valueOf(start));
                         consulta.append(" order by nome");
-                                                
+                        // .replace("ORDERINGROWS",orderingrows).replace("ORDERBY",orderby)
+                        
                         Connection caut = getReplicaUspDBconnection();
                         
                         System.out.println(" consulta_total == " + consulta_total.toString());
@@ -219,12 +253,12 @@ public class USPNameAuthority implements ChoiceAuthority {
                         rs = statement.executeQuery();
                         ArrayList<Choice> v = new ArrayList<Choice>();
                         while(rs.next()){
-                            v.add(new Choice(String.valueOf(rs.getInt("codpes")),
+                            v.add(new Choice(rs.getString("codpes"),
                                     rs.getString("sobrenome") + ", "
                                   + rs.getString("nomeinicial"),
                                     rs.getString("nome")
                                   + " - "
-                                  + String.valueOf(rs.getInt("codpes")) + " ("
+                                  + String.valueOf(String.valueOf(rs.getInt("nusp"))) + " ("
                                   + nvl(rs.getString("unidade_sigla"),trims(rs.getString("unidade_sigla")), "- ")
                                   + nvl(rs.getString("depto_sigla"), "/ " + trims(rs.getString("depto_sigla")),"/ -")
                                   + ")"

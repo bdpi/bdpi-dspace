@@ -6802,8 +6802,12 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+<<<<<<< HEAD
 }
 #logo{
 position:relative;
 background-color:yellow;
+=======
+ 
+>>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
 }
