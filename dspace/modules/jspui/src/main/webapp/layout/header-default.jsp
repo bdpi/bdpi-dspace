@@ -241,20 +241,13 @@
                                     <div class="container" id="container">
                                         <div class="row">
                                             <div class="col-md-8">
-<<<<<<< HEAD
                                                 <div class="logo">
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
                                                 </div>
 													                                                                    
                                             </div>
-											
 
-=======
-                                                <div class="logo" id="cabecalhosibi">
-                                                  <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
-												</div>
-											</div>
->>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
+                                                </div>
 												<div style="position:absolute; right:20px;top:65px">
 												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" style="width:75px;position:relative; float:right">
 												</div>

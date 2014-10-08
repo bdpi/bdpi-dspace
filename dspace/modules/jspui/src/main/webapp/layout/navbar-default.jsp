@@ -147,15 +147,12 @@
     <%-- Search Box --%>
     <form method="get" action="<%= request.getContextPath()%>/simple-search" class="navbar-form navbar-right" scope="search">
         <div class="form-group">
-<<<<<<< HEAD
-            <input type="text" class="form-control" />
-			<!--placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery" size="25"-->
-=======
+
             <input type="text" class="form-control" name="query" id="tequery" size="25"/>
 			<!-- 
 			Parte que tirei do input: placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>"
 			-->
->>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
+
         </div>
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 	
