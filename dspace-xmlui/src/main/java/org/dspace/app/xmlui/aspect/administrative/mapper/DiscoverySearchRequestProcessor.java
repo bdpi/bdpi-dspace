@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 import org.dspace.content.Collection;
 import org.dspace.content.DSpaceObject;
+import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.discovery.DiscoverQuery;
 import org.dspace.discovery.DiscoverResult;
@@ -34,6 +35,15 @@ public class DiscoverySearchRequestProcessor
         DiscoverQuery query = new DiscoverQuery();
         query.setQuery(queryString);
         query.addFilterQueries("-location:l"+collection.getID());
+
+	// [start] jan.lara 07.out.2014 - item mapping - fast search by handle
+        if(queryString.trim().matches("\\w+\\/\\d+$")){
+            query.addFilterQueries("handle:" + queryString.trim());
+        }
+        else if(queryString.trim().matches("\\d+$")){
+            query.addFilterQueries("handle:" + ConfigurationManager.getProperty("handle.prefix") + "/" + queryString.trim());
+        }
+	// [end] jan.lara 07.out.2014 - item mapping - fast search by handle
 
         DiscoverResult results = null;
         try {
