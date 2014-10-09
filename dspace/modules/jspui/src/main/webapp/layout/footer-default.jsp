@@ -43,8 +43,8 @@
     <div class="col-md-12">
         <footer class="navbar navbar-inverse" style="background-color:transparent">
 		<br><br>
-            <div id="designedby" style="background-color:#FEB524; height:50px;position:relative; float:left; width:100%">
-                <h6 style="color:white; font-weight:bold">&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;<a href="http://www.cineca.it"><img
+            <div id="designedby" style="background-color:#FEB524; height:45px;position:relative; float:left; width:100%">
+                <h6 style="color:white; font-weight:bold; position:relative; top:-10px">&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;<a href="http://www.cineca.it"><img
                         style="width:35px"
 						src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
                         alt="Logo CINECA" /></a>
@@ -57,14 +57,16 @@
 				</h6>	
             </div>
 		</footer>
-    </div>
 
-</div>
-<address class="text-center">
+		<address class="text-center">
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
 <abbr title="Phone">Tel:</abbr> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;E-mail: <a href="mailto:#">atendimento@sibi.usp.br</a>
 </address> <br><br><br>
+    </div>
+
+</div>
+
 
 </main>
 
