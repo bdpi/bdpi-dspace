@@ -746,6 +746,7 @@ pre code {
 }
 
 .container {
+
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -773,8 +774,8 @@ pre code {
 }
 
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .row:before,
@@ -6802,12 +6803,5 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
-<<<<<<< HEAD
-}
-#logo{
-position:relative;
-background-color:yellow;
-=======
- 
->>>>>>> dd869ba4fbf8333f92e3e78e2982857d2d0341d9
+
 }

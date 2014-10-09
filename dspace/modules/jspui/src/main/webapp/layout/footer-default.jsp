@@ -43,32 +43,30 @@
     <div class="col-md-12">
         <footer class="navbar navbar-inverse" style="background-color:transparent">
 		<br><br>
-            <div id="designedby" style="background-color:#FEB524; height:70px;position:relative; float:left; width:100%">
+            <div id="designedby" style="background-color:#FEB524; height:50px;position:relative; float:left; width:100%">
                 <h6 style="color:white; font-weight:bold">&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;<a href="http://www.cineca.it"><img
                         style="width:35px"
 						src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
                         alt="Logo CINECA" /></a>
-				</h6>
 				<div id="footer_feedback" class="pull-right">
-				<h6>
-                    <fmt:message key="jsp.layout.footer-default.text" />&nbsp;&nbsp;&nbsp;-&nbsp;
+				<fmt:message key="jsp.layout.footer-default.text" />&nbsp;&nbsp;&nbsp;-&nbsp;
                     <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-&nbsp;
                     <a href="<%= request.getContextPath()%>/htmlmap">Mapa do site</a>&nbsp;-&nbsp;
-                    <a href="#">Voltar ao início</a>&nbsp;&nbsp;
-				</h6>
+                    <a href="#">Voltar ao in&iacute;cio</a>&nbsp;&nbsp;
 				</div>
-				
+				</h6>	
             </div>
-	</footer>
+		</footer>
     </div>
+
 </div>
-                    <br><br>
 <address class="text-center">
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
 <abbr title="Phone">Tel:</abbr> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;E-mail: <a href="mailto:#">atendimento@sibi.usp.br</a>
 </address> <br><br><br>
-	
+
 </main>
+
 </body>
 </html>

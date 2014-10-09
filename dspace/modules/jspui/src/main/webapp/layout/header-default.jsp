@@ -244,9 +244,7 @@
                                                 <div class="logo">
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
                                                 </div>
-													                                                                    
-                                            </div>
-
+										
                                                 </div>
 												<div style="position:absolute; right:20px;top:65px">
 												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" style="width:75px;position:relative; float:right">
