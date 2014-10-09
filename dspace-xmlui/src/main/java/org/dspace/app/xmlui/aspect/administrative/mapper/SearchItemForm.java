@@ -27,6 +27,7 @@ import org.dspace.content.DCValue;
 import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
 import org.dspace.core.ConfigurationManager;
+import org.dspace.core.Constants;
 import org.dspace.core.PluginConfigurationError;
 import org.dspace.core.PluginManager;
 import org.dspace.handle.HandleManager;
@@ -169,34 +170,56 @@ public class SearchItemForm extends AbstractDSpaceTransformer {
 	}
 	
 	
-	/**
-	 * Search the repository for items in other collections that can be mapped into this one.
-	 * 
-	 * @param collection The collection to map into
-	 * @param query The search query.
-	 */
-	private java.util.List<Item> performSearch(Collection collection, String query) throws SQLException, IOException
-	{
-        // Which search provider do we use?
-        SearchRequestProcessor processor = null;
-        try {
-            processor = (SearchRequestProcessor) PluginManager
-                    .getSinglePlugin(SearchRequestProcessor.class);
-        } catch (PluginConfigurationError e) {
-            log.warn("{} not properly configured.  Please configure the {} plugin.  {}",
-                    new Object[] {
-                        SearchItemForm.class.getName(),
-                        SearchRequestProcessor.class.getName(),
-                        e.getMessage()
-                    });
+    /**
+     * Search the repository for items in other collections that can be mapped into this one.
+     * 
+     * @param collection The collection to map into
+     * @param query The search query.
+     */
+    private java.util.List<Item> performSearch(Collection collection, String query) throws SQLException, IOException
+    {
+        // [start] jan.lara 09.out.2014 - item mapping - find by handle without search
+        List<DSpaceObject> results = null;
+        DSpaceObject dsomap = null;
+        if(query.trim().matches("\\w+\\/\\d+$"))
+        {
+            dsomap = HandleManager.resolveToObject(context, query.trim());
         }
-        if (processor == null)
-        {   // Discovery is the default search provider since DSpace 4.0
-            processor = new DiscoverySearchRequestProcessor();
+        else if(query.trim().matches("\\d+$")){
+            dsomap = HandleManager.resolveToObject(context, ConfigurationManager.getProperty("handle.prefix") + "/" + query.trim());
         }
+        if(dsomap != null){
+            if(dsomap.getType() == Constants.ITEM){
+                results = new ArrayList<DSpaceObject>();
+                results.add(dsomap);
+            }
+        }
+        // [end] jan.lara 07.out.2014 - item mapping - find by handle without search
+        
+        if(results == null) // jan.lara 07.out.2014 - item mapping - find by handle without search
+        {
+            // Which search provider do we use?
+            SearchRequestProcessor processor = null;
+            try {
+                processor = (SearchRequestProcessor) PluginManager
+                        .getSinglePlugin(SearchRequestProcessor.class);
+            } catch (PluginConfigurationError e) {
+                log.warn("{} not properly configured.  Please configure the {} plugin.  {}",
+                        new Object[] {
+                            SearchItemForm.class.getName(),
+                            SearchRequestProcessor.class.getName(),
+                            e.getMessage()
+                        });
+            }
+            if (processor == null)
+            {   // Discovery is the default search provider since DSpace 4.0
+                processor = new DiscoverySearchRequestProcessor();
+            }
 
-        // Search the repository
-        List<DSpaceObject> results = processor.doItemMapSearch(context, query, collection);
+            // Search the repository
+            results = processor.doItemMapSearch(context, query, collection);
+        
+        }
 
         // Get a list of found items
         ArrayList<Item> items = new ArrayList<Item>();
