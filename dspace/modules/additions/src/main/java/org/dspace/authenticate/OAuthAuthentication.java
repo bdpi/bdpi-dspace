@@ -137,9 +137,19 @@ public class OAuthAuthentication
             String realm,
             HttpServletRequest request)
             throws SQLException {
+        
+        String oauth_secret;
+        try {
+            JSONObject tokendata = new JSONObject((String) getCache().get(oauth_token));
+            oauth_secret = tokendata.getString("secret");
+        }
+        catch (JSONException e) {
+            log.trace(e);
+            oauth_secret = "";
+        }
 
         Token accessToken = oauthservice.getAccessToken(
-                            new Token(oauth_token,(String) getCache().get(oauth_token)),
+                            new Token(oauth_token,oauth_secret),
                             new Verifier(oauth_verifier));
 
         OAuthRequest orequest = new OAuthRequest(Verb.POST, PROTECTED_RESOURCE_URL);
@@ -228,10 +238,19 @@ public class OAuthAuthentication
             // que o token seja gerado 3 vezes a cada chamada.
             
             httpRequestHashCode = request.hashCode();
-
-            Token requesttoken = oauthservice.getRequestToken();
-            getCache().set(requesttoken.getToken(), MEMCACHED_TIMEOUT, requesttoken.getSecret());
-            strLoginPageURL = response.encodeRedirectURL(oauthservice.getAuthorizationUrl(requesttoken));
+            
+            try{
+                Token requesttoken = oauthservice.getRequestToken();
+                JSONObject tokendata = new JSONObject();
+                tokendata.put("secret", requesttoken.getSecret());
+                tokendata.put("contextpath",request.getContextPath());
+                getCache().set(requesttoken.getToken(), MEMCACHED_TIMEOUT, tokendata.toString());
+                strLoginPageURL = response.encodeRedirectURL(oauthservice.getAuthorizationUrl(requesttoken));
+            }
+            catch(JSONException e){
+                log.trace(e);
+                strLoginPageURL = "";
+            }
         }
         return strLoginPageURL;
     }
