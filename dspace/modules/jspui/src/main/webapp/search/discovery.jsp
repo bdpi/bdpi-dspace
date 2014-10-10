@@ -745,7 +745,7 @@ else
 </div>
 <% } %>
 <script type="text/javascript">
-    $(".authority.author").after(" <img src=\"\/image/ehUSP.png\">");  
+    $(".authority.author").after(" <img src=\"<%=request.getContextPath()%>\/image/ehUSP.png\">");
 </script>
 </dspace:sidebar>
 </dspace:layout>

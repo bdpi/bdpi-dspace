@@ -485,8 +485,8 @@
       
 
             </div>
-            <script>$(".authority.author").after(" <img src=\"\/image/ehUSP.png\">");</script>
-            <script>$( "a:contains('\.pdf')" ).html(" <img src=\"\/image/pdf.png\">");</script>
+            <script>$(".authority.author").after(" <img src=\"<%=request.getContextPath()%>\/image/ehUSP.png\">");</script>
+            <script>$( "a:contains('\.pdf')" ).html(" <img src=\"<%=request.getContextPath()%>\/image/pdf.png\">");</script>
             
 
         </dspace:layout>

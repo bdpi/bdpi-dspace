@@ -33,3 +33,7 @@ META-INF/
 
 ##Mac noise
 .DS_Store
+
+## Ignore bittorrentsync folder
+.sync/
+

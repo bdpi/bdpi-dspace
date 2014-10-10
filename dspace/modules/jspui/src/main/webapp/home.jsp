@@ -377,7 +377,7 @@ $("button.prev").click(function(){
                             for (int acount = 0; acount < maxcount; acount++) { %>
                                 <% if (acount > 0) { %>; <% }%>
                                 <% if(displayAuthors[acount][1]!=null){ %>
-                                <a class="authority author" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="/image/ehUSP.png">
+                                <a class="authority author" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
                                 <% } else { %>
                                   <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
                                 <% } %>

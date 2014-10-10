@@ -29,7 +29,7 @@
     String navbar = (String) request.getAttribute("dspace.layout.navbar");
     boolean locbar = ((Boolean) request.getAttribute("dspace.layout.locbar")).booleanValue();
 
-    String siteURL = ConfigurationManager.getProperty("dspace.baseUrl");
+    String siteURL = request.getContextPath();
     String siteName = ConfigurationManager.getProperty("dspace.name");
     String feedRef = (String)request.getAttribute("dspace.layout.feedref");
     boolean osLink = ConfigurationManager.getBooleanProperty("websvc.opensearch.autolink");
