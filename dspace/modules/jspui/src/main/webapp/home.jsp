@@ -69,8 +69,8 @@ function tamanho(){
 	
 	if( window.innerWidth >= 992 ){
 	// caracteristicas deste tamanho de tela
-	document.getElementById("jumbocol").style.width 
-	= window.innerWidth - 50 - 15 - 420 + "px";       					// Tamanho da foto - Tamanho da tela - margens do body e margem direita da foto.
+	//document.getElementById("jumbocol").style.width 
+	//= window.innerWidth - 300 - 35 - 420 + "px";       					// Tamanho da foto - Tamanho da tela - margens do body e margem direita da foto.
 	document.getElementById("logos-container").style.width = 420+"px";
 	document.getElementById("anim").style.height = 300 +"px";
 	document.getElementById("logos-container").style.height = 280 +"px";

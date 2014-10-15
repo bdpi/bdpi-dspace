@@ -738,13 +738,25 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  width:100%;
-  padding-right: 15px;
-  padding-left: 15px;
+	position:relative;
+  max-width:1050px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top:20px;
+  top:0px;
   margin-right: auto;
   margin-left: auto;
-  overflow:hidden;
-}/*
+
+  z-index:0;
+  
+  background-color: #FFFFFF; 
+  border-width: 0px; 
+  border-color: #DDDDDD; 
+  border-radius: 0px; 
+  box-shadow: 0px 2px 6px 1px #99A3AD, 0px 0px 40px #EEEEEE; 
+}
+
+/*
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -3113,6 +3125,7 @@ input[type="button"].btn-block {
   content: "";
   border-top: 0;
   border-bottom: 4px solid;
+  z-index:100;
 }
 .dropup .dropdown-menu,
 .navbar-fixed-bottom .dropdown .dropdown-menu {
@@ -3696,16 +3709,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 @media (min-width: 992px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
+    margin-right: 30px;
+    margin-left: 30px;
   }
 }
 .navbar-static-top {
@@ -5915,6 +5928,7 @@ padding-right:0px;
 .usptab {
 	background:url(http://www.producao.usp.br/a/barrausp/images/tab_b.png) repeat-x 0 0;
 	height:22px;
+	z-index:0;
 }
 .usptab ul.usplogin {
 	display:block;
@@ -5978,7 +5992,7 @@ padding-right:0px;
 }
 #logospanel-heading{
 margin:0;
-padding:10px
+padding:0px
 }
 button#prev{
 margin:0;
@@ -6070,12 +6084,12 @@ z-index:50;
  padding:0;
 }
 #jumbocol{
-width:100%;
+width:575px;
 margin-right:15px;
 z-index:60;
 }
 #jumborow{
-height: 150px;
+height:350px;
 }
 #logos-container {
 width:100%;
@@ -6132,3 +6146,9 @@ float:left;
 	padding:40px;
   }
   }
+a.cruesp{
+
+}
+a.cruesp:hover{
+background : url(imgage/cruesp.png); 
+}

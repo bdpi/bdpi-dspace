@@ -43,11 +43,22 @@
     <div class="col-md-12">
         <footer class="navbar navbar-inverse" style="background-color:transparent">
 		<br><br>
-            <div id="designedby" style="background-color:#FEB524; height:45px;position:relative; float:left; width:100%">
-                <h6 style="color:white; font-weight:bold; position:relative; top:-10px">&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;<a href="http://www.cineca.it"><img
-                        style="width:35px"
+            <div id="designedby" style="background-color:white; height:60px;position:relative; float:left; width:100%; border-top-style:solid;border-top-width:2px;border-top-color:#fcb421;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:#fcb421;">
+                <h6 style="color:#fcb421; font-weight:bold; position:relative;top:-5px">
+				
+				<div style="float:left; position:relative;top:12px"><strong>&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;</strong></div>
+				
+				<a href="http://www.cineca.it"> 
+				
+				<div style="background-color:#fcb421;position:relative;width:45px;height:48px;float:left; padding:5px;border-radius: 5px; top:-6px">
+				
+				<img    style="width:35px;"
 						src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
-                        alt="Logo CINECA" /></a>
+                        alt="Logo CINECA" />
+				
+				</div>
+				
+				</a>
 				<div id="footer_feedback" class="pull-right">
 				<fmt:message key="jsp.layout.footer-default.text" />&nbsp;&nbsp;&nbsp;-&nbsp;
                     <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-&nbsp;
