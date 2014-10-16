@@ -312,7 +312,7 @@ $("button.prev").click(function(){
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
-            <div class="panel" style="padding:10px;margin-right:10px;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5);">
+            <div class="panel" style="padding:10px;margin-right:10px;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:  #fcb421;border-top-style:solid;border-top-width:2px;border-top-color:  #fcb421;    background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5);">
                 <div class="panel-heading">
                     <h4><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
@@ -409,7 +409,7 @@ $("button.prev").click(function(){
 				
 
             </div>
-			<center style="color: #1094ab"><div style="position:relative; top:-30px;width:23px; background-color:white;height:23px; border-width:2px;border-style:solid;border-color:#1094ab"><span id="show">&#9660;</span>
+			<center style="color: #fcb421"><div style="position:relative; top:-30px;width:23px; background-color:white;height:23px; border-width:2px;border-style:solid;border-color:#fcb421"><span id="show">&#9660;</span>
 			<span id="hide">&#9650;</span></center>
             <%
                 }
@@ -419,7 +419,7 @@ $("button.prev").click(function(){
 
 			<br><br>
 		<div class="col-md-4" style="position:relative; float:left;">
-            <div class="panel text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:  #fcb421;border-top-style:solid;border-top-width:2px;border-top-color:  #fcb421;    background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5); ">
+            <div class="panel text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5); ">
                 <div class="panel-heading">
                     <h4><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
