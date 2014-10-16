@@ -244,6 +244,11 @@
                                     <a class="sr-only" href="#content">Skip navigation</a>
                                     <div class="container" id="container">
                                         <div class="row">
+											
+												<div class="cruesplink" style="float:right">
+												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;"></a>
+												</div>
+												
                                             <div class="col-md-8">
                                                 <div class="logo"><br><br>
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
@@ -251,9 +256,6 @@
 												</div>
 										
                                                 </div>
-												<div class="cruesp" style="position:absolute; position:relative;float:right;">
-												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;">
-												</div>
                                            </div>
 																	 <h6 style="text-align:right; font-weight: 700; margin:0;">
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>

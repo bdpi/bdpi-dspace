@@ -67,10 +67,10 @@ function tamanho(){
 																		
 	document.getElementById("logos").style.width = 70*27+"px";			// Para dispor os logos na horizontal - 14 é o numero de colunas.
 	
-	if( window.innerWidth >= 992 ){
+	if( window.innerWidth >= 1050 ){
 	// caracteristicas deste tamanho de tela
-	//document.getElementById("jumbocol").style.width 
-	//= window.innerWidth - 300 - 35 - 420 + "px";       					// Tamanho da foto - Tamanho da tela - margens do body e margem direita da foto.
+	document.getElementById("jumbocol").style.width 
+	= window.innerWidth - (window.innerWidth-1000) - 20 - 420 + "px";       					// Tamanho da foto - Tamanho da tela - margens do body e margem direita da foto.
 	document.getElementById("logos-container").style.width = 420+"px";
 	document.getElementById("anim").style.height = 300 +"px";
 	document.getElementById("logos-container").style.height = 280 +"px";
@@ -103,8 +103,24 @@ window.onresize = tamanho;
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
-//Para carregar as submissoes recentes.
+
+
+
+
+
 $(document).ready(function(){
+
+	//Para mudar a cor do Cruesp
+
+	$(".cruesplink").mouseenter(function() {
+					$(".cruesp").css("display","visible");
+				$(".cruesppeb").css("display","none");
+
+	});
+
+	
+	//Para carregar as submissoes recentes.
+
 $("div#recentSubmissions").hide();
 $("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
 $("div#recentSubmissions").first().next().attr("id","submitFixa");

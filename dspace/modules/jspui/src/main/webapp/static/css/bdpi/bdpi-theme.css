@@ -61,7 +61,7 @@ dfn {
 }
 h1 {
   margin: .67em 0;
-  font-size: 2em;
+  font-size: 30px;
 }
 mark {
   color: #000;
@@ -6137,13 +6137,14 @@ float:left;
 
  }
      #notasdorodape{
-	max-width:600px;
-	margin-right:auto;
-	margin-left:auto;
+	max-width:300px;
+	position:relative;
+	float:left;
+	padding:10%;
   }
- @media (min-width: 991px) {
+/* @media (min-width: 790px) {*/
    #notasdorodape{
-	padding:40px;
+	padding:30px;
   }
   }
 a.cruesp{
