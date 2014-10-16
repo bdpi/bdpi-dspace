@@ -242,7 +242,7 @@
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
     <body class="undernavigation">
 <a class="sr-only" href="#content">Skip navigation</a>
-<div class="container">
+<div class="container" style="position:relative;z-index:10">
                                             <div class="row">
                                             <div class="col-md-8">
                                                 <div class="logo">

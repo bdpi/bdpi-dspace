@@ -72,7 +72,7 @@
 %>
 
 <dspace:layout style="submission" titlekey="jsp.mydspace" nocache="true">
-	<div class="panel panel-primary" style="position:relative; z-index: -10;">
+	<div class="panel panel-primary">
         <div class="panel-heading" style="z-index: -1;">
                     <fmt:message key="jsp.mydspace"/>: <%= Utils.addEntities(user.getFullName()) %>
 	                <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#mydspace\"%>"><fmt:message key="jsp.help"/></dspace:popup></span>
