@@ -203,8 +203,8 @@ $("button.prev").click(function(){
 			</div>
 			<div id="panellogos">
 				<div class="panel-heading" id="logospanel-heading">
-					<h3 style="margin:0; padding:0"><fmt:message key="jsp.home.com1"/>
-					</h3>
+					<h4 style="margin:0; padding:0"><fmt:message key="jsp.home.com1"/>
+					</h4>
 					<div id="setas">
 						<button id="seta" class="prev" style="margin:auto;"><</button>
 						<button id="seta" class="next" style="position:relative;float:right">></button>
@@ -312,9 +312,9 @@ $("button.prev").click(function(){
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
-            <div class="panel">
+            <div class="panel" style="padding:10px;margin-right:10px;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5);">
                 <div class="panel-heading">
-                    <h3><fmt:message key="jsp.collection-home.recentsub"/>
+                    <h4><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
                             if (feedEnabled) {
                                 String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -337,7 +337,7 @@ $("button.prev").click(function(){
                                     }
                                 }
                             %>
-                    </h3>
+                    </h4>
                 </div>
 
                 <%
@@ -419,9 +419,9 @@ $("button.prev").click(function(){
 
 			<br><br>
 		<div class="col-md-4" style="position:relative; float:left;">
-            <div class="panel text-justify" style="position:relative; float:left;">
+            <div class="panel text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:  #fcb421;border-top-style:solid;border-top-width:2px;border-top-color:  #fcb421;    background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5); ">
                 <div class="panel-heading">
-                    <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
+                    <h4><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
                 <div class="media padding15">
                     <a class="pull-left" href="#">
@@ -467,28 +467,30 @@ $("button.prev").click(function(){
             </div>
         </div>
     </div>
-    <div class="row text-center" style="position:relative; float:left;">
+<div style="width:900px;height:309px;margin-left:auto; margin-right:auto;"><center>
         <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-floppy-open iconbg"></span>
-            <h3>Como depositar</h3>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-primary pull-right" href="#" role="button">Saiba mais »</a></p>
+            <h4 style="color:#0e94ab;font-weight: bold;">Como depositar</h4>
+            <h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
+            <p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
         <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-comment iconbg"></span>
-            <h3>Como citar</h3>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-primary pull-right" href="#" role="button">Saiba mais »</a>
+            <h4 style="color:#0e94ab;font-weight: bold;">Como citar</h4>
+            <h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
+            </h4>
+			<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
             </p>
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
         <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-pencil iconbg"></span>
-            <h3>BDPI em números</h3>
-            <dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;">
+            <h4 style="color:#0e94ab;font-weight: bold;">BDPI em números</h4>
+<h4><small>
+			<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
                 <dt>Unidades</dt>
                 <dd>42</dd>
                 <dt>Departamentos</dt>
@@ -498,7 +500,9 @@ $("button.prev").click(function(){
                 <dt>Texto completo</dt>
                 <dd>38000</dd>
             </dl>
+</small></h4>
         </div>
+		</center>
     </div>
-<br>
+
 </dspace:layout>

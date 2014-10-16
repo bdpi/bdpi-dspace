@@ -68,6 +68,7 @@
 				</h6>	
             </div>
 		</footer>
+		<br><br>
 <h5>
 		<address class="text-center">
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
