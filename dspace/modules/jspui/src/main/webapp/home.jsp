@@ -194,7 +194,7 @@ $("button.prev").click(function(){
 <!-- Fim da dinâmica dos logos -->
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol">
-            <div class="jumbotron" id="jumbotron" style="height:320px; padding:20px">
+            <div class="jumbotron" id="jumbotron" style="height:320px; padding:20px; margin-bottom:30px;">
                 <div class="box" style="max-width:500px;max-width:75%; top:20px">
                     <h4 class="chamada">Conheça a BDPI</h4>
                     <p style="font-size:13px;max-width:400px">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
@@ -409,8 +409,10 @@ $("button.prev").click(function(){
 				
 
             </div>
-			<center style="color: #fcb421"><div style="position:relative; top:-30px;width:23px; background-color:white;height:23px; border-width:2px;border-style:solid;border-color:#fcb421"><span id="show">&#9660;</span>
-			<span id="hide">&#9650;</span></center>
+			<center><div style="position:relative; color: #afafaf; float:right; top:-20px;
+			border-bottom-right-radius:8px;
+			border-bottom-left-radius:8px; right:30px;width:30px; height:30px; margin: auto; font-style:bold; background-color:#EEE;height:23px; border-width:2px;border-style:solid;border-color:#EEE;"><span id="show"><span class="glyphicon glyphicon-plus"></span></span>
+			<span id="hide"><span class="glyphicon glyphicon-minus"></span></span></center>
             <%
                 }
             %>
@@ -467,7 +469,7 @@ $("button.prev").click(function(){
             </div>
         </div>
     </div>
-<div style="width:900px;height:309px;margin-left:auto; margin-right:auto;"><center>
+<div style="width:900px;height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE"><center>
         <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-floppy-open iconbg"></span>
             <h4 style="color:#0e94ab;font-weight: bold;">Como depositar</h4>
