@@ -308,7 +308,7 @@ $("button.prev").click(function(){
 			   </div>
 			</div>
 		<div class="row">
-        <div class="col-md-8" style="position:relative; float:left;">
+        <div class="col-md-8" style="position:relative; float:left; margin-top:30px;">
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
@@ -407,12 +407,13 @@ $("button.prev").click(function(){
                     }
                 %>
 				
-
+<!-- Exibição de mais submissões -->
             </div>
 			<center><div style="position:relative; color: #afafaf; float:right; top:-20px;
 			border-bottom-right-radius:8px;
 			border-bottom-left-radius:8px; right:30px;width:30px; height:30px; margin: auto; font-style:bold; background-color:#EEE;height:23px; border-width:2px;border-style:solid;border-color:#EEE;"><span id="show"><span class="glyphicon glyphicon-plus"></span></span>
 			<span id="hide"><span class="glyphicon glyphicon-minus"></span></span></center>
+			
             <%
                 }
             %>
@@ -420,7 +421,7 @@ $("button.prev").click(function(){
         </div>
 
 			<br><br>
-		<div class="col-md-4" style="position:relative; float:left;">
+		<div class="col-md-4" style="position:relative; float:left; margin-top: 30px;">
             <div class="panel text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5); ">
                 <div class="panel-heading">
                     <h4><fmt:message key="jsp.collection-home.latestnews"/></h3>
@@ -468,8 +469,8 @@ $("button.prev").click(function(){
                 </div>
             </div>
         </div>
-    </div>
-<div style="width:900px;height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE"><center>
+    </div></div>
+<div style="width:900px;height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE" class="container-notasdorodape"><center>
         <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-floppy-open iconbg"></span>
             <h4 style="color:#0e94ab;font-weight: bold;">Como depositar</h4>

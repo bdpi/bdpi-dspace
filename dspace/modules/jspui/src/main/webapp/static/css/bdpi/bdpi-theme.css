@@ -446,19 +446,23 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
-}
+  font-size: 22px;
+  color:#696969;
+  }
 h2,
 .h2 {
-  font-size: 30px;
-}
+  font-size: 20px;
+  color:#696969;
+  }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 18px;
+  color:#696969;
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 16px;
+  
 }
 h5,
 .h5 {
@@ -6148,12 +6152,18 @@ float:left;
 	position:relative;
 	float:left;
 	padding:10%;
-  }
-/* @media (min-width: 790px) {*/
-   #notasdorodape{
 	padding:40px;
   }
-  }
+@media (max-width: 790px) {
+#notasdorodape{
+	clear:both;
+	margin-left: auto;
+	margin-right: auto;
+	width:;
+	max-width: 200px;
+	}
+}
+
 a.cruesp{
 
 }
