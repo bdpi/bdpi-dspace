@@ -240,7 +240,7 @@
 						<!-- uspbarra -->  
                         
 
-						<body class="undernavigation" onload="tamanho();" onresize="tamanho()">
+						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" background="<%= siteURL%>/image/flying-man.jpg.png">
                                     <a class="sr-only" href="#content">Skip navigation</a>
                                     <div class="container" id="container">
                                         <div class="row">

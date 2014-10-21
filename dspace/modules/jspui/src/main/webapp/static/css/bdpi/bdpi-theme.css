@@ -4394,6 +4394,7 @@ a.list-group-item.active > .badge,
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  z-index:4;
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -5926,6 +5927,7 @@ padding-right:0px;
     font-size: 12px;
 }
 .usptab {
+	border-color:white;
 	background:url(http://www.producao.usp.br/a/barrausp/images/tab_b.png) repeat-x 0 0;
 	height:22px;
 	z-index:0;
@@ -5989,6 +5991,9 @@ padding-right:0px;
 	width:70px;
 	position:relative;
 
+}
+body.undernavigation{
+background-color:#FFF;
 }
 #logospanel-heading{
 margin:0;
