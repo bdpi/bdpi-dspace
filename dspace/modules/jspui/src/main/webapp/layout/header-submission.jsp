@@ -240,7 +240,7 @@
     
     <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
-    <body class="undernavigation">
+    <body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-image: url('<%= siteURL%>/image/extra_clean_paper.png');">
 <a class="sr-only" href="#content">Skip navigation</a>
 <div class="container" style="position:relative;z-index:10">
                                             <div class="row">

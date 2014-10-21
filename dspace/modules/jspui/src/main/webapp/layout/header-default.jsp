@@ -240,9 +240,9 @@
 						<!-- uspbarra -->  
                         
 
-						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" background="<%= siteURL%>/image/flying-man.jpg.png">
+						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-image: url('<%= siteURL%>/image/extra_clean_paper.png');">
                                     <a class="sr-only" href="#content">Skip navigation</a>
-                                    <div class="container" id="container">
+                                    <div class="container" id="container" class="effect7">
                                         <div class="row">
 											
 												<div class="cruesplink" style="float:right">

@@ -752,12 +752,11 @@ pre code {
   margin-left: auto;
 
   z-index:0;
-  
+  border-style:solid;
   background-color: #FFFFFF; 
-  border-width: 0px; 
-  border-color: #DDDDDD; 
-  border-radius: 0px; 
-  box-shadow: 0px 2px 6px 1px #99A3AD, 0px 0px 40px #EEEEEE; 
+  border-width: 1.5px; 
+  border-color: #EEE; 
+
 }
 
 /*
@@ -2140,7 +2139,7 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-success {
   color: #fff;
-  background-color: #5bc0de;
+  background-color:  #1094ab;
   border-color: #46b8da;
 }
 .btn-success:hover,
@@ -2181,7 +2180,7 @@ fieldset[disabled] .btn-success.active {
 }
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
+  background-color:  #1094ab;
   border-color: #46b8da;
 }
 .btn-info:hover,
@@ -5929,6 +5928,9 @@ padding-right:0px;
     background: -moz-linear-gradient(#fff, #feb524); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#fff, #feb524); /* Standard syntax */
     font-size: 12px;
+}
+div.usptab{
+background-color:transparent;
 }
 .usptab {
 	border-color:white;
