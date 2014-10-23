@@ -197,13 +197,8 @@ $("button.prev").click(function(){
             <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
                 <div class="box" style="max-width:500px;max-width:75%; top:20px">
                     <h4 class="chamada">Conheça a BDPI &nbsp;&nbsp;
-					
-					
-
-
-					
 					</h4>
-                    <p style="font-size:13px;max-width:400px">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+                    <p style="font-size:13px;max-width:400px;letter-spacing:0;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
                 </div>
 				
 
@@ -418,10 +413,9 @@ $("button.prev").click(function(){
 				
 <!-- Exibição de mais submissões -->
             </div>
-			<center><div style="position:relative; color: #afafaf; float:right; top:-20px;
-			border-bottom-right-radius:5px;
-			border-bottom-left-radius:5px; right:30px;width:30px; height:33px; margin: auto; font-style:bold; background-color:#EEE;height:23px; border-width:2px;border-style:solid;border-color:#EEE;"><span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
-			<span id="hide"><span class="glyphicon glyphicon-minus"></span></span></center>
+			<center><div style="position:relative; float:right; top:-40px; right:21px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;">
+			<span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
+			<span id="hide" class="glyphicon glyphicon-minus" style="left:-2px;"></span></center>
 			
             <%
                 }
