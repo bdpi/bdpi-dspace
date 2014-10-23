@@ -60,10 +60,10 @@
 				
 				</a>
 				<div id="footer_feedback" class="pull-right">
-				<fmt:message key="jsp.layout.footer-default.text" />&nbsp;&nbsp;&nbsp;-&nbsp;
-                    <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;-&nbsp;
-                    <a href="<%= request.getContextPath()%>/htmlmap">Mapa do site</a>&nbsp;-&nbsp;
-                    <a href="#">Voltar ao in&iacute;cio</a>&nbsp;&nbsp;
+				<fmt:message key="jsp.layout.footer-default.text" />&nbsp;&nbsp;&nbsp;<br>|&nbsp;
+                    <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
+                    <a href="<%= request.getContextPath()%> /htmlmap">Mapa do site</a>&nbsp;|&nbsp;
+                    <a href="#">Voltar ao in&iacute;cio</a>&nbsp;|&nbsp;
 				</div>
 				</h6>	
             </div>

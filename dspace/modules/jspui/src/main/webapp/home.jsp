@@ -193,12 +193,21 @@ $("button.prev").click(function(){
 </script>	
 <!-- Fim da dinâmica dos logos -->
     <div class="row" id="jumborow">
-        <div class="col-md-8" id="jumbocol" style="width:100%; z-index:10">
-            <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:30px;">
+        <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
+            <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
                 <div class="box" style="max-width:500px;max-width:75%; top:20px">
-                    <h4 class="chamada">Conheça a BDPI</h4>
+                    <h4 class="chamada">Conheça a BDPI &nbsp;&nbsp;
+					
+					
+
+
+					
+					</h4>
                     <p style="font-size:13px;max-width:400px">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
                 </div>
+				
+
+				
             </div>
 			</div>
 			<!--<div id="panellogos">
@@ -312,7 +321,7 @@ $("button.prev").click(function(){
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
-            <div class="panel" style="padding:10px;margin-right:10px;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:  #fcb421;border-top-style:solid;border-top-width:2px;border-top-color:  #fcb421;    background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5);">
+            <div class="panel" style="padding:10px; margin-right:20px; border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
                 <div class="panel-heading">
                     <h4><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
@@ -410,8 +419,8 @@ $("button.prev").click(function(){
 <!-- Exibição de mais submissões -->
             </div>
 			<center><div style="position:relative; color: #afafaf; float:right; top:-20px;
-			border-bottom-right-radius:8px;
-			border-bottom-left-radius:8px; right:30px;width:30px; height:30px; margin: auto; font-style:bold; background-color:#EEE;height:23px; border-width:2px;border-style:solid;border-color:#EEE;"><span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
+			border-bottom-right-radius:5px;
+			border-bottom-left-radius:5px; right:30px;width:30px; height:33px; margin: auto; font-style:bold; background-color:#EEE;height:23px; border-width:2px;border-style:solid;border-color:#EEE;"><span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
 			<span id="hide"><span class="glyphicon glyphicon-minus"></span></span></center>
 			
             <%
@@ -454,6 +463,9 @@ $("button.prev").click(function(){
                     </div>
                 </div>
             </div>
+			
+			
+	
             <div class="panel">
                 <div class="panel-body pull-center">
                     <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px">
@@ -467,6 +479,29 @@ $("button.prev").click(function(){
                         & #160;
                     </script>
                 </div>
+		
+<center>		
+	<a href="https://www.facebook.com/usponline" target="_blank" style="background-color:transparent">
+	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/01-fb.gif" title="Siga no Facebook" height="30" width="35" style="background-color:transparent">
+</a>
+
+<a href="https://twitter.com/usponline" target="_blank" style="background-color:transparent">
+	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/02-twitter.gif" title="Siga no Twitter" height="30" width="35" style="background-color:transparent">
+</a>
+
+<a href="http://www.youtube.com/user/usponline" target="_blank" style="background-color:transparent">
+	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/03-youtube.gif" title="Veja no YouTube" height="30" width="35" style="background-color:transparent">
+</a>
+
+<a href="https://plus.google.com/b/111234737890785507130/111234737890785507130/posts" target="_blank" style="background-color:transparent">
+	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/04-google-plus.gif" title="Siga no GooglePlus" height="30" width="35" style="background-color:transparent">
+</a>
+
+<a href="http://www5.usp.br/gerar-feed/" target="_blank" style="background-color:transparent">
+	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/05-rss.gif" title="Acompanhe por RSS" height="30" width="29" style="background-color:transparent">
+</a>
+	<center>			
+				
             </div>
         </div>
     </div></div>
@@ -503,6 +538,13 @@ $("button.prev").click(function(){
                 <dd>38000</dd>
                 <dt>Texto completo</dt>
                 <dd>38000</dd>
+				
+				
+				
+                
+		
+				
+				
             </dl>
 </small></h4>
         </div>

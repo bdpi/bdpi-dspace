@@ -4387,7 +4387,7 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron {
-
+  padding:20px;
   color: inherit;
   background: url("../../../image/15102014fotosdocampusfotomarcossantos005.jpg") no-repeat center center;
   background-position: center center;
@@ -4409,7 +4409,7 @@ a.list-group-item.active > .badge,
   font-weight: 200;
 }
 .container .jumbotron {
-  border-radius: 6px;
+  border-radius: 0px;
 }
 .jumbotron .container {
   max-width: 100%;
@@ -4417,7 +4417,7 @@ a.list-group-item.active > .badge,
 @media screen and (min-width: 768px) {
   .jumbotron {
     padding-top: 48px;
-    padding-bottom: 48px;
+    padding-bottom: 20px;
   }
   .container .jumbotron {
     padding-right: 60px;
@@ -5932,9 +5932,10 @@ padding-right:0px;
 }
 div.usptab{
 background-color:transparent;
+border-style:none;
 }
 .usptab {
-	border-color:transparent;
+border-style:none;
 	background:url(http://www.producao.usp.br/a/barrausp/images/tab_b.png) repeat-x 0 0;
 	height:22px;
 	z-index:0;
@@ -5952,7 +5953,9 @@ background-color:transparent;
 	right:100px;
 	color:#fff;
 	font-size:80%;
-	text-align:center
+	text-align:center;
+	border-style:none;
+	background-color:transparent;
 }
 .usptab ul.usplogin li.uspleft {
 	background:url(http://www.producao.usp.br/a/barrausp/images/tab_l.png) no-repeat left 0;
@@ -6172,4 +6175,30 @@ a.cruesp{
 }
 a.cruesp:hover{
 background : url(imgage/cruesp.png); 
+}
+.share{
+border-color:#EEE;
+color:#eee;
+border-style:solid;
+border-width:2px;
+border-radius:20px;
+width:40px;
+height:40px;
+position:relative;
+float:right;
+text-align:center;
+font-size:20px;
+}
+#chart_div{
+width:100%;
+max-width:500px;
+float:right;
+}
+div#footer_feedback  a:hover{
+color: #fcb421;
+}
+div#footer_feedback{
+position:relative;
+top:-8px;
+text-align: right;
 }
