@@ -310,7 +310,7 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
         }
 
         else {
-          diretorioFigura = diretorioFotoPadrao + "logoSibiAutor.gif";
+          diretorioFigura = contextPath + diretorioFotoPadrao + "logoSibiAutor.gif";
 
         }
 

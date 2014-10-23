@@ -311,7 +311,7 @@
 			&#160;</script>
 			<!--  END - Script de acordeon para o Discovery - Tiago - 15-07-2013 -->
 			
-			<!-- 130920 - Dan Shinkai - Prototipo JQuery para visualizacao de video. -->
+			<!-- 130920 - Dan Shinkai - Prototipo JQuery para visualizacao de video. 
 			<script type="text/javascript">
 				<xsl:attribute name="src">
 					<xsl:text>http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js</xsl:text>
@@ -348,7 +348,7 @@
 				});
 			&#160;</script>
 			
-			<!-- Prototipo JQuery FIM -->
+			 Prototipo JQuery FIM -->
 		
 <!-- 130808 - Dan Shinkai - Codigo que esconde itens com mais de dez autores na lista de itens -->		
 <!-- Dicas: Sinais de '>' ou '<' nao sao reconhecidos diretamente no XSL. Portanto, adicionar dentro de uma tag <xsl:text disable-output-escaping="yes"> 
