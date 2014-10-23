@@ -4389,7 +4389,7 @@ a.list-group-item.active > .badge,
 .jumbotron {
 
   color: inherit;
-  background: url("../../../image/usp-relogio.jpg") no-repeat center center;
+  background: url("../../../image/15102014fotosdocampusfotomarcossantos005.jpg") no-repeat center center;
   background-position: center center;
   width: 100%;
   min-height:305px;
@@ -5823,7 +5823,7 @@ button.close {
 .box { 
    color: white; 
    background-color: black; /* fallback color */
-   opacity:0.6;
+   opacity:0.8;
    letter-spacing:1px;
    font-weight:bold;
    padding: 10px;

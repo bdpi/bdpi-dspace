@@ -193,7 +193,7 @@ $("button.prev").click(function(){
 </script>	
 <!-- Fim da dinâmica dos logos -->
     <div class="row" id="jumborow">
-        <div class="col-md-8" id="jumbocol" style="width:1000px; z-index:10">
+        <div class="col-md-8" id="jumbocol" style="width:100%; z-index:10">
             <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:30px;">
                 <div class="box" style="max-width:500px;max-width:75%; top:20px">
                     <h4 class="chamada">Conheça a BDPI</h4>
