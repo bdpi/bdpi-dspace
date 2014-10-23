@@ -220,10 +220,10 @@
                                 </div>
                                 </div>
                                 </div>
-                <div class="usptab" style="border-style:none;background-color:transparent;">
+                <div class="usptab" style="border-style:none;background-color:transparent;" style="position:relative; z-index:30">
                     <ul class="usplogin" style="border-style:none;" >
-                        <li class="uspleft" ></li>
-                        <li id="usptoggle">
+                        <li class="uspleft" style="position:relative; z-index:30"></li>
+                        <li id="usptoggle" style="position:relative; z-index:30">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="uspopen" class="uspopen" border="0" style="display: block;">
                                 <img src="http://www.producao.usp.br/a/barrausp/images/seta_down.jpg" border="0">
                                     <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" alt="SIBi - Abrir o painel" width="35" height="16" border="0" title="SIBi - Abrir o painel">
@@ -233,7 +233,7 @@
                                                 <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" width="35" height="16" border="0" title="SIBi - Fechar painel" alt="SIBi - Fechar painel">
                                                     </a>
                         </li>
-                                                    <li class="uspright" style="background-color:transparent"></li>
+                        <li class="uspright" style="background-color:transparent" style="position:relative; z-index:30; display:visible"></li>
                                                     </ul>
                                                     </div> </div>              
                                 </div>
@@ -245,13 +245,19 @@
 
 						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;">
                                     <a class="sr-only" href="#content">Skip navigation</a>
-                                    <div class="container" id="container" style="padding:30px;">
+                                    <div class="container" id="container" style="padding:30px; top:-36px">
                                         <div class="row">
 											
-												<div class="cruesplink" style="float:right">
+											<div class="cruesplink" style="float:right; position:relative;">
+												
+												<div class="cruesplinkout" style="float:right; background-color:#FFF;">
 												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;"></a>
 												</div>
-												
+												<div class="cruesplinkin" style="position:relative; float:right; top:-22px;display:none;">
+												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" style="width:75px; display: hidden"></a>
+												</div>											
+											</div>
+											
                                             <div class="col-md-8">
                                                 <div class="logo"><br><br>
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
@@ -260,7 +266,7 @@
 										
                                                 </div>
                                            </div>
-																	 <h6 style="text-align:right; font-weight: 700; margin:0;">
+											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
 											&nbsp;</h6>
 																	<header class="navbar navbar-inverse" role="navigation">

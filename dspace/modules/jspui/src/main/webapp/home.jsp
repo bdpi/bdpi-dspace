@@ -111,12 +111,13 @@ window.onresize = tamanho;
 $(document).ready(function(){
 
 	//Para mudar a cor do Cruesp
-
-	$(".cruesplink").mouseenter(function() {
-					$(".cruesp").css("display","visible");
-				$(".cruesppeb").css("display","none");
-
-	});
+	
+		$(".cruesplink").mouseenter(function() {
+				$(".cruesplinkin").show();
+	})
+			  .mouseleave(function() {
+				$(".cruesplinkin").hide();
+	})
 
 	
 	//Para carregar as submissoes recentes.
@@ -195,10 +196,10 @@ $("button.prev").click(function(){
     <div class="row" id="jumborow">
         <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
             <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
-                <div class="box" style="max-width:500px;max-width:75%; top:20px">
+                <div class="box" style="max-width:500px;max-width:75%;">
                     <h4 class="chamada">Conheça a BDPI &nbsp;&nbsp;
 					</h4>
-                    <p style="font-size:13px;max-width:400px;letter-spacing:0;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+                    <p style="font-size:14px;max-width:400px;letter-spacing:0;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
                 </div>
 				
 
@@ -312,13 +313,13 @@ $("button.prev").click(function(){
 			   </div>
 			</div>-->
 		<div class="row">
-        <div class="col-md-8" style="position:relative; float:left; margin-top:30px;">
+        <div class="col-md-8" style="position:relative; float:left; margin-top:0px;">
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
             <div class="panel" style="padding:10px; margin-right:20px; border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
                 <div class="panel-heading">
-                    <h4><fmt:message key="jsp.collection-home.recentsub"/>
+                    <h3><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
                             if (feedEnabled) {
                                 String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -341,7 +342,7 @@ $("button.prev").click(function(){
                                     }
                                 }
                             %>
-                    </h4>
+                    </h3>
                 </div>
 
                 <%
@@ -402,7 +403,7 @@ $("button.prev").click(function(){
                                   <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
                                 <% } %>
                             <% }%><%=etal%></p>
-                        <p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
+                        <p  style="text-align:justify"><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
                     </div>
 				
                 </div>
@@ -410,10 +411,16 @@ $("button.prev").click(function(){
                         first = false;
                     }
                 %>
-				
+				<br>
 <!-- Exibição de mais submissões -->
             </div>
-			<center><div style="position:relative; float:right; top:-40px; right:21px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;">
+			<center><div style="position:relative; float:right; top:-60px; right:21px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;
+			border-left-style:solid; 
+			border-left-width:2px; 
+			border-left-color:#fcb421;
+			border-top-style:solid; 
+			border-top-width:2px; 
+			border-top-color:#fcb421;">
 			<span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
 			<span id="hide" class="glyphicon glyphicon-minus" style="left:-2px;"></span></center>
 			
@@ -424,17 +431,17 @@ $("button.prev").click(function(){
         </div>
 
 			
-		<div class="col-md-4" style="position:relative; float:left; margin-top: 30px;">
+		<div class="col-md-4" style="position:relative; float:left;">
             <div class="panel text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5); ">
                 <div class="panel-heading">
-                    <h4><fmt:message key="jsp.collection-home.latestnews"/></h3>
+                    <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
                 <div class="media padding15">
                     <a class="pull-left" href="#">
                         <span class="glyphicon glyphicon-list-alt icon"></span>
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Media heading</h4>
+                        <h4 class="media-heading" style="color:#696969">Media heading</h4>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
                     </div>
                 </div>
@@ -443,7 +450,7 @@ $("button.prev").click(function(){
                         <span class="glyphicon glyphicon-list-alt icon"></span>
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Media heading</h4>
+                        <h4 class="media-heading" style="color:#696969">Media heading</h4>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
                     </div>
                 </div>
@@ -452,7 +459,7 @@ $("button.prev").click(function(){
                         <span class="glyphicon glyphicon-list-alt icon"></span>
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Media heading</h4>
+                        <h4 class="media-heading" style="color:#696969">Media heading</h4>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
                     </div>
                 </div>
@@ -462,7 +469,7 @@ $("button.prev").click(function(){
 	
             <div class="panel">
                 <div class="panel-body pull-center">
-                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px">
+                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; clear:both">
                         <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
                         <a class="addthis_button_tweet" tw:count="vertical"></a>
                         <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
@@ -474,27 +481,7 @@ $("button.prev").click(function(){
                     </script>
                 </div>
 		
-<center>		
-	<a href="https://www.facebook.com/usponline" target="_blank" style="background-color:transparent">
-	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/01-fb.gif" title="Siga no Facebook" height="30" width="35" style="background-color:transparent">
-</a>
-
-<a href="https://twitter.com/usponline" target="_blank" style="background-color:transparent">
-	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/02-twitter.gif" title="Siga no Twitter" height="30" width="35" style="background-color:transparent">
-</a>
-
-<a href="http://www.youtube.com/user/usponline" target="_blank" style="background-color:transparent">
-	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/03-youtube.gif" title="Veja no YouTube" height="30" width="35" style="background-color:transparent">
-</a>
-
-<a href="https://plus.google.com/b/111234737890785507130/111234737890785507130/posts" target="_blank" style="background-color:transparent">
-	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/04-google-plus.gif" title="Siga no GooglePlus" height="30" width="35" style="background-color:transparent">
-</a>
-
-<a href="http://www5.usp.br/gerar-feed/" target="_blank" style="background-color:transparent">
-	<img src="http://www5.usp.br/wp-content/themes/usp2011/images/05-rss.gif" title="Acompanhe por RSS" height="30" width="29" style="background-color:transparent">
-</a>
-	<center>			
+			
 				
             </div>
         </div>

@@ -44,7 +44,7 @@
         <footer class="navbar navbar-inverse" style="background-color:transparent; margin-top:50px;">
 		<br><br>
             <div id="designedby" style="background-color:white; height:60px;position:relative; float:left; width:100%; border-top-style:solid;border-top-width:2px;border-top-color:#fcb421;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:#fcb421;">
-                <h6 style="color:#fcb421; font-weight:bold; position:relative;top:-5px">
+                <h6 style="color:#E3A21E; font-weight:bold; position:relative;top:-5px">
 				
 				<div style="float:left; position:relative;top:12px"><strong>&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;</strong></div>
 				

@@ -748,7 +748,7 @@ pre code {
   padding-right: 20px;
   padding-left: 20px;
   padding-top:20px;
-  top:0px;
+  top:-10px;
   margin-right: auto;
   margin-left: auto;
 
@@ -4619,6 +4619,8 @@ a.thumbnail.active {
   display: block;
 }
 .media-heading {
+  /*color:#696969;*/
+  font-size:17px;
   margin: 0 0 5px;
 }
 .media > .pull-left {
@@ -5861,7 +5863,8 @@ color: #0e94ab;
 
 .chamada {
 color: #FFAD33;
-font-size:20px;
+font-size:22px;
+
 }
 
 .paddingnone {
@@ -6171,12 +6174,17 @@ float:left;
 	max-width: 300px;
 	}
 }
-
-a.cruesp{
+div.cruesplink{
+width:75px;
+height:20px;
 
 }
-a.cruesp:hover{
-background : url(imgage/cruesp.png); 
+div.cruesplink a{
+background-image : url('image/cruesppeb.png'); 
+
+}
+div.cruesplink a:hover{
+background-image : url(imgage/cruesp.png); 
 }
 .share{
 border-color:#EEE;
@@ -6196,6 +6204,9 @@ width:100%;
 max-width:500px;
 float:right;
 }
+div#footer_feedback  a{
+color: #E3A21E;
+}
 div#footer_feedback  a:hover{
 color: #fcb421;
 }
@@ -6203,4 +6214,7 @@ div#footer_feedback{
 position:relative;
 top:-8px;
 text-align: right;
+}
+div#recentSubmissions{
+text-align:justify;
 }
