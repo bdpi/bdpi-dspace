@@ -41,7 +41,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <footer class="navbar navbar-inverse" style="background-color:transparent">
+        <footer class="navbar navbar-inverse" style="background-color:transparent; margin-top:50px;">
 		<br><br>
             <div id="designedby" style="background-color:white; height:60px;position:relative; float:left; width:100%; border-top-style:solid;border-top-width:2px;border-top-color:#fcb421;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:#fcb421;">
                 <h6 style="color:#fcb421; font-weight:bold; position:relative;top:-5px">

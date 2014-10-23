@@ -5934,7 +5934,7 @@ div.usptab{
 background-color:transparent;
 }
 .usptab {
-	border-color:white;
+	border-color:transparent;
 	background:url(http://www.producao.usp.br/a/barrausp/images/tab_b.png) repeat-x 0 0;
 	height:22px;
 	z-index:0;
@@ -6157,13 +6157,13 @@ float:left;
 	padding:10%;
 	padding:40px;
   }
-@media (max-width: 790px) {
+@media (max-width: 900px) {
 #notasdorodape{
-	clear:both;
-	margin-left: auto;
-	margin-right: auto;
-	width:;
-	max-width: 200px;
+	position:relative;
+	z-index:10;
+	width:75%;
+	padding:0px;
+	max-width: 300px;
 	}
 }
 

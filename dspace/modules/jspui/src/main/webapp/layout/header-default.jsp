@@ -121,7 +121,7 @@
               <script src="<%= request.getContextPath()%>/static/js/respond.min.js"></script>
             <![endif]-->
     </head>
-    <div id="uspbarra">
+    <div id="uspbarra" style="background-color:transparent;">
         <div class="uspLogo">
             <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;position: absolute;bottom: 0px;" src="<%= siteURL%>/image/Logo_usp_composto.jpg" />
          </div>
@@ -217,8 +217,8 @@
                                 </div>
                                 </div>
                                 </div>
-                <div class="usptab">
-                    <ul class="usplogin">
+                <div class="usptab" style="background-image: url('<%= siteURL%>/image/extra_clean_paper.png'); border-style:none;"><div class="usptab" style="border-style:none;">
+                    <ul class="usplogin" style="border-style:none;">
                         <li class="uspleft"></li>
                         <li id="usptoggle">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="uspopen" class="uspopen" border="0" style="display: block;">
@@ -232,7 +232,7 @@
                         </li>
                                                     <li class="uspright"></li>
                                                     </ul>
-                                                    </div>               
+                                                    </div> </div>              
                                 </div>
                                 </div>
                                 </div> 

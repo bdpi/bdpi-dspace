@@ -40,10 +40,12 @@
     -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
 
+<xsl:variable name="context-path" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+
 <!-- 130527 andre.assada@usp.br variavel para pegar o endereco root, para montar paginas estaticas -->
 <xsl:variable name="meta" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/>
 <xsl:variable name="porta" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverPort']"/>
-<xsl:variable name="paginas" select="concat('http://', $meta, ':', $porta, '/static/pages/')"/>
+<xsl:variable name="paginas" select="concat('http://', $meta, ':', $porta, $context-path, '/static/pages')"/>
 <!--FIM 130527 andre.assada@usp.br variavel para pegar o endereco root, para montar paginas estaticas FIM-->
 
     <!--
@@ -140,7 +142,7 @@
             initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
             maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width
             -->
-            <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
 
 <!-- 130327 andre.assada@usp.br nova barra usp by Marcio Eichler, agora com codigo centralizado em server unico -->
@@ -255,15 +257,18 @@
                 </link>
             </xsl:if>
 
-			<!--  Script de acordeon para o Discovery - Tiago - 15-07-2013 -->
 			<script type="text/javascript">
 			<xsl:attribute name="src">
+			<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
 			<xsl:text>/static/js/jquery-1.9.1.js</xsl:text>
 			</xsl:attribute>&#160;</script>
+			
 			<script type="text/javascript">
 			<xsl:attribute name="src">
+			<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
 			<xsl:text>/static/js/jquery-ui.js</xsl:text>
 			</xsl:attribute>&#160;</script>
+			
 			<!-- 120611 FontResizer chamada do js -->
 			<script type="text/javascript">
 			<xsl:attribute name="src">
@@ -284,13 +289,13 @@
 			<xsl:text>async</xsl:text>
 			</xsl:attribute>&#160;</script>
 
-			<script type="text/javascript">
+			<!--script type="text/javascript">
 			<xsl:attribute name="src">
-			<xsl:text>http://impactstory.org/embed/v1/impactstory.js</xsl:text><!-- /static/js/impactstory.js -->
+			<xsl:text>http://impactstory.org/embed/v1/impactstory.js</xsl:text>
 			</xsl:attribute>
 			<xsl:attribute name="async">
 			<xsl:text>async</xsl:text>
-			</xsl:attribute>&#160;</script>
+			</xsl:attribute>&#160;</script-->
 			
 			<!-- FIM -->
 			
@@ -556,95 +561,26 @@
 			
             <title>
                 <xsl:choose>
-<!-- 130405 andre.assada@usp.br paginas estaticas
-                        <xsl:when test="starts-with($request-uri, 'page/about')">
-                                <xsl:text>About This Repository</xsl:text>
-                        </xsl:when>
--->
-                        <xsl:when test="starts-with($request-uri, 'page/creditosBDPIEnUS')">
-	                        <xsl:variable name="doc" select="document(concat($paginas,'creditosBDPIEnUS.xhtml'))"/>
+			<!-- previous check -->
+			<!--xsl:when test="$request-uri errorhas 'page/creditosBDPIEnUS'"
+			    xsl:when test="'page/direitosAutoraisPtBR' = substring($request-uri, string-length($request-uri) - string-length('page/direitosAutoraisPtBR') + 1)">
+                                <xsl:variable name="doc" select="document(concat($paginas,'/direitosAutoraisPtBR.xhtml'))"/>
                                 <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/creditosBDPIEs')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'creditosBDPIEs.xhtml'))"/>
+                        </xsl:when-->
+			<!-- general check -->
+			<xsl:when test="substring-after($request-uri,'page/') = ''">
+	                        <xsl:if test="boolean($page_title)">
+				<xsl:copy-of select="$page_title/node()" />
+				</xsl:if>
+			</xsl:when>
+			<xsl:when test="boolean(document(concat($paginas,'/',substring-after($request-uri,'page/'),'.xhtml')))">
+	                        <xsl:variable name="doc" select="document(concat($paginas,'/',substring-after($request-uri,'page/'),'.xhtml'))"/>
                                 <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisPtBR')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'direitosAutoraisPtBR.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisEnUS')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'direitosAutoraisEnUS.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisEs')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'direitosAutoraisEs.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/politicaAcessoPtBR')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'politicaAcessoPtBR.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/politicaAcessoEnUS')">
-	                        <xsl:variable name="doc" select="document(concat($paginas,'politicaAcessoEnUS.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/politicaAcessoEs')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'politicaAcessoEs.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIPtBR')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'privacidadeBDPIPtBR.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIEnUS')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'privacidadeBDPIEnUS.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIEs')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'privacidadeBDPIEs.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/sobreBDPIPtBR')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'sobreBDPIPtBR.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/sobreBDPIEnUS')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'sobreBDPIEnUS.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/sobreBDPIEs')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'sobreBDPIEs.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-<!-- FIM 130405 andre.assada@usp.br paginas estaticas FIM -->
-
-<!-- 130731 - Dan Shinkai - Paginas estaticas -->
-			<xsl:when test="starts-with($request-uri, 'page/ajuda')">
-                                <xsl:text>Ajuda</xsl:text>
-                        </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/faqPtBR')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'faqPtBR.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-			<xsl:when test="starts-with($request-uri, 'page/faqEs')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'faqEs.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-			<xsl:when test="starts-with($request-uri, 'page/faqEnUS')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'faqEnUS.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-<!-- FIM 130731 - Dan Shinkai - Paginas estaticas FIM -->
-			<xsl:when test="starts-with($request-uri, 'page/community-list')">
-                                <xsl:variable name="doc" select="document(concat($paginas,'community-list.xhtml'))"/>
-                                <xsl:value-of select="$doc/html/head/title"/>
-                        </xsl:when>
-                        <xsl:when test="not($page_title)">
-                                <xsl:text>  </xsl:text>
-                        </xsl:when>
+			</xsl:when>
                         <xsl:otherwise>
-                                <xsl:copy-of select="$page_title/node()" />
+	                        <xsl:if test="boolean($page_title)">
+				<xsl:copy-of select="$page_title/node()" />
+				</xsl:if>
                         </xsl:otherwise>
                 </xsl:choose>
             </title>
@@ -852,107 +788,134 @@
 <!-- 130404 andre.assada@usp.br links informativos da bdpi ; o link eh criado no messages_xx.xml para adequar locales -->
 <!-- 130731 Dan Shinkai - Adicionado link para politica de uso -->
             <div id="ds-trail-informacoes">
-				<!--<i18n:text>paginasEstaticas.politicaUso</i18n:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>-->
-                <i18n:text>paginasEstaticas.politicaAcesso</i18n:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <xsl:text>&#160;</xsl:text>
-                <i18n:text>paginasEstaticas.direitosAutorais</i18n:text>
+
+		<xsl:text disable-output-escaping="yes">&lt;a</xsl:text>
+		<i18n:translate>
+		  <i18n:text><![CDATA[ href="{0}{1}"]]></i18n:text>
+		  <i18n:param><xsl:value-of select="$context-path"/></i18n:param>
+		  <i18n:param><i18n:text>paginasEstaticas.politicaAcesso.href</i18n:text></i18n:param>
+		</i18n:translate>
+		<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+		<i18n:text>paginasEstaticas.politicaAcesso.trail</i18n:text>
+		<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
-                <i18n:text>paginasEstaticas.sobreBDPI</i18n:text>
-		<!--xsl:text>&#160;</xsl:text>
+
+		<xsl:text disable-output-escaping="yes">&lt;a</xsl:text>
+		<i18n:translate>
+		  <i18n:text><![CDATA[ href="{0}{1}"]]></i18n:text>
+		  <i18n:param><xsl:value-of select="$context-path"/></i18n:param>
+		  <i18n:param><i18n:text>paginasEstaticas.direitosAutorais.href</i18n:text></i18n:param>
+		</i18n:translate>
+		<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+		<i18n:text>paginasEstaticas.direitosAutorais.trail</i18n:text>
+		<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
-                <a href="/page/ajuda"><i18n:text>paginasEstaticas.faq.trail</i18n:text></a-->
+                <xsl:text>&#160;</xsl:text>
+
+		<xsl:text disable-output-escaping="yes">&lt;a</xsl:text>
+		<i18n:translate>
+		  <i18n:text><![CDATA[ href="{0}{1}"]]></i18n:text>
+		  <i18n:param><xsl:value-of select="$context-path"/></i18n:param>
+		  <i18n:param><i18n:text>paginasEstaticas.sobreBDPI.href</i18n:text></i18n:param>
+		</i18n:translate>
+		<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+		<i18n:text>paginasEstaticas.sobreBDPI.trail</i18n:text>
+		<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+
 		<xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
                 <xsl:text>&#160;</xsl:text>
-                <i18n:text>paginasEstaticas.faq</i18n:text>
+
+		<xsl:text disable-output-escaping="yes">&lt;a</xsl:text>
+		<i18n:translate>
+		  <i18n:text><![CDATA[ href="{0}{1}"]]></i18n:text>
+		  <i18n:param><xsl:value-of select="$context-path"/></i18n:param>
+		  <i18n:param><i18n:text>paginasEstaticas.faq.href</i18n:text></i18n:param>
+		</i18n:translate>
+		<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+		<i18n:text>paginasEstaticas.faq.trail</i18n:text>
+		<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+
                 <xsl:text>&#160;</xsl:text>
             </div>
 <!-- FIM 130404 andre.assada@usp.br FIM -->
 
         <div id="ds-trail-wrapper">
             <ul id="ds-trail">
+		<xsl:variable name="staticpagename" select="substring-after($request-uri,'page/')" />
                 <xsl:choose>
-                    <xsl:when test="starts-with($request-uri, 'page/politicaAcessoPtBR')">
+                    <xsl:when test="$staticpagename = 'politicaAcessoPtBR'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.politicaAcesso.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisPtBR')">
+                    <xsl:when test="$staticpagename = 'direitosAutoraisPtBR'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.direitosAutorais.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/sobreBDPIPtBR')">
+                    <xsl:when test="$staticpagename = 'sobreBDPIPtBR'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.sobreBDPI.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/creditosBDPIPtBR')">
+                    <xsl:when test="$staticpagename = 'creditosBDPIPtBR'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.creditos.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIPtBR')">
+                    <xsl:when test="$staticpagename = 'privacidadeBDPIPtBR'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.privacidade.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/faqPtBR')">
+                    <xsl:when test="$staticpagename = 'faqPtBR'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.faq.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/politicaAcessoEnUS')">
+                    <xsl:when test="$staticpagename = 'politicaAcessoEnUS'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.politicaAcesso.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisEnUS')">
+                    <xsl:when test="$staticpagename = 'direitosAutoraisEnUS'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.direitosAutorais.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/sobreBDPIEnUS')">
+                    <xsl:when test="$staticpagename = 'sobreBDPIEnUS'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.sobreBDPI.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/creditosBDPIEnUS')">
+                    <xsl:when test="$staticpagename = 'creditosBDPIEnUS'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.creditos.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIEnUS')">
+                    <xsl:when test="$staticpagename = 'privacidadeBDPIEnUS'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.privacidade.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/faqEnUS')">
+                    <xsl:when test="$staticpagename = 'faqEnUS'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.faq.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/politicaAcessoEs')">
+                    <xsl:when test="$staticpagename = 'politicaAcessoEs'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.politicaAcesso.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisEs')">
+                    <xsl:when test="$staticpagename = 'direitosAutoraisEs'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.direitosAutorais.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/sobreBDPIEs')">
+                    <xsl:when test="$staticpagename = 'sobreBDPIEs'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.sobreBDPI.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/creditosBDPIEs')">
+                    <xsl:when test="$staticpagename = 'creditosBDPIEs'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.creditos.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIEs')">
+                    <xsl:when test="$staticpagename = 'privacidadeBDPIEs'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.privacidade.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/faqEs')">
+                    <xsl:when test="$staticpagename = 'faqEs'">
                          <li class="ds-trail-link first-link"><i18n:text>paginasEstaticas.faq.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/community-list')">
+                    <xsl:when test="$staticpagename = 'community-list'">
                          <li class="ds-trail-link first-link"><i18n:text>xmlui.ArtifactBrowser.CommunityBrowser.trail</i18n:text></li>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/ajuda')">
+                    <xsl:when test="$staticpagename = 'ajuda'">
                          <li class="ds-trail-link first-link">Ajuda</li>
                     </xsl:when>
                     <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) = 0">
@@ -1204,159 +1167,29 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-<!-- 130405 andre.assada@usp.br paginas estaticas
-                <xsl:when test="starts-with($request-uri, 'page/about')">
-                    <div>
-                        <h1>About This Repository</h1>
-                        <p>To add your own content to this page, edit webapps/xmlui/themes/BDPI/lib/xsl/core/page-structure.xsl and
-                            add your own content to the title, trail, and body. If you wish to add additional pages, you
-                            will need to create an additional xsl:when block and match the request-uri to whatever page
-                            you are adding. Currently, static pages created through altering XSL are only available
-                            under the URI prefix of page/.</p>
-                        <xsl:variable name="doc" select="document('http://bdpi-treino.sibi.usp.br:8083/andre/xmlui/static/pages/creditosBDPIPtBR.xhtml')"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
--->
-                <xsl:when test="starts-with($request-uri, 'page/creditosBDPIPtBR')">
-                    <div>
-			<xsl:variable name="doc" select="document(concat($paginas,'creditosBDPIPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/creditosBDPIEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'creditosBDPIEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/creditosBDPIEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'creditosBDPIEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisPtBR')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'direitosAutoraisPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'direitosAutoraisEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/direitosAutoraisEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'direitosAutoraisEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/politicaAcessoPtBR')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'politicaAcessoPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/politicaAcessoEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'politicaAcessoEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/politicaAcessoEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'politicaAcessoEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIPtBR')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'privacidadeBDPIPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'privacidadeBDPIEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/privacidadeBDPIEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'privacidadeBDPIEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/sobreBDPIPtBR')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'sobreBDPIPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/sobreBDPIEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'sobreBDPIEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/sobreBDPIEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'sobreBDPIEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-<!-- FIM 130405 andre.assada@usp.br paginas estaticas FIM -->
+		<!-- previous check -->
+		<!--xsl:when test="$staticpagename = 'creditosBDPIEnUS'"
+		    xsl:when test="'page/direitosAutoraisPtBR' = substring($request-uri, string-length($request-uri) - string-length('page/direitosAutoraisPtBR') + 1)">
+                        <xsl:variable name="doc" select="document(concat($paginas,'/direitosAutoraisPtBR.xhtml'))"/>
+                        <xsl:value-of select="$doc/html/head/title"/>
+                </xsl:when-->
+		<!-- general check -->
+		<xsl:when test="substring-after($request-uri,'page/') != ''">
+                        <xsl:variable name="doc" select="document(concat($paginas,'/',substring-after($request-uri,'page/'),'.xhtml'))"/>
+			<xsl:if test="boolean($doc)">
+			  <xsl:copy-of select="$doc"/>
+			</xsl:if>
+		</xsl:when>
+                <!-- Otherwise use default handling of body -->
+                <xsl:otherwise>
+                    <xsl:apply-templates />
+                </xsl:otherwise>
+            </xsl:choose>
 
-				<xsl:when test="starts-with($request-uri, 'page/ajuda')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'ajuda.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-				
-				<xsl:when test="starts-with($request-uri, 'page/politicaUsoPtBR')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'politicaUsoPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/politicaUsoEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'politicaUsoEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/politicaUsoEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'politicaUsoEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-				
-				<xsl:when test="starts-with($request-uri, 'page/faqPtBR')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'faqPtBR.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/faqEnUS')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'faqEnUS.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/faqEs')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'faqEs.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-				
+        </div>
+
 <!-- 200913 - Dan Shinkai - Criacao da pagina para apresentar video -->
-				<!--<xsl:when test="starts-with($request-uri, 'page/testando')">
+				<!--<xsl:when test="$staticpagename = 'testando'">
                     <div id="jp_container_1" class="jp-video ">
 						<div class="jp-type-single">
 							<div id="jquery_jplayer_1" class="jp-jplayer"><xsl:text disable-output-escaping="yes"> </xsl:text></div>
@@ -1403,20 +1236,7 @@
 					</div>
                 </xsl:when>-->
 <!-- Pagina de Video - FIM -->
-				
-                <!-- Otherwise use default handling of body -->
-                <xsl:when test="starts-with($request-uri, 'page/community-list')">
-                    <div>
-                        <xsl:variable name="doc" select="document(concat($paginas,'community-list.xhtml'))"/>
-                        <xsl:copy-of select="$doc"/>
-                   </div>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:apply-templates />
-                </xsl:otherwise>
-            </xsl:choose>
 
-        </div>
 <!-- 130805 - Dan Shinkai - Implementacao do javascript para permitir a insercao do iframe na pagina de estatisticas. 
 		<xsl:text disable-output-escaping="yes">&lt;script type="text/javascript"&gt;</xsl:text>		
 			<xsl:if test="/dri:document/dri:body/dri:div/dri:div[@id='aspect.statistics.StatisticsTransformer.div.stats']">
@@ -1450,7 +1270,10 @@
     -->
 
     <xsl:template name="addJavascript">
-        <script type="text/javascript" src="/static/js/jquery.min.js">&#160;</script>
+	<script type="text/javascript">
+	<xsl:attribute name="src">
+	 <xsl:value-of select="$context-path/static/js/jquery.min.js"/>
+	</xsl:attribute>&#160;</script>	
 	
         <!-- Add theme javascipt  -->
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='javascript'][@qualifier='url']">
