@@ -1053,13 +1053,34 @@
                 <div id="ds-footer-right">
 
                     <div id="ds-footer-right-privacy">
-                        <b><i18n:text>paginasEstaticas.privacidade</i18n:text></b>
+			<b>
+				<xsl:text disable-output-escaping="yes">&lt;a</xsl:text>
+				<i18n:translate>
+				  <i18n:text><![CDATA[ href="{0}{1}"]]></i18n:text>
+				  <i18n:param><xsl:value-of select="$context-path"/></i18n:param>
+				  <i18n:param><i18n:text>paginasEstaticas.privacidade.href</i18n:text></i18n:param>
+				</i18n:translate>
+				<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+				<i18n:text>paginasEstaticas.privacidade.trail</i18n:text>
+				<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+			</b>
                         <xsl:text>&#160;&#160;</xsl:text>
                     </div>
                     <div id="ds-footer-right-credits">
-                        <b><i18n:text>paginasEstaticas.creditos</i18n:text></b>
+			<b>
+				<xsl:text disable-output-escaping="yes">&lt;a</xsl:text>
+				<i18n:translate>
+				  <i18n:text><![CDATA[ href="{0}{1}"]]></i18n:text>
+				  <i18n:param><xsl:value-of select="$context-path"/></i18n:param>
+				  <i18n:param><i18n:text>paginasEstaticas.creditos.href</i18n:text></i18n:param>
+				</i18n:translate>
+				<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+				<i18n:text>paginasEstaticas.creditos.trail</i18n:text>
+				<xsl:text disable-output-escaping="yes">&lt;/a&gt;</xsl:text>
+			</b>
                         <xsl:text>&#160;&#160;</xsl:text>
                     </div>
+
                     <div id="ds-footer-right-contact">
                         <a>
                             <xsl:attribute name="href">
