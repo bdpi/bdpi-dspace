@@ -4390,7 +4390,7 @@ a.list-group-item.active > .badge,
 .jumbotron {
   padding:20px;
   color: inherit;
-  background: url("../../../image/15102014fotosdocampusfotomarcossantos005.jpg") no-repeat center center;
+  background: url("../../../image/08102014imagensdocampusfotomarcossantos015.jpg") no-repeat center center;
   background-position: center center;
   width: 100%;
   min-height:305px;
@@ -6109,9 +6109,9 @@ margin-right:15px;
 z-index:60;
 }
 #jumborow{
-height:380px;
-padding-bottom:30px;
-margin-bottom:30px;
+height:300px;
+padding-bottom:0px;
+margin-bottom:0px;
 }
 #logos-container {
 width:100%;
@@ -6154,7 +6154,7 @@ float:left;
   top:90px;
   }
   #jumborow{
-    height: 150px;
+    height: 350px;
   }
 
  }
@@ -6175,11 +6175,30 @@ margin-left:auto; margin-right:auto; margin-top:20px;
 	margin-left:auto; margin-right:auto; margin-top:20px;
 	}
 	}
-
+}
+@media (min-width: 10px) {
+	#news{
+	position:relative;
+	padding:10%;
+	padding:40px;
+	margin-top:0px;
+	float: right;
+	width:100%;
+}
+}
+@media (min-width: 992px) {
+	#news{
+	margin-top:0px;
+	padding-top: 0;
+	max-width:300px;
+	position:relative;
+	padding:10%;
+	float:right;
+	}
+}
 div.cruesplink{
 width:75px;
 height:20px;
-
 }
 div.cruesplink a{
 background-image : url('image/cruesppeb.png'); 
@@ -6187,6 +6206,7 @@ background-image : url('image/cruesppeb.png');
 }
 div.cruesplink a:hover{
 background-image : url(imgage/cruesp.png); 
+background-color:#eee;
 }
 .share{
 border-color:#EEE;
@@ -6219,4 +6239,10 @@ text-align: right;
 }
 div#recentSubmissions{
 text-align:justify;
+}
+a.share{
+color:#eee;
+}
+a.share:hover{
+color:#fcb421;
 }

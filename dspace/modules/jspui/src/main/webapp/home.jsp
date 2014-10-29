@@ -199,13 +199,34 @@ $("button.prev").click(function(){
                 <div class="box" style="max-width:500px;max-width:75%;">
                     <h4 class="chamada">Conheça a BDPI &nbsp;&nbsp;
 					</h4>
+					
                     <p style="font-size:14px;max-width:400px;letter-spacing:0;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
                 </div>
+				<div style="position: absolute; bottom: 80px; right: 10px;"><h4 class="chamada">
+			<!--	
+			<div class="panel" style="z-index:0">
+                <div class="panel-body pull-center">
+                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; clear:both">
+                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
+                        <a class="addthis_button_tweet" tw:count="vertical"></a>
+                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
+                        <a class="addthis_button_compact"></a>
+                    </div>
+                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
+                        & #160;
+                    </script>
+                </div>
+		    </div>
+				-->
 				
-
+				</h4>
+				</div>
 				
-            </div>
+				<div style="position: absolute; bottom: 0; right: 10px;"><h4 class="chamada" >share&nbsp; <span class="glyphicon glyphicon-share" /></h4></div>
 			</div>
+		</div>
+	</div>
 			<!--<div id="panellogos">
 				<div class="panel-heading" id="logospanel-heading">
 					<h4 style="margin:0; padding:0"><fmt:message key="jsp.home.com1"/>
@@ -312,12 +333,13 @@ $("button.prev").click(function(){
 				</div>
 			   </div>
 			</div>-->
-		<div class="row">
-        <div class="col-md-8" style="position:relative; float:left; margin-top:0px;">
+			
+	<div class="row"  style="clear:left">
+        <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
-            <div class="panel" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
+            <div class="panel" class="col-md-8" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
                 <div class="panel-heading">
                     <h3><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
@@ -414,7 +436,9 @@ $("button.prev").click(function(){
 				<br>
 <!-- Exibição de mais submissões -->
             </div>
-			<center><div style="position:relative; float:right; top:-60px; right:21px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;
+			<center>
+			
+			<div style="position:relative; float:right; top:-60px; right:0px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;
 			border-left-style:solid; 
 			border-left-width:2px; 
 			border-left-color:#fcb421;
@@ -429,10 +453,8 @@ $("button.prev").click(function(){
             %>
 
         </div>
-
-			
-		<div class="col-md-4" style="position:relative; float:left; clear:right; margin-left:10px; width: 323px">
-            <div class="panel id="news" text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background-color:#f5f5f5; clear:both">
+	
+        <div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
                 <div class="panel-heading">
                     <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
@@ -463,81 +485,67 @@ $("button.prev").click(function(){
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
                     </div>
                 </div>
-            </div>
+
 			
 			
 	
-            <div class="panel">
-                <div class="panel-body pull-center">
-                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; clear:both">
-                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
-                        <a class="addthis_button_tweet" tw:count="vertical"></a>
-                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
-                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
-                        <a class="addthis_button_compact"></a>
-                    </div>
-                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
-                        & #160;
-                    </script>
-                </div>
-		
-			
-				
-            </div>
+
         </div>
-    </div></div>
+   
+
+<!-- Notas de rodapé -->
+	
 <div style="max-width:900px;min-height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE; clear:both" class="container-notasdorodape">
-<center>
-        <div class="col-lg-4" id="notasdorodape">
-            <span class="glyphicon glyphicon-floppy-open iconbg"></span>
-            <h4 style="color:#0e94ab;font-weight: bold;">Como depositar</h4>
-            <h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
-            <p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
-            </br></br>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4" id="notasdorodape" >
-            <span class="glyphicon glyphicon-comment iconbg"></span>
-            <h4 style="color:#0e94ab;font-weight: bold;">Como citar</h4>
-            <h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
-            </h4>
-			<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
-            </p>
-            </br></br>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4" id="notasdorodape">
-
-
-						<span class="glyphicon glyphicon-pencil iconbg"></span>
-							<h4 style="color:#0e94ab;font-weight: bold;">BDPI em números</h4>
-							<h4><small>
-							<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
-							<dt>Unidades</dt>
-							<dd>42</dd>
-							<dt>Departamentos</dt>
-							<dd>127</dd>
-							<dt>Registros</dt>
-							<dd>38000</dd>
-							<dt>Texto completo</dt>
-							<dd>38000</dd>
-				
-
-				
-                
-		
-				
-				
-            </dl>
-</small></h4>
-        </div>
-		
-		
-
-		
-		
-		
-		</center>
+	<center>
+    <div class="col-lg-4" id="notasdorodape">
+        <span class="glyphicon glyphicon-floppy-open iconbg"></span>
+        <h4 style="color:#0e94ab;font-weight: bold;">Como depositar</h4>
+        <h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
+        <p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
+        </br></br>
     </div>
+        <!-- /.col-lg-4 -->
+    <div class="col-lg-4" id="notasdorodape" >
+        <span class="glyphicon glyphicon-comment iconbg"></span>
+        <h4 style="color:#0e94ab;font-weight: bold;">Como citar</h4>
+        <h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
+        </h4>
+		<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
+        </p>
+        </br></br>
+    </div>
+        <!-- /.col-lg-4 -->
+    <div class="col-lg-4" id="notasdorodape">
+		<span class="glyphicon glyphicon-pencil iconbg"></span>
+		<h4 style="color:#0e94ab;font-weight: bold;">BDPI em números</h4>
+			<h4><small>
+									<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
+									<dt>Unidades</dt>
+									<dd>42</dd>
+									<dd>42</dd>
+									<dt>Departamentos</dt>
+									<dd>127</dd>
+									<dt>Registros</dt>
+									<dd>38000</dd>
+									<dt>Texto completo</dt>
+									<dd>38000</dd>
+					
 
-</dspace:layout>
+					
+					
+			
+					
+					
+				</dl>
+	</small></h4>
+			</div>
+			
+			
+
+			
+			
+			
+			</center>
+		</div>
+
+	</dspace:layout>

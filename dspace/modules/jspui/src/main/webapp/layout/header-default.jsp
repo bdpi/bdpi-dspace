@@ -245,8 +245,8 @@
 
 						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;">
                                     <a class="sr-only" href="#content">Skip navigation</a>
-                                    <div class="container" id="container" style="top:-36px" class="corpo">
-                                        <div class="row">
+                                    <div class="container" id="container" style="top:-36px; background-color:#FFF;">
+                                        <div class="row" style="top:-36px; background-color:#FFF;">
 											
 											<div class="cruesplink" style="float:right; position:relative;">
 												
@@ -269,6 +269,8 @@
 											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
 											&nbsp;</h6>
+											
+																					
 																	<header class="navbar navbar-inverse" role="navigation">
                                                                         <%
                                                                             if (!navbar.equals("off")) {
