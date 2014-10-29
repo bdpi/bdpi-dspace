@@ -245,7 +245,7 @@
 
 						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;">
                                     <a class="sr-only" href="#content">Skip navigation</a>
-                                    <div class="container" id="container" style="padding:30px; top:-36px">
+                                    <div class="container" id="container" style="top:-36px" class="corpo">
                                         <div class="row">
 											
 											<div class="cruesplink" style="float:right; position:relative;">
@@ -253,7 +253,7 @@
 												<div class="cruesplinkout" style="float:right; background-color:#FFF;">
 												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;"></a>
 												</div>
-												<div class="cruesplinkin" style="position:relative; float:right; top:-22px;display:none;">
+												<div class="cruesplinkin" style="position:relative; float:right; top:-21px; left:0.5px;display:none;">
 												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" style="width:75px; display: hidden"></a>
 												</div>											
 											</div>

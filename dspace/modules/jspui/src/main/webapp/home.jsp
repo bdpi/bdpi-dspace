@@ -317,7 +317,7 @@ $("button.prev").click(function(){
             <%
                 if (submissions != null && submissions.count() > 0) {
             %>
-            <div class="panel" style="padding:10px; margin-right:20px; border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
+            <div class="panel" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
                 <div class="panel-heading">
                     <h3><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
@@ -431,8 +431,8 @@ $("button.prev").click(function(){
         </div>
 
 			
-		<div class="col-md-4" style="position:relative; float:left;">
-            <div class="panel text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background: linear-gradient(#f5f5f5, #f5f5f5, #f5f5f5); ">
+		<div class="col-md-4" style="position:relative; float:left; clear:right; margin-left:10px; width: 323px">
+            <div class="panel id="news" text-justify" style="padding:10px;position:relative; float:left;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color: #64c4d2;border-top-style:solid;border-top-width:2px;border-top-color: #64c4d2;background-color:#f5f5f5; clear:both">
                 <div class="panel-heading">
                     <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
                 </div>
@@ -486,7 +486,7 @@ $("button.prev").click(function(){
             </div>
         </div>
     </div></div>
-<div style="width:900px;height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE" class="container-notasdorodape">
+<div style="max-width:900px;min-height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE; clear:both" class="container-notasdorodape">
 <center>
         <div class="col-lg-4" id="notasdorodape">
             <span class="glyphicon glyphicon-floppy-open iconbg"></span>
@@ -496,7 +496,7 @@ $("button.prev").click(function(){
             </br></br>
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4" id="notasdorodape">
+        <div class="col-lg-4" id="notasdorodape" >
             <span class="glyphicon glyphicon-comment iconbg"></span>
             <h4 style="color:#0e94ab;font-weight: bold;">Como citar</h4>
             <h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
@@ -507,20 +507,22 @@ $("button.prev").click(function(){
         </div>
         <!-- /.col-lg-4 -->
         <div class="col-lg-4" id="notasdorodape">
-            <span class="glyphicon glyphicon-pencil iconbg"></span>
-            <h4 style="color:#0e94ab;font-weight: bold;">BDPI em números</h4>
-<h4><small>
-			<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
-                <dt>Unidades</dt>
-                <dd>42</dd>
-                <dt>Departamentos</dt>
-                <dd>127</dd>
-                <dt>Registros</dt>
-                <dd>38000</dd>
-                <dt>Texto completo</dt>
-                <dd>38000</dd>
+
+
+						<span class="glyphicon glyphicon-pencil iconbg"></span>
+							<h4 style="color:#0e94ab;font-weight: bold;">BDPI em números</h4>
+							<h4><small>
+							<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
+							<dt>Unidades</dt>
+							<dd>42</dd>
+							<dt>Departamentos</dt>
+							<dd>127</dd>
+							<dt>Registros</dt>
+							<dd>38000</dd>
+							<dt>Texto completo</dt>
+							<dd>38000</dd>
 				
-				
+
 				
                 
 		
@@ -529,6 +531,12 @@ $("button.prev").click(function(){
             </dl>
 </small></h4>
         </div>
+		
+		
+
+		
+		
+		
 		</center>
     </div>
 
