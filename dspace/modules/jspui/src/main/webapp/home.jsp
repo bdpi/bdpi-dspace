@@ -197,7 +197,7 @@ $("button.prev").click(function(){
         <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
             <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
                 <div class="box" style="max-width:500px;max-width:75%;">
-                    <h4 class="chamada">Conheça a BDPI &nbsp;&nbsp;
+                    <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI &nbsp;&nbsp;
 					</h4>
 					
                     <p style="font-size:14px;max-width:400px;letter-spacing:0;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
@@ -235,7 +235,7 @@ $("button.prev").click(function(){
             %>
             <div class="panel" class="col-md-8" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
                 <div class="panel-heading">
-                    <h3><fmt:message key="jsp.collection-home.recentsub"/>
+                    <h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.recentsub"/>
                         <%
                             if (feedEnabled) {
                                 String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -258,7 +258,7 @@ $("button.prev").click(function(){
                                     }
                                 }
                             %>
-                    </h3>
+                    </h1>
                 </div>
 
                 <%
@@ -302,7 +302,7 @@ $("button.prev").click(function(){
                     </a>
                     <div class="media-body col-md-11">
                         <a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>"><h4 class="media-heading"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
-                        <p><%
+                        <p style="font-family: 'Roboto', sans-serif;"><%
                             int maxcount;
                             String etal = "";
                             if (displayAuthors.length > 10) {
@@ -350,14 +350,14 @@ $("button.prev").click(function(){
 	
         <div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
                 <div class="panel-heading">
-                    <h3><fmt:message key="jsp.collection-home.latestnews"/></h3>
+                    <h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.latestnews"/></h1>
                 </div>
                 <div class="media padding15">
                     <a class="pull-left" href="#">
                         <span class="glyphicon glyphicon-list-alt icon"></span>
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading" style="color:#696969">Media heading</h4>
+                        <h2 class="media-heading" style="color:#696969;">Media heading</h2>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
                     </div>
                 </div>
@@ -393,7 +393,7 @@ $("button.prev").click(function(){
 	<center>
     <div class="col-lg-4" id="notasdorodape">
         <span class="glyphicon glyphicon-floppy-open iconbg"></span>
-        <h4 style="color:#0e94ab;font-weight: bold;">Como depositar</h4>
+        <h3>Como depositar</h3>
         <h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
         <p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
         </br></br>
@@ -401,7 +401,7 @@ $("button.prev").click(function(){
         <!-- /.col-lg-4 -->
     <div class="col-lg-4" id="notasdorodape" >
         <span class="glyphicon glyphicon-comment iconbg"></span>
-        <h4 style="color:#0e94ab;font-weight: bold;">Como citar</h4>
+        <h3>Como citar</h3>
         <h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
         </h4>
 		<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
@@ -411,7 +411,7 @@ $("button.prev").click(function(){
         <!-- /.col-lg-4 -->
     <div class="col-lg-4" id="notasdorodape">
 		<span class="glyphicon glyphicon-pencil iconbg"></span>
-		<h4 style="color:#0e94ab;font-weight: bold;">BDPI em números</h4>
+		<h3>BDPI em números</h3>
 			<h4><small>
 									<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
 									<dt>Unidades</dt>

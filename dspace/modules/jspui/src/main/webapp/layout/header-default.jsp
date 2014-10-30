@@ -65,6 +65,7 @@
                     for (int i = 0; i < parts.size(); i += 3) {
             %>
             <link rel="alternate" type="application/<%= (String) parts.get(i)%>" title="<%= (String) parts.get(i + 1)%>" href="<%= request.getContextPath()%>/feed/<%= (String) parts.get(i + 2)%>/<%= feedRef%>"/>
+			<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
             <%
                     }
                 }

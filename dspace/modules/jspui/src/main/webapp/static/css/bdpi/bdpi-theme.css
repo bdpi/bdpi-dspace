@@ -4110,7 +4110,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #fff;
+    color: black;
     background-color: transparent;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
@@ -4620,8 +4620,9 @@ a.thumbnail.active {
 }
 .media-heading {
   /*color:#696969;*/
-  font-size:17px;
   margin: 0 0 5px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 .media > .pull-left {
   margin-right: 10px;
@@ -6158,6 +6159,11 @@ float:left;
   }
 
  }
+#notasdorodape h3{
+color:#0e94ab;
+font-weight: bold;
+font-family: 'Roboto', sans-serif;
+}
 #notasdorodape{
 max-width:300px;
 position:relative;
