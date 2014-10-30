@@ -49,11 +49,11 @@
 
 <dspace:layout titlekey="jsp.feedback.form.title">
     <%-- <h1>Feedback Form</h1> --%>
-    <h1><fmt:message key="jsp.feedback.form.title"/></h1>
+    <h2 style="color:black; left:10px; position:relative"><fmt:message key="jsp.feedback.form.title"/></h2>
 
     <%-- <p>Thanks for taking the time to share your feedback about the
     DSpace system. Your comments are appreciated!</p> --%>
-    <p><fmt:message key="jsp.feedback.form.text1"/></p>
+    <p style="color:black; left:10px; position:relative"><fmt:message key="jsp.feedback.form.text1"/></p>
 
 <%
     if (problem)
@@ -64,21 +64,21 @@
 <%
     }
 %>
-    <form action="<%= request.getContextPath() %>/feedback" method="post" class="form-horizontal" role="form">
+    <form style="max-width:900px; margin:20px;" action="<%= request.getContextPath() %>/feedback" method="post" class="form-horizontal" role="form">
         <div class="form-group">
-            <label for="temail" class="col-sm-2 control-label"><fmt:message key="jsp.feedback.form.email"/></label>
+            <label for="temail" class="col-sm-2 control-label"><fmt:message key="jsp.feedback.form.email"/>&nbsp;&nbsp;</label>
              <div class="col-sm-10">
             <input type="text" name="email" class="form-control" id="temail" size="50" value="<%=StringEscapeUtils.escapeHtml(email)%>" />
             </div>
         </div>
         <div class="form-group">
-            <label for="tfeedback" class="col-sm-2 control-label"><fmt:message key="jsp.feedback.form.comment"/></label>
+            <label for="tfeedback" class="col-sm-2 control-label"><fmt:message key="jsp.feedback.form.comment"/>&nbsp;&nbsp;</label>
             <div class="col-sm-10">
             <textarea name="feedback" class="form-control" id="tfeedback" rows="6" cols="50"><%=StringEscapeUtils.escapeHtml(feedback)%></textarea>
             </div>
          </div>   
         <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" name="submit" class="btn btn-default" value="<fmt:message key="jsp.feedback.form.send"/>" />
+            <input style="position:relative; float:right; left:15px;" type="submit" name="submit" class="btn btn-default" value="<fmt:message key="jsp.feedback.form.send"/>" />
         </div>
     </form>
 <br/><br/>

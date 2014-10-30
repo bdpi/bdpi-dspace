@@ -220,10 +220,10 @@
                                 </div>
                                 </div>
                                 </div>
-                <div class="usptab" style="border-style:none;background-color:transparent;" style="position:relative; z-index:30">
+                <div class="usptab" style="border-style:none;background-color:transparent;" style="position:relative;">
                     <ul class="usplogin" style="border-style:none;" >
-                        <li class="uspleft" style="position:relative; z-index:30"></li>
-                        <li id="usptoggle" style="position:relative; z-index:30">
+                        <li class="uspleft" style="position:relative; z-index:0"></li>
+                        <li id="usptoggle" style="position:relative; z-index:0">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="uspopen" class="uspopen" border="0" style="display: block;">
                                 <img src="http://www.producao.usp.br/a/barrausp/images/seta_down.jpg" border="0">
                                     <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" alt="SIBi - Abrir o painel" width="35" height="16" border="0" title="SIBi - Abrir o painel">
@@ -233,7 +233,7 @@
                                                 <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" width="35" height="16" border="0" title="SIBi - Fechar painel" alt="SIBi - Fechar painel">
                                                     </a>
                         </li>
-                        <li class="uspright" style="background-color:transparent" style="position:relative; z-index:30; display:visible"></li>
+                        <li class="uspright" style="background-color:transparent" style="position:relative; z-index:0; display:visible"></li>
                                                     </ul>
                                                     </div> </div>              
                                 </div>
@@ -243,9 +243,9 @@
 						<!-- uspbarra -->  
                         
 
-						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;">
+						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;" >
                                     <a class="sr-only" href="#content">Skip navigation</a>
-                                    <div class="container" id="container" style="top:-36px; background-color:#FFF;">
+                                    <div class="container" id="container" style="top:-20px; background-color:#FFF;">
                                         <div class="row" style="top:-36px; background-color:#FFF;">
 											
 											<div class="cruesplink" style="float:right; position:relative;">

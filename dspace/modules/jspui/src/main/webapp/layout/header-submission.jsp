@@ -55,6 +55,7 @@
 	    <!-- <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bdpi/bdpi.css" type="text/css" /> -->
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bdpi/bdpi-theme.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bdpi/dspace-theme.css" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
 <%
     if (!"NONE".equals(feedRef))
     {
@@ -122,15 +123,15 @@
 <![endif]-->
     </head>
 
-    <div id="uspbarra">
-        <div class="uspLogo">
+    <div id="uspbarra" style="background-color:transparent;border-style:none">
+        <div class="uspLogo"  style="background-color:transparent;border-style:none">
             <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;position: absolute;bottom: 0px;" src="<%= siteURL%>/image/Logo_usp_composto.jpg" />
          </div>
-        <div class="panel-group" id="accordion">
-            <div class="panel" style="border-radius: 0;border-left: 0;border-right: 0;">
-                                     <div id="collapseThree" class="panel-collapse collapse">
-                                                        <div class="panel-body usppanel">
-                                                            <div class="row">
+        <div class="panel-group" id="accordion"  style="background-color:transparent;border-style:none">
+            <div class="panel" style="background-color:transparent;border-style:none">
+                                     <div id="collapseThree" class="panel-collapse collapse" style="background-color:transparent">
+                                                        <div class="panel-body usppanel" style="background-color:#b3b3bc">
+                                                            <div class="row" style="background-color:transparent">
                                                                 <div class="col-md-3 text-center">
                                                                     <a href=http://www.usp.br/sibi/><img src="http://www.producao.usp.br/a/barrausp/images/sibi.png" title="SIBi - Sistema Integrado de Bibliotecas da USP" width=150 height=69 border=0 /></a>
                                                                     <div class="uspmenu_top_usp">
@@ -218,10 +219,10 @@
                                 </div>
                                 </div>
                                 </div>
-                <div class="usptab">
-                    <ul class="usplogin">
-                        <li class="uspleft"></li>
-                        <li id="usptoggle">
+                <div class="usptab" style="border-style:none;background-color:transparent;" style="position:relative;">
+                    <ul class="usplogin" style="border-style:none;" >
+                        <li class="uspleft" style="position:relative; z-index:0"></li>
+                        <li id="usptoggle" style="position:relative; z-index:0">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="uspopen" class="uspopen" border="0" style="display: block;">
                                 <img src="http://www.producao.usp.br/a/barrausp/images/seta_down.jpg" border="0">
                                     <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" alt="SIBi - Abrir o painel" width="35" height="16" border="0" title="SIBi - Abrir o painel">
@@ -231,23 +232,29 @@
                                                 <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" width="35" height="16" border="0" title="SIBi - Fechar painel" alt="SIBi - Fechar painel">
                                                     </a>
                         </li>
-                                                    <li class="uspright"></li>
+                        <li class="uspright" style="background-color:transparent" style="position:relative; z-index:0; display:visible"></li>
                                                     </ul>
-                                                    </div>               
+                                                    </div>                
                                 </div>
                                 </div>
                                 </div> <!-- uspbarra -->   
     
     <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
-    <body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-image: url('<%= siteURL%>/image/extra_clean_paper.png');">
+    <body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;" >
 <a class="sr-only" href="#content">Skip navigation</a>
 <div class="container" style="position:relative;z-index:10">
                                             <div class="row">
-                                            <div class="cruesplink" style="float:right">
+                                            <div class="cruesplink" style="float:right; position:relative;">
+												
+												<div class="cruesplinkout" style="float:right; background-color:#FFF;">
 												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;"></a>
 												</div>
-												
+												<div class="cruesplinkin" style="position:relative; float:right; top:-21px; left:0.5px;display:none;">
+												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" style="width:75px; display: hidden"></a>
+												</div>											
+											</div>
+											
                                             <div class="col-md-8">
                                                 <div class="logo"><br><br>
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
@@ -256,7 +263,7 @@
 										
                                                 </div>
                                            </div>
-																	 <h6 style="text-align:right; font-weight: 700; margin:0;">
+											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
 											&nbsp;</h6>
 																	

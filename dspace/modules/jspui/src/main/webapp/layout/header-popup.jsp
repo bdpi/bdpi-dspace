@@ -44,7 +44,8 @@
         <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/bdpi/bdpi-theme.css" type="text/css" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/print.css" media="print" type="text/css" />
         <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
-<%
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
+		<%
     if (extraHeadData != null)
         { %>
 <%= extraHeadData %>

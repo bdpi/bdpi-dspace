@@ -84,7 +84,7 @@
                 <input class="btn btn-success" type="submit" name="submit_new" value="<fmt:message key="jsp.mydspace.main.start.button"/>" />
                 <input class="btn btn-info" type="submit" name="submit_own" value="<fmt:message key="jsp.mydspace.main.view.button"/>" />
 		    </form>
-		
+		<br><br>
 		
 <%-- Task list:  Only display if the user has any tasks --%>
 <%
