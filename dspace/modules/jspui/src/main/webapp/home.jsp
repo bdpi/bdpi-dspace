@@ -59,58 +59,23 @@
 %>
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData%>">
 
-
-
-
 <script type="text/javascript">
 function tamanho(){
-																		
-	document.getElementById("logos").style.width = 70*27+"px";			// Para dispor os logos na horizontal - 14 é o numero de colunas.
-	
 	if( window.innerWidth >= 1050 ){
-	// caracteristicas deste tamanho de tela
-	//document.getElementById("jumbocol").style.width 
-	//= window.innerWidth - (window.innerWidth-1000) - 20 - 420 + "px";       					// Tamanho da foto - Tamanho da tela - margens do body e margem direita da foto.
-	document.getElementById("logos-container").style.width = 420+"px";
-	document.getElementById("anim").style.height = 300 +"px";
-	document.getElementById("logos-container").style.height = 280 +"px";
-	// caracteristicas para retomar no caso de diminuir a tela e aumentar de volta
-	document.getElementById("logos-container").style.left = 0 +'px';
-	document.getElementById("logos-container").style.top = -30+'px';
-	document.getElementById("cruesp").style.cssFloat = 'right';
-
-	document.getElementById("logos4").style.width = 70+"px" ;
-	document.getElementById("logos4").style.height = 4*70+"px" ;
-
+	//javascript para este tamanho de tela
 	}															   
 	else{
-	// caracteristicas deste tamanho de tela
-	document.getElementById("logos").style.width = 70*28+"px";                    // Para ter 2 linhas (28 colunas)
-	document.getElementById("jumbocol").style.width = 100+"%";                    //
-	var numLogos = Math.floor( (window.innerWidth-30)/70 );        		          // Quantos logos (divisao inteiro) cabem no tamanho da janela (menos 30px de margens)
-	document.getElementById("logos-container").style.width = numLogos*70 +"px";   // Para tirar logos cortados.
-	document.getElementById("anim").style.height = 150 +"px";					  // Ajuste altura para duas linhas.
-	document.getElementById("logos-container").style.height = 140 +"px";          // Ajuste altura para duas linhas.
-	document.getElementById("logos-container").style.left = 
-	(window.innerWidth -numLogos*70 -30)/2 +"px";								  // Para centralizar a div dos logos.
-	document.getElementById("logos-container").style.top = 0+'px';
-	document.getElementById("cruesp").style.cssFloat = 'left';
+	//javascript para os demais
 	}
 }
 window.onresize = tamanho;
 </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
 <script>
-
-
-
-
-
 $(document).ready(function(){
 
-	//Para mudar a cor do Cruesp
+//Para mudar a cor do Cruesp
 	
 		$(".cruesplink").mouseenter(function() {
 				$(".cruesplinkin").show();
@@ -120,7 +85,7 @@ $(document).ready(function(){
 	})
 
 	
-	//Para carregar as submissoes recentes.
+//Para carregar as submissoes recentes.
 
 $("div#recentSubmissions").hide();
 $("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
@@ -146,66 +111,19 @@ $('span#hide').css( 'cursor', 'pointer' );
 });
 </script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
 
-// Movimento dos logos
+<div class="row" id="jumborow">
+    <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
+        <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
+            <div class="box" style="max-width:500px;max-width:75%;">
+                <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI &nbsp;&nbsp;
+				</h4>
+	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+            </div>
+			
+			<!-- Botões de compartilhamento que não funcionam mais	
 
-$(document).ready(function(){
-
-	$("#noscript").css("display","none");
-	$("#logos").css("opacity","1");
-
-	function animatelogos() {
-				var elemento =  $("div#logos div#logos4:first-child").html();
-				$("div#logos div#logos4:last-child").after("<div id=\"logos4\">"+elemento+"</div>");
-				$("div#logos div#logos4:first-child").hide('slow', function(){ $("div#logos div#logos4:first-child").remove(); });
-	}
-
-	timerLogos = setInterval(animatelogos, 2000);
-
-	$("#setas").mouseenter(function() {
-		clearInterval(timerLogos);
-	});
-	
-	$("#anim").mouseenter(function() {
-				clearInterval(timerLogos);
-
-	})
-			  .mouseleave(function() {
-				timerLogos = setInterval(animatelogos, 2000);
-	});
-	
-// Botão next dos logos
-$("button.next").click(function(){
-	clearInterval(timerLogos);
-	animatelogos();
-	});  														  
-
-// Botão previous dos logos
-$("button.prev").click(function(){
-	var element = $("div#logos div#logos4:last-child").html();
-	$("div#logos div#logos4:first-child").before("<div id=\"logos4\" style=\"display:none\">"+element+"</div>");
-	$("div#logos div#logos4:last-child").remove();
-	$("div#logos div#logos4:first-child").show('slow', function(){});
-	});
-});
-
-</script>	
-<!-- Fim da dinâmica dos logos -->
-    <div class="row" id="jumborow">
-        <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
-            <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
-                <div class="box" style="max-width:500px;max-width:75%;">
-                    <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI &nbsp;&nbsp;
-					</h4>
-					
-                    <p style="font-size:14px;max-width:400px;letter-spacing:0;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
-                </div>
-				<div style="position: absolute; bottom: 80px; right: 10px;"><h4 class="chamada">
-			<!--	
-			<div class="panel" style="z-index:0">
-                <div class="panel-body pull-center">
                     <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; clear:both">
                         <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
                         <a class="addthis_button_tweet" tw:count="vertical"></a>
@@ -216,123 +134,119 @@ $("button.prev").click(function(){
                     <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
                         & #160;
                     </script>
-                </div>
-		    </div>
-				-->
+			-->
 				
-				</h4>
-				</div>
-				
-				
-			</div>
 		</div>
 	</div>
+</div>
 			
-	<div class="row"  style="clear:left">
-        <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
-            <%
-                if (submissions != null && submissions.count() > 0) {
-            %>
-            <div class="panel" class="col-md-8" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
-                <div class="panel-heading">
-                    <h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.recentsub"/>
-                        <%
-                            if (feedEnabled) {
-                                String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
-                                String icon = null;
-                                int width = 0;
-                                for (int j = 0; j < fmts.length; j++) {
-                                    if ("rss_1.0".equals(fmts[j])) {
-                                        icon = "rss1.gif";
-                                        width = 80;
-                                    } else if ("rss_2.0".equals(fmts[j])) {
-                                        icon = "rss2.gif";
-                                        width = 80;
-                                    } else {
-                                        icon = "rss.gif";
-                                        width = 36;
-                                    }
-                        %>
-                        <a href="<%= request.getContextPath()%>/feed/<%= fmts[j]%>/site"><img src="<%= request.getContextPath()%>/image/<%= icon%>" alt="RSS Feed" width="<%= width%>" height="15" vspace="3" border="0" /></a>
-                            <%
-                                    }
-                                }
-                            %>
-                    </h1>
-                </div>
+<div class="row"  style="clear:left">
+    <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
+					<%
+						if (submissions != null && submissions.count() > 0) {
+					%>
 
-                <%
-                    boolean first = true;
-                    for (Item item : submissions.getRecentSubmissions()) {
-                        DCValue[] dcv = item.getMetadata("dc", "title", null, Item.ANY);
-                        String displayTitle = "Untitled";
-                        if (dcv != null & dcv.length > 0) {
-                            displayTitle = dcv[0].value;
-                        }
-                        dcv = item.getMetadata("dc", "contributor", "author", Item.ANY);
-                        if (dcv != null & dcv.length > 0) {
-                            displayAuthors = new String[dcv.length][2];
-                            for (int dcvcounter = 0; dcvcounter < dcv.length; dcvcounter++) {
-                                displayAuthors[dcvcounter][0] = dcv[dcvcounter].value;
-                                displayAuthors[dcvcounter][1] = dcv[dcvcounter].authority;
-                            }
-                        } else {
-                            displayAuthors = new String[1][2];
-                            displayAuthors[0][0] = "";
-                            displayAuthors[0][1] = "";
-                        }
-                        dcv = item.getMetadata("dc", "description", "abstract", Item.ANY);
-                        String displayAbstract = "";
-                        if (dcv != null & dcv.length > 0) {
-                            displayAbstract = dcv[0].value;
-                        }
-                        dcv = item.getMetadata("dc", "rights", null, Item.ANY);
-                        String displayRights = "";
-                        if (dcv != null & dcv.length > 0) {
-                            displayRights = dcv[0].value;
-                        }
-                %>
-                <div class="media padding15" id="recentSubmissions">
-                    <a class="pull-left" href="#">
-                        <% if (displayRights.equals("openAccess")) {%>
-                        <img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px">
-                        <% } else { %>
-                        <img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px">
-                        <% }%>
-                    </a>
-                    <div class="media-body col-md-11">
-                        <a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>"><h4 class="media-heading"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
-                        <p style="font-family: 'Roboto', sans-serif;"><%
-                            int maxcount;
-                            String etal = "";
-                            if (displayAuthors.length > 10) {
-                                maxcount = 10;
-                                etal = " et al";
-                            } else {
-                                maxcount = displayAuthors.length;
-                            }
-                            for (int acount = 0; acount < maxcount; acount++) { %>
-                                <% if (acount > 0) { %>; <% }%>
-                                <% if(displayAuthors[acount][1]!=null){ %>
-                                <a class="authority author" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
-                                <% } else { %>
-                                  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
-                                <% } %>
-                            <% }%><%=etal%></p>
-                        <p  style="text-align:justify"><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
-                    </div>
-				
-                </div>
-                <%
-                        first = false;
-                    }
-                %>
-				<br>
-<!-- Exibição de mais submissões -->
-            </div>
-			<center>
-			
-			<div style="position:relative; float:right; top:-60px; right:0px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;
+					
+		<div class="panel" class="col-md-8" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
+			<div class="panel-heading">
+				<h1><fmt:message key="jsp.collection-home.recentsub"/>
+								<%
+									if (feedEnabled) {
+										String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
+										String icon = null;
+										int width = 0;
+										for (int j = 0; j < fmts.length; j++) {
+											if ("rss_1.0".equals(fmts[j])) {
+												icon = "rss1.gif";
+												width = 80;
+											} else if ("rss_2.0".equals(fmts[j])) {
+												icon = "rss2.gif";
+												width = 80;
+											} else {
+												icon = "rss.gif";
+												width = 36;
+											}
+								%>
+					<a href="<%= request.getContextPath()%>/feed/<%= fmts[j]%>/site"><img src="<%= request.getContextPath()%>/image/<%= icon%>" alt="RSS Feed" width="<%= width%>" height="15" vspace="3" border="0" /></a>
+									<%
+											}
+										}
+									%>
+				</h1>
+			</div>
+
+						<%
+							boolean first = true;
+							for (Item item : submissions.getRecentSubmissions()) {
+								DCValue[] dcv = item.getMetadata("dc", "title", null, Item.ANY);
+								String displayTitle = "Untitled";
+								if (dcv != null & dcv.length > 0) {
+									displayTitle = dcv[0].value;
+								}
+								dcv = item.getMetadata("dc", "contributor", "author", Item.ANY);
+								if (dcv != null & dcv.length > 0) {
+									displayAuthors = new String[dcv.length][2];
+									for (int dcvcounter = 0; dcvcounter < dcv.length; dcvcounter++) {
+										displayAuthors[dcvcounter][0] = dcv[dcvcounter].value;
+										displayAuthors[dcvcounter][1] = dcv[dcvcounter].authority;
+									}
+								} else {
+									displayAuthors = new String[1][2];
+									displayAuthors[0][0] = "";
+									displayAuthors[0][1] = "";
+								}
+								dcv = item.getMetadata("dc", "description", "abstract", Item.ANY);
+								String displayAbstract = "";
+								if (dcv != null & dcv.length > 0) {
+									displayAbstract = dcv[0].value;
+								}
+								dcv = item.getMetadata("dc", "rights", null, Item.ANY);
+								String displayRights = "";
+								if (dcv != null & dcv.length > 0) {
+									displayRights = dcv[0].value;
+								}
+						%>
+			<div class="media padding15" id="recentSubmissions">
+				<a class="pull-left" href="#">
+								<% if (displayRights.equals("openAccess")) {%>
+					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px">
+								<% } else { %>
+					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px">
+								<% }%>
+				</a>
+				<div class="media-body col-md-11">
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>"><h4 class="media-heading"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<p style="font-style:italic;"><%
+									int maxcount;
+									String etal = "";
+									if (displayAuthors.length > 10) {
+										maxcount = 10;
+										etal = " et al";
+									} else {
+										maxcount = displayAuthors.length;
+									}
+									for (int acount = 0; acount < maxcount; acount++) { %>
+										<% if (acount > 0) { %>; <% }%>
+										<% if(displayAuthors[acount][1]!=null){ %>
+					<a class="authority author" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
+										<% } else { %>
+										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
+										<% } %>
+									<% }%><%=etal%></p>
+					<p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
+				</div>
+			</div>
+						<%
+								first = false;
+							}
+						%>
+		<br>
+		</div>
+
+		<!-- Exibição de mais submissões -->
+
+		<center>	
+		<div style="position:relative; float:right; top:-60px; right:0px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;
 			border-left-style:solid; 
 			border-left-width:2px; 
 			border-left-color:#fcb421;
@@ -340,105 +254,91 @@ $("button.prev").click(function(){
 			border-top-width:2px; 
 			border-top-color:#fcb421;">
 			<span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
-			<span id="hide" class="glyphicon glyphicon-minus" style="left:-2px;"></span></center>
+			<span id="hide" class="glyphicon glyphicon-minus" style="left:-2px;"></span>
+		</center>
+					<%}%>
+		</div>
+
+		<!-- Notícias -->
+				
+		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
 			
-            <%
-                }
-            %>
-
-        </div>
-	
-        <div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
-                <div class="panel-heading">
-                    <h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.latestnews"/></h1>
-                </div>
-                <div class="media padding15">
-                    <a class="pull-left" href="#">
-                        <span class="glyphicon glyphicon-list-alt icon"></span>
-                    </a>
-                    <div class="media-body">
-                        <h2 class="media-heading" style="color:#696969;">Media heading</h2>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
-                    </div>
-                </div>
-                <div class="media padding15">
-                    <a class="pull-left" href="#">
-                        <span class="glyphicon glyphicon-list-alt icon"></span>
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading" style="color:#696969">Media heading</h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
-                    </div>
-                </div>
-                <div class="media padding15">
-                    <a class="pull-left" href="#">
-                        <span class="glyphicon glyphicon-list-alt icon"></span>
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading" style="color:#696969">Media heading</h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
-                    </div>
-                </div>
-
-			
-			
-	
-
-        </div>
-   
-
-<!-- Notas de rodapé -->
-	
-<div style="max-width:900px;min-height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE; clear:both" class="container-notasdorodape">
-	<center>
-    <div class="col-lg-4" id="notasdorodape">
-        <span class="glyphicon glyphicon-floppy-open iconbg"></span>
-        <h3>Como depositar</h3>
-        <h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
-        <p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
-        </br></br>
-    </div>
-        <!-- /.col-lg-4 -->
-    <div class="col-lg-4" id="notasdorodape" >
-        <span class="glyphicon glyphicon-comment iconbg"></span>
-        <h3>Como citar</h3>
-        <h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
-        </h4>
-		<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
-        </p>
-        </br></br>
-    </div>
-        <!-- /.col-lg-4 -->
-    <div class="col-lg-4" id="notasdorodape">
-		<span class="glyphicon glyphicon-pencil iconbg"></span>
-		<h3>BDPI em números</h3>
-			<h4><small>
-									<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
-									<dt>Unidades</dt>
-									<dd>42</dd>
-									<dt>Departamentos</dt>
-									<dd>127</dd>
-									<dt>Registros</dt>
-									<dd>38000</dd>
-									<dt>Texto completo</dt>
-									<dd>38000</dd>
-					
-
-					
-					
-			
-					
-					
-				</dl>
-	</small></h4>
+			<div class="panel-heading">
+				<h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.latestnews"/></h1>
 			</div>
 			
-			
+			<div class="media padding15">
+				<a class="pull-left" href="#">
+					<span class="glyphicon glyphicon-list-alt icon"></span>
+				</a>
+				<div class="media-body">
+					<h2 class="media-heading" style="color:#696969;">Media heading</h2>
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+				</div>
+			</div>
+					
+			<div class="media padding15">
+				<a class="pull-left" href="#">
+					<span class="glyphicon glyphicon-list-alt icon"></span>
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading" style="color:#696969">Media heading</h4>
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+				</div>
+			</div>
 
+			<div class="media padding15">
+				<a class="pull-left" href="#">
+					<span class="glyphicon glyphicon-list-alt icon"></span>
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading" style="color:#696969">Media heading</h4>
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Notas de rodapé -->
 			
-			
-			
+		<div style="max-width:900px;min-height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE; clear:both" class="container-notasdorodape">
+			<center>
+			<div class="col-lg-4" id="notasdorodape">
+				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
+				<h3>Como depositar</h3>
+				<h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
+				<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
+				</br></br>
+			</div>
+				<!-- /.col-lg-4 -->
+			<div class="col-lg-4" id="notasdorodape" >
+				<span class="glyphicon glyphicon-comment iconbg"></span>
+				<h3>Como citar</h3>
+				<h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
+				</h4>
+				<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
+				</p>
+				</br></br>
+			</div>
+				<!-- /.col-lg-4 -->
+			<div class="col-lg-4" id="notasdorodape">
+				<span class="glyphicon glyphicon-pencil iconbg"></span>
+				<h3>BDPI em números</h3>
+				<h4>
+					<small>
+						<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
+							<dt width="50%;">Unidades</dt>
+							<dd width="50%">42</dd>
+							<dt width="50%">Departamentos</dt>
+							<dd width="50%">127</dd>
+							<dt width="50%">Registros</dt>
+							<dd width="50%">38000</dd>
+							<dt width="50%">Texto completo</dt>
+							<dd width="50%">38000</dd>
+						</dl>
+					</small>
+				</h4>
+			</div>
 			</center>
 		</div>
 
-	</dspace:layout>
+			</dspace:layout>
