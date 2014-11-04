@@ -74,7 +74,7 @@ fi
 cd $aqui
 mvn clean
 mvn -Poracle-support package
-cd dspace/target/dspace-4.1-build
+cd dspace/target/dspace-4.2-build
 ant update
 cd ../../..
 
