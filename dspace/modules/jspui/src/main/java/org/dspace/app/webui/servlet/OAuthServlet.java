@@ -17,11 +17,14 @@ import org.apache.log4j.Logger;
 
 import org.dspace.app.webui.util.Authenticate;
 import org.dspace.app.webui.util.JSPManager;
+import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
 import org.dspace.authenticate.AuthenticationManager;
 import org.dspace.authenticate.AuthenticationMethod;
+import org.dspace.authenticate.OAuthAuthentication;
+import org.dspace.core.PluginManager;
 
 /**
  * @author  Jan LL - jan.lara at sibi.usp.br 2014
@@ -50,6 +53,22 @@ public class OAuthServlet extends DSpaceServlet {
         
         String oauth_token = request.getParameter("oauth_token");
         String oauth_verifier = request.getParameter("oauth_verifier");
+        
+        if ((oauth_token == null) || (oauth_verifier == null))
+        {
+            Object[] plugins = PluginManager.getPluginSequence("authentication", AuthenticationMethod.class);
+            for (Object plugin : plugins) {
+                if (plugin instanceof OAuthAuthentication) {
+                    response.sendRedirect(((OAuthAuthentication) plugin).loginPageURL(UIUtil.obtainContext(request), request, response));
+                    return;
+                }
+            }
+        }
+        
+        if(!request.getContextPath().equals(OAuthAuthentication.getOAuthContextPath(request))){
+            response.sendRedirect(OAuthAuthentication.getOAuthRedirection(request));
+            return;
+        }
         
         int status = AuthenticationManager.authenticate(context, oauth_token, oauth_verifier, null, request);
         

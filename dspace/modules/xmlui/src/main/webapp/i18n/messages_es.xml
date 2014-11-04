@@ -482,6 +482,7 @@
 	<message key="org.dspace.authenticate.ShibAuthentication.title">Autenticación mediante Shibboleth</message>
 	<message key="org.dspace.eperson.LDAPAuthentication.title">Autenticación mediante LDAP</message>
 	<message key="org.dspace.eperson.PasswordAuthentication.title">Autenticación mediante contraseña</message>
+	<message key="org.dspace.eperson.OAuthAuthentication.title">Autenticación mediante USP Digital</message>
 	<message key="org.dspace.eperson.X509Authentication.title">Autenticación mediante certificado web</message>
 
 		

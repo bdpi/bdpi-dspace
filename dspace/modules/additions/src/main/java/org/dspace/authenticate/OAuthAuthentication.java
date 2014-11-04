@@ -52,7 +52,6 @@ public class OAuthAuthentication
     
     private static MemcachedClient cache = null;
     
-    private int httpRequestHashCode = 0;
     private String strLoginPageURL = "";
     
     private static MemcachedClient getCache(){
@@ -63,6 +62,38 @@ public class OAuthAuthentication
         catch(IOException e){
             log.debug(e);
             return null;
+        }
+    }
+
+    public static String getOAuthRedirection(HttpServletRequest request) {
+        return getOAuthContextPath(request) + request.getRequestURI().substring(request.getContextPath().length()) + "?" + request.getQueryString();
+    }
+    
+    public static String getOAuthContextPath(HttpServletRequest request) {
+        String oauth_token = (String) request.getParameter("oauth_token");
+        if(oauth_token == null){
+            return "";
+        }
+        else {
+            String outh_token_json = (String) getCache().get(oauth_token);
+            if(outh_token_json == null){
+                return "";
+            }
+            else {
+                try {
+                    JSONObject tokendata = new JSONObject(outh_token_json);
+                    String contextpath = tokendata.getString("contextpath");
+                    if(contextpath == null){
+                        return "";
+                    }
+                    else {
+                        return contextpath;
+                    }
+                } catch(JSONException e){
+                    log.debug(e);
+                    return "";
+                }
+            }
         }
     }
     
@@ -229,15 +260,6 @@ public class OAuthAuthentication
     public String loginPageURL(Context context,
             HttpServletRequest request,
             HttpServletResponse response) {
-
-        if (httpRequestHashCode != request.hashCode()) {
-            
-            // devido a algum bug do dspace, o metodo loginPageURL
-            // e chamado 3 vezes a cada vez que essa pagina
-            // e carregada. O uso do httpRequestHashCode evita
-            // que o token seja gerado 3 vezes a cada chamada.
-            
-            httpRequestHashCode = request.hashCode();
             
             try{
                 Token requesttoken = oauthservice.getRequestToken();
@@ -251,7 +273,7 @@ public class OAuthAuthentication
                 log.trace(e);
                 strLoginPageURL = "";
             }
-        }
+
         return strLoginPageURL;
     }
 

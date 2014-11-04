@@ -114,7 +114,7 @@ registration, forgotten passwords, editing profiles, and changing passwords.
                         -->
 			<map:transform type="Navigation"/>
 			
-			
+			<!-- [START] Force OAuth authentication - 04.nov.2014 - jan.lara@dt.sibi.usp.br -->
 			<!--
                         Perform a DSpace login. If the user's credentials are valid then the 
                         AuthenticateAction will succeed and a HTTP redirect will be sent to 
@@ -127,7 +127,7 @@ registration, forgotten passwords, editing profiles, and changing passwords.
                         authentication. When this happens they will receive a redirect to the 
                         /login form, as such they will not be presenting any credentials and 
                         will display the login form.  
-                        -->
+
 			<map:match pattern="login">
 			    <map:select type="AuthenticationCountSelector">
 			      <map:when test="0">
@@ -144,13 +144,25 @@ registration, forgotten passwords, editing profiles, and changing passwords.
 			    </map:select>
 				<map:serialize type="xml"/>
 			</map:match>
+			-->
+			<map:match pattern="login">
+                            <map:act type="OAuthAction">
+                               <!-- Loggin succeeded, request will be forwarded. -->
+                               <map:serialize type="xml"/>
+                            </map:act>
+
+                            <!-- Login failed, try again. Show them static content from xml file --> 
+                            <map:transform type="FailedAuthentication" />  
+                            <map:serialize type="xml"/>
+			</map:match>
+			<!-- [END] Force OAuth authentication - 04.nov.2014 - jan.lara@dt.sibi.usp.br -->
 			
 			<!-- 
                         The following are matches to the URL returned by the stackable authentication
                         methods defined in the dspace.cnf file
 			-->
 
-			<!-- [START] OAuth authentication - 03.mai.2013 - janleduc@usp.br -->
+			<!-- [START] OAuth authentication - 03.mai.2013 - jan.lara@dt.sibi.usp.br -->
                         <map:match pattern="oauth-login">
                             <map:act type="OAuthAction">
                                <!-- Loggin succeeded, request will be forwarded. -->
@@ -161,7 +173,7 @@ registration, forgotten passwords, editing profiles, and changing passwords.
                             <map:transform type="FailedAuthentication" />  
                             <map:serialize type="xml"/>
                         </map:match>
-			<!-- OAuth authentication - 03.mai.2013 - janleduc@usp.br [END] -->
+			<!-- OAuth authentication - 03.mai.2013 - jan.lara@dt.sibi.usp.br [END] -->
 		
                         <map:match pattern="password-login">
                                 <map:act type="AuthenticateAction">

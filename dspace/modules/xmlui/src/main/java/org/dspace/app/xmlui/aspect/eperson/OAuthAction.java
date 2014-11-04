@@ -20,8 +20,12 @@ import org.apache.cocoon.environment.Request;
 import org.apache.cocoon.environment.SourceResolver;
 import org.apache.cocoon.environment.http.HttpEnvironment;
 import org.dspace.app.xmlui.utils.AuthenticationUtil;
+import org.dspace.app.xmlui.utils.ContextUtil;
+import org.dspace.authenticate.AuthenticationMethod;
+import org.dspace.authenticate.OAuthAuthentication;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
+import org.dspace.core.PluginManager;
 
 /**
  * Attempt to authenticate the user based upon their presented OAuth credentials. 
@@ -53,8 +57,9 @@ public class OAuthAction extends AbstractAction
 	public Map act(Redirector redirector, SourceResolver resolver, Map objectModel,
             String source, Parameters parameters) throws Exception
     {
-		
+
         Request request = ObjectModelHelper.getRequest(objectModel);
+        final HttpServletResponse httpResponse = (HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT);
 
         String oauth_token = request.getParameter("oauth_token");
         String oauth_verifier = request.getParameter("oauth_verifier");
@@ -63,8 +68,21 @@ public class OAuthAction extends AbstractAction
         // class.
         if ((oauth_token == null) || (oauth_verifier == null))
         {
-                return null;
+            Object[] plugins = PluginManager.getPluginSequence("authentication", AuthenticationMethod.class);
+            for (Object plugin : plugins) {
+                if (plugin instanceof OAuthAuthentication) {
+                    httpResponse.sendRedirect(((OAuthAuthentication) plugin).loginPageURL(ContextUtil.obtainContext(objectModel), request, httpResponse));
+                    return new HashMap();
+                }
+            }
+            return null;
         }
+        
+        if(!request.getContextPath().equals(OAuthAuthentication.getOAuthContextPath(request))){
+            httpResponse.sendRedirect(OAuthAuthentication.getOAuthRedirection(request));
+            return new HashMap();
+        }
+        
         Context context = AuthenticationUtil.authenticate(objectModel, oauth_token, oauth_verifier, null); // authenticate ja loga o usuario
 
         // The user has successfully logged in
@@ -82,7 +100,7 @@ public class OAuthAction extends AbstractAction
                 redirectURL += (loginRedirect != null) ? loginRedirect.trim() : "/";	
         }
         // Authentication successful send a redirect.
-        final HttpServletResponse httpResponse = (HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT);
+
         httpResponse.sendRedirect(redirectURL);
 
         // log the user out for the rest of this current request, however they will be reauthenticated

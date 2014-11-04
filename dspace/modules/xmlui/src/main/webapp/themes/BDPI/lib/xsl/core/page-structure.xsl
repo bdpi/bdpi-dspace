@@ -168,7 +168,7 @@
 
             <link rel="shortcut icon">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                    <xsl:value-of select="$context-path"/>
                     <xsl:text>/themes/</xsl:text>
                     <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
 <!-- 130412 andre.assada@usp.br
@@ -177,7 +177,7 @@
             </link>
             <link rel="apple-touch-icon">
                 <xsl:attribute name="href">
-                    <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                    <xsl:value-of select="$context-path"/>
                     <xsl:text>/themes/</xsl:text>
                     <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                     <xsl:text>/images/apple-touch-icon.png</xsl:text>
@@ -200,7 +200,7 @@
                         <xsl:value-of select="@qualifier"/>
                     </xsl:attribute>
                     <xsl:attribute name="href">
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                        <xsl:value-of select="$context-path"/>
                         <xsl:text>/themes/</xsl:text>
                         <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                         <xsl:text>/</xsl:text>
@@ -215,7 +215,7 @@
                         <xsl:value-of select="@qualifier"/>
                     </xsl:attribute>
                     <xsl:attribute name="href">
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                        <xsl:value-of select="$context-path"/>
                         <xsl:text>/themes/</xsl:text>
                         <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                         <xsl:text>/</xsl:text>
@@ -259,20 +259,20 @@
 
 			<script type="text/javascript">
 			<xsl:attribute name="src">
-			<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+			<xsl:value-of select="$context-path"/>
 			<xsl:text>/static/js/jquery-1.9.1.js</xsl:text>
 			</xsl:attribute>&#160;</script>
 			
 			<script type="text/javascript">
 			<xsl:attribute name="src">
-			<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+			<xsl:value-of select="$context-path"/>
 			<xsl:text>/static/js/jquery-ui.js</xsl:text>
 			</xsl:attribute>&#160;</script>
 			
 			<!-- 120611 FontResizer chamada do js -->
 			<script type="text/javascript">
 			<xsl:attribute name="src">
-			<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+			<xsl:value-of select="$context-path"/>
 			<xsl:text>/themes/</xsl:text>
 			<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
 			<xsl:text>/lib/js/fontresizer.js</xsl:text>
@@ -319,7 +319,7 @@
 			
 			<script type="text/javascript">
 			<xsl:attribute name="src">
-				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+				<xsl:value-of select="$context-path"/>
 				<xsl:text>/themes/</xsl:text>
 				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
 				<xsl:text>/lib/js/jquery.jplayer.min.js</xsl:text>
@@ -529,7 +529,7 @@
             <!-- Modernizr enables HTML5 elements & feature detects -->
             <script type="text/javascript">
                 <xsl:attribute name="src">
-                    <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                    <xsl:value-of select="$context-path"/>
                     <xsl:text>/themes/</xsl:text>
                     <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                     <xsl:text>/lib/js/modernizr-1.7.min.js</xsl:text>
@@ -633,7 +633,7 @@
                 <a id="ds-header-logo-link">
                     <xsl:attribute name="href">
                         <xsl:value-of
-                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                select="$context-path"/>
                         <xsl:text>/</xsl:text>
                     </xsl:attribute>
                     <span id="ds-header-logo">&#160;</span>
@@ -679,7 +679,7 @@
                                 <xsl:text> | </xsl:text>
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                        <xsl:value-of select="$context-path"/>
                                         <xsl:text>/submissions</xsl:text>
                                     </xsl:attribute>
                                     <i18n:text>xmlui.Submission.Navigation.submissions</i18n:text>
@@ -750,7 +750,7 @@
 				<xsl:text disable-output-escaping="yes">&lt;a id="fnt_small" href="javascript:void(0);" onclick="changeFont('small')" title='</xsl:text>
 				<i18n:text>xmlui.dri2xhtml.structural.font_decrease</i18n:text>
 				<xsl:text disable-output-escaping="yes">'&gt;&lt;img src="</xsl:text>
-				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+				<xsl:value-of select="$context-path"/>
 				<xsl:text disable-output-escaping="yes">/themes/</xsl:text>
 				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
 				<xsl:text disable-output-escaping="yes">/images/fnt_small.gif"&gt;&lt;/img&gt;&lt;/a&gt;</xsl:text>
@@ -758,7 +758,7 @@
 				<xsl:text disable-output-escaping="yes">&lt;a id="fnt_reset" href="javascript:void(0);" onclick="changeFont('reset')" title='</xsl:text>
 				<i18n:text>xmlui.dri2xhtml.structural.font_default</i18n:text>
 				<xsl:text disable-output-escaping="yes">'&gt;&lt;img src="</xsl:text>
-				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+				<xsl:value-of select="$context-path"/>
 				<xsl:text disable-output-escaping="yes">/themes/</xsl:text>
 				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
 				<xsl:text disable-output-escaping="yes">/images/fnt_reset.gif"&gt;&lt;/img&gt;&lt;/a&gt;</xsl:text>
@@ -766,7 +766,7 @@
 				<xsl:text disable-output-escaping="yes">&lt;a id="fnt_big" href="javascript:void(0);" onclick="changeFont('big')" title='</xsl:text>
 				<i18n:text>xmlui.dri2xhtml.structural.font_increase</i18n:text>
 				<xsl:text disable-output-escaping="yes">'&gt;&lt;img src="</xsl:text>
-				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+				<xsl:value-of select="$context-path"/>
 				<xsl:text disable-output-escaping="yes">/themes/</xsl:text>
 				<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
 				<xsl:text disable-output-escaping="yes">/images/fnt_big.gif"&gt;&lt;/img&gt;&lt;/a&gt;</xsl:text>
@@ -1084,7 +1084,7 @@
                     <div id="ds-footer-right-contact">
                         <a>
                             <xsl:attribute name="href">
-                                <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                <xsl:value-of select="$context-path"/>
                                 <xsl:text>/feedback</xsl:text>
                             </xsl:attribute>
                             <b><i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text></b>
@@ -1102,7 +1102,7 @@
                     <!--div id="ds-footer-right-rss">
                         <a>
                             <xsl:attribute name="href">
-                                <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                <xsl:value-of select="$context-path"/>
                                 <xsl:text>/register</xsl:text>
                             </xsl:attribute>
                             <xsl:attribute name="id">
@@ -1135,7 +1135,7 @@
                     <a>
                         <xsl:attribute name="href">
                             <xsl:value-of
-                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                    select="$context-path"/>
                             <xsl:text>/contact</xsl:text>
                         </xsl:attribute>
                         <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
@@ -1145,7 +1145,7 @@
                     <!--a>
                         <xsl:attribute name="href">
                             <xsl:value-of
-                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                    select="$context-path"/>
                             <xsl:text>/feedback</xsl:text>
                         </xsl:attribute>
                         <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
@@ -1156,7 +1156,7 @@
                 <a class="hidden">
                     <xsl:attribute name="href">
                         <xsl:value-of
-                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                select="$context-path"/>
                         <xsl:text>/htmlmap</xsl:text>
                     </xsl:attribute>
                     <xsl:text>&#160;</xsl:text>
@@ -1307,7 +1307,7 @@
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='javascript'][not(@qualifier)]">
             <script type="text/javascript">
                 <xsl:attribute name="src">
-                    <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                    <xsl:value-of select="$context-path"/>
                     <xsl:text>/themes/</xsl:text>
                     <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                     <xsl:text>/</xsl:text>
@@ -1325,7 +1325,7 @@
                 <xsl:when test="text() = 'static/js/choice-support.js'">
                     <script type="text/javascript">
                         <xsl:attribute name="src">
-                            <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                            <xsl:value-of select="$context-path"/>
                             <xsl:text>/themes/</xsl:text>
                             <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                             <xsl:text>/lib/js/choice-support.js</xsl:text>
@@ -1335,7 +1335,7 @@
                     <script type="text/javascript">
                         <xsl:attribute name="src">
                             <xsl:value-of
-                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                    select="$context-path"/>
                             <xsl:text>/</xsl:text>
                             <xsl:value-of select="."/>
                         </xsl:attribute>&#160;</script>
@@ -1352,7 +1352,7 @@
         <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 7 ]&gt;</xsl:text>
         <script type="text/javascript">
             <xsl:attribute name="src">
-                <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                <xsl:value-of select="$context-path"/>
                 <xsl:text>/themes/</xsl:text>
                 <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='theme'][@qualifier='path']"/>
                 <xsl:text>/lib/js/DD_belatedPNG_0.0.8a.js?v=1</xsl:text>

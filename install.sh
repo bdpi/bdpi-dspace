@@ -38,7 +38,7 @@ then cd "$DATAVARBASEFOLDER"
 		fi
 	     done
      if $chgpermsdv
-     then chgrp -R tomcat7 *
+     then chgrp -R $(id -ng) *
           chmod -R g+w *
      fi
 else echo "falta variavel de ambiente DATAVARBASEFOLDER"
