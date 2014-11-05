@@ -4625,9 +4625,10 @@ a.thumbnail.active {
 .media-heading {
   /*color:#696969;*/
   margin: 0 0 5px;
-  font-size: 20px;
+  font-size: 17px;
   font-family: 'Roboto', sans-serif;
-}
+	font-weight:bold;
+  }
 .media > .pull-left {
   margin-right: 10px;
 }
