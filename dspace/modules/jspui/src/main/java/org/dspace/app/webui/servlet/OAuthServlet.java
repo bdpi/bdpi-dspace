@@ -83,9 +83,9 @@ public class OAuthServlet extends DSpaceServlet {
             
             return;
         }else if(status == AuthenticationMethod.NO_SUCH_USER){
-            jsp = "/login/no-single-sign-out.jsp";
+            jsp = request.getContextPath() + "/login/no-single-sign-out.jsp";
         }else if(status == AuthenticationMethod.BAD_ARGS){
-            jsp = "/login/no-email.jsp";
+            jsp = request.getContextPath() + "/login/no-email.jsp";
         }
         
         // If we reach here, supplied email/password was duff.
