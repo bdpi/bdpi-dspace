@@ -4393,7 +4393,7 @@ a.list-group-item.active > .badge,
   padding:20px;
   color: inherit;
   background: url("../../../image/08102014imagensdocampusfotomarcossantos015.jpg") no-repeat center center;
-  background-position: center center;
+  background-position: center 80%;
   width: 100%;
   min-height:400px;
   -webkit-background-size: cover;
