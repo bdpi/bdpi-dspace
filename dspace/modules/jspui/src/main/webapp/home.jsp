@@ -113,7 +113,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
 
-<div class="row" id="jumborow">
+<div class="row">
     <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
         <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
             <div class="box" style="max-width:500px;max-width:75%;">
@@ -139,6 +139,8 @@ $('span#hide').css( 'cursor', 'pointer' );
 		</div>
 	</div>
 </div>
+
+
 			
 <div class="row"  style="clear:left">
     <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
@@ -323,20 +325,30 @@ $('span#hide').css( 'cursor', 'pointer' );
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-pencil iconbg"></span>
 				<h3>BDPI em números</h3>
-				<h4>
-					<small>
-						<dl class="dl-horizontal" style="width:300px; margin-left: auto; margin-right: auto;position:relative; left:-55px;">
-							<dt width="50%;">Unidades</dt>
-							<dd width="50%">42</dd>
-							<dt width="50%">Departamentos</dt>
-							<dd width="50%">127</dd>
-							<dt width="50%">Registros</dt>
-							<dd width="50%">38000</dd>
-							<dt width="50%">Texto completo</dt>
-							<dd width="50%">38000</dd>
+				<!--<h4>
+					<div style="width:100px">
+						<dl class="dl-horizontal" style="width:300px">
+							<dt>Unidades</dt>
+							<dd>42</dd>
+							<dt>Departamentos</dt>
+							<dd>127</dd>
+							<dt>Registros</dt>
+							<dd>38000</dd>
+							<dt>Texto completo</dt>
+							<dd>38000</dd>
 						</dl>
-					</small>
-				</h4>
+					</div>
+				</h4>-->
+				
+					<div style="text-align:center;">
+					<h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:center; overflow:show;">
+						42 Unidades</br>
+						127 Departamentos</br>
+						38000 Registros</br>
+						38000 Textos completos
+					</p></small>
+					</h4>
+					
 			</div>
 			</center>
 		</div>
