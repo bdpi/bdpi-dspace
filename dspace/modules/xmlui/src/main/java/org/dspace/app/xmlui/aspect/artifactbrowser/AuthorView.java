@@ -358,15 +358,16 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
            cellNomeField.addContent(author.getNome());
 
            Row rowDept = tabela.addRow("id_row_autor", Row.ROLE_DATA, "class_row_autor");
+/*	   
            Cell cellDeptLabel = rowDept.addCell("id_cols_autor_label", Cell.ROLE_DATA, "class_cols_autor_label");
            cellDeptLabel.addContent(T_unitdepto);
          
            StringBuilder unidadeDepto = new StringBuilder();
-           
+*/           
     /**
      * Condicao que verifica se a unidade e a sigla nao e null 
     */
-
+/*
 	   if(author.getUnidade().length() > 0) {
              unidadeDepto.append(System.getProperty("line.separator"));
              unidadeDepto.append(author.getUnidade()); 
@@ -379,10 +380,11 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
            else { 
               unidadeDepto.append(" - ");
            }
-
+*/
     /**
       * Condicao que verifica se o departamento e a sigla nao e null
     */
+/*
            if(author.getDepto().length() > 0) { 
              unidadeDepto.append(" / ");
              unidadeDepto.append(author.getDepto());
@@ -394,11 +396,20 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
            }
            else { unidadeDepto.append(" / - ");
            }
+*/	   
 
+           Cell cellDeptLabel = rowDept.addCell("id_cols_autor_field", Cell.ROLE_DATA, "class_cols_autor_label");
            Cell cellDeptField = rowDept.addCell("id_cols_autor_field", Cell.ROLE_DATA, "class_cols_autor_field");
            cellDeptField.addContent(T_univesity); 
 //           cellDeptField.addContent(unidadeDepto.toString());
 
+           Row rowNone = tabela.addRow("id_row_autor", Row.ROLE_DATA, "class_row_autor");
+           Cell cellNoneLabel = rowNone.addCell("id_cols_autor_field", Cell.ROLE_DATA, "class_cols_autor_label");
+           cellNoneLabel.addContent("");
+           Cell cellNoneField = rowNone.addCell("id_cols_autor_field", Cell.ROLE_DATA, "class_cols_autor_field");
+           cellNoneField.addContent("");
+
+/*
            Row rowDeptContinuacao = tabela.addRow("id_row_autor", Row.ROLE_DATA, "class_row_autor");
            Cell cellDeptContinuacaoLabel = rowDeptContinuacao.addCell("id_cols_autor_label", Cell.ROLE_DATA, "class_cols_autor_label");
            cellDeptContinuacaoLabel.addContent("");
@@ -416,7 +427,7 @@ public class AuthorView extends AbstractDSpaceTransformer implements CacheablePr
            cellVinculoLabel.addContent(T_bond);
            Cell cellVinculoField = rowVinculo.addCell("id_cols_autor_field", Cell.ROLE_DATA, "class_cols_autor_field");
            cellVinculoField.addContent(author.getVinculo());
-
+*/
    /** Condicao que verifica se o lattes e maior que 22 caracteres para ser apresentado. O lattes e concatenado com 
     * o numero da base de dados e a url.
    */
