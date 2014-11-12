@@ -21,7 +21,6 @@ import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
-import org.dspace.authenticate.AuthenticationManager;
 import org.dspace.authenticate.AuthenticationMethod;
 import org.dspace.authenticate.OAuthAuthentication;
 import org.dspace.core.PluginManager;
@@ -51,47 +50,48 @@ public class OAuthServlet extends DSpaceServlet {
         
         // Locate the eperson
         
+        Object[] plugins = PluginManager.getPluginSequence("authentication", AuthenticationMethod.class);
         String oauth_token = request.getParameter("oauth_token");
         String oauth_verifier = request.getParameter("oauth_verifier");
         
-        if ((oauth_token == null) || (oauth_verifier == null))
-        {
-            Object[] plugins = PluginManager.getPluginSequence("authentication", AuthenticationMethod.class);
-            for (Object plugin : plugins) {
-                if (plugin instanceof OAuthAuthentication) {
+        for (Object plugin : plugins) {
+            if (plugin instanceof OAuthAuthentication) {
+                
+                
+                if ((oauth_token == null) || (oauth_verifier == null))
+                {
                     response.sendRedirect(((OAuthAuthentication) plugin).loginPageURL(UIUtil.obtainContext(request), request, response));
                     return;
                 }
+                if(!request.getContextPath().equals(OAuthAuthentication.getOAuthContextPath(request))){
+                    response.sendRedirect(OAuthAuthentication.getOAuthRedirection(request));
+                    return;
+                }
+                
+                int status = ((OAuthAuthentication) plugin).authenticate(context, oauth_token, oauth_verifier, null, request);
+
+                if (status == AuthenticationMethod.SUCCESS){
+                    // Logged in OK.
+                    Authenticate.loggedIn(context, request, context.getCurrentUser());
+
+                    log.info(LogManager.getHeader(context, "login", "type=oauth"));
+
+                    // resume previous request
+                    Authenticate.resumeInterruptedRequest(request, response);
+
+                    return;
+                } else if(status == AuthenticationMethod.NO_SUCH_USER){
+                    jsp = request.getContextPath() + "/login/no-single-sign-out.jsp";
+                } else if(status == AuthenticationMethod.BAD_ARGS){
+                    jsp = request.getContextPath() + "/login/no-email.jsp";
+                }
+                // If we reach here, supplied email/password was duff.
+                log.info(LogManager.getHeader(context, "failed_login","result="+String.valueOf(status)));
+                JSPManager.showJSP(request, response, jsp);                
             }
         }
-        
-        if(!request.getContextPath().equals(OAuthAuthentication.getOAuthContextPath(request))){
-            response.sendRedirect(OAuthAuthentication.getOAuthRedirection(request));
-            return;
-        }
-        
-        int status = AuthenticationManager.authenticate(context, oauth_token, oauth_verifier, null, request);
-        
-        if (status == AuthenticationMethod.SUCCESS){
-            // Logged in OK.
-            Authenticate.loggedIn(context, request, context.getCurrentUser());
-            
-            log.info(LogManager.getHeader(context, "login", "type=oauth"));
-            
-            // resume previous request
-            Authenticate.resumeInterruptedRequest(request, response);
-            
-            return;
-        }else if(status == AuthenticationMethod.NO_SUCH_USER){
-            jsp = request.getContextPath() + "/login/no-single-sign-out.jsp";
-        }else if(status == AuthenticationMethod.BAD_ARGS){
-            jsp = request.getContextPath() + "/login/no-email.jsp";
-        }
-        
-        // If we reach here, supplied email/password was duff.
-        log.info(LogManager.getHeader(context, "failed_login","result="+String.valueOf(status)));
-        JSPManager.showJSP(request, response, jsp);
-        
+        log.info(LogManager.getHeader(context, "failed_login","OAuthServlet didnt find oauth plugin"));
+        JSPManager.showJSP(request, response, request.getContextPath() + "/login/no-single-sign-out.jsp?oauth=notfound");
     }
 }
 
