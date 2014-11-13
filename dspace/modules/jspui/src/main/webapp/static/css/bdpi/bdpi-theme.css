@@ -6258,3 +6258,81 @@ color:#eee;
 a.share:hover{
 color:#fcb421;
 }
+
+/* begin styles for RSS Feed */
+
+.rss-box {
+	 margin: 0;
+	 width: 100%;
+	 background-color: transparent;
+	 border: 0px;
+}
+.rss-items {
+	margin-top:0px;
+	padding:0em; 0em;
+	margin-left:0px;
+}
+p.rss-title {padding:0em;}
+.rss-title {
+	font-size: 8pt;
+	background-color: transparent;
+	color: #696969;
+	font-weight:bold;
+	text-align: center;
+}
+
+.rss-item  {
+  font-size: 14px;
+  list-style:none;
+  color: #000;
+  padding-bottom:2em;
+  padding:10px;
+}
+
+.rss-item a {
+	color: #1094ab;
+	font-size: 16px;
+	font-weight:bold;
+	padding: 0px;
+	margin: 0px;
+	}
+	
+.rss-item a:hover {
+	color: #64c4d2;
+}
+
+.rss-date {
+	visibility:hidden;
+	}
+ 
+/* buttons modeled from http://www.wellstyled.com/css-inline-buttons.html */
+
+.pod-play {
+   _width:12em;
+   margin: 0 0.2em; padding: 0.1em 0; _padding:0;
+   
+   white-space:nowrap;
+   text-decoration: none;
+   vertical-align:middle;
+   background: #fb6;
+   color: black;
+   }
+.pod-play em {
+   _width:1em; _cursor:hand;
+   font-style: normal;
+   margin:0; padding: 0.1em 0.5em;
+   background: white;
+   color: #222;
+   }
+.pod-play span {
+   _width:1em; _cursor:hand;
+   margin:0; padding: 0.1em 0.5em 0.1em 0.3em;
+   }
+.pod-play:hover {
+   background: #666;
+   color: white;
+   }
+.pod-play:hover em {
+   background: black;
+   color: white
+   }

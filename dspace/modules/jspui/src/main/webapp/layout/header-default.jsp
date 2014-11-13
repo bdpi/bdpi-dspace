@@ -124,6 +124,16 @@
               <script src="<%= request.getContextPath()%>/static/js/html5shiv.js"></script>
               <script src="<%= request.getContextPath()%>/static/js/respond.min.js"></script>
             <![endif]-->
+	    
+<!-- script dos botões de compartilhamento -->	    
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "74787a40-d865-4245-8ccd-422d87af2456", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
+	    
+	
+
+ 
+	        
     </head>
     <div id="uspbarra" style="background-color:transparent;border-style:none">
         <div class="uspLogo"  style="background-color:transparent;border-style:none">

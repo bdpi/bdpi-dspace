@@ -71,6 +71,10 @@ function tamanho(){
 window.onresize = tamanho;
 </script>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-545bb59855d48cfe" async="async"></script>
+
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -91,6 +95,7 @@ $("div#recentSubmissions").hide();
 $("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
 $("div#recentSubmissions").first().next().attr("id","submitFixa");
 $("div#recentSubmissions").first().next().next().attr("id","submitFixa");
+$("div#recentSubmissions").first().next().next().next().attr("id","submitFixa");
 $("div#submitFixa").show();
 $("span#show").show();
 $("span#hide").hide();
@@ -117,7 +122,34 @@ $('span#hide').css( 'cursor', 'pointer' );
     <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
         <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
             <div class="box" style="max-width:500px;max-width:75%;">
-                <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI &nbsp;&nbsp;
+                <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI
+		
+<!-- Botões de compartilhamento 
+
+<div id="share" style="position:relative; float:right;">
+		
+<span class='st_facebook_large' displayText='Facebook'></span>
+
+<span class='st_twitter_large' displayText='Tweet'></span>
+
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+
+<span class='st_googleplus_large' displayText='Google +'></span>
+
+<span class='st_whatsapp_large' displayText='WhatsApp'></span>
+
+&nbsp; <div  style="position:relative; float:right; border-radius:5px;background-color:#fcb421;color:black; top:3px"><span class="glyphicon glyphicon-asterisk"></span></div>
+
+</div>
+
+		 &nbsp;&nbsp;
+		 
+		 
+<!-- Go to www.addthis.com/dashboard to customize your tools 
+<div class="addthis_custom_sharing"></div>
+
+-->
+		 
 				</h4>
 	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
             </div>
@@ -262,13 +294,25 @@ $('span#hide').css( 'cursor', 'pointer' );
 		</div>
 
 		<!-- Notícias -->
+		
+			
+
 				
-		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
-			
+			<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
+		
 			<div class="panel-heading">
-				<h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.latestnews"/></h1>
+			<h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.latestnews"/>
+			<a href="http://www5.usp.br/feed/?category=artes-noticias,ciencias,cultura,institucional,pesquisa-noticias,sociedade,uspdestaque"><img src="image/rss2.gif"></a>
+			</h1>
 			</div>
+		
+			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dartes-noticias%2Cciencias%2Ccultura%2Cinstitucional%2Cpesquisa-noticias%2Csociedade%2Cuspdestaque&num=4&desc=200&tz=0&targ=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
+
+<noscript>
+<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dartes-noticias%2Cciencias%2Ccultura%2Cinstitucional%2Cpesquisa-noticias%2Csociedade%2Cuspdestaque&num=4&desc=200&tz=0&targ=y&utf=y&html=y">View RSS feed</a>
+</noscript>
 			
+			<!--
 			<div class="media padding15">
 				<a class="pull-left" href="#">
 					<span class="glyphicon glyphicon-list-alt icon"></span>
@@ -297,7 +341,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 					<h4 class="media-heading" style="color:#696969">Media heading</h4>
 					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 		<!-- Notas de rodapé -->
