@@ -91,8 +91,8 @@ public class USPNameAuthority implements ChoiceAuthority {
             if(request == null) request = new DSpace().getRequestService().getCurrentRequest();
             context = (Context) request.getAttribute("dspace.context");
             if(context == null){
-                request.setAttribute("dspace.context", new Context(Context.READ_ONLY));
-                context = (Context) request.getAttribute("dspace.context");
+                context = new Context(Context.READ_ONLY); 
+		request.setAttribute("dspace.context", context);
             }
             return context;
         }
