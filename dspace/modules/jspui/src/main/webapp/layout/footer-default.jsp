@@ -67,6 +67,32 @@
 				</div>
 				</h6>	
             </div>
+	    <div>
+	    
+	    <!-- Botões de compartilhamento -->
+
+<div id="share" style="margin-left:auto; margin-right:auto;">
+		
+<span class='st_facebook_large' displayText='Facebook'></span>
+
+<span class='st_twitter_large' displayText='Tweet'></span>
+
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+
+<span class='st_googleplus_large' displayText='Google +'></span>
+
+<span class='st_whatsapp_large' displayText='WhatsApp'></span>
+
+</div>
+	 &nbsp;&nbsp;
+		 
+		 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_custom_sharing"></div>
+
+
+	    
+	    </div>
 		</footer>
 		<br><br>
 <h4>
