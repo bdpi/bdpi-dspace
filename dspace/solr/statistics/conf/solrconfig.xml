@@ -1274,20 +1274,21 @@
   IN OTHER WORDS, THERE IS REALLY GOOD CHANCE THE SETUP BELOW IS NOT WHAT YOU
   WANT FOR YOUR PRODUCTION SYSTEM!
   #############################################################################
-  -->
+
   <requestHandler name="/spell" class="solr.SearchHandler" lazy="true">
     <lst name="defaults">
-      <!-- omp = Only More Popular -->
+      < ! - - omp = Only More Popular - - >
       <str name="spellcheck.onlyMorePopular">false</str>
-      <!-- exr = Extended Results -->
+      < ! - - exr = Extended Results - - >
       <str name="spellcheck.extendedResults">false</str>
-      <!--  The number of suggestions to return -->
+      < ! - -  The number of suggestions to return - - >
       <str name="spellcheck.count">1</str>
     </lst>
     <arr name="last-components">
       <str>spellcheck</str>
     </arr>
   </requestHandler>
+  -->  
 
   <searchComponent name="tvComponent" class="org.apache.solr.handler.component.TermVectorComponent"/>
   <!-- A Req Handler for working with the tvComponent.  This is purely as an example.
@@ -1444,14 +1445,14 @@
        
        See http://wiki.apache.org/solr/SpellCheckComponent for details
        on the request parameters.
-    -->
+    
   <requestHandler name="/spell" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="df">id</str>
-      <!-- Solr will use suggestions from both the 'default' spellchecker
+      < ! - - Solr will use suggestions from both the 'default' spellchecker
            and from the 'wordbreak' spellchecker and combine them.
            collations (re-written queries) can include a combination of
-           corrections from both spellcheckers -->
+           corrections from both spellcheckers - - >
       <str name="spellcheck.dictionary">default</str>
       <str name="spellcheck.dictionary">wordbreak</str>
       <str name="spellcheck">on</str>
@@ -1468,7 +1469,7 @@
       <str>spellcheck</str>
     </arr>
   </requestHandler>
-
+   -->
   <!-- Term Vector Component
 
        http://wiki.apache.org/solr/TermVectorComponent

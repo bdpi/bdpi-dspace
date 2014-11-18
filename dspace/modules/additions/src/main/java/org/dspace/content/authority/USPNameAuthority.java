@@ -224,7 +224,7 @@ public class USPNameAuthority implements ChoiceAuthority {
                         
                         Connection caut = getReplicaUspDBconnection();
                         
-                        System.out.println(" consulta_total == " + consulta_total.toString());
+                        // System.out.println(" consulta_total == " + consulta_total.toString());
                         statement = caut.prepareStatement(consulta_total.toString());
                         for(int i = 1; i < pindex; i++){
                             if(filtro.get(i)[2].equals("int")){
@@ -240,7 +240,7 @@ public class USPNameAuthority implements ChoiceAuthority {
                         }                        
                         statement.close();
                         
-                        System.out.println(" consulta == " + consulta.toString());
+                        // System.out.println(" consulta == " + consulta.toString());
                         statement = caut.prepareStatement(consulta.toString());
                         for(int i = 1; i < pindex; i++){
                             if(filtro.get(i)[2].equals("int")){

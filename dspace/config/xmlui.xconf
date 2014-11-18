@@ -144,8 +144,8 @@
             This demo aspect tests the various possible DRI features.
             It may be useful to developers in developing new aspects or themes.
             It's accessible for admins in the XMLTest menu or via the /XMLTest/ URL.
-        -->
         <aspect name="XML Tests" path="resource://aspects/XMLTest/"/>
+        -->
     </aspects>
 
     <!--
