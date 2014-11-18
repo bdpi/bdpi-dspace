@@ -124,31 +124,7 @@ $('span#hide').css( 'cursor', 'pointer' );
             <div class="box" style="max-width:500px;max-width:75%;">
                 <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI
 		
-<!-- Botões de compartilhamento 
 
-<div id="share" style="position:relative; float:right;">
-		
-<span class='st_facebook_large' displayText='Facebook'></span>
-
-<span class='st_twitter_large' displayText='Tweet'></span>
-
-<span class='st_linkedin_large' displayText='LinkedIn'></span>
-
-<span class='st_googleplus_large' displayText='Google +'></span>
-
-<span class='st_whatsapp_large' displayText='WhatsApp'></span>
-
-&nbsp; <div  style="position:relative; float:right; border-radius:5px;background-color:#fcb421;color:black; top:3px"><span class="glyphicon glyphicon-asterisk"></span></div>
-
-</div>
-
-		 &nbsp;&nbsp;
-		 
-		 
-<!-- Go to www.addthis.com/dashboard to customize your tools 
-<div class="addthis_custom_sharing"></div>
-
--->
 		 
 				</h4>
 	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
@@ -156,7 +132,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 			
 			<!-- Botões de compartilhamento que não funcionam mais	
 
-                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; clear:both">
+                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; backgrund-color:red">
                         <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
                         <a class="addthis_button_tweet" tw:count="vertical"></a>
                         <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
