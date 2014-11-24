@@ -159,7 +159,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 					
 		<div class="panel" class="col-md-8" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
 			<div class="panel-heading">
-				<h1><fmt:message key="jsp.collection-home.recentsub"/>
+				<h2> <fmt:message key="jsp.collection-home.recentsub"/>
 								<%
 									if (feedEnabled) {
 										String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -182,7 +182,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 											}
 										}
 									%>
-				</h1>
+				</h2>
 			</div>
 
 						<%
@@ -277,16 +277,32 @@ $('span#hide').css( 'cursor', 'pointer' );
 			<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
 		
 			<div class="panel-heading">
-			<h1 style="font-family: 'Roboto', sans-serif;"><fmt:message key="jsp.collection-home.latestnews"/>
-			<a href="http://www5.usp.br/feed/?category=artes-noticias,ciencias,cultura,institucional,pesquisa-noticias,sociedade,uspdestaque"><img src="image/rss2.gif"></a>
-			</h1>
+			<h2 style="font-family: 'Roboto', sans-serif;">  <span class="glyphicon glyphicon-list-alt"></span> <fmt:message key="jsp.collection-home.latestnews"/>
+			<a href=" http://www5.usp.br/feed/?categorias-s=bibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp,parcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp,pesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp"><img src="image/rss2.gif"></a>
+			</h2>
 			</div>
 		
-			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dartes-noticias%2Cciencias%2Ccultura%2Cinstitucional%2Cpesquisa-noticias%2Csociedade%2Cuspdestaque&num=4&desc=200&tz=0&targ=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
+			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategorias-s%3Dbibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp%2Cparcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp%2Cpesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp&num=2&desc=200&au=y&utf=y&html=p"  charset="UTF-8" type="text/javascript"></script>
 
 <noscript>
-<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dartes-noticias%2Cciencias%2Ccultura%2Cinstitucional%2Cpesquisa-noticias%2Csociedade%2Cuspdestaque&num=4&desc=200&tz=0&targ=y&utf=y&html=y">View RSS feed</a>
+<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategorias-s%3Dbibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp%2Cparcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp%2Cpesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
 </noscript>
+
+		
+			<div class="panel-heading">
+			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time"></span> Eventos
+			<a href="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2"><img src="image/rss2.gif"></a>
+			</h2>
+			</div>
+		
+			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.eventos.usp.br%2F%3Fevent-types%3Dcultura-e-artes%26feed%3Drss2&num=2&desc=200&au=y&utf=y&html=p"  charset="UTF-8" type="text/javascript"></script>
+
+<noscript>
+<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.eventos.usp.br%2F%3Fevent-types%3Dcultura-e-artes%26feed%3Drss2&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
+</noscript>
+
+
+
 			
 			<!--
 			<div class="media padding15">
