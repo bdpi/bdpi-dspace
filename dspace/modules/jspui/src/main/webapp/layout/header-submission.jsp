@@ -243,7 +243,7 @@
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
     <body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;" >
 <a class="sr-only" href="#content">Skip navigation</a>
-<div class="container" id="container" style="top:-20px; background-color:#FFF;">
+<div class="container" id="container" style="top:-20px; background-color:#FFF;box-shadow: 5px 5px 40px #333333;">
                                         <div class="row" style="top:-36px; background-color:#FFF;">
 											
 											<div class="cruesplink" style="float:right; position:relative;">

@@ -6279,10 +6279,12 @@ p.rss-title {padding:0em;}
 	color: #696969;
 	font-weight:bold;
 	text-align: center;
+	position:relative;
+	clear:both;
 }
 
 .rss-item  {
-  font-size: 14px;
+  font-size: 13px;
   list-style:none;
   color: #000;
   padding-bottom:2em;
@@ -6344,6 +6346,5 @@ p.rss-title {padding:0em;}
 .share-buttons li{
 	display: inline;
 }
-
 
 

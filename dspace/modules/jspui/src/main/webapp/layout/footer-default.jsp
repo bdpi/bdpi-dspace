@@ -69,22 +69,7 @@
             </div>
 	    <div>
 	    
-	    <!-- Botões de compartilhamento -->
-
-<div id="share" style="margin-left:auto; margin-right:auto;">
-		
-<span class='st_facebook_large' displayText='Facebook'></span>
-
-<span class='st_twitter_large' displayText='Tweet'></span>
-
-<span class='st_linkedin_large' displayText='LinkedIn'></span>
-
-<span class='st_googleplus_large' displayText='Google +'></span>
-
-<span class='st_whatsapp_large' displayText='WhatsApp'></span>
-
-</div>
-	 &nbsp;&nbsp;
+	    
 		 
 		 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -100,7 +85,26 @@
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
 <span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope" /><a href="mailto:#" style="position:relative; right:8px; top:-2px"> atendimento@sibi.usp.br</a>
-</address> <br><br><br>
+</address> <br>
+
+<!-- Botões de compartilhamento -->
+
+<div id="share" align="center">
+		
+<span class='st_facebook_large' displayText='Facebook'></span>
+
+<span class='st_twitter_large' displayText='Tweet'></span>
+
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+
+<span class='st_googleplus_large' displayText='Google +'></span>
+
+<span class='st_whatsapp_large' displayText='WhatsApp'></span>
+
+</div>
+	 &nbsp;&nbsp;
+
+<br><br>
 </h4>
     </div>
 
