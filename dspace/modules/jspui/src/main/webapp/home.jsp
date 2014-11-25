@@ -95,7 +95,7 @@ $("div#recentSubmissions").hide();
 $("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
 $("div#recentSubmissions").first().next().attr("id","submitFixa");
 $("div#recentSubmissions").first().next().next().attr("id","submitFixa");
-$("div#recentSubmissions").first().next().next().next().attr("id","submitFixa");
+
 $("div#submitFixa").show();
 $("span#show").show();
 $("span#hide").hide();
@@ -290,7 +290,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 
 		
 			<div class="panel-heading">
-			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time" style="position:relative; top:3px;"></span> Eventos
+			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time" style="position:relative; top:3px;"></span> <fmt:message key="jsp.collection-home.events"/>
 			<a href="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2"><img src="image/rss2.gif"></a>
 			</h2>
 			</div>
