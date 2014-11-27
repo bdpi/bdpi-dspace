@@ -121,9 +121,15 @@ $('span#hide').css( 'cursor', 'pointer' );
 <div class="row">
     <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
         <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
-            <div class="box" style="max-width:500px;max-width:75%;">
+            <div class="box" style="max-width:500px;max-width:75%; border-width:0;">
                 <h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI
-		
+				
+		<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbdpife4.sibi.usp.br%2F&t=" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="<%= siteURL%>/image/socialimages/flat_web_icon_set/inverted/Facebook.png"></a></li>
+	<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fbdpife4.sibi.usp.br%2F&text=:%20http%3A%2F%2Fbdpife4.sibi.usp.br%2F" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/inverted/Twitter.png"></a></li>
+	<li><a href="https://plus.google.com/share?url=http%3A%2F%2Fbdpife4.sibi.usp.br%2F" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/inverted/Google+.png"></a></li>
+	<li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fbdpife4.sibi.usp.br%2F&title=&summary=&source=http%3A%2F%2Fbdpife4.sibi.usp.br%2F" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img src="images/flat_web_icon_set/inverted/LinkedIn.png"></a></li>
+</ul>
 
 		 
 				</h4>
@@ -378,10 +384,25 @@ $('span#hide').css( 'cursor', 'pointer' );
 				
 					<div style="text-align:center;">
 					<h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:center; overflow:show;">
-						42 Unidades</br>
-						127 Departamentos</br>
-						38000 Registros</br>
-						38000 Textos completos
+					<table style="width:100%">
+  <tr>
+    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">42</span></td>
+    <td>Unidades</td>
+  </tr>
+  <tr>
+    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">127</span> </td>
+    <td>Departamentos</td>
+  </tr>
+  <tr>
+    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">38000</span></td>
+    <td>Registros</td>
+  </tr>
+  <tr>
+    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">38000</span></td>
+    <td>Textos completos</td>
+  </tr>
+  </table>
+				
 					</p></small>
 					</h4>
 					
