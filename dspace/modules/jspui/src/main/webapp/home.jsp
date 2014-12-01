@@ -80,6 +80,17 @@ window.onresize = tamanho;
 <script>
 $(document).ready(function(){
 
+$('#showmoreshare').on('click', function(){
+	$('#allshare').show();
+	$('span#showmoreshare').hide();
+	$('span#showlessshare').show();
+});
+$('#showlessshare').on('click', function(){
+	$('#allshare').hide();
+	$('span#showmoreshare').show();
+	$('span#showlessshare').hide();
+});
+
 //Para mudar a cor do Cruesp
 	
 		$(".cruesplink").mouseenter(function() {

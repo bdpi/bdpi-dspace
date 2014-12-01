@@ -286,8 +286,30 @@
 <span class='st_googleplus_large' displayText='Google +'></span>
 
 <span class='st_whatsapp_large' displayText='WhatsApp'></span>
+&nbsp;
+<div style="position:relative; float:right; width:33px; height:34px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:20px; border-radius:5px; top:-1px; right:1px; cursor:pointer">
+			<span id="showmoreshare" class="glyphicon glyphicon-plus" style="left:1px;top:3px;"></span>
+			<span id="showlessshare" class="glyphicon glyphicon-minus" style="left:-1px;top:3px;display:none;"></span>
+		
+				
+		</div>
+		<div id="allshare" style="padding:20px;position:fixed; z-index: 200; background-color:#eee; margin-top:20px; border-radius:5px; display:none; width: 350px;box-shadow: 5px 5px 40px #333333;">
+		
+		<div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; backgrund-color:red">
+                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
+                        <a class="addthis_button_tweet" tw:count="vertical"></a>
+                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
+                        <a class="addthis_button_compact"></a>
+                    </div>
+                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
+                        & #160;
+                    </script>
+		
+		</div>
 
 </div>
+
 											
                                            </div>
 											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
