@@ -89,19 +89,7 @@ Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária
 
 <!-- Botões de compartilhamento -->
 
-<div id="share" align="center">
-		
-<span class='st_facebook_large' displayText='Facebook'></span>
 
-<span class='st_twitter_large' displayText='Tweet'></span>
-
-<span class='st_linkedin_large' displayText='LinkedIn'></span>
-
-<span class='st_googleplus_large' displayText='Google +'></span>
-
-<span class='st_whatsapp_large' displayText='WhatsApp'></span>
-
-</div>
 	 &nbsp;&nbsp;
 
 <br><br>

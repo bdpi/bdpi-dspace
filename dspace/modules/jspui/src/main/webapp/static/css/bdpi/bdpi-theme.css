@@ -6187,6 +6187,7 @@ margin-left:auto; margin-right:auto; margin-top:20px;
 	}
 	}
 }
+
 @media (min-width: 10px) {
 	#news{
 	position:relative;
@@ -6197,8 +6198,13 @@ margin-left:auto; margin-right:auto; margin-top:20px;
 	width:100%;
 	margin-left:auto;
 	margin-right:auto;
+	}
+	#share{
+	border-style:solid;
+	border-color:red;
+	}
 }
-}
+
 @media (min-width: 992px) {
 	#news{
 	margin-top:0px;
@@ -6208,7 +6214,11 @@ margin-left:auto; margin-right:auto; margin-top:20px;
 	padding:10%;
 	float:right;
 	}
+	#share{
+	top:30px;
+	}
 }
+
 div.cruesplink{
 width:75px;
 height:20px;

@@ -270,12 +270,25 @@
 											</div>
 											
                                             <div class="col-md-8">
-                                                <div class="logo"><br><br>
+                                                <br> 
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
-                                                <br>
-												</div>
-										
-                                                </div>
+                                               <br>								
+										    </div>
+											
+											<div id="share" align="center" style="position:relative; float: right; margin-bottom:20px; margin-left:0; margin-right:0; margin-top:0; clear:right;">
+		
+<span class='st_facebook_large' displayText='Facebook'></span>
+
+<span class='st_twitter_large' displayText='Tweet'></span>
+
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+
+<span class='st_googleplus_large' displayText='Google +'></span>
+
+<span class='st_whatsapp_large' displayText='WhatsApp'></span>
+
+</div>
+											
                                            </div>
 											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
