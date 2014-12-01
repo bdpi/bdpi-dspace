@@ -87,9 +87,18 @@ Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária
 <span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope" /><a href="mailto:#" style="position:relative; right:8px; top:-2px"> atendimento@sibi.usp.br</a>
 </address> <br>
 
-<!-- Botões de compartilhamento -->
+<!-- Botões de compartilhamento 
 
-
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; backgrund-color:red">
+                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
+                        <a class="addthis_button_tweet" tw:count="vertical"></a>
+                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
+                        <a class="addthis_button_compact"></a>
+                    </div>
+                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
+                        & #160;
+                    </script> -->
 	 &nbsp;&nbsp;
 
 <br><br>

@@ -61,6 +61,7 @@
 
 <script type="text/javascript">
 function tamanho(){
+
 	if( window.innerWidth >= 1050 ){
 	//javascript para este tamanho de tela
 	}															   
@@ -125,21 +126,13 @@ $('span#hide').css( 'cursor', 'pointer' );
                 <div style="position:relative; float:left; margin:0; padding:0; top:-5px;">
 				<h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI</div>
 				</h4>
+				
 	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:10px;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
             </div>
 			
 			<!-- Botões de compartilhamento que não funcionam mais	
 
-                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; backgrund-color:red">
-                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
-                        <a class="addthis_button_tweet" tw:count="vertical"></a>
-                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
-                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
-                        <a class="addthis_button_compact"></a>
-                    </div>
-                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
-                        & #160;
-                    </script>
+                    
 			-->
 				
 		</div>
@@ -286,8 +279,11 @@ $('span#hide').css( 'cursor', 'pointer' );
 <a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategorias-s%3Dbibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp%2Cparcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp%2Cpesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
 </noscript>
 
-		
-			<div class="panel-heading">
+
+		<div style="margin-bottom:40px;">
+		<small style="position:relative; float:right; ">fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Agencia USP de Notícias</a>.</small>
+		</div>
+		<div class="panel-heading">
 			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time" style="position:relative; top:3px;"></span> <fmt:message key="jsp.collection-home.events"/>
 			<a href="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2"><img src="image/rss2.gif"></a>
 			</h2>
