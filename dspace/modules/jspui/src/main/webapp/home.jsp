@@ -305,7 +305,9 @@ $('span#hide').css( 'cursor', 'pointer' );
 <noscript>
 <a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.eventos.usp.br%2F%3Fevent-types%3Dcultura-e-artes%26feed%3Drss2&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
 </noscript>
-
+	<div style="margin-bottom:40px;">
+		<small style="position:relative; float:right; ">fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</small>
+		</div>
 
 
 			
