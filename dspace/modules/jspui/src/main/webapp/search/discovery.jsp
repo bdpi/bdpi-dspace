@@ -747,6 +747,19 @@ else
 <script type="text/javascript">
     $(".authority.author").after(" <img src=\"<%=request.getContextPath()%>\/image/ehUSP.png\">");
 </script>
+
+<!-- para mudar o nome dos tipos de itens-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+
+//var str = $( "p:first" ).text();
+//$( "li" ).html( "blablabla" );
+$(document).ready(function() {
+      alert("document ready occurred!");
+});
+
+</script>
+
 </dspace:sidebar>
 </dspace:layout>
 

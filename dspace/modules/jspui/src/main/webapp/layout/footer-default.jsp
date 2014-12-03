@@ -110,5 +110,48 @@ Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária
 </div>
 </main>
 
+<!-- para mudar o nome dos tipos de itens-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+https://www.dropbox.com/sh/rd88iskxhxyvf5t/AAA3aFit67Iw7AcdXhoIAgMwa?dl=0
+
+//var article = $( "li.list-group-item a" ).first().text();
+//if(article=='article'){
+//$( "li.list-group-item a" ).first().html('Artigos'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+//
+//var book = $( "li.list-group-item" ).first().next().find('a').text();
+//if(book=='book'){
+//$( "li.list-group-item" ).first().next().find('a').html('Livros'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+
+//var bookPart = $( "li.list-group-item" ).first().next().next().find('a').text();
+//if(bookPart=='bookPart'){
+//$( "li.list-group-item" ).first().next().next().find('a').html('Capítulos de livros'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+
+//var conferenceObject = $( "li.list-group-item" ).first().next().next().next().find('a').text();
+//if(conferenceObject=='conferenceObject'){
+//$( "li.list-group-item" ).first().next().next().next().find('a').html('Algo que substitua conferenceObject'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+
+//var editorial = $( "li.list-group-item" ).first().next().next().next().next().find('a').text();
+//if(editorial=='editorial'){
+//$( "li.list-group-item" ).first().next().next().next().next().find('a').html('Algo que substitua editorial'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+
+//var lecture = $( "li.list-group-item" ).first().next().next().next().next().next().find('a').text();
+//if(lecture=='lecture'){
+//$( "li.list-group-item" ).first().next().next().next().next().next().find('a').html('Algo que substitua lecture'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+
+//var other = $( "li.list-group-item" ).first().next().next().next().next().next().next().find('a').text();
+//if(other=='other'){
+//$( "li.list-group-item" ).first().next().next().next().next().next().next().find('a').html('Outros'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
+//}
+
+
+</script>
+
 </body>
 </html>

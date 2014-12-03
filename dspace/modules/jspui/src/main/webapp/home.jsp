@@ -68,8 +68,10 @@ function tamanho(){
 	else{
 	//javascript para os demais
 	}
+	
 }
 window.onresize = tamanho;
+
 </script>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -80,34 +82,26 @@ window.onresize = tamanho;
 <script>
 $(document).ready(function(){
 
-$('#showmoreshare').on('click', function(){
-	$('#allshare').show();
-	$('span#showmoreshare').hide();
-	$('span#showlessshare').show();
-});
-$('#showlessshare').on('click', function(){
-	$('#allshare').hide();
-	$('span#showmoreshare').show();
-	$('span#showlessshare').hide();
-});
-
-//Para mudar a cor do Cruesp
-	
-		$(".cruesplink").mouseenter(function() {
-				$(".cruesplinkin").show();
-	})
-			  .mouseleave(function() {
-				$(".cruesplinkin").hide();
-	})
-
-	
 //Para carregar as submissoes recentes.
+
 
 $("div#recentSubmissions").hide();
 $("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
+var a = $('div#sub').height();
+var b = $('div#news').height();
+if(a<b){
 $("div#recentSubmissions").first().next().attr("id","submitFixa");
+}
+var a = $('div#sub').height();
+var b = $('div#news').height();
+if(a<b){
 $("div#recentSubmissions").first().next().next().attr("id","submitFixa");
-
+}
+var a = $('div#sub').height();
+var b = $('div#news').height();
+if(a<b){
+$("div#recentSubmissions").first().next().next().attr("id","submitFixa");
+}
 $("div#submitFixa").show();
 $("span#show").show();
 $("span#hide").hide();
@@ -159,7 +153,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 					%>
 
 					
-		<div class="panel" class="col-md-8" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
+		<div class="panel" class="col-md-8" id="sub" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
 			<div class="panel-heading">
 				<h2> <fmt:message key="jsp.collection-home.recentsub"/>
 								<%
@@ -292,7 +286,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 
 
 		<div style="margin-bottom:40px;">
-		<small style="position:relative; float:right; ">fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Agencia USP de Notícias</a>.</small>
+		<small style="position:relative; float:right; ">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Agencia USP de Notícias</a>.</small>
 		</div>
 		<div class="panel-heading">
 			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time" style="position:relative; top:3px;"></span> <fmt:message key="jsp.collection-home.events"/>
@@ -306,7 +300,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 <a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.eventos.usp.br%2F%3Fevent-types%3Dcultura-e-artes%26feed%3Drss2&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
 </noscript>
 	<div style="margin-bottom:40px;">
-		<small style="position:relative; float:right; ">fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</small>
+		<small style="position:relative; float:right; ">Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</small>
 		</div>
 
 

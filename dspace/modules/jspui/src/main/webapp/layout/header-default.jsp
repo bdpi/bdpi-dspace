@@ -288,7 +288,35 @@
 		
 		</div>
 		</div>
-											
+		
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+
+//menu das opções de compartilhamento
+$('#showmoreshare').on('click', function(){
+	$('#allshare').show();
+	$('span#showmoreshare').hide();
+	$('span#showlessshare').show();
+});
+$('#showlessshare').on('click', function(){
+	$('#allshare').hide();
+	$('span#showmoreshare').show();
+	$('span#showlessshare').hide();
+});
+
+//Para mudar a cor do Cruesp
+	
+		$(".cruesplink").mouseenter(function() {
+				$(".cruesplinkin").show();
+	})
+			  .mouseleave(function() {
+				$(".cruesplinkin").hide();
+	})
+});
+</script>		
 
 											
                                             <div class="col-md-8">
