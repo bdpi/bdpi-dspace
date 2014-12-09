@@ -273,7 +273,7 @@
 
 		
 											
-											<div id="allshare" style="padding:20px;position:fixed; z-index: 200; background-color:#eee; border-radius:5px; display:none; width: 350px;box-shadow: 5px 5px 40px #333333;">
+											<div id="allshare" style="padding:20px;position:absolute; z-index: 200; background-color:#eee; border-radius:5px; display:none; width: 350px;box-shadow: 5px 5px 40px #333333;">
 		
 		<div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px; backgrund-color:red">
                         <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>

@@ -83,25 +83,32 @@ window.onresize = tamanho;
 $(document).ready(function(){
 
 //Para carregar as submissoes recentes.
-
-
+// os if são para exibir de cara o tanto de noticias que some uma altura parecida a da coluna ao lado
+hmin = $('div#news').height() - 400;
 $("div#recentSubmissions").hide();
-$("div#recentSubmissions").first().attr("id","submitFixa");      // p = .classesubmissoes
-var a = $('div#sub').height();
-var b = $('div#news').height();
-if(a<b){
+
+$("div#recentSubmissions").first().attr("id","submitFixa");
+h1 = $("div#recentSubmissions").first().attr("id","submitFixa").height();
+
 $("div#recentSubmissions").first().next().attr("id","submitFixa");
-}
-var a = $('div#sub').height();
-var b = $('div#news').height();
-if(a<b){
+h2 = $("div#recentSubmissions").first().next().attr("id","submitFixa").height();
+
+if(h1+h2<hmin){
 $("div#recentSubmissions").first().next().next().attr("id","submitFixa");
+h3 = $("div#recentSubmissions").first().next().next().attr("id","submitFixa").height();
+	if(h1+h2+h3<hmin){
+	$("div#recentSubmissions").first().next().next().next().attr("id","submitFixa");
+	h4 = $("div#recentSubmissions").first().next().next().next().attr("id","submitFixa").height();
+		if(h1+h2+h3+h4<hmin){
+		$("div#recentSubmissions").first().next().next().next().next().attr("id","submitFixa");
+		h5 = $("div#recentSubmissions").first().next().next().next().next().attr("id","submitFixa").height();
+			if(h1+h2+h3+h4+h5<hmin){
+			$("div#recentSubmissions").first().next().next().next().next().next().attr("id","submitFixa");
+			}
+		}
+	}
 }
-var a = $('div#sub').height();
-var b = $('div#news').height();
-if(a<b){
-$("div#recentSubmissions").first().next().next().attr("id","submitFixa");
-}
+
 $("div#submitFixa").show();
 $("span#show").show();
 $("span#hide").hide();
@@ -266,29 +273,8 @@ $('span#hide').css( 'cursor', 'pointer' );
 		</div>
 
 		<!-- Notícias -->
-		
-			
-
-				
-			<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
-		
+		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
 			<div class="panel-heading">
-			<h2 style="font-family: 'Roboto', sans-serif;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
-			<a href=" http://www5.usp.br/feed/?categorias-s=bibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp,parcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp,pesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp"><img src="image/rss2.gif"></a>
-			</h2>
-			</div>
-		
-			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategorias-s%3Dbibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp%2Cparcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp%2Cpesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp&num=2&desc=200&au=y&utf=y&html=p"  charset="UTF-8" type="text/javascript"></script>
-
-<noscript>
-<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategorias-s%3Dbibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp%2Cparcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp%2Cpesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
-</noscript>
-
-
-		<div style="margin-bottom:40px;">
-		<small style="position:relative; float:right; ">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Agencia USP de Notícias</a>.</small>
-		</div>
-		<div class="panel-heading">
 			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time" style="position:relative; top:3px;"></span> <fmt:message key="jsp.collection-home.events"/>
 			<a href="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2"><img src="image/rss2.gif"></a>
 			</h2>
@@ -302,6 +288,28 @@ $('span#hide').css( 'cursor', 'pointer' );
 	<div style="margin-bottom:40px;">
 		<small style="position:relative; float:right; ">Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</small>
 		</div>
+
+				
+			
+		
+			<div class="panel-heading">
+			<h2 style="font-family: 'Roboto', sans-serif;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
+			<a href=" http://www5.usp.br/feed/?categorias-s=bibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp,parcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp,pesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp"><img src="image/rss2.gif"></a>
+			</h2>
+			</div>
+		
+			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dcomportamento%252Centrevista&num=3&desc=300&au=y&date=y&utf=y&html=p"  charset="UTF-8" type="text/javascript"></script>
+
+<noscript>
+<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dcomportamento%252Centrevista&num=3&desc=300&au=y&date=y&utf=y&html=y">View RSS feed</a>
+</noscript>
+
+
+
+		<div style="margin-bottom:40px;">
+		<small style="position:relative; float:right; ">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Agencia USP de Notícias</a>.</small>
+		</div>
+		
 
 
 			
@@ -360,7 +368,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 			</div>
 				<!-- /.col-lg-4 -->
 			<div class="col-lg-4" id="notasdorodape">
-				<span class="glyphicon glyphicon-pencil iconbg"></span>
+				<span class="glyphicon glyphicon-stats iconbg"></span>
 				<h3>BDPI em números</h3>
 				<!--<h4>
 					<div style="width:100px">
@@ -379,7 +387,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 				
 					<div style="text-align:center;">
 					<h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:center; overflow:show;">
-					<table style="width:100%">
+					<table style="width:100%; margin-bottom:15px;">
   <tr>
     <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">42</span></td>
     <td>Unidades</td>
@@ -397,6 +405,9 @@ $('span#hide').css( 'cursor', 'pointer' );
     <td>Textos completos</td>
   </tr>
   </table>
+
+				<p><a href="http://www.producao.usp.br/awstats/" class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Ver tudo »</a>
+				</p>
 				
 					</p></small>
 					</h4>
