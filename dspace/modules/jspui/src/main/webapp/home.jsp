@@ -294,7 +294,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 		
 			<div class="panel-heading">
 			<h2 style="font-family: 'Roboto', sans-serif;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
-			<a href=" http://www5.usp.br/feed/?categorias-s=bibliotecas-e-bases-de-dados-usp-infra-estrutura-nos-campi-usp,parcerias-e-convenios-usp-instituicoes-estrangeiras-internacionalizacao-usp,pesquisas-e-grupos-de-pesquisa-usp-pesquisas-pesquisadores-e-inovacao-usp"><img src="image/rss2.gif"></a>
+			<a href="http://www5.usp.br/feed/?category=comportamento%2Centrevista"><img src="image/rss2.gif"></a>
 			</h2>
 			</div>
 		
@@ -406,7 +406,7 @@ $('span#hide').css( 'cursor', 'pointer' );
   </tr>
   </table>
 
-				<p><a href="http://www.producao.usp.br/awstats/" class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Ver tudo »</a>
+				<p><a href="http://www.producao.usp.br/awstats/" class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px" target="blank">Ver tudo »</a>
 				</p>
 				
 					</p></small>
