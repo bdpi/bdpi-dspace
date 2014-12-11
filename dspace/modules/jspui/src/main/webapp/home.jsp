@@ -228,7 +228,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
-					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color:#8B8585"><h4 class="media-heading" ><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color:#FFB957; font-weight:300;"><h4 class="media-heading" ><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
 					<p style="font-style:italic;"><%
 									int maxcount;
 									String etal = "";
@@ -241,7 +241,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
+					<a class="authority author" style="color: #FFB957" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
 										<% } else { %>
 										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
 										<% } %>
@@ -474,18 +474,18 @@ $('span#hide').css( 'cursor', 'pointer' );
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
 				<h3>Como depositar</h3>
-				<h4><small><p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p></small></h4>
-				<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>
-				</br></br>
+				<h5><small><p>Docentes e pós-graduandos com vínculo ativo podem depositar a produção científica (artigos, comunicações em eventos, livros e capítulos de livros), pelo número USP/mesma senha dos sistemas USP Digital preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o título completo do documento. O acesso à comunidade de vínculo no sistema, pode ser solicitado pelo e-mail: <a href="mailto:#" > atendimento@sibi.usp.br</a>. Após a submissão, o registro será complementado e publicado pela Biblioteca da unidade de vínculo.</p></small></h5>
+				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
+				
 			</div>
 				<!-- /.col-lg-4 -->
 			<div class="col-lg-4" id="notasdorodape" >
 				<span class="glyphicon glyphicon-comment iconbg"></span>
 				<h3>Como citar</h3>
-				<h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
-				</h4>
-				<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
-				</p>
+				<h5><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
+				</h5>
+				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
+				</p>-->
 				</br></br>
 			</div>
 				<!-- /.col-lg-4 -->
@@ -524,12 +524,12 @@ $('span#hide').css( 'cursor', 'pointer' );
   </tr>
   <tr>
     <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">38000</span></td>
-    <td>Textos completos</td>
+    <td>Textos de acesso aberto</td>
   </tr>
   </table>
 
-				<p><a href="http://www.producao.usp.br/awstats/" class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px" target="blank">Ver tudo »</a>
-				</p>
+				<!--<p><a href="http://www.producao.usp.br/awstats/" class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px" target="blank">Ver tudo »</a>
+				</p>-->
 				
 					</p></small>
 					</h4>

@@ -6169,6 +6169,13 @@ color:#0e94ab;
 font-weight: bold;
 font-family: 'Roboto', sans-serif;
 }
+
+#notasdorodape h5{
+width:120%;
+position:relative;
+right:10%;
+}
+
 #notasdorodape{
 max-width:300px;
 position:relative;
@@ -6184,6 +6191,11 @@ margin-left:auto; margin-right:auto; margin-top:20px;
 	max-width:400px;
 	padding:0px;
 	margin-left:auto; margin-right:auto; margin-top:20px;
+	}
+	#notasdorodape h5{
+	width:100%;
+	position:relative;
+	right:0;
 	}
 	}
 }

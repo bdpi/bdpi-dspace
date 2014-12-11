@@ -46,6 +46,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+
+//menu das opções de compartilhamento
+$('#showmoreshare').on('click', function(){
+	$('#allshare').show();
+	$('span#showmoreshare').hide();
+	$('span#showlessshare').show();
+});
+$('#showlessshare').on('click', function(){
+	$('#allshare').hide();
+	$('span#showmoreshare').show();
+	$('span#showlessshare').hide();
+});
+
+//Para mudar a cor do Cruesp
+	
+		$(".cruesplink").mouseenter(function() {
+				$(".cruesplinkin").show();
+	})
+			  .mouseleave(function() {
+				$(".cruesplinkin").hide();
+	})
+});
+</script>
+	
+	
+	
         <title><%= title %> | <%= siteName %></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="Generator" content="<%= generator %>" />
@@ -261,6 +292,31 @@
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
                                                 <br>
 												</div>
+										
+										<div id="share" align="center" style="position:relative; float: right; margin-bottom:20px; margin-left:0; margin-right:0; margin-top:0; clear:right;">
+		
+		
+		
+<span class='st_facebook_large' displayText='Facebook'></span>
+
+<span class='st_twitter_large' displayText='Tweet'></span>
+
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+
+<span class='st_googleplus_large' displayText='Google +'></span>
+
+<span class='st_whatsapp_large' displayText='WhatsApp'></span>
+&nbsp;
+<div style="position:relative; float:right; width:33px; height:34px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:20px; border-radius:5px; top:-1px; right:1px; cursor:pointer">
+			<span id="showmoreshare" class="glyphicon glyphicon-plus" style="top:3px;width:35px; height:35px;"></span>
+			<span id="showlessshare" class="glyphicon glyphicon-minus" style="top:2px; left:-2px; width:35px; height:35px;display:none;"></span>
+		
+				
+		</div>
+		
+
+</div>
+										
 										
                                                 </div>
                                            </div>
