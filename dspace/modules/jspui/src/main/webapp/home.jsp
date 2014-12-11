@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 //Para carregar as submissoes recentes.
 // os if são para exibir de cara o tanto de noticias que some uma altura parecida a da coluna ao lado
-hmin = $('div#news').height() - 400;
+hmin = $('div#news').height() - 500;
 $("div#recentSubmissions").hide();
 
 $("div#recentSubmissions").first().attr("id","submitFixa");
@@ -136,10 +136,10 @@ $('span#hide').css( 'cursor', 'pointer' );
         <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
             <div class="box" style="max-width:500px;max-width:75%; border-width:0;">
                 <div style="position:relative; float:left; margin:0; padding:0; top:-5px;">
-				<h4 class="chamada" style="font-family: 'Roboto', sans-serif;">Conheça a BDPI</div>
+				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;">Conheça a BDPI</div>
 				</h4>
 				
-	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:10px;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
             </div>
 			
 			<!-- Botões de compartilhamento que não funcionam mais	
@@ -162,7 +162,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 					
 		<div class="panel" class="col-md-8" id="sub" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
 			<div class="panel-heading">
-				<h2> <fmt:message key="jsp.collection-home.recentsub"/>
+				<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;"> <span class="glyphicon glyphicon-book" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.recentsub"/>
 								<%
 									if (feedEnabled) {
 										String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -228,7 +228,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
-					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>"><h4 class="media-heading"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color:#8B8585"><h4 class="media-heading" ><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
 					<p style="font-style:italic;"><%
 									int maxcount;
 									String etal = "";
@@ -271,44 +271,166 @@ $('span#hide').css( 'cursor', 'pointer' );
 		</center>
 					<%}%>
 		</div>
-
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<!-- Notícias -->
 		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
-			<div class="panel-heading">
-			<h2 style="font-family: 'Roboto', sans-serif;"><span class="glyphicon glyphicon-time" style="position:relative; top:3px;"></span> <fmt:message key="jsp.collection-home.events"/>
-			<a href="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2"><img src="image/rss2.gif"></a>
+			<br><div class="panel-heading" style="margin:0">
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;"><span class="glyphicon glyphicon-time" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.events"/>
 			</h2>
-			</div>
-		
-			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.eventos.usp.br%2F%3Fevent-types%3Dcultura-e-artes%26feed%3Drss2&num=2&desc=200&au=y&utf=y&html=p"  charset="UTF-8" type="text/javascript"></script>
 
-<noscript>
-<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.eventos.usp.br%2F%3Fevent-types%3Dcultura-e-artes%26feed%3Drss2&num=2&desc=200&au=y&utf=y&html=y">View RSS feed</a>
-</noscript>
-	<div style="margin-bottom:40px;">
-		<small style="position:relative; float:right; ">Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</small>
+			
+			</div>
+		<br>
+<div id="rss">
+<script type="text/javascript">
+                    
+                    rssmikle_url="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2";
+                            rssmikle_frame_width="100%";
+                    rssmikle_frame_height="330";
+                    rssmikle_target="_blank";
+                    rssmikle_font="'Roboto', sans-serif";
+                    rssmikle_font_size="12";
+                    rssmikle_border="off";
+                    rssmikle_css_url="";
+                    autoscroll="off";
+                    rssmikle_title="off";
+                    rssmikle_title_bgcolor="#696969";
+                    rssmikle_title_color="#f5f5f5";
+                    rssmikle_title_bgimage="http://";
+                    rssmikle_item_bgcolor="#f5f5f5";
+                    rssmikle_item_bgimage="http://";
+                    rssmikle_item_title_length="100";
+                    rssmikle_item_title_color="#1094ab";
+                    rssmikle_item_border_bottom="on";
+                    rssmikle_item_description="on";
+                    rssmikle_item_description_length="150";
+                    rssmikle_item_description_color="#666666";
+                    rssmikle_item_date="off";
+                    rssmikle_item_description_tag="off";
+                    rssmikle_item_podcast="off";
+                </script>
+      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+      <div style="font-size:10px; text-align:right; width:215px;"></div>
+</div>
+
+			<div style="margin:0px; padding:0px;">
+		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-30px; padding:10px; height:30px; opacity:0.7;"></br><p style="position:relative; top: -25px">Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</p></small>
 		</div>
+
+	
 
 				
 			
 		
-			<div class="panel-heading">
-			<h2 style="font-family: 'Roboto', sans-serif;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
-			<a href="http://www5.usp.br/feed/?category=comportamento%2Centrevista"><img src="image/rss2.gif"></a>
+			<div class="panel-heading" style="margin:0; clear:both">
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
+			
 			</h2>
 			</div>
-		
-			<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dcomportamento%252Centrevista&num=3&desc=300&au=y&date=y&utf=y&html=p"  charset="UTF-8" type="text/javascript"></script>
+		<br>
+			<div id="rss">
+<script type="text/javascript">
+                    
+                    rssmikle_url="http://www5.usp.br/feed/?category=comportamento%2Centrevista";
+            rssmikle_frame_width="100%";
+                    rssmikle_frame_height="350";
+                    rssmikle_target="_blank";
+                    rssmikle_font="'Roboto', sans-serif";
+                    rssmikle_font_size="12";
+                    rssmikle_border="off";
+                    rssmikle_css_url="";
+                    autoscroll="off";
+                    rssmikle_title="on";
+                    rssmikle_title_bgcolor="#696969";
+                    rssmikle_title_color="#f5f5f5";
+                    rssmikle_title_bgimage="http://";
+                    rssmikle_item_bgcolor="#f5f5f5";
+                    rssmikle_item_bgimage="http://";
+                    rssmikle_item_title_length="100";
+                    rssmikle_item_title_color="#1094ab";
+                    rssmikle_item_border_bottom="on";
+                    rssmikle_item_description="on";
+                    rssmikle_item_description_length="150";
+                    rssmikle_item_description_color="#666666";
+                    rssmikle_item_date="off";
+                    rssmikle_item_description_tag="off";
+                    rssmikle_item_podcast="off";
+                   
+                </script>
+      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+      <div style="font-size:10px; text-align:right; width:215px;"></div>
+</div>
 
-<noscript>
-<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww5.usp.br%2Ffeed%2F%3Fcategory%3Dcomportamento%252Centrevista&num=3&desc=300&au=y&date=y&utf=y&html=y">View RSS feed</a>
-</noscript>
-
-
-
-		<div style="margin-bottom:40px;">
-		<small style="position:relative; float:right; ">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Agencia USP de Notícias</a>.</small>
+<div style="margin-bottom:0px;">
+		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-20px; padding:10px; height:30px; opacity:0.7;">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Ag&ecirc;ncia USP de Notícias</a>.</small>
 		</div>
+
+<div id="rss">
+      <script type="text/javascript">
+              
+                    rssmikle_url="https://www.coar-repositories.org/feed/";
+                             rssmikle_frame_width="100%";
+                    rssmikle_frame_height="350";
+                    rssmikle_target="_blank";
+                    rssmikle_font="'Roboto', sans-serif";
+                    rssmikle_font_size="12";
+                    rssmikle_border="off";
+                    rssmikle_css_url="";
+                    autoscroll="off";
+                    rssmikle_title="on";
+                    rssmikle_title_bgcolor="#696969";
+                    rssmikle_title_color="#f5f5f5";
+                    rssmikle_title_bgimage="http://";
+                    rssmikle_item_bgcolor="#f5f5f5";
+                    rssmikle_item_bgimage="http://";
+                    rssmikle_item_title_length="100";
+                    rssmikle_item_title_color="#1094ab";
+                    rssmikle_item_border_bottom="on";
+                    rssmikle_item_description="on";
+                    rssmikle_item_description_length="150";
+                    rssmikle_item_description_color="#666666";
+                    rssmikle_item_date="off";
+                    rssmikle_item_description_tag="off";
+                    rssmikle_item_podcast="off";
+             
+                </script>
+      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+      <div style="font-size:10px; text-align:right; width:215px;"></div>
+</div>
+<div id="rss">
+<script type="text/javascript">
+                    
+                    rssmikle_url="http://www.opendoar.org/rss1data.php";
+                            rssmikle_frame_width="100%";
+                    rssmikle_frame_height="200";
+                    rssmikle_target="_blank";
+                    rssmikle_font="'Roboto', sans-serif";
+                    rssmikle_font_size="12";
+                    rssmikle_border="off";
+                    rssmikle_css_url="";
+                    autoscroll="on";
+                    rssmikle_title="on";
+                    rssmikle_title_bgcolor="#696969";
+                    rssmikle_title_color="#f5f5f5";
+                    rssmikle_title_bgimage="http://";
+                    rssmikle_item_bgcolor="#f5f5f5";
+                    rssmikle_item_bgimage="http://";
+                    rssmikle_item_title_length="100";
+                    rssmikle_item_title_color="#666666";
+                    rssmikle_item_border_bottom="on";
+                    rssmikle_item_description="off";
+                    rssmikle_item_description_length="150";
+                    rssmikle_item_description_color="#666666";
+                    rssmikle_item_date="off";
+                    rssmikle_item_description_tag="off";
+                    rssmikle_item_podcast="off";
+                </script>
+      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+      <div style="font-size:10px; text-align:right; width:215px;"></div>
+</div>
+
+
+		
 		
 
 
