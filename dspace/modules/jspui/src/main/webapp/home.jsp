@@ -84,30 +84,33 @@ $(document).ready(function(){
 
 //Para carregar as submissoes recentes.
 // os if são para exibir de cara o tanto de noticias que some uma altura parecida a da coluna ao lado
-hmin = $('div#news').height() - 500;
+hmin = $('div#news').height();
 $("div#recentSubmissions").hide();
 
 $("div#recentSubmissions").first().attr("id","submitFixa");
-h1 = $("div#recentSubmissions").first().attr("id","submitFixa").height();
+h1 = $("div#recentSubmissions").first().height();
 
 $("div#recentSubmissions").first().next().attr("id","submitFixa");
-h2 = $("div#recentSubmissions").first().next().attr("id","submitFixa").height();
+h2 = $("div#recentSubmissions").first().next().height();
 
 if(h1+h2<hmin){
 $("div#recentSubmissions").first().next().next().attr("id","submitFixa");
-h3 = $("div#recentSubmissions").first().next().next().attr("id","submitFixa").height();
+h3 = $("div#recentSubmissions").first().next().next().height();
 	if(h1+h2+h3<hmin){
 	$("div#recentSubmissions").first().next().next().next().attr("id","submitFixa");
-	h4 = $("div#recentSubmissions").first().next().next().next().attr("id","submitFixa").height();
+	h4 = $("div#recentSubmissions").first().next().next().next().height();
 		if(h1+h2+h3+h4<hmin){
 		$("div#recentSubmissions").first().next().next().next().next().attr("id","submitFixa");
-		h5 = $("div#recentSubmissions").first().next().next().next().next().attr("id","submitFixa").height();
+		h5 = $("div#recentSubmissions").first().next().next().next().next().height();
 			if(h1+h2+h3+h4+h5<hmin){
 			$("div#recentSubmissions").first().next().next().next().next().next().attr("id","submitFixa");
 			}
 		}
 	}
 }
+
+$("div#sub").height(hmin+22);
+$("div#sub").css("overflow", "hidden");
 
 $("div#submitFixa").show();
 $("span#show").show();
@@ -120,11 +123,17 @@ $('span#hide').css( 'cursor', 'pointer' );
     $("div#recentSubmissions").show(1000);                             // p = .classesubmissoes
 	$("span#show").hide();				
 	$("span#hide").show();
+	$("div#sub").css("overflow", "visible");
+	$("div#sub").css("height", "inherit");
+	
+
   });
   $("span#hide").click(function(){
     $("div#recentSubmissions").fadeOut(500);                             // p = .classesubmissoes
 	$("span#show").show();
 	$("span#hide").hide();
+	$("div#sub").css("overflow", "hidden");
+	$("div#sub").height(hmin);
   });
 });
 </script>
@@ -136,10 +145,10 @@ $('span#hide').css( 'cursor', 'pointer' );
         <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
             <div class="box" style="max-width:500px;max-width:75%; border-width:0;">
                 <div style="position:relative; float:left; margin:0; padding:0; top:-5px;">
-				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;">Conheça a BDPI</div>
+				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.2em; font-weight:500;">Biblioteca Digital da Produção Intelectual</div>
 				</h4>
 				
-	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A Biblioteca Digital da Produção Intelectual da Universidade de São Paulo (BDPI) é um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
             </div>
 			
 			<!-- Botões de compartilhamento que não funcionam mais	
@@ -241,7 +250,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" style="color: #FFB957" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
+					<a class="authority author" style="color: #FFB957;" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
 										<% } else { %>
 										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
 										<% } %>
@@ -331,7 +340,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 			<div id="rss">
 <script type="text/javascript">
                     
-                    rssmikle_url="http://www5.usp.br/feed/?category=comportamento%2Centrevista";
+                    rssmikle_url="http://www5.usp.br/feed/?category=uspdestaque";
             rssmikle_frame_width="100%";
                     rssmikle_frame_height="350";
                     rssmikle_target="_blank";
@@ -364,7 +373,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 <div style="margin-bottom:0px;">
 		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-20px; padding:10px; height:30px; opacity:0.7;">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Ag&ecirc;ncia USP de Notícias</a>.</small>
 		</div>
-
+<div style="width:100%; font-size:12px; background-color:#696969; color:#eee; clear:both; font-weight:700;font-family:'Roboto', sans-serif; height:26px; padding:5px">Confederation of Open Access Repositories</div>
 <div id="rss">
       <script type="text/javascript">
               
@@ -377,7 +386,7 @@ $('span#hide').css( 'cursor', 'pointer' );
                     rssmikle_border="off";
                     rssmikle_css_url="";
                     autoscroll="off";
-                    rssmikle_title="on";
+                    rssmikle_title="off";
                     rssmikle_title_bgcolor="#696969";
                     rssmikle_title_color="#f5f5f5";
                     rssmikle_title_bgimage="http://";
@@ -467,10 +476,20 @@ $('span#hide').css( 'cursor', 'pointer' );
 			</div> -->
 		</div>
 
-		<!-- Notas de rodapé -->
+<!-- Notas de rodapé -->
 			
 		<div style="max-width:900px;min-height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE; clear:both" class="container-notasdorodape">
 			<center>
+				<!-- /.col-lg-4 -->
+			<div class="col-lg-4" id="notasdorodape" >
+				<span class="glyphicon glyphicon-eye-open iconbg"></span>
+				<h3>Visibilidade</h3>
+				<h5><small><p style="text-align:justufy">A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
+				</h5>
+				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
+				</p>-->
+				</br></br>
+			</div>
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
 				<h3>Como depositar</h3>
@@ -478,16 +497,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>
-				<!-- /.col-lg-4 -->
-			<div class="col-lg-4" id="notasdorodape" >
-				<span class="glyphicon glyphicon-comment iconbg"></span>
-				<h3>Como citar</h3>
-				<h5><small><p style="text-align:justufy">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p></small>
-				</h5>
-				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
-				</p>-->
-				</br></br>
-			</div>
+			
 				<!-- /.col-lg-4 -->
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-stats iconbg"></span>
@@ -537,5 +547,6 @@ $('span#hide').css( 'cursor', 'pointer' );
 			</div>
 			</center>
 		</div>
+
 
 			</dspace:layout>
