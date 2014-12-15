@@ -48,7 +48,7 @@
     String navbarEmail = null;
 
     if (user != null) {
-        navbarEmail = user.getEmail();
+        navbarEmail = user.getFirstName();
     }
 
     // get the browse indices
@@ -109,7 +109,7 @@
                 if (user != null) {
             %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.loggedin">
-                    <fmt:param><%= StringUtils.abbreviate(navbarEmail, 20)%></fmt:param>
+                    <fmt:param><%= StringUtils.abbreviate(navbarEmail, 20)%></fmt:param>    
                 </fmt:message> <b class="caret"></b></a>
                 <%
                 } else {

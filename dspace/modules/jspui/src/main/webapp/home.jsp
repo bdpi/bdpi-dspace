@@ -85,34 +85,9 @@ $(document).ready(function(){
 //Para carregar as submissoes recentes.
 // os if são para exibir de cara o tanto de noticias que some uma altura parecida a da coluna ao lado
 hmin = $('div#news').height();
-$("div#recentSubmissions").hide();
-
-$("div#recentSubmissions").first().attr("id","submitFixa");
-h1 = $("div#recentSubmissions").first().height();
-
-$("div#recentSubmissions").first().next().attr("id","submitFixa");
-h2 = $("div#recentSubmissions").first().next().height();
-
-if(h1+h2<hmin){
-$("div#recentSubmissions").first().next().next().attr("id","submitFixa");
-h3 = $("div#recentSubmissions").first().next().next().height();
-	if(h1+h2+h3<hmin){
-	$("div#recentSubmissions").first().next().next().next().attr("id","submitFixa");
-	h4 = $("div#recentSubmissions").first().next().next().next().height();
-		if(h1+h2+h3+h4<hmin){
-		$("div#recentSubmissions").first().next().next().next().next().attr("id","submitFixa");
-		h5 = $("div#recentSubmissions").first().next().next().next().next().height();
-			if(h1+h2+h3+h4+h5<hmin){
-			$("div#recentSubmissions").first().next().next().next().next().next().attr("id","submitFixa");
-			}
-		}
-	}
-}
 
 $("div#sub").height(hmin+22);
 $("div#sub").css("overflow", "hidden");
-
-$("div#submitFixa").show();
 $("span#show").show();
 $("span#hide").hide();
 
@@ -128,8 +103,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 	
 
   });
-  $("span#hide").click(function(){
-    $("div#recentSubmissions").fadeOut(500);                             // p = .classesubmissoes
+  $("span#hide").click(function(){                          // p = .classesubmissoes
 	$("span#show").show();
 	$("span#hide").hide();
 	$("div#sub").css("overflow", "hidden");
@@ -157,6 +131,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 	</div>
 
 	</div>
+	
 <div id="creditodafoto">Foto por: Marcos Santos.</br>Fonte: <a href="http://www.imagens.usp.br" target="_blank">USP imagens</a>.</div>							
 
 			
@@ -293,13 +268,13 @@ $('span#hide').css( 'cursor', 'pointer' );
                     
                     rssmikle_url="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2";
                             rssmikle_frame_width="100%";
-                    rssmikle_frame_height="330";
+                    rssmikle_frame_height="150";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
                     rssmikle_font_size="12";
                     rssmikle_border="off";
                     rssmikle_css_url="";
-                    autoscroll="off";
+                    autoscroll="on";
                     rssmikle_title="off";
                     rssmikle_title_bgcolor="#696969";
                     rssmikle_title_color="#f5f5f5";
@@ -309,7 +284,7 @@ $('span#hide').css( 'cursor', 'pointer' );
                     rssmikle_item_title_length="100";
                     rssmikle_item_title_color="#1094ab";
                     rssmikle_item_border_bottom="on";
-                    rssmikle_item_description="on";
+                    rssmikle_item_description="off";
                     rssmikle_item_description_length="150";
                     rssmikle_item_description_color="#666666";
                     rssmikle_item_date="off";
@@ -321,7 +296,8 @@ $('span#hide').css( 'cursor', 'pointer' );
 </div>
 
 			<div style="margin:0px; padding:0px;">
-		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-30px; padding:10px; height:30px; opacity:0.7;"></br><p style="position:relative; top: -25px">Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</p></small>
+		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-30px; padding:10px; height:30px; opacity:0.9;width:100%;"></br><p style="position:relative; top: -25px; float:right">
+		Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</p></small>
 		</div>
 
 	
@@ -340,7 +316,7 @@ $('span#hide').css( 'cursor', 'pointer' );
                     
                     rssmikle_url="http://www5.usp.br/feed/?category=uspdestaque";
             rssmikle_frame_width="100%";
-                    rssmikle_frame_height="350";
+                    rssmikle_frame_height="250";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
                     rssmikle_font_size="12";
@@ -377,7 +353,7 @@ $('span#hide').css( 'cursor', 'pointer' );
               
                     rssmikle_url="https://www.coar-repositories.org/feed/";
                              rssmikle_frame_width="100%";
-                    rssmikle_frame_height="350";
+                    rssmikle_frame_height="200";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
                     rssmikle_font_size="12";
@@ -409,7 +385,7 @@ $('span#hide').css( 'cursor', 'pointer' );
                     
                     rssmikle_url="http://www.opendoar.org/rss1data.php";
                             rssmikle_frame_width="100%";
-                    rssmikle_frame_height="200";
+                    rssmikle_frame_height="150";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
                     rssmikle_font_size="12";
