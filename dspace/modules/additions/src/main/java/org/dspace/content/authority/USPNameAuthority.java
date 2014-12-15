@@ -84,7 +84,7 @@ public class USPNameAuthority implements ChoiceAuthority {
 "G,\n" +
 "H desc";
         */
-        private Context context = null ;
+        private static Context context = null ;
         private static Request request = null;
         
         private Context getContext() throws SQLException {
