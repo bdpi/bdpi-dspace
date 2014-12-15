@@ -143,23 +143,21 @@ $('span#hide').css( 'cursor', 'pointer' );
 <div class="row">
     <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
         <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
-            <div class="box" style="max-width:500px;max-width:75%; border-width:0;">
+		
+            <div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
                 <div style="position:relative; float:left; margin:0; padding:0; top:-5px;">
 				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.2em; font-weight:500;">Biblioteca Digital da Produção Intelectual</div>
 				</h4>
 				
 	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
             </div>
-			
-			<!-- Botões de compartilhamento que não funcionam mais	
 
-                    
-			-->
-				
+			
 		</div>
 	</div>
-</div>
 
+	</div>
+<div id="creditodafoto">Foto por: Marcos Santos.</br>Fonte: <a href="http://www.imagens.usp.br" target="_blank">USP imagens</a>.</div>							
 
 			
 <div class="row"  style="clear:left">
@@ -237,8 +235,8 @@ $('span#hide').css( 'cursor', 'pointer' );
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
-					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color:#FFB957; font-weight:300;"><h4 class="media-heading" ><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
-					<p style="font-style:italic;"><%
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color:#FFB957; font-weight:300;"><h4 class="media-heading" style="font-size:15px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<p><%
 									int maxcount;
 									String etal = "";
 									if (displayAuthors.length > 10) {
@@ -331,7 +329,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 				
 			
 		
-			<div class="panel-heading" style="margin:0; clear:both">
+			<div class="panel-heading" style="position:relative; margin:0; clear:both; top:-20px;">
 			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
 			
 			</h2>
@@ -493,7 +491,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
 				<h3>Como depositar</h3>
-				<h5><small><p>Docentes e pós-graduandos com vínculo ativo podem depositar a produção científica (artigos, comunicações em eventos, livros e capítulos de livros), pelo número USP/mesma senha dos sistemas USP Digital preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o título completo do documento. O acesso à comunidade de vínculo no sistema, pode ser solicitado pelo e-mail: <a href="mailto:#" > atendimento@sibi.usp.br</a>. Após a submissão, o registro será complementado e publicado pela Biblioteca da unidade de vínculo.</p></small></h5>
+				<h5><small><p>Docentes e pós-graduandos com vínculo ativo podem depositar a produção científica (artigos, comunicações em eventos, livros e capítulos de livros), pelo número USP/mesma senha dos sistemas USP Digital preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o título completo do documento. O acesso à comunidade de vínculo no sistema, pode ser solicitado pelo e-mail, atendimento@sibi.usp.br. Após a submissão, o registro será complementado e publicado pela Biblioteca da unidade de vínculo.</p></small></h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>

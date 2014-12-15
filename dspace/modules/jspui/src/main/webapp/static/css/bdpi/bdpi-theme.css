@@ -6372,5 +6372,22 @@ p.rss-title {padding:0em;}
 .share-buttons li{
 	display: inline;
 }
-
+#creditodafoto{
+font-size:12px;
+position:relative; 
+color:#FFF; 
+border-style:solid; 
+opacity:0.4; 
+width:170px; 
+clear:both; 
+float:right; 
+top:-100px; 
+right:20px; 
+height:0; 
+border-width:0; 
+text-align: right;
+}
+#creditodafoto:hover{
+opacity:1;
+}
 
