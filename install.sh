@@ -125,7 +125,7 @@ read -t 5 -p "ver catalina.out log [s|N]? " choice ;
 case "$choice" in
  "N"|"n"|"" ) echo "N - ok" ;;
  * ) echo "S - ok" 
-sudo tail -f $TOMCAT_CATALINA_OUT
+$TOMCAT_CATALINA_OUT
  ;;
 esac ;
 
