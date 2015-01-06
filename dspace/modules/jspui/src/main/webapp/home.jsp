@@ -123,7 +123,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.2em; font-weight:500;">Biblioteca Digital da Produção Intelectual</div>
 				</h4>
 				
-	            <p style="font-size:14px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
+	            <p style="font-size:12px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
             </div>
 
 			
