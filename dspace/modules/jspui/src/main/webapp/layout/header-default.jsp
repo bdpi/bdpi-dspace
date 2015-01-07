@@ -145,12 +145,12 @@
                                                         <div class="panel-body usppanel" style="background-color:#b3b3bc">
                                                             <div class="row" style="background-color:transparent">
                                                                 <div class="col-md-3 text-center">
-                                                                    <a href=http://www.usp.br/sibi/><img src="http://www.producao.usp.br/a/barrausp/images/sibi.png" title="SIBi - Sistema Integrado de Bibliotecas da USP" width=150 height=69 border=0 /></a>
+                                                                    <a href=http://www.usp.br/sibi/><img src="http://www.producao.usp.br/a/barrausp/images/sibi.png" title="SIBi - Sistema Integrado de Bibliotecas da USP" alt="SIBi - Sistema Integrado de Bibliotecas da USP" width=150 height=69 border=0 /></a>
                                                                     <div class="uspmenu_top_usp">
                                                                         <ul>
                                                                             <li><a href="http://www.producao.usp.br/a/barrausp/barra/creditos.html" target=_blank>Créditos</a></li>
                                                                             <li><a href="http://www.producao.usp.br/a/barrausp/barra/contato.html" target=_blank>Fale com o SIBi</a></li>
-                                                                            <div><img src="http://www.producao.usp.br/a/barrausp/images/spacer.gif" width=10 height=10 /></div>
+                                                                            <div><img src="http://www.producao.usp.br/a/barrausp/images/spacer.gif" width=10 height=10 alt="espaço em branco - blank space"/></div>
                                                                             <div class="panel-heading">PORTAL DE BUSCA INTEGRADA</div>
                                                                             <div class="panel-body">Um único ponto de acesso a todos os conteúdos informacionais disponíveis para a comunidade USP.</div>
                                                                             <br />
@@ -236,11 +236,11 @@
                         <li class="uspleft" style="position:relative; z-index:0"></li>
                         <li id="usptoggle" style="position:relative; z-index:0">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="uspopen" class="uspopen" border="0" style="display: block;">
-                                <img src="http://www.producao.usp.br/a/barrausp/images/seta_down.jpg" border="0">
+                                <img src="http://www.producao.usp.br/a/barrausp/images/seta_down.jpg" border="0" alt="Seta para baixo - Down arrow">
                                     <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" alt="SIBi - Abrir o painel" width="35" height="16" border="0" title="SIBi - Abrir o painel">
                                         </a>
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" id="uspclose" style="display: none;" class="uspclose" border="0">
-                                            <img src="http://www.producao.usp.br/a/barrausp/images/seta_up.jpg" border="0">
+                                            <img src="http://www.producao.usp.br/a/barrausp/images/seta_up.jpg" border="0" alt="Seta para cima - Up arrow">
                                                 <img src="http://www.producao.usp.br/a/barrausp/images/barrinha.png" width="35" height="16" border="0" title="SIBi - Fechar painel" alt="SIBi - Fechar painel">
                                                     </a>
                         </li>
@@ -264,10 +264,10 @@
 											<div class="cruesplink" style="float:right; position:relative;">
 												
 												<div class="cruesplinkout" style="float:right; background-color:#FFF;">
-												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;"></a>
+												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesppeb.png" style="width:75px;" alt="CRUESP"></a>
 												</div>
 												<div class="cruesplinkin" style="position:relative; float:right; top:-21px; left:0.5px;display:none;">
-												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" style="width:75px; display: hidden"></a>
+												  <a href="http://www.cruesp.sp.gov.br/" target="blank" alt="CRUESP"><img src="<%= siteURL%>/image/cruesp.png" alt="CRUESP" style="width:75px; display: hidden"></a>
 												</div>											
 											</div>
 
@@ -322,7 +322,7 @@ $('#showlessshare').on('click', function(){
 											
                                             <div class="col-md-8">
                                                 <br> 
-                                                    <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
+                                                    <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png" alt="SIBi - Sistema Integrado de Bibliotecas - Biblioteca Digital da Produção Intelectual"></a>
                                                <br>								
 										    </div>
 											

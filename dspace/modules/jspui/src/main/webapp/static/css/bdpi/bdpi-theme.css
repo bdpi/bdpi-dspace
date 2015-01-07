@@ -1724,6 +1724,8 @@ output {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	  margin-top:4px;
+	  margin-bottom:4px;
 }
 .form-control:focus {
   border-color: #66afe9;
@@ -4510,7 +4512,7 @@ a.thumbnail.active {
   color: #245269;
 }
 .alert-warning {
-  color: #8a6d3b;
+  color: #d9534f;
   background-color: #fcf8e3;
   border-color: #faebcc;
 }
@@ -6373,16 +6375,14 @@ p.rss-title {padding:0em;}
 	display: inline;
 }
 #creditodafoto{
-font-size:12px;
+font-size:10px;
 position:relative; 
 color:gray; 
-border-style:solid; 
-opacity:0.4; 
-width:170px; 
+opacity:0.6; 
 clear:both; 
 float:right; 
-top:-100px; 
-right:20px; 
+top:-40px; 
+right:3px; 
 height:0; 
 border-width:0; 
 text-align: right;
@@ -6390,4 +6390,11 @@ text-align: right;
 #creditodafoto:hover{
 opacity:1;
 }
+#creditodafoto p{
+background-color:black;
+}
 
+.alert alert-warning{
+color:red;
+font-weight:strong;
+}

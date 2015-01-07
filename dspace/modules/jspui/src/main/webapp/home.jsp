@@ -1,4 +1,6 @@
-﻿<%--
+
+
+<%--
 
     The contents of this file are subject to the license and copyright
     detailed in the LICENSE and NOTICE files at the root of the source
@@ -60,33 +62,29 @@
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData%>">
 
 <script type="text/javascript">
-function tamanho(){
-
-	if( window.innerWidth >= 1050 ){
+//CASO EU PRECISE FAZER MUDANÇAS NO LAYOUT RESPONSIVO QUE EU NÃO CONSIGA COM CSS
+//function tamanho(){
+//	
+//	if( window.innerWidth >= 1050 ){
 	//javascript para este tamanho de tela
-	}															   
-	else{
+//	}															   
+//	else{
 	//javascript para os demais
-	}
+//	}
 	
-}
-window.onresize = tamanho;
-
+//}
+//window.onresize = tamanho;
 </script>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-545bb59855d48cfe" async="async"></script>
-
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 
-//Para carregar as submissoes recentes.
-// os if são para exibir de cara o tanto de noticias que some uma altura parecida a da coluna ao lado
+//Para deixar a coluna das noticias e das submissoes com a mesma altura
 hmin = $('div#news').height();
-
 $("div#sub").height(hmin+22);
+
+//Para não mostrar todas as submissões recentes na primeira página
 $("div#sub").css("overflow", "hidden");
 $("span#show").show();
 $("span#hide").hide();
@@ -95,7 +93,7 @@ $('span#show').css( 'cursor', 'pointer' );
 $('span#hide').css( 'cursor', 'pointer' );
 
     $("span#show").click(function(){
-    $("div#recentSubmissions").show(1000);                             // p = .classesubmissoes
+    $("div#recentSubmissions").show(1000);  
 	$("span#show").hide();				
 	$("span#hide").show();
 	$("div#sub").css("overflow", "visible");
@@ -103,37 +101,35 @@ $('span#hide').css( 'cursor', 'pointer' );
 	
 
   });
-  $("span#hide").click(function(){                          // p = .classesubmissoes
+  $("span#hide").click(function(){                     
 	$("span#show").show();
 	$("span#hide").hide();
 	$("div#sub").css("overflow", "hidden");
 	$("div#sub").height(hmin);
   });
 });
+
+$('#spanquerecebeteste').load('browse?type=access .list-group');
+
 </script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
-
-<div class="row">
-    <div class="col-md-8" id="jumbocol" style="width:100%;top:-25px; z-index:0; padding:1px;">
-        <div class="jumbotron" id="jumbotron" style=" padding:20px; margin-bottom:0px;">
-		
-            <div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
-                <div style="position:relative; float:left; margin:0; padding:0; top:-5px;">
-				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.2em; font-weight:500;">Biblioteca Digital da Produção Intelectual</div>
-				</h4>
+<div class="row" style="padding:1px">
+	<div class="jumbotron" id="jumbotron" style=" position:relative;padding:20px; margin-bottom:0px; top:-25px; z-index:0;">
+		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
+			<div style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
+				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.2em; font-weight:500;">
+				Biblioteca Digital da Produção Intelectual
 				
-	            <p style="font-size:12px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.</p>
-            </div>
-
-			
+				</h4>
+			</div>
+			<p style="font-size:12px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">
+			A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.
+			</p>
 		</div>
 	</div>
-
-	</div>
+</div>
 	
-<div id="creditodafoto">Foto por: Marcos Santos.</br>Fonte: <a href="http://www.imagens.usp.br" target="_blank">USP imagens</a>.</div>							
-
+<div id="creditodafoto"><p>Foto: Marcos Santos / USP Imagens.</p></div>							
 			
 <div class="row"  style="clear:left">
     <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
@@ -204,9 +200,9 @@ $('span#hide').css( 'cursor', 'pointer' );
 			<div class="media padding15" id="recentSubmissions">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
-					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px">
+					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" alt="Open Access logo">
 								<% } else { %>
-					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px">
+					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px" alt="Closed Access logo">
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
@@ -223,7 +219,7 @@ $('span#hide').css( 'cursor', 'pointer' );
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" style="color: #FFB957;" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png">
+					<a class="authority author" style="color: #FFB957;" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author">
 										<% } else { %>
 										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
 										<% } %>
@@ -236,26 +232,25 @@ $('span#hide').css( 'cursor', 'pointer' );
 							}
 						%>
 		<br>
+		
+		
+		
 		</div>
 
 		<!-- Exibição de mais submissões -->
-
-		<center>	
-		<div style="position:relative; float:right; top:-60px; right:0px; width:40px; height:40px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:30px;
-			border-left-style:solid; 
-			border-left-width:2px; 
-			border-left-color:#fcb421;
-			border-top-style:solid; 
-			border-top-width:2px; 
-			border-top-color:#fcb421;">
-			<span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
-			<span id="hide" class="glyphicon glyphicon-minus" style="left:-2px;"></span>
-		</center>
+	
+	<div style="height:40px;width:40px; position:relative; float:right; color:gray; background-color:#eee;padding:5px;top:-62px">
+			<center><h1><span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
+			<span id="hide" class="glyphicon glyphicon-minus" style="left:-1px;"></span></center>
+	</h1>
+	</div>
+		
 					<%}%>
-		</div>
+					</div>
+		
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<!-- Notícias -->
-		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">
+		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5; width:100%">
 			<br><div class="panel-heading" style="margin:0">
 			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;"><span class="glyphicon glyphicon-time" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.events"/>
 			</h2>
@@ -274,7 +269,7 @@ $('span#hide').css( 'cursor', 'pointer' );
                     rssmikle_font_size="12";
                     rssmikle_border="off";
                     rssmikle_css_url="";
-                    autoscroll="on";
+                    autoscroll="off";
                     rssmikle_title="off";
                     rssmikle_title_bgcolor="#696969";
                     rssmikle_title_color="#f5f5f5";
@@ -391,7 +386,7 @@ $('span#hide').css( 'cursor', 'pointer' );
                     rssmikle_font_size="12";
                     rssmikle_border="off";
                     rssmikle_css_url="";
-                    autoscroll="on";
+                    autoscroll="off";
                     rssmikle_title="on";
                     rssmikle_title_bgcolor="#696969";
                     rssmikle_title_color="#f5f5f5";
