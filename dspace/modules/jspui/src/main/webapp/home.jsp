@@ -1,3 +1,20 @@
+<%@page import="org.dspace.app.webui.util.UIUtil"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ page import="java.net.URLEncoder"            %>
+<%@ page import="java.util.Iterator"             %>
+<%@ page import="java.util.Map"                  %>
+<%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
+<%@ page import="org.dspace.content.Collection"  %>
+<%@ page import="org.dspace.content.DCValue"    %>
+<%@ page import="org.dspace.content.Item"        %>
+
+
+
+﻿
 
 
 <%--
@@ -60,7 +77,8 @@
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
 %>
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData%>">
-
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-545bb59855d48cfe" async="async"></script>
+-
 <script type="text/javascript">
 //CASO EU PRECISE FAZER MUDANÇAS NO LAYOUT RESPONSIVO QUE EU NÃO CONSIGA COM CSS
 //function tamanho(){
