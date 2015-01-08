@@ -79,8 +79,46 @@
     <ul class="nav navbar-nav" >
         <li class="<%= currentPage.endsWith("/home.jsp") ? "active" : ""%>"><a href="<%= request.getContextPath()%>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 
+        
+        <li><a data-toggle="modal" data-target="#faq"><fmt:message key="usp.menu.faq"/></a></li> <!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
+            <%
+                if (user != null) {
+            %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.loggedin">
+                    <fmt:param><%= StringUtils.abbreviate(navbarUserFirstName, 20)%></fmt:param>    
+                </fmt:message> <b class="caret"></b></a>
+                <%
+                } else {
+                %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <b class="caret"></b></a>
+                <% }%>             
+            <ul class="dropdown-menu">
+               
+                <li><a href="<%= request.getContextPath()%>/mydspace"><fmt:message key="jsp.layout.navbar-default.users"/></a></li>
+                <li><a href="<%= request.getContextPath()%>/subscribe"><fmt:message key="jsp.layout.navbar-default.receive"/></a></li>
+                <li><a href="<%= request.getContextPath()%>/profile"><fmt:message key="jsp.layout.navbar-default.edit"/></a></li>
+
+                <%
+                    if (isAdmin) {
+                %>
+                <li class="divider"></li>  
+                <li><a href="<%= request.getContextPath()%>/dspace-admin"><fmt:message key="jsp.administer"/></a></li>
+                    <%
+                        }
+                        if (user != null) {
+                    %>
+                <li><a href="<%= request.getContextPath()%>/logout"><span class="glyphicon glyphicon-log-out"></span> <fmt:message key="jsp.layout.navbar-default.logout"/></a></li>
+                    <% }%>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="background-color:#1094ab;padding:0;margin-top:0; margin-bottom:0 ">
+<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
             <ul class="dropdown-menu" >
                 <li><a href="<%= request.getContextPath()%>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
   
@@ -100,52 +138,12 @@
 
             </ul>
         </li>
-        <li><a data-toggle="modal" data-target="#faq"><fmt:message key="usp.menu.faq"/></a></li> <!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+	</ul>
+    <%-- Search Box --%><ul class="nav navbar-nav navbar-right" style="background-color:#1094ab;padding:0; margin-top:0; margin-bottom:0;">
+    <form method="get" action="<%= request.getContextPath()%>/simple-search" class="navbar-form navbar-right" scope="search" >
+        <div class="form-group" style="height:34px">
 
-        <li class="dropdown">
-            <%
-                if (user != null) {
-            %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.loggedin">
-                    <fmt:param><%= StringUtils.abbreviate(navbarUserFirstName, 20)%></fmt:param>    
-                </fmt:message> <b class="caret"></b></a>
-                <%
-                } else {
-                %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <b class="caret"></b></a>
-                <% }%>             
-            <ul class="dropdown-menu">
-                <li><a data-toggle="modal" data-target="#openAccessPolicy" style="cursor:pointer"><fmt:message key="usp.menu.openaccesspolicy"/></a></li>
-                <li><a data-toggle="modal" data-target="#politicaDePrivacidade" style="cursor:pointer"><fmt:message key="usp.menu.privacypolicy"/></a></li>
-                <li><a data-toggle="modal" data-target="#direitosAutorais" style="cursor:pointer"><fmt:message key="usp.menu.rights"/></a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Usuários</li>
-                <li><a href="<%= request.getContextPath()%>/mydspace"><fmt:message key="jsp.layout.navbar-default.users"/></a></li>
-                <li><a href="<%= request.getContextPath()%>/subscribe"><fmt:message key="jsp.layout.navbar-default.receive"/></a></li>
-                <li><a href="<%= request.getContextPath()%>/profile"><fmt:message key="jsp.layout.navbar-default.edit"/></a></li>
-
-                <%
-                    if (isAdmin) {
-                %>
-                <li class="divider"></li>  
-                <li><a href="<%= request.getContextPath()%>/dspace-admin"><fmt:message key="jsp.administer"/></a></li>
-                    <%
-                        }
-                        if (user != null) {
-                    %>
-                <li><a href="<%= request.getContextPath()%>/logout"><span class="glyphicon glyphicon-log-out"></span> <fmt:message key="jsp.layout.navbar-default.logout"/></a></li>
-                    <% }%>
-            </ul>
-        </li>
-    </ul>
-
-    <%-- Search Box --%>
-    <form method="get" action="<%= request.getContextPath()%>/simple-search" class="navbar-form navbar-right" scope="search">
-        <div class="form-group">
-
-            <input type="text" class="form-control" name="query" id="tequery" size="25"/>
+            <input type="text" class="form-control" name="query" id="tequery" style="top:-3px; position:relative" size="25"/>
 			<!-- 
 			Parte que tirei do input: placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>"
 			-->
@@ -165,7 +163,7 @@
                         }
             %>
 			--%>
-    </form>
+    </form></ul>
 	
     <!-- Button trigger modal -->
     <!-- Modal Política de Acesso Aberto -->

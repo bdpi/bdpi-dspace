@@ -3864,9 +3864,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-form {
   padding: 10px 15px;
   margin-top: 8px;
-  margin-right: -15px;
+  margin-right: 0px;
   margin-bottom: 8px;
-  margin-left: -15px;
+  margin-left: 0px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
@@ -6377,11 +6377,11 @@ p.rss-title {padding:0em;}
 #creditodafoto{
 font-size:10px;
 position:relative; 
-color:gray; 
+color:white; 
 opacity:0.6; 
 clear:both; 
 float:right; 
-top:-40px; 
+top:-70px; 
 right:3px; 
 height:0; 
 border-width:0; 
@@ -6397,4 +6397,10 @@ background-color:black;
 .alert alert-warning{
 color:red;
 font-weight:strong;
+}
+.browse{
+background-color:#1094ab; margin:0; color:white
+}
+.browse a{
+color: white;
 }

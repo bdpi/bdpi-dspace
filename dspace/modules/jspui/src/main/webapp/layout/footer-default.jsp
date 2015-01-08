@@ -65,6 +65,11 @@
                     <a style="color:#FDC34D" target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
                     <a style="color:#FDC34D" href="<%= request.getContextPath()%> /htmlmap">Mapa do site</a>&nbsp;|&nbsp;
                     <a style="color:#FDC34D" href="#">Voltar ao in&iacute;cio</a>&nbsp;|&nbsp;
+		    
+		    <a data-toggle="modal" data-target="#openAccessPolicy" style="cursor:pointer"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
+                <a data-toggle="modal" data-target="#politicaDePrivacidade" style="cursor:pointer"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
+                <a data-toggle="modal" data-target="#direitosAutorais" style="cursor:pointer"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
+                
 				</div>
 				</h6>	
             </div>
@@ -85,7 +90,7 @@
 		<address class="text-center">
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
-<span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope" /><a href="mailto:#" style="position:relative; right:8px; top:-2px"> atendimento@sibi.usp.br</a>
+<span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 e 3091-4195 &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope" /><span style="position:relative; right:8px; top:-2px"> atendimento@sibi.usp.br</span>
 </address> <br>
 
 <!-- Botões de compartilhamento 

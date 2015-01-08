@@ -131,7 +131,7 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 
 </script>
 
-<div class="row" style="padding:1px">
+<div class="row" style="padding:1px; position:relative; top:-17px;">
 	<div class="jumbotron" id="jumbotron" style=" position:relative;padding:20px; margin-bottom:0px; top:-25px; z-index:0;">
 		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
 			<div style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
@@ -147,7 +147,7 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 	</div>
 </div>
 	
-<div id="creditodafoto"><p>Foto: Marcos Santos / USP Imagens.</p></div>							
+<div id="creditodafoto"><p> Foto: Marcos Santos / USP Imagens.</p></div>							
 			
 <div class="row"  style="clear:left">
     <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
