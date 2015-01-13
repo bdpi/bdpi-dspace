@@ -59,13 +59,13 @@
 				</div>
 				
 				</a>
-				<div id="footer_feedback" class="pull-right">
+				<div id="footer_feedback" class="pull-right" style="position:relative; top:-12px">
 				
 				<a data-toggle="modal" data-target="#creditos" style="cursor:pointer;color:#d58B00"><fmt:message key="usp.menu.creditos"/></a>&nbsp;|&nbsp;
                     <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
                     <a href="<%= request.getContextPath()%> /htmlmap">Mapa do site</a>&nbsp;|&nbsp;
                     <a href="#">Voltar ao in&iacute;cio</a>
-		    <br>
+		    <br><br>
 		    <a data-toggle="modal" data-target="#openAccessPolicy"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
                 <a data-toggle="modal" data-target="#politicaDePrivacidade"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
                 <a data-toggle="modal" data-target="#direitosAutorais"><fmt:message key="usp.menu.rights"/></a>
