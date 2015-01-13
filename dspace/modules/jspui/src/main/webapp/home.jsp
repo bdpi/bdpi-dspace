@@ -208,7 +208,7 @@ $("div#subshow").show();
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
-					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color:#FFB957; font-weight:300;"><h4 class="media-heading" style="font-size:15px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color: #1094ab; font-weight:300;"><h4 class="media-heading" style="font-size:15px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
 					<p><%
 									int maxcount;
 									String etal = "";
@@ -221,7 +221,7 @@ $("div#subshow").show();
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" style="color: #FFB957; font-size:0.9em" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author">
+					<a class="authority author" style="color: #848484; font-size:0.9em; font-weight:700" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author" style="height:1em">
 										<% } else { %>
 										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
 										<% } %>
@@ -447,6 +447,8 @@ $("div#subshow").show();
 		
 border-color: #fcb421;
 border-top-style:solid;
+border-top-width:2px;
+border-bottom-width:2px;
 border-bottom-style:solid;
 background-color:#f5f5f5;
 
