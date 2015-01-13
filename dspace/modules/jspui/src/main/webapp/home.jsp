@@ -81,53 +81,36 @@
 -
 <script type="text/javascript">
 //CASO EU PRECISE FAZER MUDANÇAS NO LAYOUT RESPONSIVO QUE EU NÃO CONSIGA COM CSS
-//function tamanho(){
-//	
-//	if( window.innerWidth >= 1050 ){
-	//javascript para este tamanho de tela
-//	}															   
-//	else{
-	//javascript para os demais
-//	}
+function tamanho(){
 	
-//}
-//window.onresize = tamanho;
+	if( window.innerWidth >= 992 ){
+	getElementById('subs').style.height=350;
+	}															   
+	else{
+	//javascript para os demais
+	}
+	
+}
+window.onresize = tamanho;
 </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 
+$("div#recentSubmissions").first().attr("id","subshow");
+$("div#recentSubmissions").first().next().attr("id","subshow");
+$("div#recentSubmissions").hide();
+$("div#subshow").show();
+
 //Para deixar a coluna das noticias e das submissoes com a mesma altura
-hmin = $('div#news').height();
-$("div#sub").height(hmin+22);
+//$("div#sub").height(400+'px');
 
 //Para não mostrar todas as submissões recentes na primeira página
-$("div#sub").css("overflow", "hidden");
-$("span#show").show();
-$("span#hide").hide();
 
-$('span#show').css( 'cursor', 'pointer' );
-$('span#hide').css( 'cursor', 'pointer' );
 
-    $("span#show").click(function(){
-    $("div#recentSubmissions").show(1000);  
-	$("span#show").hide();				
-	$("span#hide").show();
-	$("div#sub").css("overflow", "visible");
-	$("div#sub").css("height", "inherit");
-	
-
-  });
-  $("span#hide").click(function(){                     
-	$("span#show").show();
-	$("span#hide").hide();
-	$("div#sub").css("overflow", "hidden");
-	$("div#sub").height(hmin);
-  });
+ 
 });
-
-$('#spanquerecebeteste').load('browse?type=access .list-group');
 
 </script>
 
@@ -135,7 +118,7 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 	<div class="jumbotron" id="jumbotron" style=" position:relative;padding:20px; margin-bottom:0px; top:-25px; z-index:0;">
 		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
 			<div style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
-				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.2em; font-weight:500;">
+				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.4em; font-weight:500;">
 				Biblioteca Digital da Produção Intelectual
 				
 				</h4>
@@ -150,14 +133,14 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 <div id="creditodafoto"><p> Foto: Marcos Santos / USP Imagens.</p></div>							
 			
 <div class="row"  style="clear:left">
-    <div class="col-md-8" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
+    <div class="col-md-12" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
 					<%
 						if (submissions != null && submissions.count() > 0) {
 					%>
 
 					
-		<div class="panel" class="col-md-8" id="sub" style="padding:10px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
-			<div class="panel-heading">
+		<div   class="col-md-12" id="subs" style="padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
+			<div style="clear:both; margin:20px">
 				<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;"> <span class="glyphicon glyphicon-book" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.recentsub"/>
 								<%
 									if (feedEnabled) {
@@ -176,6 +159,7 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 												width = 36;
 											}
 								%>
+								
 					<a href="<%= request.getContextPath()%>/feed/<%= fmts[j]%>/site"><img src="<%= request.getContextPath()%>/image/<%= icon%>" alt="RSS Feed" width="<%= width%>" height="15" vspace="3" border="0" /></a>
 									<%
 											}
@@ -215,12 +199,12 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 									displayRights = dcv[0].value;
 								}
 						%>
-			<div class="media padding15" id="recentSubmissions">
+			<div class="col-md-6" id="recentSubmissions">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
-					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" alt="Open Access logo">
+					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" style="margin:5px" alt="Open Access logo">
 								<% } else { %>
-					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px" alt="Closed Access logo">
+					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px" style="margin:5px" alt="Closed Access logo">
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
@@ -237,7 +221,7 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" style="color: #FFB957;" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author">
+					<a class="authority author" style="color: #FFB957; font-size:0.9em" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author">
 										<% } else { %>
 										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
 										<% } %>
@@ -256,111 +240,49 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 		</div>
 
 		<!-- Exibição de mais submissões -->
-	
+	<!--
 	<div style="height:40px;width:40px; position:relative; float:right; color:gray; background-color:#eee;padding:5px;top:-62px">
-			<center><h1><span id="show" class="glyphicon glyphicon-plus" style="left:1px;"></span>
-			<span id="hide" class="glyphicon glyphicon-minus" style="left:-1px;"></span></center>
+			<center><h1><span id="show" class="glyphicon glyphicon-hand-right" style="left:1px;"></span>
 	</h1>
-	</div>
+	</div>-->
 		
 					<%}%>
 					</div>
 		
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<!-- Notícias -->
-		<div id="news" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5; width:100%">
-			<br><div class="panel-heading" style="margin:0">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;"><span class="glyphicon glyphicon-time" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.events"/>
-			</h2>
-
+		<!--<div id="news" class="col-md-12" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">-->
 			
-			</div>
-		<br>
-<div id="rss">
-<script type="text/javascript">
-                    
-                    rssmikle_url="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2";
-                            rssmikle_frame_width="100%";
-                    rssmikle_frame_height="150";
-                    rssmikle_target="_blank";
-                    rssmikle_font="'Roboto', sans-serif";
-                    rssmikle_font_size="12";
-                    rssmikle_border="off";
-                    rssmikle_css_url="";
-                    autoscroll="off";
-                    rssmikle_title="off";
-                    rssmikle_title_bgcolor="#696969";
-                    rssmikle_title_color="#f5f5f5";
-                    rssmikle_title_bgimage="http://";
-                    rssmikle_item_bgcolor="#f5f5f5";
-                    rssmikle_item_bgimage="http://";
-                    rssmikle_item_title_length="100";
-                    rssmikle_item_title_color="#1094ab";
-                    rssmikle_item_border_bottom="on";
-                    rssmikle_item_description="off";
-                    rssmikle_item_description_length="150";
-                    rssmikle_item_description_color="#666666";
-                    rssmikle_item_date="off";
-                    rssmikle_item_description_tag="off";
-                    rssmikle_item_podcast="off";
-                </script>
-      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
-      <div style="font-size:10px; text-align:right; width:215px;"></div>
-</div>
-
-			<div style="margin:0px; padding:0px;">
-		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-30px; padding:10px; height:30px; opacity:0.9;width:100%;"></br><p style="position:relative; top: -25px; float:right">
-		Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</p></small>
-		</div>
-
-	
-
-				
+			
+			
+			
 			
 		
-			<div class="panel-heading" style="position:relative; margin:0; clear:both; top:-20px;">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
-			
-			</h2>
-			</div>
-		<br>
-			<div id="rss">
-<script type="text/javascript">
-                    
-                    rssmikle_url="http://www5.usp.br/feed/?category=uspdestaque";
-            rssmikle_frame_width="100%";
-                    rssmikle_frame_height="250";
-                    rssmikle_target="_blank";
-                    rssmikle_font="'Roboto', sans-serif";
-                    rssmikle_font_size="12";
-                    rssmikle_border="off";
-                    rssmikle_css_url="";
-                    autoscroll="off";
-                    rssmikle_title="on";
-                    rssmikle_title_bgcolor="#696969";
-                    rssmikle_title_color="#f5f5f5";
-                    rssmikle_title_bgimage="http://";
-                    rssmikle_item_bgcolor="#f5f5f5";
-                    rssmikle_item_bgimage="http://";
-                    rssmikle_item_title_length="100";
-                    rssmikle_item_title_color="#1094ab";
-                    rssmikle_item_border_bottom="on";
-                    rssmikle_item_description="on";
-                    rssmikle_item_description_length="150";
-                    rssmikle_item_description_color="#666666";
-                    rssmikle_item_date="off";
-                    rssmikle_item_description_tag="off";
-                    rssmikle_item_podcast="off";
-                   
-                </script>
-      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
-      <div style="font-size:10px; text-align:right; width:215px;"></div>
 </div>
 
-<div style="margin-bottom:0px;">
-		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-20px; padding:10px; height:30px; opacity:0.7;">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Ag&ecirc;ncia USP de Notícias</a>.</small>
-		</div>
+			
+			
+			
+			
+
+	
+	
+	
+	
+	<div class="row" style="padding:10px;margin-top:15px" >
+<div class="col-md-8">
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;padding:10px">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
+			
+			</h2>
+			
+			<div class="col-md-6" style="padding:10px">			
 <div style="width:100%; font-size:12px; background-color:#696969; color:#eee; clear:both; font-weight:700;font-family:'Roboto', sans-serif; height:26px; padding:5px">Confederation of Open Access Repositories</div>
+
+
+
+
+
+
 <div id="rss">
       <script type="text/javascript">
               
@@ -379,7 +301,7 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
                     rssmikle_title_bgimage="http://";
                     rssmikle_item_bgcolor="#f5f5f5";
                     rssmikle_item_bgimage="http://";
-                    rssmikle_item_title_length="100";
+                    rssmikle_item_title_length="90";
                     rssmikle_item_title_color="#1094ab";
                     rssmikle_item_border_bottom="on";
                     rssmikle_item_description="on";
@@ -424,13 +346,136 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
       <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
       <div style="font-size:10px; text-align:right; width:215px;"></div>
 </div>
-
+</div>
 
 		
 		
 
+<div class="col-md-6" style="padding:10px">			
+		
+			
+	
+			<div id="rss">
+<script type="text/javascript">
+                    
+                    rssmikle_url="http://www5.usp.br/feed/?category=uspdestaque";
+            rssmikle_frame_width="100%";
+                    rssmikle_frame_height="380";
+                    rssmikle_target="_blank";
+                    rssmikle_font="'Roboto', sans-serif";
+                    rssmikle_font_size="12";
+                    rssmikle_border="off";
+                    rssmikle_css_url="";
+                    autoscroll="off";
+                    rssmikle_title="on";
+                    rssmikle_title_bgcolor="#696969";
+                    rssmikle_title_color="#f5f5f5";
+                    rssmikle_title_bgimage="http://";
+                    rssmikle_item_bgcolor="#f5f5f5";
+                    rssmikle_item_bgimage="http://";
+                    rssmikle_item_title_length="90";
+                    rssmikle_item_title_color="#1094ab";
+                    rssmikle_item_border_bottom="on";
+                    rssmikle_item_description="on";
+                    rssmikle_item_description_length="170";
+                    rssmikle_item_description_color="#666666";
+                    rssmikle_item_date="off";
+                    rssmikle_item_description_tag="off";
+                    rssmikle_item_podcast="off";
+                   
+                </script>
+      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+</div>
+
+<div style="margin-bottom:0px;">
+		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-40px; padding:10px; height:30px; opacity:0.7;">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Ag&ecirc;ncia USP de Notícias</a>.</small>
+		</div>
+		</div>
+		
 
 			
+			
+			
+			</div>
+				
+			
+<div class="col-md-4" >
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;padding:10px;"><span class="glyphicon glyphicon-time" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.events"/>
+			</h2>
+<div class="col-md-12" style="padding:10px">			
+			
+			
+<div id="rss">
+<script type="text/javascript">
+                    
+                    rssmikle_url="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2";
+                            rssmikle_frame_width="100%";
+                    rssmikle_frame_height="200";
+                    rssmikle_target="_blank";
+                    rssmikle_font="'Roboto', sans-serif";
+                    rssmikle_font_size="12";
+                    rssmikle_border="off";
+                    rssmikle_css_url="";
+                    autoscroll="off";
+                    rssmikle_title="off";
+                    rssmikle_title_bgcolor="#696969";
+                    rssmikle_title_color="#f5f5f5";
+                    rssmikle_title_bgimage="http://";
+                    rssmikle_item_bgcolor="#f5f5f5";
+                    rssmikle_item_bgimage="http://";
+                    rssmikle_item_title_length="100";
+                    rssmikle_item_title_color="#1094ab";
+                    rssmikle_item_border_bottom="on";
+                    rssmikle_item_description="off";
+                    rssmikle_item_description_length="150";
+                    rssmikle_item_description_color="#666666";
+                    rssmikle_item_date="off";
+                    rssmikle_item_description_tag="off";
+                    rssmikle_item_podcast="off";
+                </script>
+      <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+ 
+</div>
+
+			<div style="margin:0px; padding:0px;">
+		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-30px; padding:10px; height:30px; opacity:0.9;width:100%;"></br><p style="position:relative; top: -25px; float:right">
+		Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</p></small>
+		</div>
+		
+		
+		<div class="col-md-12" style="top:0px; ; padding:11px;
+		
+border-color: #fcb421;
+border-top-style:solid;
+border-bottom-style:solid;
+background-color:#f5f5f5;
+
+		">
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#d58B00">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; Compartilhe a BDPI
+			
+			</h2>
+			
+			<div id="share" style="margin: auto;padding:15px; width:200px">
+				
+<span class='st_facebook_large' displayText='Facebook'></span>
+
+<span class='st_twitter_large' displayText='Tweet'></span>
+
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+
+<span class='st_googleplus_large' displayText='Google +'></span>
+
+<span class='st_whatsapp_large' displayText='WhatsApp'></span>
+</div>
+			</div>
+			</div>
+</div>
+		
+	</div>	
+		
+		
+
+
 			<!--
 			<div class="media padding15">
 				<a class="pull-left" href="#">
@@ -461,17 +506,16 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<br/><br/><a class="btn btn-primary" href="#" role="button">Leia mais...</a>
 				</div>
 			</div> -->
-		</div>
+		
 
 <!-- Notas de rodapé -->
 			
-		<div style="max-width:900px;min-height:309px;margin-left:auto; margin-right:auto; margin-top:20px; border-top-width:2px; border-top-color:#EEE; clear:both" class="container-notasdorodape">
-			<center>
+			
 				<!-- /.col-lg-4 -->
-			<div class="col-lg-4" id="notasdorodape" >
+			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-eye-open iconbg"></span>
 				<h3>Visibilidade</h3>
-				<h5><small><p style="text-align:justufy">A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
+				<h5><small><p style="text-align:justufy"><br>A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
 				</h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
 				</p>-->
@@ -479,8 +523,8 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 			</div>
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
-				<h3>Como depositar</h3>
-				<h5><small><p>Docentes e pós-graduandos com vínculo ativo podem depositar a produção científica (artigos, comunicações em eventos, livros e capítulos de livros), pelo número USP/mesma senha dos sistemas USP Digital preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o título completo do documento. O acesso à comunidade de vínculo no sistema, pode ser solicitado pelo e-mail, atendimento@sibi.usp.br. Após a submissão, o registro será complementado e publicado pela Biblioteca da unidade de vínculo.</p></small></h5>
+				<h3>Deposite seu trabalho</h3>
+				<h5><small><p><br>Docentes e p&oacute;s-graduandos com v&iacute;nculo ativo USP podem depositar a produ&ccedil;&atilde;o cient&iacute;fica (artigos, comunica&ccedil;&otilde;es em eventos, livros e cap&iacute;tulos de livros) pelo n&uacute;mero USP e a senha dos sistemas USP Digital.  Solicite o acesso à sua comunidade de v&iacute;nculo no sistema pelo e-mail, atendimento@sibi.usp.br e fa&ccedil;a sua submiss&atilde;o preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o t&iacute;tulo completo do documento. Ap&oacute;s o dep&oacute;sito, o registro ser&aacute; revisado e publicado pela Biblioteca da unidade de v&iacute;nculo.</p></small></h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>
@@ -489,6 +533,8 @@ $('#spanquerecebeteste').load('browse?type=access .list-group');
 			<div class="col-lg-4" id="notasdorodape">
 				<span class="glyphicon glyphicon-stats iconbg"></span>
 				<h3>BDPI em números</h3>
+				
+				
 				<!--<h4>
 					<div style="width:100px">
 						<dl class="dl-horizontal" style="width:300px">
