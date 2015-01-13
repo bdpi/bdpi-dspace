@@ -5871,8 +5871,6 @@ color: #0e94ab;
 
 .chamada {
 color: #FFAD33;
-font-size:22px;
-
 }
 
 .paddingnone {
@@ -6173,68 +6171,21 @@ font-family: 'Roboto', sans-serif;
 }
 
 #notasdorodape h5{
-width:120%;
 position:relative;
-right:10%;
+max-width:500px;
+margin: auto;
+font-size:1.2em;
 }
 
 #notasdorodape{
-max-width:300px;
+padding:10px;
 position:relative;
-padding:10%;
-padding:40px;
 margin-left:auto; margin-right:auto; margin-top:20px;
-	
-}
-@media (max-width: 1200px) {
-	#notasdorodape{
-	position:relative;
-	z-index:10;
-	max-width:400px;
-	padding:0px;
-	margin-left:auto; margin-right:auto; margin-top:20px;
-	}
-	#notasdorodape h5{
-	width:100%;
-	position:relative;
-	right:0;
-	}
-	}
+text-align: center;
 }
 
-@media (min-width: 10px) {
-	#news{
-	position:relative;
-	padding:10%;
-	padding:40px;
-	margin-top:0px;
-	float: right;
-	width:100%;
-	margin-left:auto;
-	margin-right:auto;
-	}
-}
-
-@media (min-width: 992px) {
-	#news{
-	margin-top:0px;
-	padding-top: 0;
-	max-width:320px;
-	position:relative;
-	padding:10%;
-	float:right;
-	}
-	#share{
-	top:50px;
-	}
-	#allshare{
-	margin-top:90px; 
-	}
-}
-@media (max-width: 992px){
-	#allshare{
-	top:160px; 
-	}
+#dspacecreditos{
+font-size:0.9em;
 }
 
 div.cruesplink{
@@ -6267,10 +6218,12 @@ max-width:500px;
 float:right;
 }
 div#footer_feedback  a{
-color: #E3A21E;
+color: #d58B00;
+cursor:pointer
 }
 div#footer_feedback  a:hover{
 color: #fcb421;
+cursor:pointer
 }
 div#footer_feedback{
 position:relative;
@@ -6334,6 +6287,8 @@ p.rss-title {padding:0em;}
 .rss-date {
 	visibility:hidden;
 	}
+	
+
  
 /* buttons modeled from http://www.wellstyled.com/css-inline-buttons.html */
 
@@ -6382,7 +6337,7 @@ opacity:0.6;
 clear:both; 
 float:right; 
 top:-70px; 
-right:3px; 
+right:10px; 
 height:0; 
 border-width:0; 
 text-align: right;

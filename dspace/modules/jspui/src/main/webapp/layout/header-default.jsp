@@ -254,7 +254,7 @@
 						<!-- uspbarra -->  
                         
 
-						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#b3b3bc;" >
+						<body class="undernavigation" onload="tamanho();" onresize="tamanho()" style="background-color:#cad8db;" >
                                     <a class="sr-only" href="#content">Skip navigation</a>
                                     <div class="container" id="container" style="top:-20px; background-color:#FFF;box-shadow: 5px 5px 40px #333333;">
                                         <div class="row" style="top:-36px; background-color:#FFF;">
@@ -273,20 +273,7 @@
 
 		
 											
-											<div id="allshare" style="padding:20px;position:absolute; z-index: 200; background-color:#eee; border-radius:5px; display:none; width: 350px;box-shadow: 5px 5px 40px #333333;">
-		
-		<div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px;">
-                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
-                        <a class="addthis_button_tweet" tw:count="vertical"></a>
-                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
-                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
-                        <a class="addthis_button_compact"></a>
-        </div>
-                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
-                        & #160;
-                    </script>
-		
-		</div>
+											
 		
 		</div>
 		
@@ -320,36 +307,12 @@ $('#showlessshare').on('click', function(){
 </script>		
 
 											
-                                            <div class="col-md-8">
+                                            <br><div class="col-md-8">
                                                 <br> 
                                                     <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png" alt="SIBi - Sistema Integrado de Bibliotecas - Biblioteca Digital da Produção Intelectual"></a>
                                                <br>								
 										    </div>
 											
-											
-											<div id="share" align="center" style="position:relative; float: right; margin-bottom:20px; margin-left:0; margin-right:0; margin-top:0; clear:right;">
-		
-		
-		
-<span class='st_facebook_large' displayText='Facebook'></span>
-
-<span class='st_twitter_large' displayText='Tweet'></span>
-
-<span class='st_linkedin_large' displayText='LinkedIn'></span>
-
-<span class='st_googleplus_large' displayText='Google +'></span>
-
-<span class='st_whatsapp_large' displayText='WhatsApp'></span>
-&nbsp;
-<div style="position:relative; float:right; width:33px; height:34px; margin: auto; color: #eee; background-color:#cfcfd2; font-size:20px; border-radius:5px; top:-1px; right:1px; cursor:pointer">
-			<span id="showmoreshare" class="glyphicon glyphicon-plus" style="top:3px;width:35px; height:35px;"></span>
-			<span id="showlessshare" class="glyphicon glyphicon-minus" style="top:2px; left:-2px; width:35px; height:35px;display:none;"></span>
-		
-				
-		</div>
-		
-
-</div>
 
 											
                                            </div>
