@@ -123,9 +123,10 @@ $("div#subshow").show();
 				
 				</h4>
 			</div>
-			<p style="font-size:12px;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">
+			<p style="font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">
 			A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.
 			</p>
+			
 		</div>
 	</div>
 </div>
@@ -202,7 +203,7 @@ $("div#subshow").show();
 			<div class="col-md-6" id="recentSubmissions">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
-					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" style="margin:5px" alt="Open Access logo">
+					<img class="pull-left" src="image/openaccess-logo.png" height="32px" style="margin:5px" alt="Open Access logo">
 								<% } else { %>
 					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px" style="margin:5px" alt="Closed Access logo">
 								<% }%>
@@ -251,7 +252,7 @@ $("div#subshow").show();
 		
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<!-- Notícias -->
-		<!--<div id="news" class="col-md-12" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color: #64c4d2; border-top-style:solid; border-top-width:2px; border-top-color: #64c4d2; background-color:#f5f5f5;">-->
+		<!--<div id="news" class="col-md-12" style="margin-bottom:30px;position:relative; float:right;padding:10px;position:relative;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:  #1094ab; border-top-style:solid; border-top-width:2px; border-top-color:  #1094ab; background-color:#f5f5f5;">-->
 			
 			
 			
@@ -514,27 +515,27 @@ background-color:#f5f5f5;
 			
 			
 				<!-- /.col-lg-4 -->
-			<div class="col-lg-4" id="notasdorodape">
+			<div class="col-lg-3" id="notasdorodape">
 				<span class="glyphicon glyphicon-eye-open iconbg"></span>
-				<h3>Visibilidade</h3>
+				<h2>Visibilidade</h2>
 				<h5><small><p style="text-align:justufy"><br>A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
 				</h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
 				</p>-->
 				</br></br>
 			</div>
-			<div class="col-lg-4" id="notasdorodape">
+			<div class="col-lg-6" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
-				<h3>Deposite seu trabalho</h3>
+				<h2>Deposite seu trabalho</h2>
 				<h5><small><p><br>Docentes e p&oacute;s-graduandos com v&iacute;nculo ativo USP podem depositar a produ&ccedil;&atilde;o cient&iacute;fica (artigos, comunica&ccedil;&otilde;es em eventos, livros e cap&iacute;tulos de livros) pelo n&uacute;mero USP e a senha dos sistemas USP Digital.  Solicite o acesso à sua comunidade de v&iacute;nculo no sistema pelo e-mail, atendimento@sibi.usp.br e fa&ccedil;a sua submiss&atilde;o preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o t&iacute;tulo completo do documento. Ap&oacute;s o dep&oacute;sito, o registro ser&aacute; revisado e publicado pela Biblioteca da unidade de v&iacute;nculo.</p></small></h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>
 			
 				<!-- /.col-lg-4 -->
-			<div class="col-lg-4" id="notasdorodape">
+			<div class="col-lg-3" id="notasdorodape">
 				<span class="glyphicon glyphicon-stats iconbg"></span>
-				<h3>BDPI em números</h3>
+				<h2>BDPI em números</h2>
 				
 				
 				<!--<h4>
@@ -553,22 +554,22 @@ background-color:#f5f5f5;
 				</h4>-->
 				
 					<div style="text-align:center;">
-					<h4 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:center; overflow:show;">
+					<h5 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:center; overflow:show;">
 					<table style="width:100%; margin-bottom:15px;">
   <tr>
-    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">42</span></td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">42</span></td>
     <td>Unidades</td>
   </tr>
   <tr>
-    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">127</span> </td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">127</span> </td>
     <td>Departamentos</td>
   </tr>
   <tr>
-    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">38000</span></td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">38000</span></td>
     <td>Registros</td>
   </tr>
   <tr>
-    <td style="text-align:right;"><span style="font-weight:bold; font-size:16px;">38000</span></td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">38000</span></td>
     <td>Textos de acesso aberto</td>
   </tr>
   </table>
@@ -577,7 +578,7 @@ background-color:#f5f5f5;
 				</p>-->
 				
 					</p></small>
-					</h4>
+					</h5>
 					
 			</div>
 			</center>
