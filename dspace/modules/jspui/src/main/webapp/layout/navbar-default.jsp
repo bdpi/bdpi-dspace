@@ -94,7 +94,7 @@
                 <%
                 } else {
                 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <strong class="caret"></strong></a>
                 <% }%>             
             <ul class="dropdown-menu">
                
@@ -118,7 +118,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right" style="background-color:#1094ab;padding:0;margin-top:0; margin-bottom:0 ">
 <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white"><fmt:message key="jsp.layout.navbar-default.browse"/> <strong class="caret"></strong></a>
             <ul class="dropdown-menu" >
                 <li><a href="<%= request.getContextPath()%>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
   

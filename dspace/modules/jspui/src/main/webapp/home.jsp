@@ -203,9 +203,9 @@ $("div#subshow").show();
 			<div class="col-md-6" id="recentSubmissions">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
-					<img class="pull-left" src="image/openaccess-logo.png" height="32px" style="margin:5px" alt="Open Access logo">
+					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" style="margin:5px; position:relative; top:-6px" alt="Open Access logo">
 								<% } else { %>
-					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px" style="margin:5px" alt="Closed Access logo">
+					<img class="pull-left" src="image/32px-Closed_Access_logo_white.svg.png" height="32px" style="margin:5px; position:relative; top:-6px" alt="Closed Access logo">
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
@@ -222,9 +222,9 @@ $("div#subshow").show();
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" style="color: #848484; font-size:0.9em; font-weight:700" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author" style="height:1em">
+					<a class="authority author" style="color: #FF8700; font-size:0.9em; font-weight:700" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author" style="height:1em">
 										<% } else { %>
-										  <%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%>
+										  <span style="color: #FF8700; font-size:0.9em; font-weight:400"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></span>
 										<% } %>
 									<% }%><%=etal%></p>
 					<p style="font-size:13px;"><%= StringUtils.abbreviate(displayAbstract, 500)%></p>

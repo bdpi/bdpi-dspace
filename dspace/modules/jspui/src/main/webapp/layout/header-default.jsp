@@ -309,7 +309,7 @@ $('#showlessshare').on('click', function(){
 											
                                             <br><div class="col-md-8">
                                                 <br> 
-                                                    <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png" alt="SIBi - Sistema Integrado de Bibliotecas - Biblioteca Digital da Produção Intelectual"></a>
+                                                    <a href="<%= request.getContextPath()%>/"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png" alt="SIBi - Sistema Integrado de Bibliotecas - Biblioteca Digital da Produção Intelectual"></a>
                                                <br>								
 										    </div>
 											

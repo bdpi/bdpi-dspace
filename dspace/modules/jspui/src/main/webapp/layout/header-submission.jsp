@@ -290,7 +290,7 @@ $('#showlessshare').on('click', function(){
 											
                                             <div class="col-md-8">
                                                 <div class="logo"><br><br>
-                                                    <a href="<%= siteURL%>"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
+                                                    <a href="<%= siteURL%>/home.jsp"><img class="img-responsive" src="<%= siteURL%>/image/producao.usp.png"></a>
                                                 <br>
 												</div>
 										
