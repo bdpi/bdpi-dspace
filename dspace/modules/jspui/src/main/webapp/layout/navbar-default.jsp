@@ -80,7 +80,7 @@
         <li class="<%= currentPage.endsWith("/home.jsp") ? "active" : ""%>"><a href="<%= request.getContextPath()%>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 
         
-        <li><a data-toggle="modal" data-target="#faq"><fmt:message key="usp.menu.faq"/></a></li> <!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
+        
     </ul>
     <ul class="nav navbar-nav navbar-right">
 
