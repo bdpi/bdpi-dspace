@@ -517,8 +517,8 @@ background-color:#f5f5f5;
 				<!-- /.col-lg-4 -->
 			<div class="col-lg-3" id="notasdorodape">
 				<span class="glyphicon glyphicon-eye-open iconbg"></span>
-				<h2>Visibilidade</h2>
-				<h5><small><p style="text-align:justufy"><br>A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
+				<h2><fmt:message key="usp.visibilidade.title"/>Visibilidade</h2>
+				<h5><small><p style="text-align:justufy"><br><fmt:message key="usp.visibilidade.text"/>A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
 				</h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
 				</p>-->

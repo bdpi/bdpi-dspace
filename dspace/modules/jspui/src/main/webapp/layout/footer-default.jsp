@@ -69,7 +69,7 @@
 		    <a data-toggle="modal" data-target="#openAccessPolicy"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
                 <a data-toggle="modal" data-target="#politicaDePrivacidade"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
                 <a data-toggle="modal" data-target="#direitosAutorais"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
-				<a data-toggle="modal" data-target="#faq"><fmt:message key="usp.menu.faq"/></a><!-- substitui o marcador <fmt:message key="jsp.layout.navbar-default.help"/> pelo FAQ -->
+				<a href="help/map.html"><fmt:message key="usp.menu.faq"/></a>
                 <br><br><br>
 		
 		<div id="dspacecreditos"><fmt:message key="jsp.layout.footer-default.text"  /></div>
