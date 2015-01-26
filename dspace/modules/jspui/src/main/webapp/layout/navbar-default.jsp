@@ -213,7 +213,17 @@
                 <dspace:include page="${paginacreditos}"/>
             </div>
         </div>
-    </div>            
+    </div>       
+
+<!-- Mapa do Site -->
+    <div class="modal fade" id="map" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <fmt:message key="page.map" var="map"/>
+                <dspace:include page="${paginamap}"/>
+            </div>
+        </div>
+    </div>      	
     
 
 </nav>
