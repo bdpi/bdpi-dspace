@@ -43,14 +43,14 @@
     <div class="col-md-12">
         <footer class="navbar navbar-inverse" style="background-color:transparent; margin-top:50px;">
 		<br><br>
-            <div id="designedby" style="background-color:white; height:60px;position:relative; float:left; width:100%; border-top-style:solid;border-top-width:2px;border-top-color:#fcb421;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:#fcb421;">
-                <h6 style="color:#d58B00; font-weight:bold; position:relative;top:-5px">
+            <div id="designedby" style="background-color:white; height:60px;position:relative; float:left; width:100%; border-top-style:solid;border-top-width:2px;border-top-color:#FF9900;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:#FF9900;">
+                <h6 style="color:#FF8700; font-weight:bold; position:relative;top:-5px">
 				
-				<div style="float:left; position:relative;top:12px"><strong>&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;</strong></div>
+				<div style="float:left; position:relative;top:12px; color:#FF8700"><strong>&nbsp;&nbsp;<fmt:message key="jsp.layout.footer-default.theme-by"/> &nbsp;&nbsp;</strong></div>
 				
 				<a href="http://www.cineca.it"> 
 				
-				<div style="background-color:#fcb421;position:relative;width:45px;height:48px;float:left; padding:5px;border-radius: 5px; top:-6px">
+				<div style="background-color:#FF9900;position:relative;width:45px;height:48px;float:left; padding:5px;border-radius: 5px; top:-6px">
 				
 				<img    style="width:35px;"
 						src="<%= request.getContextPath()%>/image/logo-cineca-small.png"
@@ -61,18 +61,18 @@
 				</a>
 				<div id="footer_feedback" class="pull-right" style="position:relative; top:-12px">
 				
-				<a data-toggle="modal" data-target="#creditos" style="cursor:pointer;color:#d58B00"><fmt:message key="usp.menu.creditos"/></a>&nbsp;|&nbsp;
-                    <a target="_blank" href="<%= request.getContextPath()%>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
-                    <a data-toggle="modal" data-target="#map"><fmt:message key="usp.menu.map"/></a>&nbsp;|&nbsp;
-                    <a href="#">Voltar ao in&iacute;cio</a>
+				<a data-toggle="modal" data-target="#creditos" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.creditos"/></a>&nbsp;|&nbsp;
+                    <a target="_blank" href="<%= request.getContextPath()%>/feedback" style="cursor:pointer;color:#FF8700"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
+                    <a data-toggle="modal" data-target="#map" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.map"/></a>&nbsp;|&nbsp;
+                    <a href="#" style="cursor:pointer;color:#FF8700">Voltar ao in&iacute;cio</a>
 		    <br><br>
-		    <a data-toggle="modal" data-target="#openAccessPolicy"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
-                <a data-toggle="modal" data-target="#politicaDePrivacidade"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
-                <a data-toggle="modal" data-target="#direitosAutorais"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
-				<a href="help/map.html"><fmt:message key="usp.menu.faq"/></a>
+		    <a data-toggle="modal" data-target="#openAccessPolicy" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
+                <a data-toggle="modal" data-target="#politicaDePrivacidade" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
+                <a data-toggle="modal" data-target="#direitosAutorais" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
+				<a href="help/map.html" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.faq"/></a>
                 <br><br><br>
 		
-		<div id="dspacecreditos"><fmt:message key="jsp.layout.footer-default.text"  /></div>
+		<div id="dspacecreditos" style="cursor:pointer;color:#FF8700"><fmt:message key="jsp.layout.footer-default.text"  /></div>
 				</div>
 				</h6>	
             </div>

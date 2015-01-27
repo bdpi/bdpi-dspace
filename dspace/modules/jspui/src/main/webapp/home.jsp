@@ -100,6 +100,8 @@ $(document).ready(function(){
 
 $("div#recentSubmissions").first().attr("id","subshow");
 $("div#recentSubmissions").first().next().attr("id","subshow");
+$("div#recentSubmissions").first().next().next().attr("id","subshow");
+$("div#recentSubmissions").first().next().next().next().attr("id","subshow");
 $("div#recentSubmissions").hide();
 $("div#subshow").show();
 
@@ -139,9 +141,9 @@ $("div#subshow").show();
 					%>
 
 					
-		<div   class="col-md-12" id="subs" style="padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#fcb421; border-top-style:solid; border-top-width:2px; border-top-color:#fcb421; background-color:#f5f5f5;">
+		<div   class="col-md-12" id="subs" style="padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#FF9900; border-top-style:solid; border-top-width:2px; border-top-color:#FF9900; background-color:#f5f5f5;">
 			<div style="clear:both; margin:20px">
-				<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;"> <span class="glyphicon glyphicon-book" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.recentsub"/>
+				<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;margin-bottom:30px;color:#696969"> <span class="glyphicon glyphicon-book" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.recentsub"/>
 								<%
 									if (feedEnabled) {
 										String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -199,7 +201,7 @@ $("div#subshow").show();
 									displayRights = dcv[0].value;
 								}
 						%>
-			<div class="col-md-6" id="recentSubmissions">
+			<div class="col-md-6" id="recentSubmissions" style="margin-top:20px">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
 					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" style="margin:5px; position:relative; top:-6px" alt="Open Access logo">
@@ -208,7 +210,7 @@ $("div#subshow").show();
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
-					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color: #1094ab; font-weight:300;"><h4 class="media-heading" style="font-size:15px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color: #607890; font-weight:300;"><h4 class="media-heading" style="font-size:15px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
 					<p><%
 									int maxcount;
 									String etal = "";
@@ -221,7 +223,7 @@ $("div#subshow").show();
 									for (int acount = 0; acount < maxcount; acount++) { %>
 										<% if (acount > 0) { %>; <% }%>
 										<% if(displayAuthors[acount][1]!=null){ %>
-					<a class="authority author" style="color: #FF8700; font-size:0.9em; font-weight:700" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author" style="height:1em">
+					<a class="authority author" style="color: #FF8700; font-size:0.9em; font-weight:400" href="/browse?type=author&authority=<%=displayAuthors[acount][1]%>"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></a> <img src="<%=request.getContextPath()%>/image/ehUSP.png" alt="usp author" style="height:1em">
 										<% } else { %>
 										  <span style="color: #FF8700; font-size:0.9em; font-weight:400"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></span>
 										<% } %>
@@ -388,7 +390,7 @@ $("div#subshow").show();
 </div>
 
 <div style="margin-bottom:0px;">
-		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-40px; padding:10px; height:30px; opacity:0.7;">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#64c4d2;">Ag&ecirc;ncia USP de Notícias</a>.</small>
+		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-40px; padding:10px; height:30px; opacity:0.7;">Fonte: <a href="http://www.usp.br/agen/" target="_blank" style="color:#607890;">Ag&ecirc;ncia USP de Notícias</a>.</small>
 		</div>
 		</div>
 		
@@ -439,13 +441,13 @@ $("div#subshow").show();
 
 			<div style="margin:0px; padding:0px;">
 		<small style="position:relative; float:right; background-color: #f5f5f5; z-index:10; top:-30px; padding:10px; height:30px; opacity:0.9;width:100%;"></br><p style="position:relative; top: -25px; float:right">
-		Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#64c4d2;">USP Eventos</a>.</p></small>
+		Fonte: <a href="http://www.eventos.usp.br/" target="_blank" style="color:#607890;">USP Eventos</a>.</p></small>
 		</div>
 		
 		
 		<div class="col-md-12" style="top:0px; ; padding:11px;
 		
-border-color: #fcb421;
+border-color: #FF9900;
 border-top-style:solid;
 border-top-width:2px;
 border-bottom-width:2px;
@@ -453,7 +455,7 @@ border-bottom-style:solid;
 background-color:#f5f5f5;
 
 		">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#d58B00">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; <fmt:message key="usp.menu.share"/>
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#FF8700">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; <fmt:message key="usp.menu.share"/>
 			
 			</h2>
 			
