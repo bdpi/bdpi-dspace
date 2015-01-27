@@ -72,7 +72,7 @@
 				<a href="help/map.html" style="cursor:pointer;color:#FF8700"><fmt:message key="usp.menu.faq"/></a>
                 <br><br><br>
 		
-		<div id="dspacecreditos" style="cursor:pointer;color:#FF8700"><fmt:message key="jsp.layout.footer-default.text"  /></div>
+		<div id="dspacecreditos"><fmt:message key="jsp.layout.footer-default.text"  /></div>
 				</div>
 				</h6>	
             </div>
@@ -91,11 +91,11 @@
 	    </div>
 		</footer>
 		<br><br><br><br>
-<h4>
+<h4 style="font-weight:400">
 		<address class="text-center">
 Departamento Técnico do Sistema Integrado de Bibliotecas da USP<br>
 Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil<br>
-<span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope" /><span style="position:relative; right:8px; top:-2px"> atendimento@sibi.usp.br</span>
+<span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"  /><span style="position:relative; right:0px; top:-2px; font-family: Roboto, sans-serif"> atendimento@sibi.usp.br</span>
 </address> <br>
 
 <!-- Botões de compartilhamento 

@@ -445,7 +445,7 @@ $("div#subshow").show();
 		</div>
 		
 		
-		<div class="col-md-12" style="top:0px; ; padding:11px;
+		<div class="col-md-12" style="top:9px; ; padding:11px;
 		
 border-color: #FF9900;
 border-top-style:solid;

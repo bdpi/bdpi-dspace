@@ -6185,9 +6185,8 @@ text-align: center;
 }
 
 #dspacecreditos{
-font-size:0.9em;
+font-size:0.9em;color:black; font-weight:400;
 }
-
 div.cruesplink{
 width:75px;
 height:20px;
@@ -6218,7 +6217,7 @@ max-width:500px;
 float:right;
 }
 div#footer_feedback  a{
-color: #d58B00;
+color: #FF8700;;
 cursor:pointer
 }
 div#footer_feedback  a:hover{
