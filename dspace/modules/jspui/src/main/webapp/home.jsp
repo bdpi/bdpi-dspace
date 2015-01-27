@@ -119,13 +119,12 @@ $("div#subshow").show();
 		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
 			<div style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
 				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.4em; font-weight:500;">
-				Biblioteca Digital da Produção Intelectual
+				<fmt:message key="usp.home.bdpititle"/>
 				
 				</h4>
 			</div>
 			<p style="font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">
-			A BDPI é o repositório institucional da Universidade de São Paulo. É um sistema de gestão e disseminação da produção científica, acadêmica, técnica e artística gerada pelas pesquisas desenvolvidas na USP.
-			</p>
+<fmt:message key="usp.home.bdpidescription"/>			</p>
 			
 		</div>
 	</div>
@@ -454,7 +453,7 @@ border-bottom-style:solid;
 background-color:#f5f5f5;
 
 		">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#d58B00">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; Compartilhe a BDPI
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#d58B00">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; <fmt:message key="menu.share.title"/>
 			
 			</h2>
 			
@@ -517,8 +516,8 @@ background-color:#f5f5f5;
 				<!-- /.col-lg-4 -->
 			<div class="col-lg-3" id="notasdorodape">
 				<span class="glyphicon glyphicon-eye-open iconbg"></span>
-				<h2><fmt:message key="usp.visibilidade.title"/>Visibilidade</h2>
-				<h5><small><p style="text-align:justufy"><br><fmt:message key="usp.visibilidade.text"/>A BDPI oferece visualização de métricas relacionadas a cada documento e detalha o impacto de citações, downloads, tweets e outros conteúdos que mencionam publicações acadêmicas.</p></small>
+				<h2><fmt:message key="usp.visibilidade.title"/></h2>
+				<h5><small><p style="text-align:justufy"><br><fmt:message key="usp.visibilidade.text"/></p></small>
 				</h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a>
 				</p>-->
@@ -526,8 +525,8 @@ background-color:#f5f5f5;
 			</div>
 			<div class="col-lg-6" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
-				<h2>Deposite seu trabalho</h2>
-				<h5><small><p><br>Docentes e p&oacute;s-graduandos com v&iacute;nculo ativo USP podem depositar a produ&ccedil;&atilde;o cient&iacute;fica (artigos, comunica&ccedil;&otilde;es em eventos, livros e cap&iacute;tulos de livros) pelo n&uacute;mero USP e a senha dos sistemas USP Digital.  Solicite o acesso à sua comunidade de v&iacute;nculo no sistema pelo e-mail, atendimento@sibi.usp.br e fa&ccedil;a sua submiss&atilde;o preenchendo os campos solicitados e carregando o arquivo PDF nomeado com o t&iacute;tulo completo do documento. Ap&oacute;s o dep&oacute;sito, o registro ser&aacute; revisado e publicado pela Biblioteca da unidade de v&iacute;nculo.</p></small></h5>
+				<h2><fmt:message key="usp.deposito.title"/></h2>
+				<h5><small><p><br><fmt:message key="usp.deposito.text"/></p></small></h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>
@@ -535,7 +534,7 @@ background-color:#f5f5f5;
 				<!-- /.col-lg-4 -->
 			<div class="col-lg-3" id="notasdorodape">
 				<span class="glyphicon glyphicon-stats iconbg"></span>
-				<h2>BDPI em números</h2>
+				<h2><fmt:message key="usp.numeros.title"/></h2>
 				
 				
 				<!--<h4>
