@@ -453,7 +453,7 @@ border-bottom-style:solid;
 background-color:#f5f5f5;
 
 		">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#d58B00">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; <fmt:message key="menu.share.title"/>
+			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#d58B00">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; <fmt:message key="usp.menu.share"/>
 			
 			</h2>
 			

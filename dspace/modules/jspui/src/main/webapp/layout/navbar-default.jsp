@@ -215,15 +215,15 @@
         </div>
     </div>       
 
-<!-- Mapa do Site -->
+   <!-- Modal MAP -->
     <div class="modal fade" id="map" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <fmt:message key="page.map" var="map"/>
+            <div class="modal-content" >
+                <fmt:message key="page.map" var="paginamap"/>
                 <dspace:include page="${paginamap}"/>
             </div>
         </div>
-    </div>      	
+    </div>
     
 
 </nav>
