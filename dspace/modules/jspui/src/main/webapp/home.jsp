@@ -100,8 +100,6 @@ $(document).ready(function(){
 
 $("div#recentSubmissions").first().attr("id","subshow");
 $("div#recentSubmissions").first().next().attr("id","subshow");
-$("div#recentSubmissions").first().next().next().attr("id","subshow");
-$("div#recentSubmissions").first().next().next().next().attr("id","subshow");
 $("div#recentSubmissions").hide();
 $("div#subshow").show();
 
