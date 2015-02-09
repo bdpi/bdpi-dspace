@@ -45,7 +45,7 @@
 %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<fmt:message key="html.lang"/>" xml:lang="<fmt:message key="html.lang"/>" >
     <head>
 	
 	
@@ -282,7 +282,6 @@
 <script>
 $(document).ready(function(){
 
-
 //menu das opções de compartilhamento
 $('#showmoreshare').on('click', function(){
 	$('#allshare').show();
@@ -304,6 +303,8 @@ $('#showlessshare').on('click', function(){
 				$(".cruesplinkin").hide();
 	})
 });
+
+//$('html').attr({'lang': 'en','xml:lang':'en'});
 </script>		
 
 											
@@ -319,6 +320,12 @@ $('#showlessshare').on('click', function(){
 											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
 											&nbsp;</h6>
+											
+											
+											
+											
+											
+											
 											
 																					
 																	<header class="navbar navbar-inverse" role="navigation">

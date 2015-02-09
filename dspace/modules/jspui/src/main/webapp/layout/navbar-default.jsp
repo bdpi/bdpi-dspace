@@ -139,7 +139,8 @@
             </ul>
         </li>
 	</ul>
-    <%-- Search Box --%><ul class="nav navbar-nav navbar-right" style="background-color:#1094ab;padding:0; margin-top:0; margin-bottom:0;">
+    <%-- Search Box --%>
+	<ul class="nav navbar-nav navbar-right" style="background-color:#1094ab;padding-top:1px">
     <form method="get" action="<%= request.getContextPath()%>/simple-search" class="navbar-form navbar-right" scope="search" >
         <div class="form-group" style="height:34px; color: white; font-size:1em">
 	<label for="tequery"><fmt:message key="jsp.search.title"/>&nbsp;&nbsp;&nbsp;</label>

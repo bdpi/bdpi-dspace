@@ -116,17 +116,42 @@ $("div#subshow").show();
 
 <div class="row" style="padding:1px; position:relative; top:-17px;">
 	<div class="jumbotron" id="jumbotron" style=" position:relative;padding:20px; margin-bottom:0px; top:-25px; z-index:0;">
-		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:both">
-			<div style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
+	
+		
+		
+		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:right; margin:20px">
+			<div class="chamada" style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
+				
+			
+				
 				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.4em; font-weight:500;">
 				<fmt:message key="usp.home.bdpititle"/>
 				
 				</h4>
+				
+				
 			</div>
 			<p style="font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">
-<fmt:message key="usp.home.bdpidescription"/>			</p>
+<fmt:message key="usp.home.bdpidescription"/>	
+</p>
+			
+			
 			
 		</div>
+		<div style="
+		max-width:500px;
+clear:both;border: 1px solid;
+margin: 20px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+color: #9F6000;
+background-color: #FEEFB3;
+">
+<div style="position:relative;float:left"><h1 style="font-size:2em; padding:5px;position:relative; top:-5px; left:-5px"><span class="glyphicon glyphicon-exclamation-sign"></h1></span></div>Se sentindo desconfortável com a nova interface do site?</br>
+<a href="http://www.producao.usp.br" >Clique aqui para usar o site na versão antiga!</a>
+</div>
+		
 	</div>
 </div>
 	

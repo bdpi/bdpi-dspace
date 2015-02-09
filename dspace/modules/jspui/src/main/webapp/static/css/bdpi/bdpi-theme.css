@@ -1116,6 +1116,8 @@ pre code {
   }
   .col-md-10 {
     width: 83.33333333%;
+	padding-right:4px;
+	padding-left:4px;
   }
   .col-md-9 {
     width: 75%;
@@ -1724,7 +1726,7 @@ output {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	  margin-top:4px;
+	  margin-top:0;
 	  margin-bottom:4px;
 }
 .form-control:focus {
@@ -2010,9 +2012,9 @@ select[multiple].input-lg {
 }
 .form-horizontal .has-feedback .form-control-feedback {
   top: 0;
-  right: 15px;
 }
 .btn {
+min-width:38px;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -6386,4 +6388,11 @@ color: white;
   -o-transform: rotate(3deg);
   -ms-transform: rotate(3deg);
   transform: rotate(3deg);
+}
+
+body a:active{
+color:#607890;
+}
+body a:visited{
+color:#607890;
 }
