@@ -5927,11 +5927,13 @@ padding-right:0px;
 	_padding:5px 12px 5px;
 }
 .uspLogo{
-        position:absolute;
-	top:0px;
+   background-color:transparent;
+   border-style:none; 
+   position:absolute;
+   top:0px;
 	left:0px;
 	width:100%;
-	height:37px;
+	height:36px;
 	text-align:left;
 	background:url(http://www.producao.usp.br/a/barrausp/images/right_Logo_usp_BG.gif) repeat-x 0 0;
 }
@@ -6219,8 +6221,7 @@ max-width:500px;
 float:right;
 }
 div#footer_feedback  a{
-color: #FF8700;;
-cursor:pointer
+color: #FF8700;
 }
 div#footer_feedback  a:hover{
 color: #fcb421;
@@ -6230,6 +6231,14 @@ div#footer_feedback{
 position:relative;
 top:-8px;
 text-align: right;
+}
+.footer-hold{
+border-top-style:solid;
+border-bottom-style:solid;
+border-width:2px;
+border-color:#fcb421;
+padding: 3px;
+height:65px;
 }
 div#recentSubmissions{
 text-align:justify;
@@ -6395,4 +6404,37 @@ color:#607890;
 }
 body a:visited{
 color:#607890;
+}
+div.designedby{
+	background-color:white;
+	position:relative; 
+	width:100%; 
+	border-top-style:solid;
+	border-top-width:2px;
+	border-top-color:#FF9900;
+	border-bottom-style:solid;
+	border-bottom-width:2px;
+	border-bottom-color:#FF9900;
+}
+.footer-links{
+color:#FF8700; font-weight:bold; position:relative;
+}
+.footer-link{
+cursor:pointer;color:#FF8700
+}
+.cineca{
+float:left; 
+position:relative;
+top:12px; 
+color:#FF8700
+}
+.cinecaLogo{
+background-color:#FF9900;position:relative;width:45px;height:48px;float:left; padding:5px;border-radius: 5px; top:-6px;
+}
+.cinecaImg{
+   width:35px;
+}
+.adress-mail{
+ position:relative; right:0px; top:-2px; font-family: Roboto, sans-serif;
+ font-weight:400;
 }
