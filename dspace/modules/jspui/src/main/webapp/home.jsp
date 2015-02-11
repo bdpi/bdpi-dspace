@@ -149,10 +149,9 @@ color: #9F6000;
 background-color: #FEEFB3;
 ">
 <div style="position:relative;float:left"><h1 style="font-size:2em; padding:5px;position:relative; top:-5px; left:-5px"><span class="glyphicon glyphicon-exclamation-sign"></h1></span></div>Se sentindo desconfortável com a nova interface do site?</br>
-<a href="http://www.producao.usp.br" >Clique aqui para usar o site na versão antiga!</a>
+<a href="/xmlui">Clique aqui para usar o site na versão antiga!</a>
 </div>
-		
-	</div>
+</div>
 </div>
 	
 <div id="creditodafoto"><p> Foto: Marcos Santos / USP Imagens.</p></div>							

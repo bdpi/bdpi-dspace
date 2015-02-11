@@ -136,8 +136,8 @@
 	        
     </head>
     <div id="uspbarra" style="background-color:transparent;border-style:none">
-        <div class="uspLogo"  style="background-color:transparent;border-style:none">
-            <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP" style="cursor:pointer;position: absolute;bottom: 0px;" src="<%= siteURL%>/image/Logo_usp_composto.jpg" />
+        <div class="uspLogo">
+            <img class="img-responsive" onclick="javascript:window.open('http://www.usp.br');" alt="USP logo" style="cursor:pointer;position: absolute;bottom: 0px;" src="<%= siteURL%>/image/Logo_usp_composto.jpg" />
          </div>
         <div class="panel-group" id="accordion"  style="background-color:transparent;border-style:none">
             <div class="panel" style="background-color:transparent;border-style:none">
