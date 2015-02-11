@@ -138,19 +138,7 @@ $("div#subshow").show();
 			
 			
 		</div>
-		<div style="
-		max-width:500px;
-clear:both;border: 1px solid;
-margin: 20px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
-color: #9F6000;
-background-color: #FEEFB3;
-">
-<div style="position:relative;float:left"><h1 style="font-size:2em; padding:5px;position:relative; top:-5px; left:-5px"><span class="glyphicon glyphicon-exclamation-sign"></h1></span></div>Se sentindo desconfortável com a nova interface do site?</br>
-<a href="/xmlui">Clique aqui para usar o site na versão antiga!</a>
-</div>
+		
 </div>
 </div>
 	

@@ -322,6 +322,7 @@ $('#showlessshare').on('click', function(){
                                                 </div>
                                            </div>
 											<h6 style="position:relative; text-align:right; font-weight: 700; margin:0; top:-6px">
+											<a href="/xmlui" style="color: #fcb421">Versão antiga da BDPI</a> &nbsp;&nbsp;&nbsp;
 											<a href="?locale=pt_BR">Portugu&ecirc;s</a> | <a href="?locale=en">English</a> | <a href="?locale=es">Espa&ntilde;ol </a>
 											&nbsp;</h6>
 											
