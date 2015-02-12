@@ -61,7 +61,7 @@
 						<a data-toggle="modal" data-target="#openAccessPolicy" class="footer-link"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
 						<a data-toggle="modal" data-target="#politicaDePrivacidade" class="footer-link"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
 						<a data-toggle="modal" data-target="#direitosAutorais" class="footer-link"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
-						<a href="help/map.html" class="footer-link"><fmt:message key="usp.menu.faq"/></a>
+						<a data-toggle="modal" data-target="#faq" class="footer-link"><fmt:message key="usp.menu.faq"/></a>&nbsp;|&nbsp;
 						</br></br></br>
 			
 						<div id="dspacecreditos"><fmt:message key="jsp.layout.footer-default.text" /></div>
