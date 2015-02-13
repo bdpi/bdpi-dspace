@@ -112,10 +112,13 @@ $("div#subshow").show();
 		<div class="box">
 			<div class="chamada">
 				<h4 class="chamada2">
+				
+				
 				<fmt:message key="usp.home.bdpititle"/>
 				</h4>
 			</div>
 			<p class="bdpi-descricao">
+			
 			<fmt:message key="usp.home.bdpidescription"/>	
 			</p>
 		</div>
@@ -123,8 +126,8 @@ $("div#subshow").show();
 </div>
 	
 <div id="creditodafoto"><p> Foto: Marcos Santos / USP Imagens.</p></div>							
-			
-<div class="row">
+			<div  class="effect2">
+<div class="row" >
     <div class="col-md-12" class="sub-holder">
 					<%
 						if (submissions != null && submissions.count() > 0) {
@@ -229,7 +232,7 @@ $("div#subshow").show();
 		
 		
 		</div>
-
+</div>
 		<!-- Exibição de mais submissões -->
 	<!--
 	<div style="height:40px;width:40px; position:relative; float:right; color:gray; background-color:#eee;padding:5px;top:-62px">
@@ -445,7 +448,7 @@ border-bottom-style:solid;
 background-color:#f5f5f5;
 
 		">
-			<h2 class="h2-subs">  <span class="glyphicon glyphicon-send" class="sub-icon"></span>&nbsp; <fmt:message key="usp.menu.share"/>
+			<h2 class="h2-share">  <span class="glyphicon glyphicon-send" class="sub-icon"></span>&nbsp; <fmt:message key="usp.menu.share"/>
 			
 			</h2>
 			

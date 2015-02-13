@@ -47,7 +47,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-	
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -138,6 +138,7 @@ $('#showlessshare').on('click', function(){
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
+		
     <%
     }
     if (extraHeadDataLast != null)

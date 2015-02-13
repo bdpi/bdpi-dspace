@@ -401,7 +401,11 @@ h6 .small,
   color: #999;
 }
 h1,
-.h1,
+.h1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight:400;
+  }
 h2,
 .h2,
 h3,
@@ -448,7 +452,7 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 22px;
+  font-size: 1.5em;
   color:#696969;
   font-weight:strong;
   }
@@ -5893,7 +5897,7 @@ padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom
 font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;margin-bottom:30px;color:#696969
 }
 .sub-icon{
-position:relative; top:2px; font-size:25px;
+position:relative; top:2px; font-size:1.563em;
 }
 .paddingnone {
 padding-left:0px;
@@ -6291,7 +6295,7 @@ color:#fcb421;
 }
 p.rss-title {padding:0em;}
 .rss-title {
-	font-size: 8pt;
+	font-size: 0.625em;
 	background-color: transparent;
 	color: #696969;
 	font-weight:strong;
@@ -6301,7 +6305,7 @@ p.rss-title {padding:0em;}
 }
 
 .rss-item  {
-  font-size: 13px;
+  font-size: 0.625em;
   list-style:none;
   color: #000;
   padding-bottom:2em;
@@ -6310,7 +6314,7 @@ p.rss-title {padding:0em;}
 
 .rss-item a {
 	color: #1094ab;
-	font-size: 16px;
+	font-size: 1em;
 	font-weight:strong;
 	padding: 0px;
 	margin: 0px;
@@ -6397,20 +6401,20 @@ background-color:#1094ab; margin:0; color:white
 color: white;
 }
 
-
-.effect4
+/*==================================================
+ * Effect 2
+ * ===============================================*/
+.effect2
 {
-
   position: relative;
 }
-.effect4:after
+.effect2:before, .effect2:after
 {
   z-index: -1;
   position: absolute;
   content: "";
   bottom: 15px;
-  right: 10px;
-  left: auto;
+  left: 10px;
   width: 50%;
   top: 80%;
   max-width:300px;
@@ -6418,13 +6422,22 @@ color: white;
   -webkit-box-shadow: 0 15px 10px #777;
   -moz-box-shadow: 0 15px 10px #777;
   box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -o-transform: rotate(3deg);
   -ms-transform: rotate(3deg);
   transform: rotate(3deg);
+  right: 10px;
+  left: auto;
 }
-
 body a:active{
 color:#607890;
 }

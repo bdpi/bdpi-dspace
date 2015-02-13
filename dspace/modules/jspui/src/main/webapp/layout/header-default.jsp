@@ -45,7 +45,7 @@
 %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<fmt:message key="html.lang"/>" xml:lang="<fmt:message key="html.lang"/>" >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<fmt:message key="html.lang"/>">
     <head>
 	
 	
