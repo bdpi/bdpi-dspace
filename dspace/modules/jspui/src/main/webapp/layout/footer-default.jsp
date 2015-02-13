@@ -58,18 +58,17 @@
 						<a data-toggle="modal" data-target="#map" class="footer-link"><fmt:message key="usp.menu.map"/></a>&nbsp;|&nbsp;
 						<a href="#" class="footer-link">Voltar ao in&iacute;cio</a>
 						</br></br>
+						<a href="<%= request.getContextPath()%>/help/faq_en.html" class="footer-link"><fmt:message key="usp.menu.faq"/></a>
 						<a data-toggle="modal" data-target="#openAccessPolicy" class="footer-link"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
 						<a data-toggle="modal" data-target="#politicaDePrivacidade" class="footer-link"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
 						<a data-toggle="modal" data-target="#direitosAutorais" class="footer-link"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
-						<a data-toggle="modal" data-target="#faq" class="footer-link"><fmt:message key="usp.menu.faq"/></a>&nbsp;|&nbsp;
+						<a data-toggle="modal" data-target="#faq" class="footer-link"><fmt:message key="usp.menu.faq"/></a>
 						</br></br></br>
 			
 						<div id="dspacecreditos"><fmt:message key="jsp.layout.footer-default.text" /></div>
 					</div>
 				</h6>
             </div>
-	    				
-
 	    <div>
 			<!-- Go to www.addthis.com/dashboard to customize your tools -->
 			<div class="addthis_custom_sharing"></div>

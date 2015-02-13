@@ -1,3 +1,5 @@
+<!-- Toda a parte de CSS está no arquivo src/dspace/modules/jspui/src/main/webapp/static/css/bdpi/bdpi-theme.css  -->
+
 <%@page import="org.dspace.app.webui.util.UIUtil"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
@@ -97,63 +99,40 @@ window.onresize = tamanho;
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-
+//Para não mostrar todas as submissões recentes na primeira página
 $("div#recentSubmissions").first().attr("id","subshow");
 $("div#recentSubmissions").first().next().attr("id","subshow");
 $("div#recentSubmissions").hide();
 $("div#subshow").show();
-
-//Para deixar a coluna das noticias e das submissoes com a mesma altura
-//$("div#sub").height(400+'px');
-
-//Para não mostrar todas as submissões recentes na primeira página
-
-
- 
 });
-
 </script>
 
-<div class="row" style="padding:1px; position:relative; top:-17px;">
-	<div class="jumbotron" id="jumbotron" style=" position:relative;padding:20px; margin-bottom:0px; top:-25px; z-index:0;">
-	
-		
-		
-		<div class="box" style="max-width:500px;max-width:75%; border-width:0; clear:right; margin:20px">
-			<div class="chamada" style="position:relative; float:left; margin:0; padding:0; top:-5px;" >
-				
-			
-				
-				<h4 class="chamada" style="font-family: 'Roboto Slab', serif; font-size:1.4em; font-weight:500;">
+<div class="row" class="jumbohold">
+	<div class="jumbotron" id="jumbotron">
+		<div class="box">
+			<div class="chamada">
+				<h4 class="chamada2">
 				<fmt:message key="usp.home.bdpititle"/>
-				
 				</h4>
-				
-				
 			</div>
-			<p style="font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;">
-<fmt:message key="usp.home.bdpidescription"/>	
-</p>
-			
-			
-			
+			<p class="bdpi-descricao">
+			<fmt:message key="usp.home.bdpidescription"/>	
+			</p>
 		</div>
-		
-</div>
+	</div>
 </div>
 	
 <div id="creditodafoto"><p> Foto: Marcos Santos / USP Imagens.</p></div>							
 			
-<div class="row"  style="clear:left">
-    <div class="col-md-12" style="position:relative; float:left; margin-top:0px; margin-bottom:0;">
+<div class="row">
+    <div class="col-md-12" class="sub-holder">
 					<%
 						if (submissions != null && submissions.count() > 0) {
 					%>
 
 					
-		<div   class="col-md-12" id="subs" style="padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#FF9900; border-top-style:solid; border-top-width:2px; border-top-color:#FF9900; background-color:#f5f5f5;">
-			<div style="clear:both; margin:20px">
-				<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;margin-bottom:30px;color:#696969"> <span class="glyphicon glyphicon-book" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.recentsub"/>
+		<div   class="col-md-12" id="subs">
+					<h2 class="h2-subs"> <span class="glyphicon glyphicon-book" class="sub-icon"></span> <fmt:message key="jsp.collection-home.recentsub"/>
 								<%
 									if (feedEnabled) {
 										String[] fmts = feedData.substring(feedData.indexOf(':') + 1).split(",");
@@ -178,7 +157,7 @@ $("div#subshow").show();
 										}
 									%>
 				</h2>
-			</div>
+			
 
 						<%
 							boolean first = true;
@@ -211,7 +190,7 @@ $("div#subshow").show();
 									displayRights = dcv[0].value;
 								}
 						%>
-			<div class="col-md-6" id="recentSubmissions" style="margin-top:20px">
+			<div class="col-md-6" id="recentSubmissions">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
 					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" style="margin:5px; position:relative; top:-6px" alt="Open Access logo">
@@ -238,7 +217,7 @@ $("div#subshow").show();
 										  <span style="color: #FF8700; font-size:0.9em; font-weight:400"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></span>
 										<% } %>
 									<% }%><%=etal%></p>
-					<p style="font-size:13px;"><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
+					<p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
 				</div>
 			</div>
 						<%
@@ -283,7 +262,7 @@ $("div#subshow").show();
 	
 	<div class="row" style="padding:10px;margin-top:15px" >
 <div class="col-md-8">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;padding:10px">  <span class="glyphicon glyphicon-list-alt" style="position:relative; top:2px;"></span> <fmt:message key="jsp.collection-home.latestnews"/>
+			<h2 class="h2-subs">  <span class="glyphicon glyphicon-list-alt" class="sub-icon"></span> <fmt:message key="jsp.collection-home.latestnews"/>
 			
 			</h2>
 			
@@ -412,7 +391,7 @@ $("div#subshow").show();
 				
 			
 <div class="col-md-4" >
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;padding:10px;"><span class="glyphicon glyphicon-time" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.events"/>
+			<h2 class="h2-subs"><span class="glyphicon glyphicon-time" style="position:relative; top:2px; font-size:25px;"></span> <fmt:message key="jsp.collection-home.events"/>
 			</h2>
 <div class="col-md-12" style="padding:10px">			
 			
@@ -446,6 +425,7 @@ $("div#subshow").show();
                     rssmikle_item_podcast="off";
                 </script>
       <script type="text/javascript" src="http://widget.feed.mikle.com/js/rssmikle.js"></script>
+	  <noscript>Nao</noscript>
  
 </div>
 
@@ -465,11 +445,11 @@ border-bottom-style:solid;
 background-color:#f5f5f5;
 
 		">
-			<h2 style="font-family: 'Roboto Slab', serif; font-size:1.7em; font-weight:500;padding:10px; color:#FF8700">  <span class="glyphicon glyphicon-send" style="position:relative; top:2px;"></span>&nbsp; <fmt:message key="usp.menu.share"/>
+			<h2 class="h2-subs">  <span class="glyphicon glyphicon-send" class="sub-icon"></span>&nbsp; <fmt:message key="usp.menu.share"/>
 			
 			</h2>
 			
-			<div id="share" style="margin: auto;padding:15px; width:200px">
+			<div id="share" style="margin: auto;padding:5px; width:200px">
 				
 <span class='st_facebook_large' displayText='Facebook'></span>
 

@@ -3865,7 +3865,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-form {
   padding: 10px 15px;
-  margin-top: 8px;
+  margin-top: 7px;
   margin-right: 0px;
   margin-bottom: 8px;
   margin-left: 0px;
@@ -4405,6 +4405,7 @@ a.list-group-item.active > .badge,
   -o-background-size: cover;
   background-size: cover;
   z-index:4;
+  position:relative; margin-bottom:0px; top:-25px; z-index:0;
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -5843,6 +5844,7 @@ font-family: 'Roboto', sans-serif;
    position:relative;
    float:left;
 	margin:0;
+	max-width:500px; max-width:75%; border-width:0; clear:right; margin:20px;
    }
 .padding15 {
    padding: 10px; 
@@ -5873,8 +5875,26 @@ color: #0e94ab;
 
 .chamada {
 color: #FFAD33;
+ position:relative; float:left; margin:0; padding:0; top:-5px;
 }
-
+.chamada2{
+font-family: 'Roboto Slab', serif; font-size:1.4em; font-weight:500;
+}
+.bdpi-descricao{
+font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relative; clear:both; padding-top:0px;
+}
+.sub-holder{
+ position:relative; float:left; margin-top:0px; margin-bottom:0;
+}
+#subs{
+padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#FF9900; border-top-style:solid; border-top-width:2px; border-top-color:#FF9900; background-color:#f5f5f5
+}
+.h2-subs{
+font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;margin-bottom:30px;color:#696969
+}
+.sub-icon{
+position:relative; top:2px; font-size:25px;
+}
 .paddingnone {
 padding-left:0px;
 padding-right:0px;
@@ -6097,7 +6117,9 @@ padding:0;
 	text-align:center;
 	text-shadow:-2px 1px 3px #ffffff;
 }
+
 /* This button was generated using CSSButtonGenerator.com */
+
 #seta:active {
  margin:0;
  padding:0;
@@ -6242,6 +6264,10 @@ height:65px;
 }
 div#recentSubmissions{
 text-align:justify;
+ margin-top:20px
+}
+.openaccess-logo{
+padding:10px; position:relative; top:-6px
 }
 a.share{
 color:#eee;
@@ -6437,4 +6463,8 @@ background-color:#FF9900;position:relative;width:45px;height:48px;float:left; pa
 .adress-mail{
  position:relative; right:0px; top:-2px; font-family: Roboto, sans-serif;
  font-weight:400;
+}
+
+.jumbohold{
+padding:1px; position:relative; top:-17px;
 }
