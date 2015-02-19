@@ -1,40 +1,121 @@
-﻿                <div class="modal-header">
+﻿				
+				                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Credits</h4>
                 </div>
                 <div class="modal-body">
 					<p><h3>University of São Paulo</h3></p>
 					<br/>
-					<p><strong>President</strong> João Grandino Rodas</p>
-					<p><strong>Vice-President</strong> Hélio Nogueira da Cruz</p>
+					<p><strong>Rector</strong> Prof. Dr. Marco Antonio Zago</p>
+					<p><strong>Vice-Rector</strong> Prof. Dr. Vahan Agopyan</p>
 					<br/>
-					<p><h3>Integrated Library System</h3></p>
+					<p><h3>Technical Department of the Integrated Library System</h3></p>
 					<br/>
-					<p><strong>Director</strong> Sueli Mara Soares Pinto Ferreira</p>
-					<br/>
-					<p><strong>Staff</strong></p>
-					<p><strong>2010 - 2012</strong></p>
-					<p>Laucivaldo Cardoso de Oliveira, Librarian</p>
-					<p>Camila Molgara Gamba, Librarian</p>
-					<p>Josefina Perez Alvarez, Systems Analyst </p>
-					<p>André Nito Assada, Technical Library</p>
-					<p>Amélia Milene Correia Fernandes - Instituto de Matemática e Estatística, Trainee</p>
-					<p>Camilla Yumi Kusumoto - Escola de Comunicação e Artes, Trainee</p>
-					<p>Dan Shinkai - Escola de Artes, Ciências e Humanidades, Trainee</p>
-					<p>Tamyres Vieira dos Santos – Escola de Comunicações e Artes, Trainee</p>
-					<br/>
-					<p><strong>2013 - </strong></p>
-					<p>Célia Regina de Oliveira Rosa, Librarian</p>
-					<p>Erinalva da Conceição Batista, Librarian</p>
-					<p>Tiago Rodrigo Marçal Murakami, Librarian</p>
-					<p>André Nito Assada, Technical Library</p>
-					<p>Jan Leduc de Lara, Systems Analyst </p>
-					<p>Angelo Eduardo F. Batista, Technical</p>
-					<p>Luzia Issuzu Toyoda, Librarian</p>
-					<p>Marli do Nascimento A. Sousa, Technical Library</p>
-					<p>Sibele Silva de Fausto, Librarian</p>
-					<p>Dan Shinkai - Escola de Artes, Ciências e Humanidades, Trainee</p>
+					<p><strong>Technical leadership</strong> </p>
+				
+                                        
+                                        
+					<strong>
+                                            </br><span id="hide2010" style="display:none; cursor:pointer">[ - ]</span>
+                                            <span id="show2010" style="cursor:pointer">[ + ]</span>
+											
+                                            Staff 2010 - 2012</br>
+                                        </strong>
+                                        <div class="eq2010" style="display:none">
+                                            </br>
+					<p>Laucivaldo Cardoso de Oliveira</p>
+					<p>Camila Molgara Gamba</p>
+					<p>Josefina Perez Alvarez</p>
+					<p>André Nito Assada</p>
+					<p>Amélia Milene Correia Fernandes</p>
+					<p>Camilla Yumi Kusumoto</p>
+					<p>Dan Shinkai</p>
+					<p>Tamyres Vieira dos Santos</p>
+                                        </div>
+                                        
+					
+                                        
+                                        
+					<strong>
+                                            </br><span id="hide2013" style="display:none; cursor:pointer">[ - ]</span>
+                                            <span id="show2013" style="cursor:pointer">[ + ]</span>
+											
+                                            Staff 2013 - 2014</br>
+                                        </strong>
+                                        <div class="eq2013" style="display:none">
+                                            </br>
+					<p>Célia Regina de Oliveira Rosa - Coordenação</p>
+					<p>Erinalva da Conceição Batista</p>
+					<p>Tiago Rodrigo Marçal Murakami</p>
+					<p>André Nito Assada</p>
+					<p>Jan Leduc de Lara – Analista de Sistemas</p>
+					<p>Angelo Eduardo F. Batista</p>
+					<p>Luzia Issuzu Toyoda</p>
+					<p>Marli do Nascimento A. Sousa</p>
+                                        <p>Sibele Silva de Fausto</p>
+                                        <p>Dan Shinkai</p>
+                                        </div>
+                                        
+					
+                                        
+                                        
+					<strong>
+                                            </br><span id="hide2014" style="display:none; cursor:pointer">[ - ]</span>
+                                            <span id="show2014" style="cursor:pointer">[ + ]</span>
+											
+                                            Staff 2014 -</br>
+                                        </strong>
+                                        <div class="eq2014" style="display:none">
+                                            </br>
+					<p></p>
+					<p>Célia Regina de Oliveira Rosa - Coordenação</p>
+					<p>Jan Leduc de Lara - Analista de sistemas</p>
+					<p>Angelo Eduardo F. Batista</p>
+					<p>Sibele Silva de Fausto</p>
+					<p>Luciana Paschoal Divino</p>
+                                        </div>
+                                        
+					
+                                        
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("span#hide2010").click(function(){
+        $("div.eq2010").hide();
+        $("#show2010").show();
+        $(this).hide();
+    });
+    $("span#show2010").click(function(){
+        $("div.eq2010").show();
+        $(this).hide();
+        $("#hide2010").show();
+    });
+    
+    $("span#hide2013").click(function(){
+        $("div.eq2013").hide();
+        $("#show2013").show();
+        $(this).hide();
+    });
+    $("span#show2013").click(function(){
+        $("div.eq2013").show();
+        $(this).hide();
+        $("#hide2013").show();
+    });
+    
+    $("span#hide2014").click(function(){
+        $("div.eq2014").hide();
+        $("#show2014").show();
+        $(this).hide();
+    });
+    $("span#show2014").click(function(){
+        $("div.eq2014").show();
+        $(this).hide();
+        $("#hide2014").show();
+    });
+});
+</script>
