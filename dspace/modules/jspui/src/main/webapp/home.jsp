@@ -107,8 +107,8 @@ $("div#subshow").show();
 });
 </script>
 
-<div class="row" class="jumbohold">
-	<div class="jumbotron" id="jumbotron">
+<div class="row" class="jumbohold" style="padding:1px">
+	<div class="jumbotron" id="jumbotron" style="position:relative;  top:-42px;">
 		<div class="box">
 			<div class="chamada">
 				<h4 class="chamada2">
@@ -126,7 +126,7 @@ $("div#subshow").show();
 	
 <div id="creditodafoto"><p> Foto: Marcos Santos / USP Imagens.</p></div>							
 			<div  class="effect2">
-<div class="row" >
+<div class="row">
     <div class="col-md-12" class="sub-holder">
 					<%
 						if (submissions != null && submissions.count() > 0) {
@@ -260,7 +260,7 @@ $("div#subshow").show();
 
 	
 	
-	
+	</br></br>
 	
 	<div class="row" style="padding:10px;margin-top:15px" >
 <div class="col-md-8">

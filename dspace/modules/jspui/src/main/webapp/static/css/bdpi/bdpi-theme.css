@@ -5891,7 +5891,7 @@ font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relat
  position:relative; float:left; margin-top:0px; margin-bottom:0;
 }
 #subs{
-padding:20px;  border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#FF9900; border-top-style:solid; border-top-width:2px; border-top-color:#FF9900; background-color:#f5f5f5
+padding:20px;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#FF9900; border-top-style:solid; border-top-width:2px; border-top-color:#FF9900; background-color:#f5f5f5
 }
 .h2-subs{
 font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;margin-bottom:30px;color:#696969
@@ -6479,5 +6479,5 @@ background-color:#FF9900;position:relative;width:45px;height:48px;float:left; pa
 }
 
 .jumbohold{
-padding:1px; position:relative; top:-17px;
+
 }
