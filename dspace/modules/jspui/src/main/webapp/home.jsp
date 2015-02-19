@@ -118,7 +118,6 @@ $("div#subshow").show();
 				</h4>
 			</div>
 			<p class="bdpi-descricao">
-			
 			<fmt:message key="usp.home.bdpidescription"/>	
 			</p>
 		</div>
@@ -521,7 +520,7 @@ background-color:#f5f5f5;
 			<div class="col-lg-6" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
 				<h2><fmt:message key="usp.deposito.title"/></h2>
-				<h5><small><p><br><fmt:message key="usp.deposito.text"/></p></small></h5>
+				<h5><small><p><br><fmt:message key="usp.deposito.text1"/> <a target="_blank" href="<%= request.getContextPath()%>/feedback" class="footer-link">atendimento@sibi.usp.br</a> <fmt:message key="usp.deposito.text2"/></p></small></h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>
