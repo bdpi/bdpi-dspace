@@ -6247,7 +6247,7 @@ max-width:500px;
 float:right;
 }
 div#footer_feedback  a{
-color: #FF8700;
+color:  #E99800;
 }
 div#footer_feedback  a:hover{
 color: #fcb421;
@@ -6272,6 +6272,11 @@ text-align:justify;
 }
 .openaccess-logo{
 padding:10px; position:relative; top:-6px
+}
+h2.h2-share{
+color: #E99800;
+margin:20px;
+font-family:'Roboto Slab', serif;
 }
 a.share{
 color:#eee;
@@ -6456,16 +6461,16 @@ div.designedby{
 	border-bottom-color:#FF9900;
 }
 .footer-links{
-color:#FF8700; font-weight:bold; position:relative;
+color:#E99800; font-weight:bold; position:relative;
 }
 .footer-link{
-cursor:pointer;color:#FF8700
+cursor:pointer;color:#E99800
 }
 .cineca{
 float:left; 
 position:relative;
 top:12px; 
-color:#FF8700
+color:#E99800
 }
 .cinecaLogo{
 background-color:#FF9900;position:relative;width:45px;height:48px;float:left; padding:5px;border-radius: 5px; top:-6px;
