@@ -44,7 +44,7 @@
         currentPage = currentPage.substring(0, c);
     }
 
-    // E-mail may have to be truncated
+    // E-mail may have to be truncated. Trocado pelo nome de usuário
     String navbarUserFirstName = null;
 
     if (user != null) {
@@ -94,7 +94,7 @@
                 <%
                 } else {
                 %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <strong class="caret"></strong></a>
+            <a href="<%= request.getContextPath()%>/mydspace"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.login.password.title"/></a><!-- jsp.layout.navbar-default.sign -->
                 <% }%>             
             <ul class="dropdown-menu">
                
