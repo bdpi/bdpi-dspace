@@ -280,7 +280,7 @@ $("div#subshow").show();
       <script type="text/javascript">
               
                     rssmikle_url="https://www.coar-repositories.org/feed/";
-                             rssmikle_frame_width="100%";
+                    rssmikle_frame_width="100%";
                     rssmikle_frame_height="200";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
@@ -312,7 +312,7 @@ $("div#subshow").show();
 <script type="text/javascript">
                     
                     rssmikle_url="http://www.opendoar.org/rss1data.php";
-                            rssmikle_frame_width="100%";
+                    rssmikle_frame_width="100%";
                     rssmikle_frame_height="150";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
@@ -352,7 +352,7 @@ $("div#subshow").show();
 <script type="text/javascript">
                     
                     rssmikle_url="http://www5.usp.br/feed/?category=uspdestaque";
-            rssmikle_frame_width="100%";
+					rssmikle_frame_width="100%";
                     rssmikle_frame_height="380";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";
@@ -402,7 +402,7 @@ $("div#subshow").show();
 <script type="text/javascript">
                     
                     rssmikle_url="http://www.eventos.usp.br/?event-types=cultura-e-artes&feed=rss2";
-                            rssmikle_frame_width="100%";
+                    rssmikle_frame_width="100%";
                     rssmikle_frame_height="200";
                     rssmikle_target="_blank";
                     rssmikle_font="'Roboto', sans-serif";

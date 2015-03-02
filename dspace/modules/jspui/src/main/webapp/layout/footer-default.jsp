@@ -53,15 +53,15 @@
 					</a>
 					<div id="footer_feedback" class="pull-right">
 					
-						<a data-toggle="modal" data-target="#creditos" class="footer-link"><fmt:message key="usp.menu.creditos"/></a>&nbsp;|&nbsp;
+						<a href="#creditos-ancora" id="creditos-link" class="footer-link"><fmt:message key="usp.menu.creditos"/></a>&nbsp;|&nbsp;
 						<a target="_blank" href="<%= request.getContextPath()%>/feedback" class="footer-link"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
-						<a data-toggle="modal" data-target="#map" class="footer-link"><fmt:message key="usp.menu.map"/></a>&nbsp;|&nbsp;
+						<a href="#map-ancora" class="footer-link" id="map-link"><fmt:message key="usp.menu.map"/></a>&nbsp;|&nbsp;
 						<a href="#" class="footer-link">Voltar ao in&iacute;cio</a>
 						</br></br>
-						<a data-toggle="modal" data-target="#openAccessPolicy" class="footer-link"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
-						<a data-toggle="modal" data-target="#politicaDePrivacidade" class="footer-link"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
-						<a data-toggle="modal" data-target="#direitosAutorais" class="footer-link"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
-						<a data-toggle="modal" data-target="#faq" class="footer-link"><fmt:message key="usp.menu.faq"/></a>
+						<a href="#openaccesspolicy-ancora" class="footer-link" id="openaccesspolicy-link"><fmt:message key="usp.menu.openaccesspolicy"/></a>&nbsp;|&nbsp;
+						<a href="#privacypolicy-ancora" class="footer-link" id="privacypolicy-link"><fmt:message key="usp.menu.privacypolicy"/></a>&nbsp;|&nbsp;
+						<a href="#rights-ancora" class="footer-link" id="rights-link"><fmt:message key="usp.menu.rights"/></a>&nbsp;|&nbsp;
+						<a href="#faq-ancora" class="footer-link" id="faq-link"><fmt:message key="usp.menu.faq"/></a>
 						</br></br></br>
 			
 						<div id="dspacecreditos"><fmt:message key="jsp.layout.footer-default.text" /></div>
@@ -81,72 +81,124 @@
 			Rua da Biblioteca, s/n - Complexo Brasiliana - 05508-050 - Cidade Universitária, São Paulo, SP - Brasil</br>
 			<a href="https://goo.gl/maps/yVAwY" target="blank"><span class="glyphicon glyphicon-map-marker"></span> <fmt:message key="usp.maps"/></a></br></br>
 			<span class="glyphicon glyphicon-phone-alt"></span> (0xx11) 3091-1546 &nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"  /><span class="adress-mail"> atendimento@sibi.usp.br</span>
-		</br></div><div class="col-md-12" style="padding:15px">
-		
+		</br></div>
+			</address>
+		<div class="col-md-12" style="padding:15px">
+
+<!-- Modal Mapa do Site -->
+    <div id="map-hold" class="footer-modal">
+        <div>
+            <a name="map-ancora"></a>
+			<%@ include file="../help/map_en.html"%>
+        </div>
+    </div>
+
+<!-- Modal Creditos -->
+    <div id="creditos-hold" class="footer-modal">
+        <div>
+            <a name="creditos-ancora"></a>
+			<%@ include file="../help/creditos_en.html"%>
+        </div>
+    </div>
+	
+<!-- Modal Política de Acesso Aberto -->
+ <div id="openaccesspolicy-hold" class="footer-modal">
+    <div>
+            <a name="openaccesspolicy-ancora"></a>
+			<%@ include file="../help/openaccesspolicy_en.html"%>
+    </div>
+ </div>
+ 
+ <!-- Modal Política de Privacidade -->
+ <div id="privacypolicy-hold" class="footer-modal">
+    <div>
+            <a name="privacypolicy-ancora"></a>
+			<%@ include file="../help/privacypolicy_en.html"%>
+    </div>
+ </div>
+ 
+ <!-- Modal Direitos Autorais -->
+ <div id="rights-hold" class="footer-modal">
+    <div>
+            <a name="rights-ancora"></a>
+			<%@ include file="../help/rights_en.html"%>
+    </div>
+ </div>
+
+ <!-- Modal Direitos Autorais -->
+ <div id="faq-hold" class="footer-modal">
+    <div>
+            <a name="rights-ancora"></a>
+			<%@ include file="../help/faq_en.html"%>
+    </div>
+ </div> 
+	
 		</div>
-		</address>
-		
-
-<!-- Botões de compartilhamento antigos
-
-<div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:350px;height:70px;">
-                        <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:action="recommend"></a>
-                        <a class="addthis_button_tweet" tw:count="vertical"></a>
-                        <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
-                        <a class="addthis_button_linkedin_counter" li:counter="top"></a>
-                        <a class="addthis_button_compact"></a>
-                    </div>
-                    <script async="async" defer="true" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f9b00617c1df207" >
-                        & #160;
-                    </script>
-	 &nbsp;&nbsp;
--->
-
-		</br></br>
+	
+		 		</br></br>
 	</h4>
  </div>
 </div>
 </div>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+function abrirmodal(pagina){
+
+	var x = $( window ).height();
+	$(pagina).show().css({
+		 "position": "fixed",
+		  "top": "0",
+		  "left": "0",
+
+		  "margin-left":"5%",
+		  "margin-right":"5%",
+		  "padding":"10px",
+		  "width": "90%",
+
+		  "height": x + "px",
+
+		  "z-index": "10",
+
+		  "background-color":"white",
+		  "opacity":"0.9",
+
+		  "overflow-x":"hidden",
+		  "overflow-y": "scroll",
+		});
+}
+	
+$(document).ready(function(){
+	$(".close").click(function(){$('div.footer-modal').hide();});
+	$("[data-dismiss=modal]").click(function(){$('div.footer-modal').hide();});
+
+
+//if($('div#faq-hold').css("display") != "block"){
+//alert($('div#faq-hold').css("display"));
+//	$( window ).click(function (event) {
+//		if(event.target.id !='faq-hold'){
+//		$('div#faq-hold').hide();
+//		}
+//	});
+//}
+//$('span.script-hide').hide();
+
+$('div.footer-modal').hide();
+$('a.footer-link').css({"cursor":"pointer"});
+
+$('a#faq-link').click( function(){abrirmodal( $('div#faq-hold') )} );
+$('a#openaccesspolicy-link').click( function(){abrirmodal( $('div#openaccesspolicy-hold') )} );
+$('a#rights-link').click( function(){abrirmodal( $('div#rights-hold') )} );
+$('a#privacypolicy-link').click( function(){abrirmodal(  $('div#privacypolicy-hold') )} );
+$('a#map-link').click( function(){abrirmodal( $('div#map-hold') )} );
+$('a#creditos-link').click( function(){abrirmodal( $('div#creditos-hold') )} );
+
+});
+</script>
+
+
+
 </main>
 
-<!-- PARA MUDAR O NOME DOS TIPOS DE ITENS-->
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script>
-//var article = $( "li.list-group-item a" ).first().text();
-//if(article=='article'){
-//$( "li.list-group-item a" ).first().html('Artigos'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-//
-//var book = $( "li.list-group-item" ).first().next().find('a').text();
-//if(book=='book'){
-//$( "li.list-group-item" ).first().next().find('a').html('Livros'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-
-//var bookPart = $( "li.list-group-item" ).first().next().next().find('a').text();
-//if(bookPart=='bookPart'){
-//$( "li.list-group-item" ).first().next().next().find('a').html('Capítulos de livros'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-
-//var conferenceObject = $( "li.list-group-item" ).first().next().next().next().find('a').text();
-//if(conferenceObject=='conferenceObject'){
-//$( "li.list-group-item" ).first().next().next().next().find('a').html('Algo que substitua conferenceObject'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-
-//var editorial = $( "li.list-group-item" ).first().next().next().next().next().find('a').text();
-//if(editorial=='editorial'){
-//$( "li.list-group-item" ).first().next().next().next().next().find('a').html('Algo que substitua editorial'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-
-//var lecture = $( "li.list-group-item" ).first().next().next().next().next().next().find('a').text();
-//if(lecture=='lecture'){
-//$( "li.list-group-item" ).first().next().next().next().next().next().find('a').html('Algo que substitua lecture'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-
-//var other = $( "li.list-group-item" ).first().next().next().next().next().next().next().find('a').text();
-//if(other=='other'){
-//$( "li.list-group-item" ).first().next().next().next().next().next().next().find('a').html('Outros'); // <------- COLOCAR MENSAGEM TRADUZÍVEL
-//}
-</script>
 
 </body>
 </html>
