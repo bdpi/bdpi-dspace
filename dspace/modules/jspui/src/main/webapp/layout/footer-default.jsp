@@ -54,7 +54,7 @@
 					<div id="footer_feedback" class="pull-right">
 					
 						<a href="#creditos-ancora" id="creditos-link" class="footer-link"><fmt:message key="usp.menu.creditos"/></a>&nbsp;|&nbsp;
-						<a target="_blank" href="<%= request.getContextPath()%>/feedback" class="footer-link"><fmt:message key="jsp.layout.footer-default.feedback"/></a>&nbsp;|&nbsp;
+						<a target="_blank" href="<%= request.getContextPath()%>/feedback" class="footer-link"><fmt:message key="jsp.layout.footer-default.feedback"/> <span class="glyphicon glyphicon-new-window"></span></a>&nbsp;|&nbsp;
 						<a href="#map-ancora" class="footer-link" id="map-link"><fmt:message key="usp.menu.map"/></a>&nbsp;|&nbsp;
 						<a href="#" class="footer-link">Voltar ao in&iacute;cio</a>
 						</br></br>
@@ -89,6 +89,7 @@
     <div id="map-hold" class="footer-modal">
         <div>
             <a name="map-ancora"></a>
+		
 			<%@ include file="../help/map_en.html"%>
         </div>
     </div>
@@ -111,9 +112,9 @@
  
  <!-- Modal Política de Privacidade -->
  <div id="privacypolicy-hold" class="footer-modal">
-    <div>
+    <div id="privacypolicy-content">
             <a name="privacypolicy-ancora"></a>
-			<%@ include file="../help/privacypolicy_en.html"%>
+			<fmt:message key="page.privacypolicy"/>
     </div>
  </div>
  
@@ -172,15 +173,7 @@ $(document).ready(function(){
 	$("[data-dismiss=modal]").click(function(){$('div.footer-modal').hide();});
 
 
-//if($('div#faq-hold').css("display") != "block"){
-//alert($('div#faq-hold').css("display"));
-//	$( window ).click(function (event) {
-//		if(event.target.id !='faq-hold'){
-//		$('div#faq-hold').hide();
-//		}
-//	});
-//}
-//$('span.script-hide').hide();
+
 
 $('div.footer-modal').hide();
 $('a.footer-link').css({"cursor":"pointer"});
@@ -192,6 +185,12 @@ $('a#privacypolicy-link').click( function(){abrirmodal(  $('div#privacypolicy-ho
 $('a#map-link').click( function(){abrirmodal( $('div#map-hold') )} );
 $('a#creditos-link').click( function(){abrirmodal( $('div#creditos-hold') )} );
 
+});
+
+$(window).click(function (event) {
+if(event.target.class!='footer-modal'){
+$('.footer-modal').hide();
+}
 });
 </script>
 

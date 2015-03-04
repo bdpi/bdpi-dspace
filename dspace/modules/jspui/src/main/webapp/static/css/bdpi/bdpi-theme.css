@@ -5894,7 +5894,7 @@ font-size:0.9em;max-width:400px;letter-spacing:0; font-weight:400;position:relat
 padding:20px;border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#FF9900; border-top-style:solid; border-top-width:2px; border-top-color:#FF9900; background-color:#f5f5f5
 }
 .h2-subs{
-font-family: 'Roboto Slab', serif; font-size:2em; font-weight:500;margin-bottom:30px;color:#696969
+font-family: 'Roboto Slab', serif; font-size:1.8em; font-weight:500;margin-bottom:30px;color:#696969
 }
 .sub-icon{
 position:relative; top:2px; font-size:1.563em;
@@ -6485,4 +6485,28 @@ background-color:#FF9900;position:relative;width:45px;height:48px;float:left; pa
 
 .jumbohold{
 
+}
+#moreRecSub{
+border-width:0;
+margin-top:30px;
+width:40px;
+height:40px;
+border-radius:10px;
+position:relative;
+float:right;
+background-color:transparent;
+color:#696969;
+opacity:0.6;
+}
+#lessRecSub{
+border-width:0;
+margin-top:30px;
+opacity:0.6;
+color:#696969;
+width:40px;
+height:40px;
+border-radius:10px;
+position:relative;
+float:left;
+background-color:transparent;
 }

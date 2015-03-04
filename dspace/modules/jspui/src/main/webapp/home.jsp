@@ -100,10 +100,37 @@ window.onresize = tamanho;
 <script>
 $(document).ready(function(){
 //Para não mostrar todas as submissões recentes na primeira página
-$("div#recentSubmissions").first().attr("id","subshow");
-$("div#recentSubmissions").first().next().attr("id","subshow");
 $("div#recentSubmissions").hide();
-$("div#subshow").show();
+$("div#recentSubmissions").slice(0,3).show();
+var first = 0;
+var last = 3;
+	if(first==0){
+	$("button#lessRecSub").hide();
+	}
+
+$("button#moreRecSub").click(function(){
+	$("button#lessRecSub").show();
+	first = first + 3;
+	last = last + 3;
+	$("div#recentSubmissions").hide();
+	$("div#recentSubmissions").slice(first,last).fadeIn();
+		if(last > 19){
+		$("button#moreRecSub").hide();
+		}
+});
+
+$("button#lessRecSub").click(function(){
+$("button#moreRecSub").show();
+first = first - 3;
+last = last - 3;
+$("div#recentSubmissions").hide();
+$("div#recentSubmissions").slice(first,last).fadeIn();
+	if(first == 0){
+		$("button#lessRecSub").hide();
+		}
+});
+
+
 });
 </script>
 
@@ -192,7 +219,7 @@ $("div#subshow").show();
 									displayRights = dcv[0].value;
 								}
 						%>
-			<div class="col-md-6" id="recentSubmissions">
+			<div class="col-md-12" id="recentSubmissions">
 				<a class="pull-left" href="#">
 								<% if (displayRights.equals("openAccess")) {%>
 					<img class="pull-left" src="image/32px-Open_Access_logo_PLoS_white.svg.png" height="32px" style="margin:5px; position:relative; top:-6px" alt="Open Access logo">
@@ -201,7 +228,7 @@ $("div#subshow").show();
 								<% }%>
 				</a>
 				<div class="media-body col-md-11">
-					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color: #607890; font-weight:300;"><h4 class="media-heading" style="font-size:15px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
+					<a href="<%= request.getContextPath()%>/handle/<%=item.getHandle()%>" style="color: #607890; font-weight:300;"><h4 class="media-heading" style="font-size:13.5px"><%=StringUtils.abbreviate(displayTitle, 400)%>﻿</h4></a>
 					<p><%
 									int maxcount;
 									String etal = "";
@@ -219,16 +246,17 @@ $("div#subshow").show();
 										  <span style="color: #FF8700; font-size:0.9em; font-weight:400"><%=StringUtils.abbreviate(displayAuthors[acount][0], 1000)%></span>
 										<% } %>
 									<% }%><%=etal%></p>
-					<p><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
+					<p style="font-size:13px"><%= StringUtils.abbreviate(displayAbstract, 500)%></p>
 				</div>
 			</div>
 						<%
 								first = false;
 							}
 						%>
-		<br>
+		</br></br></br>
 		
-		
+		<button id="lessRecSub"><span class="glyphicon glyphicon-chevron-left"></span></button>
+		<button id="moreRecSub"><span class="glyphicon glyphicon-chevron-right"></span></button>
 		
 		</div>
 </div>
@@ -520,7 +548,7 @@ background-color:#f5f5f5;
 			<div class="col-lg-6" id="notasdorodape">
 				<span class="glyphicon glyphicon-floppy-open iconbg"></span>
 				<h2><fmt:message key="usp.deposito.title"/></h2>
-				<h5><small><p><br><fmt:message key="usp.deposito.text1"/> <a target="_blank" href="<%= request.getContextPath()%>/feedback" class="footer-link">atendimento@sibi.usp.br</a> <fmt:message key="usp.deposito.text2"/></p></small></h5>
+				<h5><small><p><br><fmt:message key="usp.deposito.text1"/> <a target="_blank" href="<%= request.getContextPath()%>/feedback" class="footer-link">atendimento@sibi.usp.br <span class="glyphicon glyphicon-new-window" style="font-size:0.65em"></span></a> <fmt:message key="usp.deposito.text2"/></p></small></h5>
 				<!--<p><a class="btn btn-primary pull-right" href="#" role="button" style="position:relative;left:-60px">Saiba mais »</a></p>-->
 				
 			</div>
