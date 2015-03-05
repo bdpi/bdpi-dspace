@@ -25,7 +25,7 @@
     detailed in the LICENSE and NOTICE files at the root of the source
     tree and available online at
 
-    http://www.dspace.org/license/
+     http://www.dspace.org/license/
 
 --%>
 <%--
@@ -563,7 +563,7 @@ background-color:#f5f5f5;
 					<div style="width:100px">
 						<dl class="dl-horizontal" style="width:300px">
 							<dt>Unidades</dt>
-							<dd>42</dd>
+							<dd>55</dd>
 							<dt>Departamentos</dt>
 							<dd>127</dd>
 							<dt>Registros</dt>
@@ -576,21 +576,26 @@ background-color:#f5f5f5;
 				
 					<div style="text-align:center;">
 					<h5 style="line-height:300%; letter-spacing:0px;"><small><p style="text-align:center; overflow:show;">
-					<table style="width:100%; margin-bottom:15px;">
+					
+                                        <jsp:useBean id="unidades" class="org.dspace.content.dao.CommunityDAOPostgres"/> 
+                                        <jsp:useBean id="registros" class="org.dspace.content.dao.RegistroDAOPostgres"/>    
+                                                                     
+                                                                                 
+                                            <table style="width:100%; margin-bottom:15px;">
   <tr>
-    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">42</span></td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=unidades.getTotalUnidades() %></span></td>
     <td>Unidades</td>
   </tr>
   <tr>
-    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">127</span> </td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=unidades.getTotalDepartamentos() %></span> </td>
     <td>Departamentos</td>
   </tr>
   <tr>
-    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">38000</span></td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=registros.getTotalRegistros() %></span></td>
     <td>Registros</td>
   </tr>
   <tr>
-    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;">38000</span></td>
+    <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=registros.getTotalRegistrosOpenAccess() %></span></td>
     <td>Textos de acesso aberto</td>
   </tr>
   </table>
