@@ -590,10 +590,10 @@ background-color:#f5f5f5;
     <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=unidades.getTotalDepartamentos() %></span> </td>
     <td>Departamentos</td>
   </tr>
-  <tr>
+<!--  <tr>
     <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=registros.getTotalRegistros() %></span></td>
     <td>Registros</td>
-  </tr>
+  </tr>-->
   <tr>
     <td style="text-align:right;"><span style="font-weight:strong; font-size:16px;"><%=registros.getTotalRegistrosOpenAccess() %></span></td>
     <td>Textos de acesso aberto</td>
