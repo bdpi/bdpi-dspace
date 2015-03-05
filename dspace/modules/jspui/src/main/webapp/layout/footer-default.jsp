@@ -87,16 +87,15 @@
 
 <!-- Modal Mapa do Site -->
     <div id="map-hold" class="footer-modal">
-        <div>
+        <div class="content">
             <a name="map-ancora"></a>
-		
 			<%@ include file="../help/map_en.html"%>
-        </div>
+   </div>
     </div>
 
 <!-- Modal Creditos -->
     <div id="creditos-hold" class="footer-modal">
-        <div>
+        <div class="content">
             <a name="creditos-ancora"></a>
 			<%@ include file="../help/creditos_en.html"%>
         </div>
@@ -104,7 +103,7 @@
 	
 <!-- Modal Política de Acesso Aberto -->
  <div id="openaccesspolicy-hold" class="footer-modal">
-    <div>
+    <div class="content">
             <a name="openaccesspolicy-ancora"></a>
 			<%@ include file="../help/openaccesspolicy_en.html"%>
     </div>
@@ -112,7 +111,7 @@
  
  <!-- Modal Política de Privacidade -->
  <div id="privacypolicy-hold" class="footer-modal">
-    <div id="privacypolicy-content">
+    <div class="content">
             <a name="privacypolicy-ancora"></a>
 			<fmt:message key="page.privacypolicy"/>
     </div>
@@ -120,7 +119,7 @@
  
  <!-- Modal Direitos Autorais -->
  <div id="rights-hold" class="footer-modal">
-    <div>
+    <div class="content">
             <a name="rights-ancora"></a>
 			<%@ include file="../help/rights_en.html"%>
     </div>
@@ -128,7 +127,7 @@
 
  <!-- Modal Direitos Autorais -->
  <div id="faq-hold" class="footer-modal">
-    <div>
+    <div class="content">
             <a name="rights-ancora"></a>
 			<%@ include file="../help/faq_en.html"%>
     </div>
@@ -143,6 +142,7 @@
 </div>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
+
 function abrirmodal(pagina){
 
 	var x = $( window ).height();
@@ -166,14 +166,19 @@ function abrirmodal(pagina){
 		  "overflow-x":"hidden",
 		  "overflow-y": "scroll",
 		});
-}
+	}
 	
 $(document).ready(function(){
+
+//if($('div.footer-modal').css()  ){
+//$(document).keypress(function(e) { 
+  //  if (e.which == 40){ 
+//	$(pagina).children().scrollBy(0, 50); 
+//	}// esc   (does not work)
+//});
+//}
 	$(".close").click(function(){$('div.footer-modal').hide();});
 	$("[data-dismiss=modal]").click(function(){$('div.footer-modal').hide();});
-
-
-
 
 $('div.footer-modal').hide();
 $('a.footer-link').css({"cursor":"pointer"});
@@ -187,10 +192,15 @@ $('a#creditos-link').click( function(){abrirmodal( $('div#creditos-hold') )} );
 
 });
 
-$(window).click(function (event) {
-if(event.target.class!='footer-modal'){
-$('.footer-modal').hide();
-}
+//$(window).click(function (event) {
+//if(event.target.class!='footer-modal'){
+//$('.footer-modal').hide();
+//}
+//});
+
+
+$(document).keyup(function(e) { 
+    if (e.which == 27){ $('div.footer-modal').hide(); }// esc   (does not work)
 });
 </script>
 
