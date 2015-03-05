@@ -14,8 +14,8 @@ public class RegistroDAOPostgres extends RegistroDAO
     /** Query para totalizar os itens do tipo openAccess. Contabiliza-se todos os itens marcados como OpenAccess (no campo de id 53)  *
      * e que não foram retirados (withdrawn='f'), que sejam é buscáveis (discoverable='t') e que estejam em arquivo (in_archive='t'). */
     private static final String selectTotalRegistrosOpenAccess = "SELECT COUNT(*) AS total_open_access FROM " +
-        "( SELECT metadatavalue.*, item.* from metadatavalue INNER JOIN item ON metadatavalue.item_id=item.item_id" +
-        "WHERE metadatavalue.metadata_field_id=53 AND text_value='openAccess' AND item.withdrawn='f' AND item.discoverable='t'" +
+        "( SELECT metadatavalue.*, item.* from metadatavalue INNER JOIN item ON metadatavalue.item_id=item.item_id " +
+        "WHERE metadatavalue.metadata_field_id=53 AND text_value='openAccess' AND item.withdrawn='f' AND item.discoverable='t' " +
         "AND item.in_archive='t') AS tabelaOpenAccess";
     
     public RegistroDAOPostgres() {
