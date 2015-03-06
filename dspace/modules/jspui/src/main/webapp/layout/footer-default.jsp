@@ -113,7 +113,7 @@
  <div id="privacypolicy-hold" class="footer-modal">
     <div class="content">
             <a name="privacypolicy-ancora"></a>
-			<fmt:message key="page.privacypolicy"/>
+			<%@ include file="../help/privacypolicy_en.html"%>
     </div>
  </div>
  
