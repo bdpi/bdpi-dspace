@@ -128,7 +128,7 @@
  <!-- Modal Direitos Autorais -->
  <div id="faq-hold" class="footer-modal">
     <div class="content">
-            <a name="rights-ancora"></a>
+            <a name="faq-ancora"></a>
 			<%@ include file="../help/faq_en.html"%>
     </div>
  </div> 
@@ -183,7 +183,9 @@ $(document).ready(function(){
 $('div.footer-modal').hide();
 $('a.footer-link').css({"cursor":"pointer"});
 
-$('a#faq-link').click( function(){abrirmodal( $('div#faq-hold') )} );
+$('a#faq-link').click( function(){
+abrirmodal( $('div#faq-hold'));
+});
 $('a#openaccesspolicy-link').click( function(){abrirmodal( $('div#openaccesspolicy-hold') )} );
 $('a#rights-link').click( function(){abrirmodal( $('div#rights-hold') )} );
 $('a#privacypolicy-link').click( function(){abrirmodal(  $('div#privacypolicy-hold') )} );
