@@ -4,7 +4,7 @@ import org.scribe.model.*;
 import java.util.*;
 import org.dspace.core.ConfigurationManager;
 
-public class USPdigitalApi extends DefaultApi10a
+public class OAuthGenericApi10 extends DefaultApi10a
 {
   private static final String AUTHORIZE_URL = ConfigurationManager.getProperty("authentication-oauth", "AUTHORIZE_URL");
   private static final String REQUEST_TOKEN_URL = ConfigurationManager.getProperty("authentication-oauth", "REQUEST_TOKEN_URL");
@@ -12,12 +12,12 @@ public class USPdigitalApi extends DefaultApi10a
 
   private final Set<String> scopes;
 
-  public USPdigitalApi()
+  public OAuthGenericApi10()
   {
     scopes = Collections.emptySet();
   }
 
-  public USPdigitalApi(Set<String> scopes)
+  public OAuthGenericApi10(Set<String> scopes)
   {
     this.scopes = Collections.unmodifiableSet(scopes);
   }
@@ -50,10 +50,10 @@ public class USPdigitalApi extends DefaultApi10a
     return String.format(AUTHORIZE_URL, requestToken.getToken());
   }
 
-  public static USPdigitalApi withScopes(String... scopes)
+  public static OAuthGenericApi10 withScopes(String... scopes)
   {
     Set<String> scopeSet = new HashSet<String>(Arrays.asList(scopes));
-    return new USPdigitalApi(scopeSet);
+    return new OAuthGenericApi10(scopeSet);
   }
   
 }

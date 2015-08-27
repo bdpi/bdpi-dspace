@@ -18,7 +18,7 @@ import org.dspace.eperson.Group;
 import net.spy.memcached.MemcachedClient;
 
 import org.scribe.builder.ServiceBuilder;
-import org.scribe.builder.api.USPdigitalApi;
+import org.scribe.builder.api.OAuthGenericApi10;
 import org.scribe.oauth.OAuthService;
 import org.scribe.model.OAuthRequest;
 import org.scribe.model.Token;
@@ -47,7 +47,7 @@ public class OAuthAuthentication
     private static final OAuthService oauthservice = new ServiceBuilder()
                 .apiKey(API_KEY)
                 .apiSecret(API_SECRET)
-                .provider(USPdigitalApi.class)
+                .provider(OAuthGenericApi10.class)
                 .build();
     
     private static MemcachedClient cache = null;
