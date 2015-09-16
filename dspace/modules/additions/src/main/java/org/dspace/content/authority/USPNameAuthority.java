@@ -60,7 +60,7 @@ public class USPNameAuthority implements ChoiceAuthority {
         "nvl(regexp_substr(view_bdpi.nompes,'.*\\s(.*)',1,1,'i',1),view_bdpi.nompes) sobrenome,\n" +
         "view_bdpi.sglund unidade_sigla,\n" +
         "view_bdpi.nomabvset depto_sigla,\n" +
-        "view_bdpi.tipfnc funcao,\n" +
+        "view_bdpi.nomfnc funcao,\n" +
         "view_bdpi.dtaini,\n" +
         "view_bdpi.dtafim\n" +
         "FROM view_bdpi\n" +
